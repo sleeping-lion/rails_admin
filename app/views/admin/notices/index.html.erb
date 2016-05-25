@@ -2,14 +2,7 @@
 	<h3 class="col-xs-12 col-sm-6"><%= @controller_name %> <%= actionNameChange controller.action_name %></h3>
 	<div class="col-xs-12 col-sm-6">
 		<%=form_tag notices_path,:method=>:get,:class=>"form-search pull-right" do %>
-		<select name="search_field" class="input-small">
-			<option value="title"><%= t(:label_title) %></option>
-			<option value="content"><%= t(:label_content) %></option>
-		</select>
-		<div class="input-append">
-			<input type="text" name="search_value" value="<%= params[:search_value] %>" class="input-middles" required="required" />
-			<%= button_tag t(:search),:type=>"submit",:class=>"btn" %>
-		</div>
+		<%= render :partial => 'layouts/admin/search_form' %>
 		<% end %>
 	</div>
 </div>
