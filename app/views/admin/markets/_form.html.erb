@@ -1,0 +1,24 @@
+<%= form_for(@market) do |f| %>
+  <% if @market.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+    		<a href="#" class="close" data-dismiss="alert">&times;</a>
+      <h2><%= pluralize(@market.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
+      <ul>
+      <% @market.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <%= f.label :title %>
+    <%= f.text_field :title,:required=>"required" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :flag %>
+    <%= f.check_box :flag %>
+  </div>
+  <div class="control-group actions">
+    <%= f.submit :class=>'btn btn-primary' %>
+  </div>
+<% end %>

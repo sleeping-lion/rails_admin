@@ -1,0 +1,29 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b><%=t(:label_title) %> </b>
+		<%=@request_setting.title %>
+	</p>
+	<p>
+		<b><%=t(:label_amount) %></b>
+		<%=@request_setting.amount %>
+	</p>	
+	<p>
+		<b><%=t(:label_flag) %></b>
+		<%=raw flagToString(@request_setting.flag) %>
+	</p>
+	<p>
+  	<b><%=t(:label_created_at) %></b>
+  	<%= @request_setting.created_at %>
+  </p>
+  <p>
+  	<b><%=t(:label_updated_at) %></b>
+  	<%= @request_setting.created_at %>
+	</p>
+</div>
+<% if can? :update, @request_setting %>
+<%= link_to t(:link_edit), edit_request_setting_path(@request_setting) %> |
+<% end %>
+<%= link_to t(:link_list),request_settings_path %>

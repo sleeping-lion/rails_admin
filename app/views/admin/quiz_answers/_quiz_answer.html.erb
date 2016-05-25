@@ -1,0 +1,19 @@
+<tr>
+	<td><%=quiz_answer.id %></td>
+	<td><%=quiz_answer.title %></td>
+	<td><%=raw isCorrectToString(quiz_answer.is_correct) %></td>
+	<% if can?(:update, quiz_answer) || can?(:delete, quiz_answer) %>	
+	<td>
+		<% if can?(:update, quiz_answer) %>
+		<%= link_to edit_quiz_quiz_question_quiz_answer_path(@quiz_question.quiz,@quiz_question,quiz_answer),:class=>"btn btn-small pull-left" do %>
+		<i class="icon-pencil"></i> <%=t(:link_edit) %>
+		<% end %>
+		<% end %>
+		<% if can?(:delete, quiz_answer) %>
+		<%= link_to [@quiz_question.quiz,@quiz_question,quiz_answer], :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
+		<i class="icon-trash"></i> <%=t(:link_delete) %>
+		<% end %>
+		<% end %>
+	</td>
+	<% end %>
+</tr>

@@ -1,0 +1,31 @@
+<%=form_tag users_path,:method=>:get,:class=>"form-search sl_search" do %>
+	<table class="table table-bordered table-striped">
+		<tr>
+			<th><%=label_tag :cell_phone,t(:label_mobile_num) %></th>
+			<td><%=text_field_tag :cell_phone, params[:cell_phone] %></td>
+		</tr>
+		<tr>
+			<th><%=label_tag :login_id,t(:label_login_id) %></th>
+			<td><%=text_field_tag :login_id, params[:login_id] %></td>
+		</tr>
+		<tr>
+			<th><%=label_tag :start_date,t(:label_period_search) %></th>
+			<td>
+				<div>
+					<%=text_field_tag :start_date,@start_date,{:type=>:date,:class=>"datepicker"} %> ~ <%=text_field_tag :end_date,@end_date,{:type=>:date,:class=>"datepicker"} %>
+				</div>
+				<div style="margin:10px">
+					<input type="radio" id="pe1" name="date_p" value="0" <% if params[:date_p]=='0' %>checked="checked"<% end %> /><label for="pe1"><%=t(:period_today) %></label>
+					<input type="radio" id="pe2" name="date_p" value="7" <% if params[:date_p]=='7' %>checked="checked"<% end %> /><label for="pe2"><%=t(:period_week) %></label>
+					<input type="radio" id="pe3" name="date_p" value="30" <% if params[:date_p]=='30' %>checked="checked"<% end %> /><label for="pe3"><%=t(:period_month) %></label>
+					<input type="radio" id="pe4" name="date_p" value="90" <% if params[:date_p]=='90' %>checked="checked"<% end %> /><label for="pe4"><%=t(:period_month3) %></label>
+					<input type="radio" id="pe5" name="date_p" value="180" <% if params[:date_p]=='180' %>checked="checked"<% end %> /><label for="pe5"><%=t(:period_month6) %></label>
+					<input type="radio" id="pe6" name="date_p" value="false" <% if params[:date_p]==false %>checked="checked"<% end %> /><label for="pe6"><%=t(:period_all) %></label>
+				</div>
+				<div>
+					<%=submit_tag t(:search), :class=>"btn btn-primary"%>
+				</div>
+			</td>
+		</tr>
+	</table>
+<% end %>

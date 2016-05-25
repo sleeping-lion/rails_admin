@@ -1,0 +1,19 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+  	<b>Code</b>
+  	<%= @carrier.code %>
+	</p>
+	<p>
+  	<b>Name</b>
+  	<%= @carrier.name %>
+	</p>
+	<p>
+  	<b>Flag</b>
+  	<%= @carrier.flag %>
+	</p>
+</div>
+<%= link_to 'Edit', edit_carrier_path(@carrier) %> |
+<%= link_to 'Back', carriers_path %>

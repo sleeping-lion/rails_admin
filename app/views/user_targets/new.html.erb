@@ -1,0 +1,12 @@
+  <% if @users_targets.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+    		<a href="#" class="close" data-dismiss="alert">&times;</a>
+      <h2><%= pluralize(@users_targets.errors.count, "error") %> prohibited this request from being saved:</h2>
+      <ul>
+      <% @users_targets.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= render 'form' %>

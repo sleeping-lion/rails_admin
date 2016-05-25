@@ -1,0 +1,81 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b>Store good</b>
+		<%= @store_order.store_good_id %>
+	</p>
+	<p>
+		<b>User</b>
+		<%= @store_order.user_id %>
+	</p>
+	<p>
+		<b>Amount</b>
+		<%= @store_order.amount %>
+	</p>
+	<p>
+		<b>Customer tel</b>
+		<%= @store_order.customer_tel %>
+	</p>
+	<p>
+		<b>Delivery tel</b>
+		<%= @store_order.delivery_tel %>
+	</p>
+	<p>
+		<b>Delivery name</b>
+		<%= @store_order.delivery_name %>
+	</p>
+	<p>
+		<b>Delivery zipcode</b>
+		<%= @store_order.delivery_zipcode %>
+	</p>
+	<p>
+		<b>Delivery address 1</b>
+		<%= @store_order.delivery_address_1 %>
+	</p>
+	<p>
+		<b>Delivery address 2</b>
+		<%= @store_order.delivery_address_2 %>
+	</p>
+	<p>
+		<b>Delivery note</b>
+		<%= @store_order.delivery_note %>
+	</p>
+	<p>
+		<b>Status</b>
+		<%= @store_order.store_order_status_id %>
+	</p>
+	<p>
+		<b>Shipping method</b>
+		<%= @store_order.shipping_method %>
+	</p>
+	<p>
+		<b>Shipping track number</b>
+		<%= @store_order.shipping_track_number %>
+	</p>
+	<p>
+		<b>Shipping time</b>
+		<%= @store_order.shipping_time %>
+	</p>
+	<p>
+		<b>Shipping flag</b>
+		<%= @store_order.shipping_flag %>
+	</p>
+	<p>
+		<b>Return reason</b>
+		<%= @store_order.return_reason %>
+	</p>
+	<p>
+		<b>Return time</b>
+		<%= @store_order.return_time %>
+	</p>
+	<p>
+		<b>Return flag</b>
+		<%= @store_order.return_flag %>
+	</p>
+</div>
+<% if can? :update, @target_type %>
+<%= link_to t(:link_edit), edit_store_order_path(@store_order) %> |
+<% end %>
+<%= link_to t(:link_list), store_orders_path(list_param(params)) %>

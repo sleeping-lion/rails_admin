@@ -1,0 +1,25 @@
+<%= form_for(@app_log_type) do |f| %>
+  <% if @app_log_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@app_log_type.errors.count, "error") %> prohibited this app_log_type from being saved:</h2>
+
+      <ul>
+      <% @app_log_type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :flag %><br />
+    <%= f.check_box :flag %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

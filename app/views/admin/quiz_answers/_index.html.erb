@@ -1,0 +1,35 @@
+<section id="sl_ad_schedule_target_address" class="sub_section">
+	<h3><%=t('activerecord.models.quiz_answer')%></h3>
+	<% unless @quiz_answers.empty? %>	
+	<table class="table table-striped table-bordered">
+		<colgroup>
+			<col style="width:100px"  />		
+			<col />
+			<col style="width:100px"  />
+			<% if can?(:update, QuizAnswer) || can?(:delete, QuizAnswer) %>
+			<col <%=raw manage_width(QuizAnswer) %> />
+			<% end %>
+		</colgroup>
+		<thead>		
+		<tr>
+			<th><%=t(:label_number)%></th>
+			<th><%=t(:label_title)%></th>
+			<th><%=t(:label_correct)%></th>
+			<% if can?(:update, QuizAnswer) || can?(:delete, QuizAnswer) %>
+			<th><%=t(:label_manage)%></th>
+			<% end %>
+		</tr>
+		</thead>
+		<tbody>		
+			<%= render @quiz_answers %>
+		</tbody>
+	</table>
+	<% else %>
+	<p><%=t(:no_data) %></p>
+	<% end %>
+	<% if can? :create, QuizAnswer %>	
+	<div id="sl_quiz_answer_form">
+		<%= render "quiz_answers/form" %>
+	</div>
+	<% end %>
+</section>

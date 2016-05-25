@@ -1,0 +1,24 @@
+<%= form_for(@roulette_play) do |f| %>
+	<% if @roulette_play.errors.any? %>
+	<div id="error_explanation" class="alert alert-error">
+		<a href="#" class="close" data-dismiss="alert">&times;</a>
+		<h2><%= pluralize(@roulette_play.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
+		<ul>
+			<% @roulette_play.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+	<div class="control-group">
+		<%= f.label :user_id %>
+		<%= f.number_field :user_id,:required=>"required" %> <%=link_to t(:user_id_find),'/users/user_id_select',:id=>'user_id_select',:title=>t(:user_id_find),:target=>'_blank',:class=>'btn modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal",:style=>'vertical-align:top' %>
+	</div>
+	<div class="control-group">
+		<%= f.label :roulette_setting_id %>
+		<%= f.select :roulette_setting_id,options_from_collection_for_select(RouletteSetting.find(:all,:conditions=>{:flag=>true}), 'id', 'title',@roulette_play.roulette_setting_id), {:include_blank => t(:rank_fail)} %>
+	</div>
+	<div class="actions">
+		<%= f.submit :class=>"btn btn-primary" %>
+	</div>
+<% end %>

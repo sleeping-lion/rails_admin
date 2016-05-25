@@ -1,0 +1,37 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<section class="sl_show">
+	<p>
+		<b>주소 ID</b>
+		<%=link_to @address_section.address_id,address_path(@address_section.id) %>
+	</p>
+	<p>
+		<b>주소명</b>
+		<% unless @address_section.address.nil? %>
+		<%=link_to @address_section.address.full_address,address_path(@address_section.id) %>
+		<% else %>
+		연결된  주소가 없음
+		<% end %>
+	</p>	
+	<p>
+  	<b>번호 앞자리</b>
+  	<%=@address_section.section %>
+  </p>	
+	<p>
+		<b><%=t(:label_flag) %></b>
+		<%=raw flagToString(@address_section.flag) %>
+	</p>
+	<p>
+  	<b><%=t(:label_created_at) %> </b>
+  	<%= @address_section.created_at %>
+  </p>
+  <p>
+  	<b><%=t(:label_updated_at) %></b>
+  	<%= @address_section.created_at %>
+  </p>
+</section>
+<% if can? :update, @address_section %>	
+<%= link_to t(:link_edit), edit_address_section_path(@address_section) %> |
+<% end %>
+<%= link_to t(:link_list), address_sections_path(list_param(params)) %>

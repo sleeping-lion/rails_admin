@@ -1,0 +1,35 @@
+<section id="sl_ad_schedule_target_cids" class="sub_section">
+	<h3>CID</h3>
+	<% unless @ad_target_cids.empty? %>
+	<table  class="table table-striped table-bordered">
+		<colgroup>
+			<col style="width:100px"  />		
+			<col />
+			<col style="width:100px"  />
+			<% if can?(:update, AdTargetCid) || can?(:delete, AdTargetCid) %>			
+			<col <%=raw manage_width(AdTargetCid) %> />
+			<% end %>
+		</colgroup>
+		<thead>		
+		<tr>
+			<th><%=t(:label_number)%></th>
+			<th>CID</th>
+			<th><%=t(:label_flag)%></th>
+			<% if can?(:update, AdTargetCid) || can?(:delete, AdTargetCid) %>		
+			<th><%=t(:label_manage)%></th>
+			<% end %>
+		</tr>
+		<thead>
+		<tbody>		
+			<%= render @ad_target_cids %>
+		</tbody>
+	</table>
+	<% else %>
+	<p><%=t(:no_data) %></p>
+	<% end %>
+	<% if can? :create, AdTargetCid %>
+	<div id="sl_ad_files_form">
+		<%= render "ad_target_cids/form" %>
+	</div>
+	<% end %>
+</section>

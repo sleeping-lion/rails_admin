@@ -1,0 +1,76 @@
+<div class="row-fluid">
+	<h3 class="pull-left"><%= @controller_name %> <%=actionNameChange controller.action_name %></h3>
+</div>
+<table class="table table-bordered table-striped">
+	<colgroup>
+		<col style="width:80px;" />
+		<col />
+		<col />
+		<col />
+		<col />
+		<col style="width:200px;" />
+		<% if can?(:update, DeleteUser) || can?(:delete, DeleteUser) %>
+		<col <%=raw manage_width(DeleteUser) %> />
+		<% end %>
+	</colgroup>
+	<thead>
+		<tr>
+			<th><%=t(:label_number)%></th>
+			<th><%=t(:label_login_id)%></th>
+			<th><%=t(:label_nick_name)%></th>
+			<th><%=t(:label_email)%></th>
+			<th><%=t(:label_mobile_num)%></th>
+			<th><%=t(:label_out_date)%></th>
+			<% if can? :manage, DeleteUser %>
+			<th><%=t(:label_manage)%></th>
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>
+		<% unless @delete_users.empty? %>
+		<% @delete_users.each do |delete_user| %>
+		<tr>
+			<td><%=link_to delete_user.id,delete_user_path(delete_user,params) %></td>
+			<td class="mw"><%=link_to delete_user.username,delete_user_path(delete_user,params) %></td>
+			<td><% if delete_user.nickname.present? %><%=link_to delete_user.nickname,delete_user_path(delete_user,params) %><% else %><%=t(:no_insert_data) %><% end %></td>
+			<td><% if delete_user.email.present? %><%=mail_to delete_user.email %><% else %><%=t(:no_insert_data) %><% end %></td>
+			<td><%=link_to "+ #{delete_user.nation_num} #{delete_user.mobile_num}",delete_user_path(delete_user,params) %></td>
+			<td><%=delete_user.created_at %></td>
+			<% if can?(:update, delete_user) || can?(:delete, delete_user) %>		
+			<td>
+				<% if can? :update, delete_user %>				
+				<%= link_to edit_delete_user_path(delete_user),:class=>"btn btn-small" do %>
+				<i class="icon-pencil"></i><%=t(:link_edit) %>
+				<% end %>
+				<% end %>
+				<% if can? :delete, delete_user %>				
+				<%= link_to delete_user, :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger" do %>
+				<i class="icon-trash"></i><%=t(:link_delete) %>
+				<% end %>
+				<% end %>
+			</td>
+			<% end %>
+		</tr>
+		<% end %>
+		<% else %>
+		<tr>
+			<td colspan="7"><%=t(:no_data)%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<div class="row-fluid">
+	<div class="pull-left">
+		<% if can? :create, DeleteUser %>		
+		<%= link_to new_delete_user_path,:class=>"btn" do %>
+		<i class="icon-plus"></i> <%=t(:link_new) %>
+		<% end %>
+		<% end %>
+		<% unless @delete_users.empty? %>		
+		<%=link_to delete_users_path(:format=>"xls",:params=>params), :class=>"btn" do %>
+		<i class="icon-file"></i> <%=t(:link_download_excel) %>
+		<% end %>
+		<% end %>		
+	</div>
+	<%= paginate @delete_users %>
+</div>

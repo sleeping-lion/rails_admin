@@ -1,0 +1,23 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+<p>
+  <b>Name:</b>
+  <%= @coupon_type.name %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @coupon_type.amount %>
+</p>
+
+<p>
+  <b>Flag:</b>
+  <%= @coupon_type.flag %>
+</p>
+</div>
+<% if can? :update, @game_amount %>
+<%= link_to t(:link_edit), edit_coupon_type_path(@coupon_type) %> |
+<% end %>
+<%= link_to t(:link_list), coupon_types_path %>

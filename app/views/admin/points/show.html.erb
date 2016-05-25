@@ -1,0 +1,19 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b><%=t(:label_amount) %></b>
+		<%= @point.amount %>
+	</p>
+	<p>
+  	<b><%=t(:label_created_at) %> </b>
+  	<%= @point.created_at %>
+  </p>
+  <p>
+  	<b><%=t(:label_updated_at) %></b>
+  	<%= @point.created_at %>
+  </p>	
+</div>
+<%= link_to t(:link_edit), edit_point_path(@point) %> |
+<%= link_to t(:link_list), points_path %>

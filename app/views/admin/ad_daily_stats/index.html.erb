@@ -1,0 +1,77 @@
+<div class="row-fluid">
+	<h3 class="pull-left"><%= @controller_name %> <%=actionNameChange controller.action_name %></h3>
+</div>
+<div class="box">
+	<div class="box-header">
+		<h2><i class="icon-align-justify"></i><span class="break"></span><%=t(:search)%></h2>
+		<div class="box-icon">
+			<a href="#" class="btn-minimize"><i class="icon-chevron-down"></i></a>
+			<a class="btn-close" href="#"><i class="icon-remove"></i></a>	
+		</div>
+	</div>
+	<div style="display:none" class="box-content">
+		<%= render 'search_form' %>
+	</div>
+</div>
+<table class="table table-bordered table-striped">
+	<colgroup>
+		<col style="width:80px;" />
+		<col style="width:80px;" />	
+		<col />
+		<col />
+		<col style="width:160px;" />
+		<col style="width:100px;" />		
+		<col style="width:90px;" />		
+	</colgroup>
+	<thead>
+		<tr>
+			<th><%=t(:label_date) %></th>
+			<th><%=t(:label_hour) %></th>
+			<th><%=t(:label_category) %></th>
+			<th><%=t(:label_ad)%></th>
+			<th><%=t(:label_count) %></th>
+			<th><%=t(:label_point) %></th>
+			<th><%=t(:label_manage) %></th>			
+		</tr>
+	</thead>
+	<tbody>
+		<% unless @ad_daily_stats.empty? %>
+		<% @ad_daily_stats.each do |ad_daily_stat| %>
+		<tr>
+			<td><%= ad_daily_stat.date %></td>
+			<td><%= ad_daily_stat.hour %></td>
+			<td>
+				<% if ad_daily_stat.ad_log_type %>
+				<%=ad_daily_stat.ad_log_type.title %>
+				<% else %>
+				<%=t(:no_exist_type) %>
+				<% end %>			
+			</td>
+			<td>
+				<% if ad_daily_stat.ad %>
+				<%=ad_daily_stat.ad.title %>
+				<% else %>
+				<%=t(:no_exist_ad)%>
+				<% end %>
+			</td>
+			<td><%= ad_daily_stat.log_count %></td>
+			<td><%= ad_daily_stat.point_sum %></td>			
+			<td>
+			<%= link_to ad_daily_stat, :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
+			<i class="icon-trash"></i> <%= t(:link_delete) %>
+			<% end %>
+			</td>
+			</tr>
+			<% end %>
+			<% else %>
+			<tr>
+			<td colspan="7"><%=t(:no_data)%></td>
+			</tr>
+			<% end %>
+	</tbody>
+</table>
+<div class="row-fluid">
+	<div class="pull-left">
+	</div>
+	<%= paginate @ad_daily_stats %>
+</div>

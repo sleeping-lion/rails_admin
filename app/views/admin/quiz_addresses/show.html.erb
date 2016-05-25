@@ -1,0 +1,36 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+<p>
+  <b><%=t(:label_quiz_logs_id)%></b>
+  <%= @quiz_address.quiz_logs_id %>
+</p>	
+<p>
+  <b><%=t(:label_address_id)%></b>
+  <%= @quiz_address.address_id %>
+</p>
+<p>
+  <b><%=t(:label_receiver_name) %></b>
+  <%= @quiz_address.name %>
+</p>
+<p>
+  <b><%=t(:label_mobile_num) %></b>
+  <%= @quiz_address.mobilephone %>
+</p>
+<p>
+  <b><%=t(:label_address) %></b>
+  <%= @quiz_address.address %>
+</p>
+<p>
+  <b><%=t(:label_user_id) %></b>
+  <%= @quiz_address.user_id %>
+</p>
+
+<br />
+</div>
+<% if can? :update, @quiz_address %>	
+<%= link_to t(:link_edit), edit_quiz_address_path(@quiz_address) %> |
+<% end %>
+<%= link_to t(:link_list), quiz_addresses_path %>
+

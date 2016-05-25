@@ -1,0 +1,19 @@
+<%= form_for [@quiz,@quiz_question],:html=>{:class=>"form-horizontal"} do |f| %>
+<div class="box">
+	<div class="box-header">
+		<h2><i class="icon-align-justify"></i><span class="break"></span><%=t(:quiz_question_update) %></h2>
+		<div class="box-icon">
+			<a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+		</div>
+	</div>
+	<div class="box-content">
+		<div class="control-group">
+			<%= f.label :title, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.text_field :title, :class => "input-large" %>	<%= f.submit :class=>"btn btn-primary" %>
+			</div>
+		</div>		
+	</div>
+</div>
+<% end %>
+<%= link_to t(:link_list), quiz_path(@quiz) %>

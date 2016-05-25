@@ -1,0 +1,67 @@
+<%= form_for(@application_version, :html=>{:class=>"form-horizontal"}) do |f| %>
+	<% if @application_version.errors.any? %>
+		<div id="error_explanation" class="alert alert-error">
+				<a href="#" class="close" data-dismiss="alert">&times;</a>
+			<h2><%= pluralize(@application_version.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
+			<ul>
+			<% @application_version.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="control-group">
+		<%= f.label :client_version, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.text_field :client_version ,:required=>"required" %>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label :label_update_type, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.select :state, [['선택업데이트', 1], ['필수업데이트', 2]] %>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label :version_name, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.text_field :version_name ,:required=>"required" %>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label :apk_file, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.file_field :apk_file %>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<%= f.label :contents, :class => 'control-label' %>
+		<div class="controls">
+		<%= f.text_area :contents,:class=>"span4",:rows=>10,:cols=>50,:required=>"required" %>
+		</div>
+	</div>
+	
+		
+	<div class="control-group">
+		<%= f.label :update_date, :class => 'control-label' %>
+		<div class="controls">
+		<%= f.datetime_select :update_date %>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<%= f.label :flag, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.check_box :flag %>
+		</div>
+	</div>
+	
+	
+	<div class="control-group actions">
+		<%= f.submit :class=>"btn btn-primary" %>
+	</div>
+<% end %>

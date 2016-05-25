@@ -1,0 +1,61 @@
+<section id="sl_user_target_addresses" class="sub_section">
+	<h3><%=t(:'activerecord.models.user_referral') %></h3>
+	<% if @user_referral %>
+	<table  class="table table-striped table-bordered">
+		<colgroup>
+			<col style="width:80px;" />
+			<col />
+			<col />
+			<col />			
+			<col style="width:110px;" />
+			<% if can?(:update, UserReferral) || can?(:delete, UserReferral) %>
+			<col style="width:160px;" />
+			<% end %>
+		</colgroup>
+		<thead>
+			<tr>
+				<th><%=t(:label_number)%></th>
+				<th><%=t(:label_login_id) %></th>
+				<th><%=t(:label_email) %></th>
+				<th><%=t(:label_mobile_num) %></th>
+				<th><%=t(:label_point) %></th>
+				<% if can? :manage, UserReferral %>					
+				<th><%=t(:label_manage) %></th>
+				<% end %>			
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%=@user_referral.recommend_user.id %></td>
+				<td><%=link_to @user_referral.recommend_user.username,user_path(@user_referral.recommend_user.id) %></td>
+				<td><%=mail_to @user_referral.recommend_user.email %></td>	
+				<td><%=@user_referral.recommend_user.nation_num %> <%=@user_referral.recommend_user.mobile_num %></td>
+				<td><%=@user_referral.recommend_user.point %></td>
+				<% if can?(:update, UserReferral) || can?(:delete, UserReferral) %>
+				<td>
+					<% if can?(:update, UserTargetAddress) %>					
+					<%= link_to edit_user_user_referral_path(@user,@user_referral),:class=>"btn btn-small pull-left" do %>
+					<i class="icon-pencil"></i> <%=t(:link_edit) %>
+					<% end %>
+					<% end %>
+					<% if can?(:delete, UserTargetAddress) %>					
+					<%= link_to [@user,@user_referral], :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
+					<i class="icon-trash"></i> <%=t(:link_delete) %>
+					<% end %>
+					<% end %>
+				</td>
+				<% end %>
+			</tr>
+		</tbody>
+	</table>
+	<% else %>
+	<p><%=t(:no_data)%></p>	
+	<% end %>
+	<% if can? :create, UserReferral %>		
+	<% unless @user_referral %>
+	<div id="sl_user_referrals_form">		
+		<%= render "user_referrals/form" %>
+	</div>
+	<% end %>
+	<% end %>
+</section>

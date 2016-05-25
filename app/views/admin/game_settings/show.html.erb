@@ -1,0 +1,25 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b>확률</b>
+		<%= @game_setting.percentage %>
+	</p>
+	<p>
+		<b>획득 수량</b>
+		<%= @game_setting.amount %>
+	</p>
+	<p>
+		<b><%=t(:label_created_at) %></b>
+		<%= @game_setting.created_at %>
+	</p>
+	<p>
+		<b><%=t(:label_updated_at) %></b>
+		<%= @game_setting.updated_at %>
+	</p>
+</div>
+<% if can? :update, @game_setting %>
+<%= link_to t(:link_edit), edit_game_setting_path(@game_setting) %> |
+<% end %>
+<%= link_to t(:link_list), game_settings_path %>

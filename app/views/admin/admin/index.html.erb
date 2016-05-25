@@ -1,0 +1,137 @@
+<div class="row-fluid">
+	<div class="box">
+		<a href="<%= users_path %>" class="quick-button-small span4">
+			<i class="icon-user"></i>
+			<p><%=t(:users) %></p>
+			<% if @new_users_count %>
+				<span class="notification red"><%= @new_users_count %></span>
+			<% end %>
+		</a>
+		<a href="<%= ads_path %>" class="quick-button-small span4">
+			<i class="icon-th-list"></i>
+			<p><%=t(:ad) %></p>
+			<% if @new_ads_count %>
+				<span class="notification red"><%= @new_ads_count %></span>
+			<% end %>
+		</a>
+		<a href="<%= store_orders_path %>" class="quick-button-small span4">
+			<i class="icon-shopping-cart"></i>
+			<p><%=t(:orders) %></p>
+			<% if @new_orders_count %>
+				<span class="notification red"><%= @new_orders_count %></span>
+			<% end %>
+		</a>
+	</div>	
+</div>
+<div id="main_main">
+		
+	<div class="row-fluid">
+		<div class="box span9">
+			<div class="box-header">
+				<h2><i class="icon-signal"></i><span class="break"></span><%=t(:stats_point)%></h2>
+				<div class="box-icon">
+					<a class="btn-minimize" href="#"><i class="icon-chevron-up"></i></a>
+				</div>
+			</div>
+			<div class="box-content">
+				<div id="chart1" class="chart">&nbsp;</div>
+			</div>
+		</div>
+		<div class="box span3">
+			<div class="box-header">
+				<h2><i class="icon-signal"></i><span class="break"></span><%=t(:stats_point)%></h2>
+			</div>
+			<div class="box-content">
+				<ul class="dashboard-list">
+					<li><%=t(:weekly_new_user)%> : <%=number_with_delimiter @week_user_count %> <%=t(:count_people)%></li>
+					<li><%=t(:weekly_expose_count)%> : <%=number_with_delimiter @week_expose_count %> <%=t(:count_thing)%></li>
+					<li><%=t(:weekly_deoosit_point_count)%> : <%=number_with_delimiter @week_deposit_point_count %><%=t(:label_point) %></li>				
+					<li><%=t(:weekly_use_point_count)%> : <%=number_with_delimiter @week_use_point_count.abs %><%=t(:label_point) %></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row-fluid">
+		<div id="user_graph" class="box span9">
+			<div class="box-header">
+				<h2><i class="icon-signal"></i><span class="break"></span><%=t(:stats_user)%></h2>
+			</div>
+			<div class="box-content">
+				<div class="chart" id="chart2">&nbsp;</div>
+			</div>
+		</div>
+		<div class="box span3">
+			<div class="box-header">
+				<h2><i class="icon-signal"></i><span class="break"></span><%=t(:stats_user)%></h2>
+			</div>
+			<div class="box-content">
+				<ul class="dashboard-list">
+					<li><%=t(:total_user_count)%> : <%=number_with_delimiter @users_count %> <%=t(:count_people)%></li>
+					<li><%=t(:active_user_count)%> : <%=number_with_delimiter @users_active_count %> <%=t(:count_people)%></li>
+					<li><%=t(:inactive_user_count)%> : <%=number_with_delimiter @users_disable_count %> <%=t(:count_people)%></li>				
+					<li><%=t(:active_user_point)%> : <%=number_with_delimiter @users_active_point %> <%=t(:label_point) %></li>				
+				</ul>
+			</div>		
+		</div>
+	</div>
+	<!-- <div class="row-fluid">
+		<div class="box span9">
+			<div class="box-header">
+				<h2><i class="icon-signal"></i><span class="break"></span><%=t(:stats_call)%></h2>
+			</div>
+			<div class="box-content">
+				<div class="chart" id="chart3">&nbsp;</div>
+			</div>
+		</div>
+		<div class="box span3">
+			<div class="box-header">
+				<h2><i class="icon-signal"></i><span class="break"></span><%=t(:stats_call)%></h2>
+			</div>
+			<div class="box-content">
+				<ul class="dashboard-list">
+					<li><%=t(:weekly_outbound_call_average)%> : <%=number_with_delimiter @week_call_average %> <%=t(:count_thing)%></li>
+					<li><%=t(:weekly_incomming_call_average)%> : <%= number_with_delimiter @week_rec_average %> <%=t(:count_thing)%></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="box span9">
+			<div class="box-header">
+				<h2><i class="icon-signal"></i><span class="break"></span><%=t(:stats_max_point)%></h2>
+			</div>
+			<div class="box-content">
+				<div class="chart" id="chart4">&nbsp;</div>
+			</div>
+		</div>
+		<div class="box span3">
+			<div class="box-header">
+				<h2><i class="icon-signal"></i><span class="break"></span><%=t(:stats_max_point)%></h2>
+			</div>
+			<div class="box-content">
+				<ul class="dashboard-list">
+					<li><%=t(:weekly_maximum_point_leached_user)%> : <%=number_with_delimiter @week_limit_user[0].count %> <%=t(:count_people)%></li>
+				</ul>
+			</div>
+		</div>
+	</div> -->
+</div>
+<script type="text/javascript">
+function gd(date) {
+	dd=date.split('-')
+return new Date(dd[0], dd[1] - 1, dd[2]).getTime();
+}
+
+var point_deposit_data=[<% @daily_point_deposit.each_with_index do |point,index| %>[gd('<%=point[0].to_date%>'),<%=point[1]%>]<% if (index+1)<@daily_point_deposit.length %>,<% end %><% end %>]
+var point_use_data=[<% @daily_point_use.each_with_index do |point,index| %>[gd('<%=point[0].to_date%>'),<%=point[1]%>]<% if (index+1)<@daily_point_deposit.length %>,<% end %><% end %>]	
+
+var daily_active_user_data=[<% @daily_active_user.each_with_index do |user,index| %>[gd('<%=user.d%>'),<%=user.c%>]<% if (index+1)<@daily_active_user.length %>,<% end %><% end %>]
+var user_data=[<% @daily_user.each_with_index do |user,index| %>[gd('<%=user[0].to_date%>'),<%=user[1]%>]<% if (index+1)<@daily_user.length %>,<% end %><% end %>]
+
+var d1=[<% @daily_call.each_with_index do |call,index| %>[gd('<%=call[0].to_date%>'),<%=call[1]%>]<% if (index+1)<@daily_call.length %>,<% end %><% end %>]
+var d2=[<% @daily_rec.each_with_index do |rec,index| %>[gd('<%=rec[0].to_date%>'),<%=rec[1]%>]<% if (index+1)<@daily_rec.length %>,<% end %><% end %>]
+
+var limit_user_data=[<% @daily_limit_user.each_with_index do |limit_user,index| %>[gd('<%=limit_user.d %>'),<%=limit_user.c%>]<% if (index+1)<@daily_limit_user.length %>,<% end %><% end %>]
+</script>
+	

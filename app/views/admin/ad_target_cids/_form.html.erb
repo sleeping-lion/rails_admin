@@ -1,0 +1,24 @@
+<%= form_for([@ad_schedule.ad,@ad_schedule,AdTargetCid.new]) do |f| %>
+<div class="box">
+	<div class="box-header">
+		<h2><i class="icon-align-justify"></i><span class="break"></span>CID</h2>
+		<div class="box-icon">
+			<a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+			<a class="btn-close" href="#"><i class="icon-remove"></i></a>				
+		</div>
+	</div>
+	<div class="box-content">
+		<div class="control-group">
+			<%= f.label :cid %>
+			<%= f.text_field :cid,:required=>"required" %>
+		</div>
+		<div class="control-group">
+			<%= f.label :flag %>
+			<%= f.check_box :flag %>
+		</div>
+		<div class="control-group actions">
+			<%= f.submit :class=>"btn btn-primary" %>
+		</div>
+	</div>
+</div>
+<% end %>

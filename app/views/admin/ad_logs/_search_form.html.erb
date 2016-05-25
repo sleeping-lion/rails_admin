@@ -1,0 +1,22 @@
+<%=form_tag ad_logs_path,:method=>:get,:class=>"form-search sl_search" do %>
+	<table class="table table-bordered table-striped">
+		<tr>
+			<th><%=label_tag :ad_name,t(:label_ad) %></th>
+			<td><%=text_field_tag :ad_name,params[:ad] %></td>
+		</tr>
+		<tr>
+			<th><%=label_tag :ad_log_type_id,t(:label_category) %></th>
+			<td>
+				<%= select_tag :ad_log_type_id, options_from_collection_for_select(AdLogType.all, 'id', 'title',params[:request_type_id]),:include_blank => 'None',:class=>"input-small span4" %>
+			</td>
+		</tr>		
+		<tr>
+			<th><%=t(:search) %></th>
+			<td>
+				<div>
+					<%=submit_tag t(:search), :class=>"btn btn-primary"%>
+				</div>
+			</td>
+		</tr>
+	</table>
+<% end %>

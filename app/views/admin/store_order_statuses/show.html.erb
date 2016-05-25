@@ -1,0 +1,25 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b><%=t(:label_title) %></b>
+		<%=@store_order_status.title %>
+	</p>
+	<p>
+		<b><%=t(:label_flag) %></b>
+		<%=raw flagToString(@store_order_status.flag) %>
+	</p>
+	<p>
+  	<b><%=t(:label_created_at) %></b>
+  	<%= @store_order_status.created_at %>
+	</p>
+	<p>
+		<b><%=t(:label_updated_at) %></b>
+  	<%= @store_order_status.updated_at %>
+	</p>
+</div>
+<% if can? :update, @store_order_status %>	
+<%= link_to t(:link_edit), edit_store_order_status_path(@store_order_status) %> |
+<% end %>
+<%= link_to t(:link_list), store_order_statuses_path %>

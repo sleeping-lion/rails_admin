@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String"><%=t(:label_title)%></Data></Cell>
+        <Cell><Data ss:Type="String">Description short</Data></Cell>
+        <Cell><Data ss:Type="String">Descrption</Data></Cell>
+        <Cell><Data ss:Type="String">Stock count</Data></Cell>
+        <Cell><Data ss:Type="String">Order count</Data></Cell>        
+        <Cell><Data ss:Type="String">Sale start time</Data></Cell>
+        <Cell><Data ss:Type="String">Sale end time</Data></Cell>
+        <Cell><Data ss:Type="String">Sale price</Data></Cell>
+        <Cell><Data ss:Type="String">Sale type</Data></Cell>
+        <Cell><Data ss:Type="String">Proirity flag</Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_flag)%></Data></Cell>           
+        <Cell><Data ss:Type="String"><%=t(:label_created_at)%></Data></Cell>
+      </Row>
+      <% @store_goods.each do |store_good| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= store_good.title %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= store_good.description_short %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= store_good.description %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= store_good.stock_count %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= store_good.order_count %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= store_good.sale_start_time %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= store_good.sale_end_time %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= store_good.sale_price %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= store_good.sale_type %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= store_good.proirity_flag %></Data></Cell>              
+        <Cell><Data ss:Type="String"><%= flagToString(store_good.flag,true) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= store_good.created_at %></Data></Cell>
+      </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

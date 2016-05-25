@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Locale:</b>
+  <%= @mobile_prefix.locale %>
+</p>
+
+<p>
+  <b>Prefix:</b>
+  <%= @mobile_prefix.prefix %>
+</p>
+
+<p>
+  <b>Prefix length:</b>
+  <%= @mobile_prefix.prefix_length %>
+</p>
+
+<p>
+  <b>Telco:</b>
+  <%= @mobile_prefix.telco %>
+</p>
+
+
+<%= link_to 'Edit', edit_mobile_prefix_path(@mobile_prefix) %> |
+<%= link_to 'Back', mobile_prefixes_path %>

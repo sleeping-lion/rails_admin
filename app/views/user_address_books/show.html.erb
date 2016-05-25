@@ -1,0 +1,35 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+<p>
+  <b><%=t(:user_id)%></b>
+  <%= @user_address_book.user_id %>
+</p>
+<p>
+  <b><%=t(:label_user) %></b>
+  <%= @user_address_book.name %>
+</p>
+<p>
+  <b><%=t(:label_mobile_num) %></b>
+  <%= @user_address_book.mobilephone %>
+</p>
+<p>
+  <b><%=t(:address) %></b>
+  <%= @user_address_book.address %>
+</p>
+<p>
+  <b><%=t(:label_created_at) %></b>
+  <%= @user_address_book.created_at.to_date %>  
+</p>
+<p>
+  <b><%=t(:label_primary_flag) %></b>
+  <%= @user_address_book.primary_flag %>  
+</p>
+</div>
+
+<br />
+<% if can? :update, @user_address_book %>	
+<%= link_to t(:link_edit), edit_user_address_book_path(@user_address_book) %> |
+<% end %>
+<%= link_to t(:link_list), user_address_books_path %>

@@ -1,0 +1,58 @@
+<div class="row-fluid">
+	<h3 class="pull-left"><%= @controller_name %> <%=actionNameChange controller.action_name %></h3>
+</div>
+<table class="table table-bordered table-striped">
+	<colgroup>
+		<col style="width:80px;" />
+		<col />
+		<col style="width:130px;" />
+		<% if can?(:update, ApplicationVersion) || can?(:delete, ApplicationVersion) %>
+		<col <%=raw manage_width(ApplicationVersion) %> />
+		<% end %>		
+	</colgroup>
+	<thead>
+		<tr>
+			<th><%=t(:label_number)%></th>
+			<th><%=t(:label_version)%></th>
+			<th><%=t(:label_update_date)%></th>
+			<% if can?(:update, ApplicationVersion) || can?(:delete, ApplicationVersion) %>
+			<th><%=t(:label_manage) %></th>
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>
+		<% unless @application_versions.empty? %>
+		<% @application_versions.each do |application_version| %>
+		<tr>
+			<td><%=application_version.id %></td>
+			<td class="mw"><%=link_to application_version.client_version,admin_application_version_path(application_version) %></td>
+			<td><%=application_version.update_date.to_date %></td>
+			<% if can? :update, application_version %>				
+			<td>			
+				<%= link_to edit_admin_application_version_path(application_version),:class=>"btn btn-small btn-default" do %>
+				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit)%>
+				<% end %>
+				<%= link_to admin_application_version_path(application_version), :method => :delete, :data => { :confirm => t(:delete_confirm)},:class=>"btn btn-small btn-danger" do %>
+				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete)%>
+				<% end %>
+			</td>
+			<% end %>
+		</tr>
+		<% end %>
+		<% else %>
+		<tr>
+			<td colspan="4"><%=t(:no_data)%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md2">
+		<% if can? :create, ApplicationVersion %>
+		<%= link_to new_admin_notice_path,:class=>"btn btn-primary" do %>
+		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
+		<% end %>
+		<% end %>
+	</div>
+	<%= paginate @application_versions %>
+</div>

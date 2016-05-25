@@ -1,0 +1,29 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b><%=t(:label_rank)%></b>
+		<% if @roulette_play.roulette_setting_id? %>		
+		<%= @roulette_play.roulette_setting.title %>
+		<% else %>
+		<%=t(:rank_fail) %>
+		<% end %>
+	</p>
+	<p>
+		<b><%=t(:label_point) %></b>
+		<%= @roulette_play.point.amount %>
+	</p>	
+	<p>
+		<b><%=t(:label_created_at) %></b>
+  	<%= @roulette_play.created_at %>
+	</p>
+	<p>
+		<b><%=t(:label_updated_at) %></b>
+		<%= @roulette_play.updated_at %>
+	</p>
+</div>
+<% if can? :update, @roulette_play %>
+<%= link_to t(:link_edit), edit_roulette_play_path(@roulette_play) %> |
+<% end %>
+<%= link_to t(:link_list), roulette_plays_path(list_param(params)) %>

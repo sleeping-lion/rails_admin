@@ -1,0 +1,37 @@
+<section id="sl_ad_schedules" class="sub_section">
+	<h3><%=t('activerecord.models.ad_schedule')%></h3>
+	<% unless @ad_schedules.empty? %>
+	<table  class="table table-striped table-bordered">
+		<colgroup>
+			<col style="width:100px"  />		
+			<col />
+			<col />
+			<col style="width:100px"  />
+			<% if can?(:update, AdSchedule) || can?(:delete, AdSchedule) %>
+			<col <%=raw manage_width(AdFile) %> />
+			<% end %>
+		</colgroup>
+		<thead>
+			<tr>
+				<th><%=t(:label_number)%></th>
+				<th><%=t(:label_title)%></th>				
+				<th><%=t(:label_period)%></th>
+				<th><%=t(:label_flag)%></th>
+				<% if can?(:update, AdSchedule) || can?(:delete, AdSchedule) %>
+				<th><%=t(:label_manage)%></th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<%= render @ad_schedules %>
+		</tbody>
+	</table>
+	<% else %>
+	<p><%=t(:no_data) %></p>	
+	<% end %>
+	<% if can? :create, AdSchedule %>		
+	<div id="sl_ad_schedule_form">
+		<%= render "ad_schedules/form" %>
+	</div>
+	<% end %>
+</section>

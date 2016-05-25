@@ -1,0 +1,27 @@
+<h1>Listing ad_comments</h1>
+
+<table>
+  <tr>
+    <th>Ad</th>
+    <th>User</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ad_comments.each do |ad_comment| %>
+  <tr>
+    <td><%= ad_comment.ad %></td>
+    <td><%= ad_comment.user %></td>
+    <td><%= ad_comment.content %></td>
+    <td><%= link_to 'Show', ad_comment %></td>
+    <td><%= link_to 'Edit', edit_ad_comment_path(ad_comment) %></td>
+    <td><%= link_to 'Destroy', ad_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ad comment', new_ad_comment_path %>

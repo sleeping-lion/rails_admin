@@ -1,0 +1,103 @@
+<div class="row-fluid">
+	<h3 class="pull-left"><%= @controller_name %> <%=actionNameChange controller.action_name %></h3>
+</div>
+<div class="box">
+	<div class="box-header">
+		<h2><i class="icon-align-justify"></i><span class="break"></span><%=t(:search)%></h2>
+		<div class="box-icon">
+			<a href="#" class="btn-minimize"><i class="icon-chevron-down"></i></a>
+			<a class="btn-close" href="#"><i class="icon-remove"></i></a>
+		</div>
+	</div>
+	<div style="display:none" class="box-content">
+		<%= render 'search_form' %>
+	</div>		
+</div>
+<div class="total_layer">
+	회수된 <%=t(:label_point) %> :<%=number_with_delimiter @game_get %> <%=t(:label_point) %><br />
+	풀어진 <%=t(:label_point) %>  : <%=number_with_delimiter @game_all %> <%=t(:label_point) %>
+</div>
+<table class="table table-bordered table-striped">
+	<colgroup>
+		<col style="width:80px;" />
+		<col style="width:120px;" />		
+		<col />
+		<col style="width:120px;" />
+		<col style="width:200px;" />
+		<% if can?(:update, Game) || can?(:delete, Game) %>
+		<col <%=raw manage_width(Game) %> />
+		<% end %>
+	</colgroup>
+	<thead>
+		<tr>
+			<th><%=t(:label_number) %></th>
+			<th><%=t(:label_rank)%></th>			
+			<th>user_id</th>
+			<th><%=t(:label_get_point) %></th>
+			<th><%=t(:label_created_at)%></th>
+			<% if can?(:update, Game) || can?(:delete, Game) %>
+			<th><%=t(:label_manage) %></th>
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>
+		<% unless @games.empty? %>
+		<% @games.each do |game| %>
+		<tr>
+			<td><%=link_to game.id,game_path(game) %></td>
+			<td>
+			<%  if game.game_setting %>
+			<%=link_to game.game_setting.title,game_path(game) %>
+			<% else %>
+			 <%=t(:rank_fail) %>
+			<% end %>
+			</td>
+			<td class="mw">
+				<% if game.user %>
+				<%=link_to game.user.id,user_path(game.user_id),:class=>'modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal" %>
+				<% else %>
+				<%=t(:no_exist_user) %>
+				<% end %>
+			</td>
+			<td style="text-align:right"><%=link_to "#{number_with_delimiter game.amount} #{t(:label_point)}",game_path(game) %></td>
+			<td><%=game.created_at %></td>
+			<% if can?(:update, game) || can?(:delete, game) %>
+			<td>
+				<% if can? :update, game %>
+				<%= link_to edit_game_path(game),:class=>"btn btn-small pull-left" do %>
+				<i class="icon-pencil"></i> <%=t(:link_edit) %>
+				<% end %>
+				<% end %>
+				<% if can? :delete, game %>
+				<%= link_to game, :method => :delete, :data => { :confirm =>t(:delete_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
+				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<% end %>
+				<% end %>
+			</td>
+			<% end %>
+		</tr>
+		<% end %>
+		<% else %>
+		<tr>
+			<td colspan="6"><%=t(:no_data)%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<div class="row-fluid">
+	<div class="pull-left">
+		<% if can? :create, Game %>
+		<%= link_to new_game_path, :class=>"btn" do %>
+		<i class="icon-plus"></i> <%=t(:link_new) %>
+		<% end %>
+		<% end %>
+		<% if can? :manage, Game %>		
+		<% unless @games.empty? %>
+		<%=link_to games_path(:format=>"xls",:params=>params), :class=>"btn" do %>
+		<i class="icon-file"></i> <%=t(:link_download_excel) %>
+		<% end %>
+		<% end %>
+		<% end %>		
+	</div>	
+	<%= paginate @games %>
+</div>

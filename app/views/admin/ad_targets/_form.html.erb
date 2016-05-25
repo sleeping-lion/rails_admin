@@ -1,0 +1,20 @@
+<%= form_for([@ad_schedule.ad,@ad_schedule,AdTarget.new]) do |f| %>
+<div class="box">
+	<div class="box-header">
+		<h2><i class="icon-align-justify"></i><span class="break"></span><%=t(:label_target) %></h2>
+		<div class="box-icon">
+			<a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+			<a class="btn-close" href="#"><i class="icon-remove"></i></a>
+		</div>
+	</div>
+	<div class="box-content">
+		<div class="field">
+			<%= f.label :target_id,t(:label_target) %>
+			<%= f.select :target_id, options_from_collection_for_select(Target.find(:all,:conditions=>{:flag=>true}), 'id', 'title') %>
+		</div>
+		<div class="actions">
+			<%= f.submit :class=>"btn btn-primary" %>
+		</div>
+	</div>
+</div>
+<% end %>

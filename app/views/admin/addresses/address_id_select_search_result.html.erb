@@ -1,0 +1,8 @@
+<section>
+	<ul>
+		<% @addresses.each do |address| %>
+		<li><%=address.full_address %></li>
+		<% end %>
+	</ul>
+	<%= paginate @addresses %>
+</section>

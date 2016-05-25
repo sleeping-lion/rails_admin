@@ -1,0 +1,21 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b><%=t(:label_title) %></b>
+		<%= @ad_log_type.title %>
+	</p>
+	<p>
+  	<b><%=t(:label_created_at) %></b>
+  	<%= @ad_log_type.created_at %>
+  </p>
+  <p>
+  	<b><%=t(:label_updated_at) %></b>
+  	<%= @ad_log_type.created_at %>
+  </p>
+</div>
+<% if can? :update, @ad_file_type %>
+<%= link_to t(:link_edit), edit_ad_log_type_path(@ad_log_type) %> |
+<% end %>
+<%= link_to t(:link_list), ad_log_types_path %>

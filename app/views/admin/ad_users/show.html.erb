@@ -1,0 +1,17 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b>Ad</b>
+		<%= @ad_user.ad %>
+	</p>
+	<p>
+		<b>User</b>
+		<%= @ad_user.user %>
+	</p>
+</div>
+<% if can? :update, @ad_user %>
+<%= link_to t(:link_edit), edit_ad_user_path(@ad_user) %> |
+<% end %>
+<%= link_to t(:link_list), ad_users_path %>

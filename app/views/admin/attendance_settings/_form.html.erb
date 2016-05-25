@@ -1,0 +1,57 @@
+<%= form_for(@attendance_setting) do |f| %>
+  <% if @attendance_setting.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+    		<a href="#" class="close" data-dismiss="alert">&times;</a>
+      <h2><%= pluralize(@attendance_setting.errors.count, "error") %> prohibited this point from being saved:</h2>
+      <ul>
+      <% @attendance_setting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="control-group">
+    <%= f.label :headtext %>
+    <%= f.text_field :headtext %>
+  </div>
+  <div class="control-group">
+    <%= f.label :prize5 %>
+    <%= f.text_field :prize5 %>
+  </div>
+  <div class="control-group">
+    <%= f.label :prize10 %>
+    <%= f.text_field :prize10 %>
+  </div>
+  <div class="control-group">
+    <%= f.label :prize15 %>
+    <%= f.text_field :prize15 %>
+  </div>
+  <div class="control-group">
+    <%= f.label :prize20 %>
+    <%= f.text_field :prize20 %>
+  </div>
+  <div class="control-group">
+    <%= f.label :prize25 %>
+    <%= f.text_field :prize25 %>
+  </div>
+  <div class="control-group">
+    <%= f.label :prize30 %>
+    <%= f.text_field :prize30 %>
+  </div>
+  <div class="control-group">
+ 		<%= f.label :photo %>
+ 		<%= f.file_field :photo %>
+ 		<%= f.hidden_field :photo_cache %>
+ 	</div>
+  <div class="control-group">
+    <%= f.label :flag %>
+    <%= f.check_box :flag %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class=>"btn btn-primary" %>
+  </div>
+<% end %>

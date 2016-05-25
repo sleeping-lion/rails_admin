@@ -1,0 +1,23 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<section class="sl_show">
+<p>
+  <b>Ad:</b>
+  <%= @ad_comment.ad %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @ad_comment.user %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @ad_comment.content %>
+</p>
+</section>
+<% if can? :update, Ad %>
+<%= link_to t(:link_edit), edit_ad_comment_path(@ad_comment) %> |
+<% end %>
+<%= link_to t(:link_list), ad_comments_path %>

@@ -1,0 +1,35 @@
+<section id="sl_ad_schedule_target_address" class="sub_section">
+	<h3><%=t(:label_target_address)%></h3>
+	<% unless @ad_target_addresses.empty? %>	
+	<table class="table table-striped table-bordered">
+		<colgroup>
+			<col style="width:100px"  />		
+			<col />
+			<col style="width:100px"  />
+			<% if can?(:update, AdTargetAddress) || can?(:delete, AdTargetAddress) %>
+			<col <%=raw manage_width(AdTargetAddress) %> />
+			<% end %>
+		</colgroup>
+		<thead>		
+		<tr>
+			<th><%=t(:label_manage)%></th>
+			<th><%=t(:label_target_address)%></th>
+			<th><%=t(:label_flag)%></th>
+			<% if can?(:update, AdTargetAddress) || can?(:delete, AdTargetAddress) %>
+			<th><%=t(:label_manage)%></th>
+			<% end %>
+		</tr>
+		</thead>
+		<tbody>		
+			<%= render @ad_target_addresses %>
+		</tbody>
+	</table>
+	<% else %>
+	<p><%=t(:no_data) %></p>
+	<% end %>
+	<% if can? :create, AdTargetAddress %>	
+	<div id="sl_ad_files_form">
+		<%= render "ad_target_addresses/form" %>
+	</div>
+	<% end %>
+</section>

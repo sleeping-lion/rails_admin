@@ -1,0 +1,32 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<section class="sl_show">
+	<p>
+		<b><%=t(:label_ad)%></b>
+		<%=link_to @ad_schedule.ad.title,ad_path(@ad_schedule.ad) %>
+	</p>
+	<p>
+		<b><%=t(:label_title) %></b>
+		<% if @ad_schedule.title? %>
+		<%=@ad_schedule.title %>
+		<% else %>
+		<%=t(:no_insert_data)%>
+		<% end %>
+	</p>
+	<p>
+		<b><%=t(:label_flag)%></b>
+		<%=raw flagToString(@ad_schedule.flag) %>
+	</p>
+	<p>
+		<b><%=t(:label_period) %></b>
+		<%=@ad_schedule.start_time %> ~~ <%=@ad_schedule.end_time %>
+	</p>
+	<%= render "ad_targets/index" %>
+	<%= render "ad_target_addresses/index" %>
+	<%= render "ad_target_cids/index" %>
+</section>
+<% if can? :update, AdSchedule %>
+<%= link_to t(:link_edit), edit_ad_ad_schedule_path(@ad_schedule.ad,params) %> |
+<% end %>
+<%= link_to t(:link_list), ad_path(@ad_schedule.ad,list_param(params)) %>

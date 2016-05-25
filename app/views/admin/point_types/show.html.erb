@@ -1,0 +1,29 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b><%=t(:label_title) %></b>
+		<%=@point_type.title %>
+	</p>
+	<p>
+		<b><%=t(:label_amount) %></b>
+  	<%= number_with_delimiter @point_type.amount %> <%=t(:label_point) %>
+	</p>
+	<p>
+		<b><%=t(:label_flag) %></b>
+		<%=raw flagToString(@point_type.flag) %>
+	</p>
+	<p>
+  	<b><%=t(:label_created_at) %></b>
+  	<%= @point_type.created_at %>
+	</p>
+	<p>
+		<b><%=t(:label_updated_at) %></b>
+  	<%= @point_type.created_at %>
+	</p>
+</div>
+<% if can? :update, @point_types %>
+<%= link_to t(:link_edit), edit_point_type_path(@point_type) %> |
+<% end %>
+<%= link_to t(:link_list), point_types_path %>

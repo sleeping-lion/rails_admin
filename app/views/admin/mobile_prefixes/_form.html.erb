@@ -1,0 +1,33 @@
+<%= form_for(@mobile_prefix) do |f| %>
+  <% if @mobile_prefix.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mobile_prefix.errors.count, "error") %> prohibited this mobile_prefix from being saved:</h2>
+
+      <ul>
+      <% @mobile_prefix.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :locale %><br />
+    <%= f.text_field :locale %>
+  </div>
+  <div class="field">
+    <%= f.label :prefix %><br />
+    <%= f.text_field :prefix %>
+  </div>
+  <div class="field">
+    <%= f.label :prefix_length %><br />
+    <%= f.number_field :prefix_length %>
+  </div>
+  <div class="field">
+    <%= f.label :telco %><br />
+    <%= f.text_field :telco %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

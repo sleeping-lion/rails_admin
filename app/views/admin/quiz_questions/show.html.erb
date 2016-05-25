@@ -1,0 +1,14 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<section class="sl_show">
+	<p>
+		<b><%=t(:label_title) %></b>
+		<%=@quiz_question.title %>
+	</p>
+	<%= render "quiz_answers/index" %>
+</section>
+<% if can? :update, QuizQuestion %>
+<%= link_to t(:link_edit), edit_quiz_quiz_question_path(@quiz_question.quiz,params) %> |
+<% end %>
+<%= link_to t(:link_list), quiz_path(@quiz_question.quizzes_id) %>

@@ -1,0 +1,127 @@
+<%= form_for([@ad,@ad_schedule],:class=>"form-horizontal") do |f| %>
+<div class="box">
+		<div class="box-header">
+			집행일정 입력
+		</div>
+		<div class="box-content">
+	  	  <div class="control-group">
+		    <%= f.label :title,'제목', :class => 'control-label' %>
+		    <div class="controls">
+				<%= f.text_field :title, :class => "input-medium" %>
+			</div>
+		  </div>
+	  	  <div class="control-group">
+		    <%= f.label :start_time,'시작일시', :class => 'control-label' %>
+			<div class="controls">
+		    	<select name="start_hour" class="input-small">
+		    		<option value="1">01</option>
+		    		<option value="2">02</option>
+		    		<option value="3">03</option>
+		    		<option value="4">04</option>
+		    		<option value="5">05</option>
+		    		<option value="6">06</option>
+		    		<option value="7">07</option>
+		    		<option value="8">08</option>
+		    		<option value="9">09</option>
+		    		<option value="10">10</option>
+		    		<option value="11">11</option>
+		    		<option value="12">12</option>
+		    		<option value="13">13</option>
+		    		<option value="14">14</option>
+		    		<option value="15">15</option>
+		    		<option value="16">16</option>
+		    		<option value="17">17</option>
+		    		<option value="18">18</option>
+		    		<option value="19">19</option>
+		    		<option value="20">20</option>
+		    		<option value="21">21</option>
+		    		<option value="22">22</option>
+		    		<option value="23">23</option>	    		
+		    	</select>
+		    	~
+		    	<select name="end_hour" class="input-small">
+		    		<option value="1">01</option>
+		    		<option value="2">02</option>
+		    		<option value="3">03</option>
+		    		<option value="4">04</option>
+		    		<option value="5">05</option>
+		    		<option value="6">06</option>
+		    		<option value="7">07</option>
+		    		<option value="8">08</option>
+		    		<option value="9">09</option>
+		    		<option value="10">10</option>
+		    		<option value="11">11</option>
+		    		<option value="12">12</option>
+		    		<option value="13">13</option>
+		    		<option value="14">14</option>
+		    		<option value="15">15</option>
+		    		<option value="16">16</option>
+		    		<option value="17">17</option>
+		    		<option value="18">18</option>
+		    		<option value="19">19</option>
+		    		<option value="20">20</option>
+		    		<option value="21">21</option>
+		    		<option value="22">22</option>
+		    		<option value="23">23</option>
+		    	</select>
+			</div>
+		  </div>
+	  	  <div class="control-group">
+		    <%= f.label :expire_time, :class => 'control-label' %>
+		    <div class="controls">
+				<%= f.datetime_select :expire_time, :class => "input-medium" %>
+			</div>
+		  </div>
+	  	  <div class="control-group">
+		    <%= f.label :end_hour, :class => 'control-label' %>
+		    <div class="controls">
+				<%= f.text_field :start_hour, :class => "input-small" %> ~ <%= f.text_field :end_hour, :class => "input-small" %>
+			</div>
+		  </div>
+	  	  <div class="control-group">
+		    <%= f.label :end_time, :class => 'control-label' %>
+		    <div class="controls span6">
+				<table class="table table-bordered table-striped">
+					<tr>
+						<th><%= f.label :weekday0 %></th>
+						<th><%= f.label :weekday1 %></th>
+						<th><%= f.label :weekday2 %></th>
+						<th><%= f.label :weekday3 %></th>
+						<th><%= f.label :weekday4 %></th>
+						<th><%= f.label :weekday5 %></th>
+						<th><%= f.label :weekday6 %></th>
+					</tr>
+					<tr>
+						<td><%= f.check_box :weekday0 %></td>
+						<td><%= f.check_box :weekday1 %></td>
+						<td><%= f.check_box :weekday2 %></td>
+						<td><%= f.check_box :weekday3 %></td>
+						<td><%= f.check_box :weekday4 %></td>
+						<td><%= f.check_box :weekday5 %></td>
+						<td><%= f.check_box :weekday6 %></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	<div class="clearfix">&nbsp;</div>	
+			
+	  <div class="control-group">
+	    <%= f.label :cpi_only_flag, :class => 'control-label' %>
+	    <div class="controls">
+		    <%= f.check_box :cpi_only_flag %>
+		</div>
+	  </div>
+	  <div class="control-group">
+	    <%= f.label :flag, :class => 'control-label' %>
+	    <div class="controls">
+		    <%= f.check_box :flag %>
+		</div>
+	  </div>
+	<div class="clearfix">&nbsp;</div>			
+		<div>
+		<%= f.submit :class=>"btn btn-primary" %>
+		</div>		
+	<div class="clearfix">&nbsp;</div>		
+	</div>
+	</div>
+<% end %>

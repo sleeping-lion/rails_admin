@@ -1,0 +1,29 @@
+<h1>Listing mobile_prefixes</h1>
+
+<table>
+  <tr>
+    <th>Locale</th>
+    <th>Prefix</th>
+    <th>Prefix length</th>
+    <th>Telco</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mobile_prefixes.each do |mobile_prefix| %>
+  <tr>
+    <td><%= mobile_prefix.locale %></td>
+    <td><%= mobile_prefix.prefix %></td>
+    <td><%= mobile_prefix.prefix_length %></td>
+    <td><%= mobile_prefix.telco %></td>
+    <td><%= link_to 'Show', mobile_prefix %></td>
+    <td><%= link_to 'Edit', edit_mobile_prefix_path(mobile_prefix) %></td>
+    <td><%= link_to 'Destroy', mobile_prefix, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mobile prefix', new_mobile_prefix_path %>

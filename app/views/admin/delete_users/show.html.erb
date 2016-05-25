@@ -1,0 +1,33 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b><%=t(:label_user) %></b>
+		<%= @delete_user.username %>
+	</p>
+	<p>
+		<b><%=t(:label_nick_name) %></b>
+		<%= @delete_user.nickname %>
+	</p>
+	<p>
+		<b><%=t(:label_email) %></b>
+		<%=mail_to @delete_user.email %>
+	</p>
+	<p>
+		<b><%=t(:label_mobile_num) %></b>
+		<%= @delete_user.nation_num %>  <%= @delete_user.mobile_num %>
+	</p>
+	<p>
+		<b><%=t(:label_created_at) %></b>
+		<%= @delete_user.created_at %>
+	</p>
+	<p>
+		<b><%=t(:label_updated_at) %></b>
+  	<%= @delete_user.created_at %>
+	</p>
+</div>
+<% if(!params[:no_layout]) %>
+<%= link_to t(:link_edit), edit_delete_user_path(@delete_user) %> |
+<%= link_to t(:link_list), delete_users_path(list_param(params)) %>
+<% end %>

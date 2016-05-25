@@ -1,0 +1,29 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b>Store good:</b>
+		<%= @store_good_picture.store_good_id %>
+	</p>
+	<p>
+		<b><%=t(:label_title) %></b>
+		<%= @store_good_picture.title %>
+	</p>
+	<p>
+		<b>Filename:</b>
+		<%= @store_good_picture.filename %>
+	</p>
+	<p>
+		<b>Type:</b>
+		<%= @store_good_picture.type %>
+	</p>
+	<p>
+		<b><%=t(:label_flag) %></b>
+		<%=raw flagToString(@store_good_picture.flag) %>
+	</p>
+</div>
+<% if can? :update, @store_good_picture %>
+<%= link_to t(:link_edit), edit_store_good_picture_path(@store_good_picture) %> |
+<% end %>
+<%= link_to t(:link_list), store_good_pictures_path %>

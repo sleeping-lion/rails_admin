@@ -1,0 +1,39 @@
+<%= form_for @delete_user do |f| %>
+  <% if @delete_user.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+    		<a href="#" class="close" data-dismiss="alert">&times;</a>
+      <h2><%= pluralize(@delete_user.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
+      <ul>
+      <% @delete_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+  <div class="control-group">
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname %>
+  </div>
+  <div class="control-group">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="control-group">
+    <%= f.label :nation_num %>
+    <%= f.text_field :nation_num %>
+  </div>
+  <div class="control-group">
+    <%= f.label :mobile_num %>
+    <%= f.text_field :mobile_num %>
+  </div>     
+  <div class="control-group">  	
+    <%= f.submit :class=>'btn btn-primary' %>
+  </div>
+<% end %>
+<%= link_to t(:link_show), @delete_user %> |
+<%= link_to t(:link_list), delete_users_path %>
+

@@ -1,0 +1,57 @@
+<%= form_for(@sms_message) do |f| %>
+  <% if @sms_message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sms_message.errors.count, "error") %> prohibited this sms_message from being saved:</h2>
+
+      <ul>
+      <% @sms_message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :msg_status %><br />
+    <%= f.number_field :msg_status %>
+  </div>
+  <div class="field">
+    <%= f.label :msg_phone %><br />
+    <%= f.text_field :msg_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :msg_callback %><br />
+    <%= f.text_field :msg_callback %>
+  </div>
+  <div class="field">
+    <%= f.label :msg_charset %><br />
+    <%= f.text_field :msg_charset %>
+  </div>
+  <div class="field">
+    <%= f.label :msg_text %><br />
+    <%= f.text_field :msg_text %>
+  </div>
+  <div class="field">
+    <%= f.label :msg_sendtime %><br />
+    <%= f.datetime_select :msg_sendtime %>
+  </div>
+  <div class="field">
+    <%= f.label :msg_rslttime %><br />
+    <%= f.datetime_select :msg_rslttime %>
+  </div>
+  <div class="field">
+    <%= f.label :msg_lasttime %><br />
+    <%= f.datetime_select :msg_lasttime %>
+  </div>
+  <div class="field">
+    <%= f.label :msg_rsltcode %><br />
+    <%= f.number_field :msg_rsltcode %>
+  </div>
+  <div class="field">
+    <%= f.label :msg_priority %><br />
+    <%= f.number_field :msg_priority %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

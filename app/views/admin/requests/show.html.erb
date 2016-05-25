@@ -1,0 +1,37 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b>아이디</b>
+		<%= @request.user.username %>
+	</p>
+	<p>
+		<b>신청금액</b>
+		<%= number_to_currency @request.amount %>
+	</p>
+	<p>
+		<b>은행명</b>
+		<%= @request.bank.name %>
+	</p>
+	<p>
+		<b>계좌번호</b>
+		<%= @request.account_number %>
+	</p>
+	<p>
+		<b>상태</b>
+		<%= @request.request_type.title %>
+	</p>
+	<p>
+  	<b><%=t(:label_created_at) %> </b>
+  	<%= @request.created_at %>
+  </p>
+  <p>
+  	<b><%=t(:label_updated_at) %></b>
+  	<%= @request.created_at %>
+  </p>
+</div>
+<% if can? :update, @request %>
+<%= link_to t(:link_edit), edit_request_path(@request) %> |
+<% end %>
+<%= link_to t(:link_list), requests_path(list_param(params)) %>

@@ -1,0 +1,21 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b>Device:</b>
+		<%= @device.device_id %>
+	</p>
+	<p>
+		<b>Registration:</b>
+		<%= @device.registration_id %>
+	</p>
+	<p>
+		<b>User:</b>
+		<%= @device.user_id %>
+	</p>
+</div>
+<% if can? :update, @device %>
+<%= link_to t(:link_edit), edit_device_path(@device) %> |
+<% end %>
+<%= link_to t(:link_list), devices_path %>

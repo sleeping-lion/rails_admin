@@ -1,0 +1,114 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<% if @user.photo? %>	
+	<p>
+		<%= image_tag(@user.photo.medium_thumb) %>
+	</p>
+	<% end %>	
+	<table class="table table-striped table-bordered">
+		<tr>
+			<th><%=t(:label_login_id) %></th>
+			<td>(#<%= @user.id %>) <%= @user.username %></td>
+		</tr>
+		<tr>
+			<th><%=t(:label_nick_name) %></th>
+			<td>
+				<% if @user.nickname.present? %>
+				<%=@user.nickname %>
+				<% else %>
+				<%=t(:no_insert_data)%>
+				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<th><%=t(:label_email) %></th>
+			<td>
+				<% if @user.email.present? %>
+				<%=mail_to @user.email %>
+				<% else %>
+				<%=t(:no_insert_data)%>			
+				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<th><%=t(:label_mobile_num) %></th>
+			<td>
+				+<%= @user.nation_num %>  <%= @user.mobile_num %>
+			</td>
+		</tr>
+		<tr>
+			<th><%=t(:label_point) %></th>
+			<td>
+				<%= number_with_delimiter( @user.u_point ) %> &nbsp;&nbsp;
+				<%= link_to t(:link_point_search), points_path( :user_id => @user.id ), :class => "btn btn-small btn-info" %>
+				<%= link_to t(:link_request_search), requests_path( :user_id => @user.id ), :class => "btn btn-small btn-info" %>
+				<%= link_to t(:link_game_search), games_path( :user_id => @user.id ), :class => "btn btn-small btn-info" %>								
+			</td>
+		</tr>
+		<tr>
+			<th><%=t(:label_device_id) %></th>
+			<td>
+				<%= @user.device_id %>
+			</td>
+		</tr>
+		<tr>
+			<th><%=t(:label_sign_in_count) %></th>
+			<td>
+				<%= @user.sign_in_count %>
+			</td>
+		</tr>
+		<tr>
+			<th><%=t(:label_last_login) %></th>
+			<td>
+				<% if @user.last_sign_in_at %>
+				from <%= @user.last_sign_in_ip %> at <%= @user.last_sign_in_at %>
+				<% else %>
+				<%=t(:no_data) %>
+				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<th><%=t(:user_recommends) %></th>
+			<td>
+				<% if @user_recommends.empty? %>
+				<%=t(:no_data)%>
+				<% else %>
+				<% @user_recommends.each do |user_recommend| %>
+				<%=link_to "(##{user_recommend.user.id}) #{user_recommend.user.username}",user_path(user_recommend.user.id)  %>
+				<% end %>
+				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<th><%=t(:label_flag) %></th>
+			<td>
+				<%=raw flagToString(@user.flag) %>
+			</td>
+		</tr>
+		<tr>
+			<th><%=t(:label_updated_at) %></th>
+			<td>
+				<%= @user.created_at %>
+			</td>
+		</tr>
+		<tr>
+			<th><%=t(:label_created_at) %></th>
+			<td>
+				<%= @user.updated_at %>
+			</td>
+		</tr>
+	</table>
+<% if(!params[:no_layout]) %>
+<%= render "user_targets/index" %>
+<%= render "user_target_addresses/index" %>
+<%= render "user_referrals/index" %>
+<% end %>
+</div>
+<% if(!params[:no_layout]) %>
+<% if can? :update, Notice %>		
+<%= link_to t(:link_edit), edit_user_path(@user) %> |
+<% end %>
+<%= link_to t(:link_list), users_path(list_param(params)) %>
+<% end %>

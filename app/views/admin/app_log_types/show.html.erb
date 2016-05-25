@@ -1,0 +1,17 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+<p>
+  <b>Title:</b>
+  <%= @app_log_type.title %>
+</p>
+<p>
+  <b>Flag:</b>
+  <%= @app_log_type.flag %>
+</p>
+</div>
+<% if can? :update, @bank %>	
+<%= link_to t(:link_edit), edit_app_log_type_path(@app_log_type) %> |
+<% end %>
+<%= link_to t(:link_list), app_log_types_path %>

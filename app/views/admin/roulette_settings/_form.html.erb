@@ -1,0 +1,36 @@
+<%= form_for(@roulette_setting) do |f| %>
+  <% if @roulette_setting.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+    		<a href="#" class="close" data-dismiss="alert">&times;</a>
+      <h2><%= pluralize(@roulette_setting.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
+      <ul>
+      <% @roulette_setting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <%= f.label :title %>
+    <%= f.text_field :title,:required=>"required" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :percentage %>
+    <%= f.text_field :percentage %> 남은 확률 <%=100-RouletteSetting.sum(:percentage)%>
+  </div>  
+  <div class="control-group">
+    <%= f.label :amount %>
+    <%= f.number_field :amount,:required=>"reqiured" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :limit %>
+    <%= f.number_field :limit,:required=>"reqiured" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :flag %>
+    <%= f.check_box :flag %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class=>"btn btn-primary" %>
+  </div>
+<% end %>

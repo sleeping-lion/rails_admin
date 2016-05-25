@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String"><%=t(:label_number)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_category)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_login_id)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_relation_ad)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_amount)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_created_at)%></Data></Cell>
+      </Row>
+      <% @points.each do |point| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= point.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><% if point.point_type %>	<%=point.point_type.title %><% else %><%=t(:no_exist_type) %><% end %></Data></Cell>
+        <Cell><Data ss:Type="String"><% if point.user %> <%=point.user.username %><% else %><%=t(:no_exist_user) %><% end %></Data></Cell>
+        <Cell><Data ss:Type="String"><% if point.points_ad.exists? %><%=point.ad[0].title %><% else %><%=t(:no_relative) %><% end %></Data></Cell>              
+        <Cell><Data ss:Type="String"><%=number_with_delimiter point.amount %> <%=t(:label_point)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%= point.created_at %></Data></Cell>
+      </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

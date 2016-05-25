@@ -1,0 +1,18 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b><%=t(:label_title) %></b>
+		<%= @ad_file_type.title %>
+	</p>
+	<p>
+		<b><%=t(:label_flag)%></b>
+		<%= raw flagToString(@ad_file_type.flag) %>
+	</p>
+</div>
+<% if can? :update, @ad_file_type %>
+<%= link_to t(:link_edit), edit_ad_file_type_path(@ad_file_type) %> |
+<% end %>
+<%= link_to t(:link_list), ad_file_types_path %>
+

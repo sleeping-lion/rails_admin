@@ -1,0 +1,35 @@
+<section id="sl_user_targets" class="sub_section">
+	<h3><%=t(:'activerecord.models.user_target') %></h3>
+	<% unless @user_targets.empty? %>		
+	<table  class="table table-striped table-bordered">
+		<colgroup>
+			<col style="width:100px"  />
+			<col />
+			<col style="width:100px"  />
+			<% if can?(:update, UserTarget) || can?(:delete, UserTarget) %>
+			<col <%=raw manage_width(UserTarget) %> />
+			<% end %>
+		</colgroup>
+		<thead>
+		<tr>
+			<th><%=t(:label_category) %></th>
+			<th><%=t(:label_title)%></th>
+			<th><%=t(:label_flag) %></th>
+			<% if can?(:update, UserTarget) || can?(:delete, UserTarget) %>
+			<th><%=t(:label_manage) %></th>		
+			<% end %>	
+		</tr>
+		</thead>
+		<tbody>
+			<%= render @user_targets %>
+		</tbody>
+	</table>
+	<% else %>
+	<p><%=t(:no_data) %></p>	
+	<% end %>
+	<% if can? :create, UserTarget %>
+	<div id="sl_user_target_form">
+		<%= render "user_targets/form" %>
+	</div>
+	<% end %>
+</section>

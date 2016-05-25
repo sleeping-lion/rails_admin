@@ -1,0 +1,19 @@
+<tr>
+	<td><%=user_target.target.target_type.title %></td>
+	<td><%=user_target.target.title %>	</td>
+	<td><%= raw flagToString(user_target.target.flag) %></td>
+	<% if can?(:update, user_target) || can?(:delete, user_target) %>
+	<td>
+		<% if can?(:update, user_target) %>
+		<%= link_to edit_user_user_target_path(@user,user_target),:class=>"btn btn-small pull-left" do %>
+		<i class="icon-pencil"></i> <%=t(:link_edit) %>
+		<% end %>
+		<% end %>
+		<% if can?(:delete, user_target) %>
+		<%= link_to [@user,user_target], :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
+		<i class="icon-trash"></i> <%=t(:link_delete) %>
+		<% end %>
+		<% end %>
+	</td>
+	<% end %>
+</tr>

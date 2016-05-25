@@ -1,0 +1,55 @@
+<section id="sl_user_target_addresses" class="sub_section">
+	<h3><%=t(:'activerecord.models.user_target_address') %></h3>
+	<% if @user_target_address %>
+	<table  class="table table-striped table-bordered">
+		<colgroup>
+			<col style="width:100px"  />
+			<col />
+			<col style="width:100px"  />
+			<% if can?(:update, UserTargetAddress) || can?(:delete, UserTargetAddress) %>
+			<col style="width:160px" />
+			<% end %>
+		</colgroup>
+		<thead>
+			<tr>
+				<th><%=t(:label_number) %></th>
+				<th><%=t(:label_title)%></th>
+				<th><%=t(:label_flag) %></th>
+				<% if can?(:update, UserTargetAddress) || can?(:delete, UserTargetAddress) %>
+				<th><%=t(:label_manage) %></th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%=@user_target_address.address.name %></td>
+				<td><%=@user_target_address.address.full_address %></td>
+				<td><%= raw flagToString(@user_target_address.address.flag) %></td>
+				<% if can?(:update, UserTargetAddress) || can?(:delete, UserTargetAddress) %>		
+				<td>
+					<% if can?(:update, UserTargetAddress) %>
+					<%= link_to edit_user_user_target_address_path(@user,@user_target_address),:class=>"btn btn-small pull-left" do %>
+					<i class="icon-pencil"></i> <%=t(:link_edit) %>
+					<% end %>
+					<% end %>
+					<% if can?(:delete, UserTargetAddress) %>
+					<%= link_to [@user,@user_target_address], :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
+					<i class="icon-trash"></i> <%=t(:link_delete) %>
+					<% end %>
+					<% end %>
+				</td>
+				<% end %>
+			</tr>
+		</tbody>
+	</table>
+	<% else %>
+	<p><%=t(:no_data) %></p>	
+	<% end %>
+	<% if can? :create, UserTargetAddress %>	
+	<% unless @user_target_address %>
+	<div id="sl_user_target_address_form">
+		<%= render "user_target_addresses/form" %>
+	</div>
+	<% end %>
+	<% end %>
+</section>

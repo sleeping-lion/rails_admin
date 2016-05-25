@@ -1,0 +1,94 @@
+<div class="row-fluid">
+	<h3 class="pull-left"><%= @controller_name %> <%=actionNameChange controller.action_name %></h3>
+</div>
+<div class="row-fluid">
+	<%=form_tag store_orders_path,:method=>:get,:id=>"type_search_form" do %>
+	<div class="control-group form-search pull-right">
+		<select name="search_field" class="input-medium">
+			<option value="user_id" <% if params[:search_field]=='user_id' %>selected="selected"<% end %>><%=t(:label_user_id )%></option>
+			<option value="mobile_num" <% if params[:search_field]=='mobile_num' %>selected="selected"<% end %>><%=t(:label_mobile_num)%></option>
+		</select>
+		<div class="input-append">
+			<input type="text" name="search_value" value="<%=params[:search_value] %>" class="input-medium" />
+			<%=button_tag t(:search),:type=>'submit',:class=>"btn" %>
+		</div>
+	</div>
+	<% end %>
+</div>
+<table class="table table-bordered table-striped">
+	<colgroup>
+		<col style="width:80px;" />
+		<col />
+		<col />
+		<col />
+		<col />
+		<col />		
+		<col />
+		<col />
+		<% if can?(:update, StoreOrder) || can?(:delete, StoreOrder) %>
+		<col <%=raw manage_width(StoreOrder) %> />
+		<% end %>
+	</colgroup>
+	<thead>
+		<tr>
+			<th><%=t(:label_number) %></th>
+			<th><%=t(:label_user_id) %></th>
+			<th><%=t(:label_amount) %></th>
+			<th><%=t(:label_mobile_num) %></th>
+			<th><%=t(:status) %></th>
+			<th><%=t(:label_shipping_method) %></th>
+			<th><%=t(:shipping_flag) %></th>
+			<th><%=t(:return_flag) %></th>
+			<% if can?(:update, StoreOrder) || can?(:delete, StoreOrder) %>			
+			<th><%=t(:label_manage)%></th>
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>
+	<% unless @store_orders.empty? %>
+	<% @store_orders.each do |store_order| %>
+		<tr>
+			<td><%=link_to store_order.id,store_order_path(store_order,params) %></td>
+			<td><%=link_to store_order.user_id,store_order_path(store_order,params) %></td>
+			<td><%=link_to store_order.amount,store_order_path(store_order,params) %></td>
+			<td><%=link_to store_order.customer_tel,store_order_path(store_order,params) %></td>
+			<td><% if store_order.store_order_status %><%=link_to store_order.store_order_status.title,store_order_path(store_order,params) %><% end %></td>
+			<td><%=link_to store_order.shipping_method,store_order_path(store_order,params) %></td>
+			<td><%= store_order.shipping_flag %></td>
+			<td><%= store_order.return_flag %></td>
+			<% if can?(:update, StoreOrder) || can?(:delete, StoreOrder) %>			
+			<td>
+				<% if can? :update, store_order %>				
+				<%= link_to edit_store_order_path(store_order),:class=>"btn btn-small pull-left" do %>
+				<i class="icon-pencil"></i> <%=t(:link_edit) %>
+				<% end %>
+				<% end %>
+				<% if can? :delete, store_order %>				
+				<%= link_to store_order, :method => :delete, :data => { :confirm =>t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
+				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<% end %>
+				<% end %>
+			</td>
+			<% end %>
+		</tr>
+	<% end %>
+	<% else %>
+		<tr>
+			<td colspan="9"><%=t(:no_data)%></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
+<div class="row-fluid">
+	<div class="pull-left">
+		<%= link_to new_store_order_path,:class=>"btn" do %>
+		<i class="icon-plus"></i> <%=t(:link_new) %>
+		<% end %>
+		<% unless @store_orders.empty? %>		
+		<%=link_to store_orders_path(:format=>"xls",:params=>params), :class=>"btn" do %>
+		<i class="icon-file"></i> <%=t(:link_download_excel) %>
+		<% end %>
+		<% end %>		
+	</div>
+	<%= paginate @store_orders %>
+</div>

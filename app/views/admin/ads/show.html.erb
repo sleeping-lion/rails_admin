@@ -1,0 +1,47 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<section class="sl_show">
+	<p>
+  	<b><%=t(:label_title)%></b>
+  	<%= @ad.title %>
+	</p>
+	<p>
+  	<b><%=t(:label_category)%></b>
+  	<%= @ad.ad_type.title %>
+	</p>
+	<p>
+  	<b><%=t(:label_description)%></b>
+  	<%= @ad.description %>
+	</p>	
+	<p>
+		<b><%=t(:label_memo)%></b>
+		<% if @ad.ad_memo.present? %>
+		<% if @ad.ad_memo.content.present? %>
+		<%=raw @ad.ad_memo.content %>
+		<% else %>
+		<%=t(:no_insert_data)%>
+		<% end %>
+		<% else %>
+		<%=t(:no_insert_data)%>
+		<% end %>
+	</p>
+	<p>
+		<b><%=t(:label_flag) %></b>
+  	<%=raw flagToString(@ad.flag) %>
+	</p>
+	<p>
+		<b><%=t(:label_created_at) %></b>
+  	<%= @ad.created_at %>
+	</p>
+	<p>
+		<b><%=t(:label_updated_at) %></b>
+		<%= @ad.created_at %>
+	</p> 
+	<%= render "ad_schedules/index" %>
+	<%= render "ad_files/index" %>
+</section>
+<% if can? :update, Ad %>
+<%= link_to t(:link_edit), edit_ad_path(@ad,list_param(params)) %> |
+<% end %>
+<%= link_to t(:link_list), ads_path(list_param(params)) %>

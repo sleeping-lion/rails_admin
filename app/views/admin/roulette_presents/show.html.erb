@@ -1,0 +1,21 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+<p>
+  <b><%=t(:label_title)%></b>
+  <%= @roulette_present.title %>
+</p>
+<p>
+  <b><%=t(:label_image) %></b>
+  <%=image_tag @roulette_present.photo.large_thumb %>
+</p>
+<p>
+  <b><%=t(:label_flag)%></b>
+  <%= @roulette_present.flag %>
+</p>
+</div>
+<% if can? :update, @roulette_present %>	
+<%= link_to t(:link_edit), edit_roulette_present_path(@roulette_present) %> |
+<% end %>
+<%= link_to t(:link_list), roulette_presents_path %>

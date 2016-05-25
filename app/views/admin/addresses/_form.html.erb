@@ -1,0 +1,32 @@
+<%= form_for(@address) do |f| %>
+  <% if @address.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+    		<a href="#" class="close" data-dismiss="alert">&times;</a>
+      <h2><%= pluralize(@address.errors.count, "error") %> prohibited this point from being saved:</h2>
+      <ul>
+      <% @address.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <%= f.label :parent_address_id %>
+		 <%= f.select :parent_address_id, options_from_collection_for_select(Address.find(:all,:conditions=>{:flag=>true}), 'id', 'full_address') %>
+  </div>
+  <div class="control-group">
+    <%= f.label :name %>
+    <%= f.text_field :name,:required=>"required" %>
+  </div>
+  <div class="control-group">
+    <%= f.label :full_address %>
+    <%= f.text_field :full_address,:required=>"required"  %>
+  </div>
+  <div class="control-group">
+    <%= f.label :flag %>
+    <%= f.check_box :flag %>
+  </div>  
+  <div class="control-group actions">
+    <%= f.submit :class=>"btn btn-primary" %>
+  </div>
+<% end %>

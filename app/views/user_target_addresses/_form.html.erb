@@ -1,0 +1,20 @@
+<%= form_for([@user,UserTargetAddress.new]) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+    		<a href="#" class="close" data-dismiss="alert">&times;</a>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this request from being saved:</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <%= f.label :address_id,t(:label_target_address)  %>
+		 <%= f.select :address_id, options_from_collection_for_select(Address.find(:all,:conditions=>{:flag=>true}), 'id', 'full_address') %>
+  </div>
+ 	<div class="actions">
+ 		<%= f.submit :class=>"btn btn-primary" %>
+ 	</div>
+<% end %>

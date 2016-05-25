@@ -1,0 +1,65 @@
+<div class="row-fluid">
+	<h3 class="pull-left"><%= @controller_name %> <%=actionNameChange controller.action_name %></h3>
+</div>
+<table class="table table-bordered table-striped">
+	<colgroup>
+		<col style="width:80px;" />
+		<col style="width:80px;" />
+		<col />
+		<col style="width:100px;" />
+		<% if can?(:update, Device) || can?(:delete, Device) %>
+		<col <%=raw manage_width(Device) %> />
+		<% end %>
+	</colgroup>
+	<thead>
+		<tr>
+			<th><%=t(:label_number) %></th>
+			<th>Device ID</th>
+			<th>Registration ID</th>
+			<th>User ID</th>
+			<% if can?(:update, Device) || can?(:delete, Device) %>
+			<th><%=t(:label_manage) %></th>
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>
+		<% unless @devices.empty? %>
+		<% @devices.each do |device| %>
+		<tr>
+			<td><%= device.id %></td>
+			<td><%= device.device_id %></td>
+			<td><%= device.registration_id.truncate(50) %></td>
+			<td><%= device.user_id %></td>
+			<% if can?(:update, device) || can?(:delete, device) %>	
+			<td>
+				<% if can? :update, device %>				
+				<%= link_to edit_device_path(device),:class=>"btn btn-small pull-left" do %>
+				<i class="icon-pencil"></i> <%=t(:link_edit) %>
+				<% end %>
+				<% end %>
+				<% if can? :delete, device %>				
+				<%= link_to device, :method => :delete, :data => { :confirm =>t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
+				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<% end %>
+				<% end %>
+			</td>
+			<% end %>
+		</tr>
+		<% end %>
+		<% else %>
+		<tr>
+			<td colspan="5"><%=t(:no_data)%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<div class="row-fluid">
+	<div class="pull-left">
+		<% if can? :create, Device %>
+		<%= link_to new_device_path, :class=>"btn" do %>
+			<i class="icon-plus"></i> <%=t(:link_new) %>
+		<% end %>
+		<% end %>
+		</div>
+	<%= paginate @devices %>
+</div>

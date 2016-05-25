@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String"><%=t(:label_number)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_parent_address)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_address)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_full_address)%></Data></Cell>        
+        <Cell><Data ss:Type="String"><%=t(:label_flag)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_created_at)%></Data></Cell>
+      </Row>
+    <% @addresses.each do |address| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= address.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= address.parent_address_id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= address.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= address.full_address %></Data></Cell>        
+        <Cell><Data ss:Type="String"><%= flagToString(address.flag,true) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= address.created_at %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

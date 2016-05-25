@@ -1,0 +1,21 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b>App log type:</b>
+		<%= @app_log.app_log_type %>
+	</p>
+	<p>
+		<b>User:</b>
+		<%= @app_log.user %>
+	</p>
+	<p>
+		<b>Log value:</b>
+		<%= @app_log.log_value %>
+	</p>
+</div>
+<% if can? :update, @app_log %>	
+<%= link_to t(:link_edit), edit_app_log_path(@app_log) %> |
+<% end %>
+<%= link_to t(:link_list), app_logs_path %>

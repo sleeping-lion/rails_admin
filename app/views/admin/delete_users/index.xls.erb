@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String"><%=t(:label_number)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_login_id)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_nick_name)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_email)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_mobile_num)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_created_at)%></Data></Cell>
+      </Row>
+      <% @delete_users.each do |delete_user| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= delete_user.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= delete_user.username %></Data></Cell>
+        <Cell><Data ss:Type="String"><% if delete_user.nickname.present? %><%=delete_user.nickname%><% else %><%=t(:no_insert_data) %><% end %></Data></Cell>        
+        <Cell><Data ss:Type="String"><% if delete_user.email.present? %><%=delete_user.email %><% else %><%=t(:no_insert_data) %><% end %></Data></Cell>
+        <Cell><Data ss:Type="String">+<%=delete_user.nation_num %> <%=delete_user.mobile_num %></Data></Cell>          
+        <Cell><Data ss:Type="String"><%= delete_user.created_at %></Data></Cell>
+      </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

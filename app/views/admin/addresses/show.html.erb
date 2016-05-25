@@ -1,0 +1,25 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b><%=t(:label_parent_address)%></b>
+		<%= @address.parent_address.full_address %>
+	</p>
+	<p>
+		<b><%=t(:lable_address)%></b>
+		<%= @address.name %>
+	</p>
+	<p>
+		<b><%=t(:label_full_address) %></b>
+		<%= @address.full_address %>
+	</p>
+	<p>
+		<b><%=t(:label_flag) %></b>
+		<%=raw flagToString(@address.flag) %>
+	</p>
+</div>
+<% if can? :update, Address %>
+<%= link_to t(:link_edit), edit_address_path(@address) %> |
+<% end %>
+<%= link_to t(:link_list), addresses_path(list_param(params)) %>

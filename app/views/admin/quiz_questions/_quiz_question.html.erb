@@ -1,0 +1,24 @@
+<tr>
+	<td>
+		<%=link_to quiz_question.id,quiz_quiz_question_path(@quiz,quiz_question,show_param(params)) %>
+	</td>
+	<td>
+		<%=link_to_if(quiz_question.title?,quiz_question.title,quiz_quiz_question_path(@quiz,quiz_question,show_param(params))) do %>
+		<%=link_to t(:no_insert_data),quiz_quiz_question_path(@quiz,quiz_question,show_param(params)) %>
+		<% end %>
+	</td>
+	<% if can?(:update, quiz_question) || can?(:delete, quiz_question) %>
+	<td>
+		<% if can?(:update, quiz_question) %>
+		<%= link_to edit_quiz_quiz_question_path(@quiz,quiz_question),:class=>"btn btn-small pull-left" do %>
+		<i class="icon-pencil"></i> <%=t(:link_edit) %>
+		<% end %>
+		<% end %>
+		<% if can?(:delete, quiz_question) %>
+		<%= link_to [@quiz,quiz_question], :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
+		<i class="icon-trash"></i> <%=t(:link_delete) %>
+		<% end %>
+		<% end %>
+	</td>
+	<% end %>
+</tr>

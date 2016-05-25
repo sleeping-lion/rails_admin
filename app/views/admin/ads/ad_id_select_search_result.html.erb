@@ -1,0 +1,8 @@
+<section>
+	<ul>
+		<% @ads.each do |ad| %>
+		<li><%=ad.title %></li>
+		<% end %>
+	</ul>
+	<%= paginate @ads %>
+</section>

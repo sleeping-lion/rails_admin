@@ -1,0 +1,64 @@
+# encoding: utf-8
+
+class Admin::RoulettePresentsController < Admin::AdminController
+  impressionist
+  load_and_authorize_resource
+  
+  def initialize(*params)
+    super(*params)
+    
+    @sub_menu=t(:menu_roulette_game) 
+    @controller_name=t('activerecord.models.roulette_present')
+  end
+  
+  def index
+    unless params[:per_page].present?
+      params[:per_page]=10        
+    end
+    
+    @roulette_presents = RoulettePresent.order('id desc').page(params[:page]).per(params[:page])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @attendances } 
+    end
+  end
+  
+  def edit
+    @roulette_present = RoulettePresent.find(params[:id])
+  end
+  
+  def show
+    @roulette_present = RoulettePresent.find(params[:id])
+  end  
+  
+  def create  
+    @roulette_present = RoulettePresent.create(params[:roulette_present])
+    
+    redirect_to roulette_present_path(@roulette_present)
+  end
+  
+  def update
+    @roulette_present = RoulettePresent.find(params[:id])
+    
+    respond_to do |format|
+      if @roulette_present.update_attributes(params[:roulette_present])
+        format.html { redirect_to roulette_presents_path, :notice => @controller_name +t(:message_success_insert)}
+        format.json { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.json { render :json => @roulette_present.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
+  def destroy
+    @roulette_present = RoulettePresent.find(params[:id])
+    @roulette_present.destroy
+
+    respond_to do |format|
+      format.html { redirect_to roulette_presents_path }
+      format.json { head :no_content }
+    end
+  end
+end

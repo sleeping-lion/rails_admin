@@ -1,0 +1,19 @@
+<tr>
+	<td><%=ad_target_address.address.name%></td>
+	<td><%=ad_target_address.address.full_address %></td>
+	<td><%= raw flagToString(ad_target_address.flag) %></td>
+	<% if can?(:update, ad_target_address) || can?(:delete, ad_target_address) %>	
+	<td>
+		<% if can?(:update, ad_target_address) %>
+		<%= link_to edit_ad_ad_schedule_ad_target_address_path(@ad_schedule.ad,@ad_schedule,ad_target_address),:class=>"btn btn-small pull-left" do %>
+		<i class="icon-pencil"></i> <%=t(:link_edit) %>
+		<% end %>
+		<% end %>
+		<% if can?(:delete, ad_target_address) %>
+		<%= link_to [@ad_schedule.ad,@ad_schedule,ad_target_address], :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
+		<i class="icon-trash"></i> <%=t(:link_delete) %>
+		<% end %>
+		<% end %>
+	</td>
+	<% end %>
+</tr>

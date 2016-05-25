@@ -1,0 +1,28 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<section class="sl_show">
+<p>
+  <b>User:</b>
+  <%= @attendance.user %>
+</p>
+
+<p>
+  <b>Today:</b>
+  <%= @attendance.today %>
+</p>
+
+<p>
+  <b>Count:</b>
+  <%= @attendance.count %>
+</p>
+
+<p>
+  <b>Flag:</b>
+  <%= @attendance.flag %>
+</p>
+</div>
+<% if can? :update, @bank %>	
+<%= link_to t(:link_edit), edit_attendance_path(@attendance) %> |
+<% end %>
+<%= link_to t(:link_list), attendances_path %>

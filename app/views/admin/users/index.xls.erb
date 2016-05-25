@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String"><%=t(:label_number)%></Data></Cell>        
+        <Cell><Data ss:Type="String"><%=t(:label_login_id)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_market)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_email)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_mobile_num)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_full_address)%></Data></Cell>        
+        <Cell><Data ss:Type="String"><%=t(:label_point)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_flag)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_created_at)%></Data></Cell>
+      </Row>
+      <% @users.each do |user| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= user.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.username %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.market %></Data></Cell>
+        <Cell><Data ss:Type="String"><% if user.email.present? %><%=user.email %><% else %><%=t(:no_insert_data) %><% end %></Data></Cell>
+        <Cell><Data ss:Type="String">+<%=user.nation_num %> <%=user.mobile_num %></Data></Cell>
+        <Cell><Data ss:Type="String"><% if user.user_target_address %><%=user.address.full_address %><% else %><%=t(:no_data) %><% end %></Data></Cell>        
+        <Cell><Data ss:Type="String"><%=number_with_delimiter user.point %></Data></Cell> 
+        <Cell><Data ss:Type="String"><%= flagToString(user.flag,true) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.created_at %></Data></Cell>
+      </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

@@ -1,0 +1,25 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b>확률</b>
+		<%= @roulette_setting.percentage %>
+	</p>
+	<p>
+		<b>획득 수량</b>
+		<%= @roulette_setting.amount %>
+	</p>
+	<p>
+		<b><%=t(:label_created_at) %></b>
+		<%= @roulette_setting.created_at %>
+	</p>
+	<p>
+		<b><%=t(:label_updated_at) %></b>
+		<%= @roulette_setting.updated_at %>
+	</p>
+</div>
+<% if can? :update, @roulette_setting %>
+<%= link_to t(:link_edit), edit_roulette_setting_path(@roulette_setting) %> |
+<% end %>
+<%= link_to t(:link_list), roulette_settings_path %>

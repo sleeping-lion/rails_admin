@@ -1,0 +1,23 @@
+<%= form_for([@quiz_question.quiz,@quiz_question,QuizAnswer.new]) do |f| %>
+<div class="box">
+	<div class="box-header">
+		<h2><i class="icon-align-justify"></i><span class="break"></span><%=t(:quiz_answer_insert) %></h2>
+		<div class="box-icon">
+			<a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+		</div>
+	</div>
+	<div class="box-content">
+		<div class="field">
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+		</div>
+		<div class="control-group">
+  		<%= f.label :is_correct %>
+    	<%= f.check_box :is_correct %>
+    </div>
+		<div class="actions">
+			<%= f.submit :class=>"btn btn-primary" %>
+		</div>
+	</div>
+</div>
+<% end %>

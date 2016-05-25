@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String"><%=t(:label_number)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_address)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_section)%></Data></Cell>    
+        <Cell><Data ss:Type="String"><%=t(:label_flag)%></Data></Cell>
+        <Cell><Data ss:Type="String"><%=t(:label_created_at)%></Data></Cell>
+      </Row>
+      <% @address_sections.each do |address_section| %>
+      <Row>
+      	<Cell><Data ss:Type="Number"><%= address_section.id %></Data></Cell>
+      	<Cell><Data ss:Type="String"><%= address_section.address_id %> / <% if(address_section.address) %><%=address_section.address.full_address %><% end %></Data></Cell>
+      	<Cell><Data ss:Type="String"><%= address_section.section %></Data></Cell>
+      	<Cell><Data ss:Type="String"><%= flagToString(address_section.flag,true) %></Data></Cell>
+      	<Cell><Data ss:Type="String"><%= address_section.created_at %></Data></Cell>
+      </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
