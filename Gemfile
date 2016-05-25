@@ -44,7 +44,8 @@ gem 'simple_form'
 gem 'awesome_nested_set'
 gem 'cancan'
 gem 'rest-client'
-gem 'cleditor-rails'
+gem 'ckeditor', :path=>"vendor/gems/ckeditor"
+gem 'fancybox2-rails', :path=>"vendor/gems/fancybox2-rails"
 gem 'fastercsv'
 gem 'nilify_blanks'
 gem 'ckeditor'
@@ -74,3 +75,11 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'asset_sync'
+  gem 'thin'
+  gem 'connect'
+  gem 'redis-rails'
+  gem 'dotenv-rails'
+  gem 'recaptcha', :require => 'recaptcha/rails'
+end
