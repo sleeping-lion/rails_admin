@@ -1,4 +1,4 @@
-<%= form_for(@game) do |f| %>
+<%= form_for [:admin,@game] do |f| %>
 	<% if @game.errors.any? %>
 	<div id="error_explanation" class="alert alert-error">
 		<a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -10,11 +10,11 @@
 		</ul>
 	</div>
 	<% end %>
-	<div class="control-group">
+	<div class="form-group">
 		<%= f.label :user_id %>
 		<%= f.number_field :user_id,:required=>"required" %> <%=link_to t(:user_id_find),'/users/user_id_select',:id=>'user_id_select',:title=>t(:user_id_find),:target=>'_blank',:class=>'btn modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal",:style=>'vertical-align:top' %>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<%= f.label :game_setting_id %>
 		<%= f.select :game_setting_id,options_from_collection_for_select(GameSetting.where(:flag=>true).all, 'id', 'title',@game.game_setting_id), {:include_blank => t(:rank_fail)} %>
 	</div>

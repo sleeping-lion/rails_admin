@@ -1,4 +1,4 @@
-<%= form_for(@address_section) do |f| %>
+<%= form_for [:admin,@address_section] do |f| %>
   <% if @address_section.errors.any? %>
     <div id="error_explanation" class="alert alert-error">
     		<a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -10,15 +10,15 @@
       </ul>
     </div>
   <% end %>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :address_id %>
-		 <%= f.select :address_id, options_from_collection_for_select(Address.find(:all,:conditions=>{:flag=>true}), 'id', 'full_address') %>
+		 <%= f.select :address_id, options_from_collection_for_select(Address.where(:flag=>true).all(), 'id', 'full_address') %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :section %>
     <%= f.number_field :section,:required=>"required" %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :flag %>
     <%= f.check_box :flag %>
   </div>  

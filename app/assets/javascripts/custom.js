@@ -164,12 +164,6 @@ function template_functions(){
 		e.preventDefault();
 	});
 	
-	/* ---------- Text editor ---------- */
-	if($('.cleditor')) {
-		
-		$('.cleditor').cleditor();
-		
-	}
 
 	/* ---------- Datapicker ---------- */
 	if($('.datepicker')) {

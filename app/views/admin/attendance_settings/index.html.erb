@@ -60,7 +60,7 @@
 	<div class="pull-left">
 		<% if can? :create, AttendanceSetting %>
 		<%= link_to new_admin_attendance_setting_path, :class=>"btn btn-primary" do %>
-		<i class="icon-plus"></i> <%=t(:link_new) %>
+		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
 		<% end %>
 		<% end %>
 		<% if can? :manage, AttendanceSetting %>		

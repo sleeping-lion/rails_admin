@@ -26,19 +26,19 @@
 		<% unless @game_amounts.empty? %>
 		<% @game_amounts.each do |game_amount| %>
 		<tr>
-			<td><%=link_to game_amount.id,game_amount_path(game_amount) %></td>
-			<td><%=link_to game_amount.amount,game_amount_path(game_amount) %></td>
+			<td><%=link_to game_amount.id,admin_game_amount_path(game_amount) %></td>
+			<td><%=link_to game_amount.amount,admin_game_amount_path(game_amount) %></td>
 			<td><%= raw flagToString(game_amount.flag) %></td>			
 			<td><%=game_amount.created_at %></td>
 			<% if can?(:update, game_amount) || can?(:delete, game_amount) %>
 			<td>
 				<% if can? :update, game_amount %>
-				<%= link_to edit_game_amount_path(game_amount),:class=>"btn btn-small pull-left" do %>
+				<%= link_to edit_admin_game_amount_path(game_amount),:class=>"btn btn-default" do %>
 				<i class="icon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, game_amount %>		
-				<%= link_to game_amount, :method => :delete, :data => { :confirm =>t(:delete_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
+				<%= link_to admin_game_amount_path(game_amount), :method => :delete, :data => { :confirm =>t(:delete_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
 				<i class="icon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>
@@ -56,7 +56,7 @@
 <div class="row-fluid">
 	<% if can? :create, GameAmount %>				
 	<div class="pull-left">		
-		<%= link_to new_game_amount_path, :class=>"btn" do %>
+		<%= link_to new_admin_game_amount_path, :class=>"btn btn-primary" do %>
 		<i class="icon-plus"></i> <%=t(:link_new) %>
 		<% end %>
 	</div>	

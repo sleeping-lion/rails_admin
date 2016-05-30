@@ -48,7 +48,6 @@ gem 'ckeditor', :path=>"vendor/gems/ckeditor"
 gem 'fancybox2-rails', :path=>"vendor/gems/fancybox2-rails"
 gem 'fastercsv'
 gem 'nilify_blanks'
-gem 'ckeditor'
 gem 'protected_attributes'
 gem 'flot-rails'
 gem 'thin'

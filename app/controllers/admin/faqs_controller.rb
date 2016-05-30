@@ -88,7 +88,7 @@ class Admin::FaqsController < Admin::AdminController
     
     respond_to do |format|
       if @faq.save
-        format.html { redirect_to @faq, :notice =>  @controller_name +t(:message_success_insert) }
+        format.html { redirect_to admin_faq_path(@faq), :notice =>  @controller_name +t(:message_success_insert) }
         format.json { render :json => @faq, :status => :created, :location => @faq }
       else
         format.html { render :action => "new" }
@@ -105,7 +105,7 @@ class Admin::FaqsController < Admin::AdminController
 
     respond_to do |format|
       if @faq.update_attributes(params[:faq])
-        format.html { redirect_to @faq, :notice => @controller_name +t(:message_success_update) }
+        format.html { redirect_to admin_faq_path(faq), :notice => @controller_name +t(:message_success_update) }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -121,7 +121,7 @@ class Admin::FaqsController < Admin::AdminController
     @faq.destroy
 
     respond_to do |format|
-      format.html { redirect_to faqs_url }
+      format.html { redirect_to admin_faqs_url }
       format.json { head :no_content }
     end
   end

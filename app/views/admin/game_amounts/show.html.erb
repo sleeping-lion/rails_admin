@@ -16,6 +16,6 @@
 	</p>
 </div>
 <% if can? :update, @game_amount %>
-<%= link_to t(:link_edit), edit_game_amount_path(@game_amount) %> |
+<%= link_to t(:link_edit), edit_admin_game_amount_path(@game_amount) %> |
 <% end %>
-<%= link_to t(:link_list), game_amounts_path %>
+<%= link_to t(:link_list), admin_game_amounts_path %>

@@ -1,0 +1,28 @@
+<%= form_for [:admin,@target] do |f| %>
+  <% if @target.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+    		<a href="#" class="close" data-dismiss="alert">&times;</a>
+      <h2><%= pluralize(@target.errors.count, "error") %> prohibited this point from being saved:</h2>
+      <ul>
+      <% @target.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+  	<%= f.label :target_type_id %>
+  	<%= f.select :target_type_id, options_from_collection_for_select(TargetType.where(:flag=>true).all(), 'id', 'title',@target.target_type_id),:class=>"form-control" %>
+  </div>  
+  <div class="form-group">
+  	<%= f.label :title %>
+  	<%= f.text_field :title,:required=>"required",:class=>"form-control" %>
+  </div>
+  <div class="form-group">
+  	<%= f.label :flag %>
+  	<%= f.check_box :flag %>
+  </div>  
+  <div class="form-group actions">
+   <%= f.submit :class=>"btn btn-primary" %>
+  </div>
+<% end %>

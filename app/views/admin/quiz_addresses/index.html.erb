@@ -39,7 +39,7 @@
 	<% @quiz_addresses.each do |quiz_address| %>
   <tr>
     <td><%= quiz_address.id%></td>
-    <td><%=link_to quiz_address.address_id, quiz_address_path(quiz_address) %></td>
+    <td><%=link_to quiz_address.address_id, admin_quiz_address_path(quiz_address) %></td>
     <td><%= quiz_address.name %></td>
     <td><%= quiz_address.mobilephone %></td>
     <td><%= quiz_address.address %></td>
@@ -61,7 +61,7 @@
 <div class="row-fluid">
 	<div class="pull-left">
 		<% if can? :create, QuizAddress %>
-		<%= link_to new_quiz_address_path, :class=>"btn" do %>
+		<%= link_to new_admin_quiz_address_path, :class=>"btn btn-primary" do %>
 		<i class="icon-plus"></i> <%=t(:link_new) %>
 		<% end %>
 		<% end %>	

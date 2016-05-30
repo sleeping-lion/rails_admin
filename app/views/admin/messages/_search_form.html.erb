@@ -2,17 +2,18 @@
 	<table class="table table-bordered table-striped">
 		<tr>
 			<th><%=label_tag :mobile_num,t(:label_mobile_num) %></th>
-			<td><%=text_field_tag :mobile_num, params[:label_mobile_num] %></td>
+			<td><%=text_field_tag :mobile_num, params[:label_mobile_num],:class=>'form-control' %></td>
 		</tr>
 		<tr>
 			<th><%=label_tag :content,t(:label_content),:for=>'message_content' %></th>
-			<td><%=text_field_tag :content, params[:label_content],:id=>'message_content' %></td>
+			<td><%=text_field_tag :content, params[:label_content],:id=>'message_content',:class=>'form-control' %></td>
 		</tr>		
 		<tr>
 			<th><%=label_tag :start_date,t(:label_period_search) %></th>
 			<td>
 				<div>
-					<%=text_field_tag :start_date,@start_date,{:type=>:date,:class=>"datepicker"} %> ~ <%=text_field_tag :end_date,@end_date,{:type=>:date,:class=>"datepicker"} %>
+					<%=text_field_tag :start_date,@start_date,{:type=>:date,:class=>"datepicker form-control"} %> ~ 
+					<%=text_field_tag :end_date,@end_date,{:type=>:date,:class=>"datepicker form-control"} %>
 				</div>
 				<div style="margin:10px">
 					<input type="radio" id="pe1" name="date_p" value="0" <% if params[:date_p]=='0' %>checked="checked"<% end %> /><label for="pe1"><%=t(:period_today) %></label>

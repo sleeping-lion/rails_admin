@@ -24,6 +24,6 @@
 	</p>
 </div>
 <% if can? :update, @game %>
-<%= link_to t(:link_edit), edit_game_path(@game) %> |
+<%= link_to t(:link_edit), edit_admin_game_path(@game) %> |
 <% end %>
-<%= link_to t(:link_list), games_path(list_param(params)) %>
+<%= link_to t(:link_list), admin_games_path(list_param(params)) %>

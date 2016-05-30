@@ -20,6 +20,6 @@
 	</p>
 </div>
 <% if can? :update, @market %>
-<%= link_to t(:link_edit), edit_market_path(@market) %> |
+<%= link_to t(:link_edit), edit_admin_market_path(@market) %> |
 <% end %>
-<%= link_to t(:link_list), markets_path %>
+<%= link_to t(:link_list), admin_markets_path %>

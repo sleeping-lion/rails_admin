@@ -1,4 +1,4 @@
-<%= form_for(@game_amount) do |f| %>
+<%= form_for [:admin,@game_amount] do |f| %>
   <% if @game_amount.errors.any? %>
     <div id="error_explanation" class="alert alert-error">
     		<a href="#" class="close" data-dismiss="alert">&times;</a>

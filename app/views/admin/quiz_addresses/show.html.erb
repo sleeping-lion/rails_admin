@@ -30,7 +30,7 @@
 <br />
 </div>
 <% if can? :update, @quiz_address %>	
-<%= link_to t(:link_edit), edit_quiz_address_path(@quiz_address) %> |
+<%= link_to t(:link_edit), edit_admin_quiz_address_path(@quiz_address) %> |
 <% end %>
-<%= link_to t(:link_list), quiz_addresses_path %>
+<%= link_to t(:link_list), quiz_admin_addresses_path %>
 

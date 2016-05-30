@@ -37,6 +37,6 @@
 </div>
 
 <% if can? :create, @application_version %>
-<%= link_to t(:link_edit), edit_application_version_path(@application_version), class: "btn" %>
+<%= link_to t(:link_edit), edit_admin_application_version_path(@application_version), class: "btn" %>
 <% end %>
-<%= link_to t(:link_list), application_versions_path, class: "btn" %>
+<%= link_to t(:link_list), admin_application_versions_path, class: "btn" %>

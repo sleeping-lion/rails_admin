@@ -33,12 +33,12 @@
 			<% if can?(:update, store_order_status) || can?(:delete, store_order_status) %>
 			<td>
 				<% if can? :update, store_order_status %>				
-				<%= link_to edit_store_order_status_path(store_order_status),:class=>"btn btn-small pull-left" do %>
+				<%= link_to edit_admin_store_order_status_path(store_order_status),:class=>"btn btn-small pull-left" do %>
 				<i class="icon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, store_order_status %>				
-				<%= link_to store_order_status, :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
+				<%= link_to admin_store_order_status_path(store_order_status), :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
 				<i class="icon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>
@@ -56,7 +56,7 @@
 <div class="row-fluid">
 	<div class="pull-left">
 		<% if can? :create, StoreOrderStatus %>		
-		<%= link_to new_store_order_status_path, :class=>"btn" do %>
+		<%= link_to new_admin_store_order_status_path, :class=>"btn btn-primary" do %>
 		<i class="icon-plus"></i> <%=t(:link_new) %>
 		<% end %>
 		<% end %>

@@ -50,13 +50,13 @@
 		<% end %>
 	</tbody>
 </table>
-<div class="row-fluid">
-	<% if can? :create, AppLog %>
-		<div class="pull-left">	
-		<%= link_to new_app_log_path, :class=>"btn" do %>
-		<i class="icon-plus"></i> <%= t(:link_new) %>
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md2">
+		<% if can? :create, AppLog %>
+		<%= link_to new_admin_app_log_path,:class=>"btn btn-primary" do %>
+		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
 		<% end %>
-		</div>
-	<% end %>
+		<% end %>
+	</div>
 	<%= paginate @app_logs %>
 </div>

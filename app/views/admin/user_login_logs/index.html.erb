@@ -65,8 +65,8 @@
 	<% if can? :manage, UserLoginLog %>	
 	<% unless @user_login_logs.empty? %>
 	<div class="pull-left">
-		<%=link_to user_login_logs_path(:format=>"xls",:params=>params), :class=>"btn" do %>
-		<i class="icon-file"></i> <%=t(:link_download_excel) %>
+		<%=link_to user_login_logs_path(:format=>"xls",:params=>params), :class=>"btn btn-primary" do %>
+		<i class="iglyphicon glyphicon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
 	</div>
 	<% end %>

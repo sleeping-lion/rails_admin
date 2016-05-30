@@ -20,6 +20,6 @@
 	</p>
 </div>
 <% if can? :update, Address %>
-<%= link_to t(:link_edit), edit_address_path(@address) %> |
+<%= link_to t(:link_edit), edit_admin_address_path(@address) %> |
 <% end %>
-<%= link_to t(:link_list), addresses_path(list_param(params)) %>
+<%= link_to t(:link_list), admin_addresses_path(list_param(params)) %>

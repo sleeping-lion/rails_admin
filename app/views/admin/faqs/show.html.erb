@@ -24,6 +24,6 @@
   </p>
 </div>
 <% if can? :update, Faq %>
-<%= link_to t(:link_edit), edit_faq_path(@faq) %> |
+<%= link_to t(:link_edit), edit_admin_faq_path(@faq) %> |
 <% end %>
-<%= link_to t(:link_list), faqs_path(list_param(params)) %>
+<%= link_to t(:link_list), admin_faqs_path(list_param(params)) %>

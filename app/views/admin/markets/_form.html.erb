@@ -1,4 +1,4 @@
-<%= form_for(@market) do |f| %>
+<%= form_for [:admin,@market] do |f| %>
   <% if @market.errors.any? %>
     <div id="error_explanation" class="alert alert-error">
     		<a href="#" class="close" data-dismiss="alert">&times;</a>

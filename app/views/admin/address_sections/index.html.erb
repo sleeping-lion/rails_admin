@@ -1,6 +1,6 @@
 <div class="row-fluid">
 	<h3 class="pull-left"><%= @controller_name %> <%=actionNameChange controller.action_name %></h3>
-	<%=form_tag address_sections_path,:method=>:get,:class=>"form-search pull-right" do %>
+	<%=form_tag admin_address_sections_path,:method=>:get,:class=>"form-search pull-right" do %>
 		<select name="search_field" class="input-small span5">
 			<option value="address_id" <% if params[:search_field]=='address_id' %>selected="selected"<% end %>>Address_ID</option>
 			<option value="address" <% if params[:search_field]=='address' %>selected="selected"<% end %>><%=t(:label_address) %></option>			
@@ -74,12 +74,12 @@
 <div class="row-fluid">
 	<div class="pull-left">
 		<% if can? :create, AddressSection %>		
-		<%= link_to new_address_section_path, :class=>"btn" do %>
+		<%= link_to new_admin_address_section_path, :class=>"btn" do %>
 		<i class="icon-plus"></i> <%=t(:link_new) %>
 		<% end %>
 		<% end %>
 		<% unless @address_sections.empty? %>
-		<%=link_to address_sections_path(:format=>"xls",:params=>params), :class=>"btn" do %>
+		<%=link_to admin_address_sections_path(:format=>"xls",:params=>params), :class=>"btn" do %>
 		<i class="icon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
 		<% end %>

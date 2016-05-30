@@ -19,11 +19,6 @@ class Admin::AddressSectionsController < Admin::AdminController
       params[:per_page]=20
     end
     
-    if params[:format]=='xls'
-      params[:page]=nil
-      params[:per_page]=50000  
-    end
-    
     if params[:search_field].present? && params[:search_value].present?   
       if(params[:search_field]=='id')
         likesql='address_id like ?'
@@ -50,7 +45,6 @@ class Admin::AddressSectionsController < Admin::AdminController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @address_sections }
-      format.xls      
     end
   end
 

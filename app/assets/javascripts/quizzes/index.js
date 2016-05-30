@@ -1,10 +1,6 @@
 //= require application
-//= require cleditor/cleditor
-//= require cleditor/jquery.cleditor.advancedtable
 
 $(document).ready(function(){
-	$('.cleditor').cleditor();
-	
 	$(".btn-minimize").toggle(function(){
 			$(this).parent().find('i:first').removeAttr('class').addClass('icon-chevron-down');
 			$(this).parent().parent().parent().find('.box-content').slideUp();

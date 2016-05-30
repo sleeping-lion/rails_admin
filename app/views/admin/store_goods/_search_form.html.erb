@@ -2,7 +2,7 @@
 	<table class="table table-bordered table-striped">
 		<tr>
 			<th><%=label_tag :title,t(:label_title) %></th>
-			<td><%=text_field_tag :title, params[:label_title] %></td>
+			<td><%=text_field_tag :title, params[:label_title],:class=>"form-control" %></td>
 		</tr>
 		<tr>
 			<th><%=label_tag :start_date,t(:label_period_search) %></th>

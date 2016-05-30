@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class Admin::RequestSettingsController < ApplicationController
+class Admin::RequestSettingsController < Admin::AdminController
   impressionist  
   load_and_authorize_resource  
   

@@ -16,3 +16,4 @@ css         = Dir["#{style_prefix}**/*.css"].map  { |x| x.gsub(style_prefix, '')
 scss        = Dir["#{style_prefix}**/*.scss"].map { |x| x.gsub(style_prefix, '') }
 
 Rails.application.config.assets.precompile = (javascripts + css + scss)
+Rails.application.config.assets.precompile += %w( boards/new.js )
