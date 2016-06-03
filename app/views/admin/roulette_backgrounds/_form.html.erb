@@ -1,4 +1,4 @@
-<%= form_for(@roulette_background) do |f| %>
+<%= form_for [:admin,@roulette_background] do |f| %>
   <% if @roulette_background.errors.any? %>
     <div id="error_explanation" class="alert alert-error">
     		<a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -10,20 +10,20 @@
       </ul>
     </div>
   <% end %>
-  <div class="control-group">
+  <div class="form-group">
  		<%= f.label :title %>
  		<%= f.text_field :title %>
  	</div>  
-  <div class="control-group">
+  <div class="form-group">
  		<%= f.label :photo %>
  		<%= f.file_field :photo %>
  		<%= f.hidden_field :photo_cache %>
  	</div>
-  <div class="control-group">
+  <div class="form-group">
  		<%= f.label :flag %>
  		<%= f.check_box :flag %>
  	</div>
- 	<div class="actions">
+ 	<div class="form-group actions">
  		<%= f.submit :class=>"btn btn-primary" %>
  	</div>
 <% end %>

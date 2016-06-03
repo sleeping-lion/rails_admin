@@ -34,12 +34,12 @@
 			<td>
 				<% if can? :update, game_amount %>
 				<%= link_to edit_admin_game_amount_path(game_amount),:class=>"btn btn-default" do %>
-				<i class="icon-pencil"></i> <%=t(:link_edit) %>
+				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, game_amount %>		
 				<%= link_to admin_game_amount_path(game_amount), :method => :delete, :data => { :confirm =>t(:delete_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
-				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>
 			</td>
@@ -53,13 +53,13 @@
 		<% end %>
 	</tbody>
 </table>
-<div class="row-fluid">
-	<% if can? :create, GameAmount %>				
-	<div class="pull-left">		
-		<%= link_to new_admin_game_amount_path, :class=>"btn btn-primary" do %>
-		<i class="icon-plus"></i> <%=t(:link_new) %>
-		<% end %>
-	</div>	
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md2">
+	<% if can? :create, GameAmount %>					
+	<%= link_to new_admin_game_amount_path, :class=>"btn btn-primary" do %>
+	<i class="glyphicon glyphicon-plus"></i> <%=t(:link_new) %>
 	<% end %>
+	<% end %>
+	</div>
 	<%= paginate @game_amounts %>
 </div>

@@ -1,7 +1,7 @@
 <aside class="col-xs-3 col-lg-2">
 	<nav class="nav-collapse sidebar-nav">
 		<ul class="nav main-menu">
-			<li><%=link_to root_path do %><i class="icon-home icon-white"></i><span class="hidden-tablet"> <%=t(:menu_home)%></span><% end %></li>
+			<li><%=link_to admin_path do %><i class="icon-home icon-white"></i><span class="hidden-tablet"> <%=t(:menu_home)%></span><% end %></li>
 			<% if can? :read, Ad %>
 			<li><%=link_to admin_ads_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:menu_ad)%> </span><% end %></li>
 			<% end %>

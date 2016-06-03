@@ -1,4 +1,4 @@
-<%= form_for(@roulette_setting) do |f| %>
+<%= form_for [:admin,@roulette_setting] do |f| %>
   <% if @roulette_setting.errors.any? %>
     <div id="error_explanation" class="alert alert-error">
     		<a href="#" class="close" data-dismiss="alert">&times;</a>

@@ -20,6 +20,6 @@
 	</p>
 </div>
 <% if can? :update, @game_setting %>
-<%= link_to t(:link_edit), edit_game_setting_path(@game_setting) %> |
+<%= link_to t(:link_edit), edit_admin_game_setting_path(@game_setting) %> |
 <% end %>
-<%= link_to t(:link_list), game_settings_path %>
+<%= link_to t(:link_list), admin_game_settings_path %>

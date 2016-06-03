@@ -69,12 +69,12 @@
 			<td>
 				<% if can? :update, roulette_play %>
 				<%= link_to edit_roulette_play_path(roulette_play),:class=>"btn btn-small pull-left" do %>
-				<i class="icon-pencil"></i> <%=t(:link_edit) %>
+				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, roulette_play %>
 				<%= link_to roulette_play, :method => :delete, :data => { :confirm =>t(:delete_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
-				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>
 			</td>
@@ -91,14 +91,14 @@
 <div class="row-fluid">
 	<div class="pull-left">
 		<% if can? :create, RoulettePlay %>
-		<%= link_to new_roulette_play_path, :class=>"btn" do %>
-		<i class="icon-plus"></i> <%=t(:link_new) %>
+		<%= link_to new_admin_roulette_play_path, :class=>"btn" do %>
+		<i class="glyphicon glyphicon-plus"></i> <%=t(:link_new) %>
 		<% end %>
 		<% end %>
 		<% if can? :manage, RoulettePlay %>		
 		<% unless @roulette_plays.empty? %>
-		<%=link_to roulette_plays_path(:format=>"xls",:params=>params), :class=>"btn" do %>
-		<i class="icon-file"></i> <%=t(:link_download_excel) %>
+		<%=link_to admin_roulette_plays_path(:format=>"xls",:params=>params), :class=>"btn" do %>
+		<i class="glyphicon glyphicon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
 		<% end %>
 		<% end %>		

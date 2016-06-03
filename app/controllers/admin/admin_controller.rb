@@ -88,18 +88,5 @@ HAVING sum( amount ) >15) AS FF')
     
     
     @script='home/index'
-  end
-  
-  private
-
-  def ensure_admin!
-    unless current_user.admin?
-      sign_out current_user
-
-      redirect_to root_path
-
-      return false
-    end
-  end
-  
+  end  
 end

@@ -28,18 +28,18 @@
   <tr>
     <td><%=link_to roulette_background.id, roulette_background_path(roulette_background) %></td>
     <td><%=image_tag roulette_background.photo.medium_thumb %></td>    
-    <td><%=link_to roulette_background.title, roulette_background_path(roulette_background) %></td>
+    <td><%=link_to roulette_background.title, admin_roulette_background_path(roulette_background) %></td>
     <td><%= roulette_background.created_at.to_date %></td>
 		<% if can?(:update, roulette_background) || can?(:delete, roulette_background) %>
 			<td>
 				<% if can? :update, roulette_background %>
-				<%= link_to edit_roulette_background_path(roulette_background),:class=>"btn btn-small pull-left" do %>
-				<i class="icon-pencil"></i> <%=t(:link_edit) %>
+				<%= link_to edit_admin_roulette_background_path(roulette_background),:class=>"btn btn-small pull-left" do %>
+				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, roulette_background %>
-				<%= link_to roulette_background, :method => :delete, :data => { :confirm =>t(:delete_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
-				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<%= link_to admin_roulette_background, :method => :delete, :data => { :confirm =>t(:delete_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
+				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>
 			</td>
@@ -56,8 +56,8 @@
 <div class="row-fluid">
 	<div class="pull-left">
 		<% if can? :create, RouletteBackground %>
-		<%= link_to new_roulette_background_path, :class=>"btn" do %>
-		<i class="icon-plus"></i> <%=t(:link_new) %>
+		<%= link_to new_admin_roulette_background_path, :class=>"btn btn-primary" do %>
+		<i class="glyphicon glyphicon-plus"></i> <%=t(:link_new) %>
 		<% end %>
 		<% end %>	
 	</div>	

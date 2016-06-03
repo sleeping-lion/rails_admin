@@ -1,49 +1,48 @@
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put,:class=>"form-horizontal" }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
-  <div class="form-horizontal">
-	  <div class="control-group">
+	  <div class="form-group">
 	  	<%= f.label :login_id, :class => "control-label" %>
 	    <div class="controls">
-	  	<%= f.text_field :login_id, :autofocus => true %>
+	  	<%= f.text_field :login_id,:class=>"form-control", :autofocus => true %>
 		</div>
 	  </div>  	
-	  <div class="control-group">
+	  <div class="form-group">
 	  	<%= f.label :nickname, :class => "control-label" %>
 	    <div class="controls">
-	  	<%= f.text_field :nickname, :autofocus => true %>
+	  	<%= f.text_field :nickname,:class=>"form-control",:autofocus => true %>
 		</div>
 	  </div>
-	  <div class="control-group">
+	  <div class="form-group">
 	  	<%= f.label :email,t(:label_email), :class => "control-label" %>
 	    <div class="controls">
-	  	<%= f.email_field :email, :autofocus => true %>
+	  	<%= f.email_field :email,:class=>"form-control", :autofocus => true %>
 		</div>
 	  </div> 
 	  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 	    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 	  <% end %>
-	  <div class="control-group">
+	  <div class="form-group">
 	  	<%= f.label :password, :class => "control-label" %> 
 	    <div class="controls">
-	  	<%= f.password_field :password, :autocomplete => "off" %>
+	  	<%= f.password_field :password,:class=>"form-control", :autocomplete => "off" %>
 	  	<span class="help-block">(비밀번호 변경시만 입력)</span>
 		</div>
 	  </div> 
-	  <div class="control-group">
+	  <div class="form-group">
 	  	<%= f.label :password_confirmation, :class => "control-label" %>
 	    <div class="controls">
-	  	<%= f.password_field :password_confirmation %>
+	  	<%= f.password_field :password_confirmation,:class=>"form-control" %>
 	  	<span class="help-block">(비밀번호 변경시만 입력)</span>
 		</div>
 	  </div> 
-	  <div class="control-group">
+	  <div class="form-group">
 	  	<%= f.label :current_password, :class => "control-label" %> 
 	    <div class="controls">
-	  	<%= f.password_field :current_password, :required=>"required" %>
+	  	<%= f.password_field :current_password,:class=>"form-control", :required=>"required" %>
 	  	<span class="help-block">(변경시  입력)</span>
 		</div>
 	  </div> 
-	  <div class="control-group">
+	  <div class="form-group">
 		<%= f.label :photo, :class => "control-label" %>	
 	    <div class="controls">
 			<% if resource.photo? %>
@@ -54,7 +53,7 @@
 			<%= f.hidden_field :photo_cache %>
 		</div>
 	  </div>
-	  <div class="control-group">
+	  <div class="form-group">
 	  	<%= f.label :flag, :class => "control-label" %> 
 	    <div class="controls">
 	  	<%= f.check_box :flag %>
@@ -63,7 +62,6 @@
 	 <div class="form-actions">
 	 		<%= f.submit :class=>"btn btn-primary" %>
 		</div>
-	</div>
 <% end %>
 <div class="pull-right">
 <%= button_to t(:link_delete_admin), registration_path(resource_name), :data => { :confirm => t(:delete_cascade_confirm)}, :method => :delete, :class=>"btn btn-danger" %>

@@ -10,15 +10,15 @@
       </ul>
     </div>
   <% end %>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :amount %>
-    <%= f.number_field :amount,:required=>"reqiured" %> <%=t(:label_point)%>
+    <%= f.number_field :amount,:class=>"form-control",:required=>"reqiured" %> <%=t(:label_point)%>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :flag %>
     <%= f.check_box :flag %>
   </div>	  
-  <div class="actions">
+  <div class="form-group actions">
     <%= f.submit :class=>"btn btn-primary" %>
   </div>
 <% end %>

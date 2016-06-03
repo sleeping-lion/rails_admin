@@ -1,5 +1,5 @@
 class Admins::RegistrationsController < Devise::RegistrationsController
-  layout :admin_layout
+  layout 'admin/application'
   
   def initialize(*params)
     super(*params)

@@ -65,7 +65,6 @@ class Admin::RoulettePlaysController < Admin::AdminController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @roulette_plays }
-      format.xls      
     end
   end
 

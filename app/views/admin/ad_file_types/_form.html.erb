@@ -1,4 +1,4 @@
-<%= form_for(@ad_file_type) do |f| %>
+<%= form_for [:admin,@ad_file_type] do |f| %>
   <% if @ad_file_type.errors.any? %>
     <div id="error_explanation" class="alert alert-error">
     		<a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -10,15 +10,15 @@
       </ul>
     </div>
   <% end %>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :flag %>
     <%= f.check_box :flag %>
   </div>
-  <div class="control-group actions">
+  <div class="form-group actions">
     <%= f.submit :class=>"btn btn-primary" %>
   </div>
 <% end %>

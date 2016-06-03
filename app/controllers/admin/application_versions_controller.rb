@@ -58,7 +58,7 @@ class Admin::ApplicationVersionsController < Admin::AdminController
 
     respond_to do |format|
       if @application_version.save
-        format.html { redirect_to @application_version, :notice => @controller_name +t(:message_success_insert)  }
+        format.html { redirect_to admin_application_version_path(@application_version), :notice => @controller_name +t(:message_success_insert)  }
         format.json { render :json => @application_version, :status => :created, :location => @application }
       else
         format.html { render :action => "new" }
@@ -74,7 +74,7 @@ class Admin::ApplicationVersionsController < Admin::AdminController
 
     respond_to do |format|
       if @application_version.update_attributes(params[:application_version])
-        format.html { redirect_to @application_version, :notice => @controller_name +t(:message_success_update) }
+        format.html { redirect_to admin_application_version_path(@application_version), :notice => @controller_name +t(:message_success_update) }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -90,7 +90,7 @@ class Admin::ApplicationVersionsController < Admin::AdminController
     @application_version.destroy
 
     respond_to do |format|
-      format.html { redirect_to application_versions_url }
+      format.html { redirect_to admin_application_versions_path }
       format.json { head :no_content }
     end
   end

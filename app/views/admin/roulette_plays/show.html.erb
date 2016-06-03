@@ -24,6 +24,6 @@
 	</p>
 </div>
 <% if can? :update, @roulette_play %>
-<%= link_to t(:link_edit), edit_roulette_play_path(@roulette_play) %> |
+<%= link_to t(:link_edit), edit_admin_roulette_play_path(@roulette_play) %> |
 <% end %>
-<%= link_to t(:link_list), roulette_plays_path(list_param(params)) %>
+<%= link_to t(:link_list), admin_roulette_plays_path(list_param(params)) %>
