@@ -1,5 +1,6 @@
 class Admin::AdminController < ApplicationController
   layout 'admin/application'
+  load_and_authorize_resource 
   
  def index  
     # TODO: 데이터 증가에 따른 Memcache 처리 필요할듯
@@ -89,7 +90,16 @@ HAVING sum( amount ) >15) AS FF')
     @script='home/index'
   end
   
-  def no_auth
+  private
+
+  def ensure_admin!
+    unless current_user.admin?
+      sign_out current_user
+
+      redirect_to root_path
+
+      return false
+    end
+  end
   
-  end  
 end

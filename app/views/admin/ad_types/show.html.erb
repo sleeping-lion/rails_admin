@@ -20,6 +20,6 @@
   </p>
 </div>
 <% if can? :update, @ad_type %>	
-<%= link_to t(:link_edit), edit_ad_type_path(@ad_type) %> |
+<%= link_to t(:link_edit), edit_admin_ad_type_path(@ad_type) %> |
 <% end %>
-<%= link_to t(:link_list), ad_types_path %>
+<%= link_to t(:link_list), admin_ad_types_path %>

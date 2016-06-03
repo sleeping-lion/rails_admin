@@ -1,4 +1,4 @@
-<%= form_for @operator, :html=>{:class=>"form-horizontal"} do |f| %>
+<%= form_for [:admin,@operator], :html=>{:class=>"form-horizontal"} do |f| %>
 	<% if @operator.errors.any? %>
 	<div id="error_explanation" class="alert alert-error">
 		<a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -62,7 +62,7 @@
   		end
   		end
   		 %>
-    <%=select_tag :role_id, options_from_collection_for_select(Role.find(:all,:conditions=>{:flag=>true}), 'id', 'title',va) %>
+    <%=select_tag :role_id, options_from_collection_for_select(Role.where(:flag=>true).all(), 'id', 'title',va) %>
   </div>
 	  </div>
 	  <div class="control-group">
@@ -86,7 +86,7 @@
 	  <div class="control-group">
 	  	<%=f.label :address_id,t(:label_address), :class => "control-label" %>
   		<div class="controls">
-    <%=f.select :address_id, options_from_collection_for_select(Address.find(:all,:conditions=>{:flag=>true}), 'id', 'full_address',@operator.address_id),{:include_blank => '주소를 입력하려면 선택하세요'} %>
+    <%=f.select :address_id, options_from_collection_for_select(Address.where(:flag=>true).all(),'id', 'full_address',@operator.address_id),{:include_blank => '주소를 입력하려면 선택하세요'} %>
   	</div>
 	  </div>	  
 	  <div class="control-group">

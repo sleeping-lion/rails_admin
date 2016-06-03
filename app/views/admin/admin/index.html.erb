@@ -1,20 +1,20 @@
-<div class="row-fluid">
+<div class="row">
 	<div class="box">
-		<a href="<%= users_path %>" class="quick-button-small span4">
+		<a href="<%= admin_users_path %>" class="quick-button-small span4">
 			<i class="icon-user"></i>
 			<p><%=t(:users) %></p>
 			<% if @new_users_count %>
 				<span class="notification red"><%= @new_users_count %></span>
 			<% end %>
 		</a>
-		<a href="<%= ads_path %>" class="quick-button-small span4">
+		<a href="<%= admin_ads_path %>" class="quick-button-small span4">
 			<i class="icon-th-list"></i>
 			<p><%=t(:ad) %></p>
 			<% if @new_ads_count %>
 				<span class="notification red"><%= @new_ads_count %></span>
 			<% end %>
 		</a>
-		<a href="<%= store_orders_path %>" class="quick-button-small span4">
+		<a href="<%= admin_store_orders_path %>" class="quick-button-small span4">
 			<i class="icon-shopping-cart"></i>
 			<p><%=t(:orders) %></p>
 			<% if @new_orders_count %>
@@ -117,7 +117,7 @@
 		</div>
 	</div> -->
 </div>
-<script type="text/javascript">
+<script>
 function gd(date) {
 	dd=date.split('-')
 return new Date(dd[0], dd[1] - 1, dd[2]).getTime();

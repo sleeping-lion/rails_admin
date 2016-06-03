@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery 
   layout :layout
   before_filter :set_locale
+  before_filter :authenticate_admin!,:only => [:index,:new,:create,:show,:edit, :update, :destroy]
   
   def initialize(*params)
     super(*params)
@@ -13,8 +14,8 @@ class ApplicationController < ActionController::Base
   end
   
   def current_ability
-    @current_ability ||= AdminAbility.new(current_admin)
-  end  
+    @current_ability ||= AdminAbility.new(current_admin)        
+  end
   
   def set_locale
      I18n.locale = 'ko'

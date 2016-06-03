@@ -1,8 +1,6 @@
-# encoding: utf-8
-
 class NoticesController < ApplicationController
   impressionist  
-  load_and_authorize_resource  
+  before_filter :authenticate_admin!, except: [ :index, :show ]
   
   def initialize(*params)
     super(*params)

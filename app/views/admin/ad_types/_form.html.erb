@@ -1,4 +1,4 @@
-<%= form_for(@ad_type) do |f| %>
+<%= form_for [:admin,@ad_type] do |f| %>
   <% if @ad_type.errors.any? %>
     <div id="error_explanation" class="alert alert-error">
     		<a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -10,23 +10,23 @@
       </ul>
     </div>
   <% end %>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :title, t(:label_title) %>
-    <%= f.text_field :title,:required=>"required" %>
+    <%= f.text_field :title,:class=>"form-control",:required=>"required" %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :file_prefix, 'file_prefix' %>
-    <%= f.text_field :file_prefix,:required=>"required" %>
+    <%= f.text_field :file_prefix,:class=>"form-control",:required=>"required" %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :max_file_count, 'file_count' %>
-    <%= f.number_field :max_file_count,:required=>"required" %>
+    <%= f.number_field :max_file_count,:class=>"form-control",:required=>"required" %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :flag, t(:label_flag) %>
-    <%= f.check_box :flag %>
+    <%= f.check_box :flag,:class=>"form-control" %>
   </div>
-  <div class="control-group actions">
+  <div class="form-group actions">
     <%= f.submit :class=>"btn btn-primary" %>
   </div>
 <% end %>

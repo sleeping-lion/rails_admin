@@ -2,6 +2,7 @@ class AdminAbility
   include CanCan::Ability
 
   def initialize(admin)
+    if admin
     if admin.role? :administrator      
       can :manage, :all    
     elsif admin.role? :operator
@@ -27,5 +28,9 @@ class AdminAbility
       can :read, [Stat]
       cannot :read, [Operator,ApplicationVersion,GameSetting]
     end
+    
+    else 
+    cannot :manage, :all
+    end 
   end
 end

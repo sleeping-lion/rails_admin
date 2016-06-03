@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :faqs
 
   namespace :admin do
+    get '/' => 'admin#index'    
     resources :notices
     resources :faqs
 

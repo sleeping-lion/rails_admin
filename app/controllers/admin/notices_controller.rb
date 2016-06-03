@@ -1,5 +1,5 @@
 class Admin::NoticesController < Admin::AdminController
-  impressionist  
+  impressionist
   load_and_authorize_resource
   
   def initialize(*params)
