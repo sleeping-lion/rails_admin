@@ -10,23 +10,23 @@
       </ul>
     </div>
   <% end %>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :user_id %>
     <%= f.number_field :user_id,:required=>"required" %> <%=link_to t(:user_id_find),'/users/user_id_select',:id=>'user_id_select',:title=>t(:user_id_find),:target=>'_blank',:class=>'btn modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal",:style=>'vertical-align:top' %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :point_type_id %>
     <%= f.select :point_type_id, options_from_collection_for_select(PointType.where(:flag=>true).all, 'id', 'title',@point.point_type_id) %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= label_tag :ad_id,t(:label_ad) %>
     <%= select_tag :ad_id, options_from_collection_for_select(Ad.where(:flag=>true).all, 'id', 'title',@point.point_type_id), {:include_blank => 'None'} %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :amount %>
     <%= f.number_field :amount %>
   </div>
-  <div class="control-group actions">
+  <div class="form-group actions">
     <%= f.submit :class=>"btn btn-primary" %>
   </div>
 <% end %>

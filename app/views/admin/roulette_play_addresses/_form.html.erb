@@ -1,4 +1,4 @@
-<%= form_for(@roulette_play_address) do |f| %>
+<%= form_for [:admin,@roulette_play_address] do |f| %>
 <% if @roulette_play_address.errors.any? %>
 <div id="error_explanation" class="alert alert-error">
 	<a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -12,35 +12,31 @@
 	</ul>
 </div>
 <% end %>
-
-
-
-<div class="control-group">
+<div class="form-group">
 	<%= f.label :address_id %>
 	<%= f.text_field :address_id %>
 </div>
-<div class="control-group">
+<div class="form-group">
 	<%= f.label :roulette_play_id %>
 	<%= f.text_field :roulette_play_id %>
 </div>
-<div class="control-group">
+<div class="form-group">
 	<%= f.label :address %>
 	<%= f.text_field :address %>
 </div>
-<div class="control-group">
+<div class="form-group">
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 </div>
-<div class="control-group">
+<div class="form-group">
 	<%= f.label :mobilephone %>
 	<%= f.text_field :mobilephone %>
 </div>
-<div class="control-group">
+<div class="form-group">
 	<%= f.label :primary_flag %>
 	<%= f.text_field :primary_flag %>
 </div>
-
-<div class="control-group actions">
+<div class="form-group actions">
 	<%= f.submit :class=>"btn btn-primary" %>
 </div>
 <% end %>

@@ -20,6 +20,6 @@
   </p>
 </section>
 <% if can? :update, @bank %>	
-<%= link_to t(:link_edit), edit_bank_path(@bank) %> |
+<%= link_to t(:link_edit), edit_admin_bank_path(@bank) %> |
 <% end %>
-<%= link_to t(:link_list), banks_path %>
+<%= link_to t(:link_list), admin_banks_path %>

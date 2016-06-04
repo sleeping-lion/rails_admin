@@ -10,47 +10,47 @@
 	</div>
 	<div class="box-content">
 		<form class="form form-horizontal">
-		<div class="control-group">
+		<div class="form-group">
 			<%=t(:label_title)%>
 			<div class="controls"><%= @quiz.title %></div>
 		</div>		
-		<div class="control-group">
+		<div class="form-group">
 			<%=t(:label_description)%>
 			<div class="controls"><%= @quiz.description %></div>
 		</div>		
-		<div class="control-group">
+		<div class="form-group">
 			<%=t(:label_full_description)%>
 			<div class="controls"><%= @quiz.full_description %></div>
 		</div>		
-		<div class="control-group">
+		<div class="form-group">
 			<%=t(:label_photo)%>
 			<div class="controls"><%= @quiz.photo.medium_thumb %></div>
 		</div>		
-		<div class="control-group">
+		<div class="form-group">
 			<%=t(:label_sponsor)%>
 			<div class="controls"><%= @quiz.sponsor %></div>
 		</div>		
-		<div class="control-group">
+		<div class="form-group">
 			<%=t(:label_sponsor_url)%>
 			<div class="controls"><%= @quiz.sponsor_url %></div>
 		</div>		
-		<div class="control-group">
+		<div class="form-group">
 			<%=t(:label_price)%>
 			<div class="controls"><%= @quiz.price %></div>
 		</div>		
-		<div class="control-group">
+		<div class="form-group">
 			<%=t(:label_budget)%>
 			<div class="controls"><%= @quiz.budget %></div>
 		</div>		
-		<div class="control-group">
+		<div class="form-group">
 			<%=t(:label_balance)%>
 			<div class="controls"><%= @quiz.balance %></div>
 		</div>		
-		<div class="control-group">
+		<div class="form-group">
 			<%=t(:label_point)%>
 			<div class="controls"><%= @quiz.point %></div>
 		</div>		
-		<div class="control-group">
+		<div class="form-group">
 			<%=t(:label_time)%>
 			<div class="controls"><%= @quiz.start_time %> ~ <%= @quiz.end_time %></div>
 		</div>		
@@ -61,6 +61,6 @@
 
 
 <% if can? :create, @quiz %>
-<%= link_to t(:link_edit), edit_quiz_path(@quiz) %> |
+<%= link_to t(:link_edit), edit_admin_quiz_path(@quiz) %> |
 <% end %>
-<%= link_to t(:link_list), quizzes_path %>
+<%= link_to t(:link_list), admin_quizzes_path %>

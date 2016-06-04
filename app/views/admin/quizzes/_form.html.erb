@@ -1,4 +1,4 @@
-<%= form_for @quiz, :html=>{:class=>"form-horizontal"} do |f| %>
+<%= form_for [:admin,@quiz], :html=>{:class=>"form-horizontal"} do |f| %>
   <% if @quiz.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
@@ -9,79 +9,79 @@
       </ul>
     </div>
   <% end %>
-  <div class="control-group">
+  <div class="form-group">
   	<%= f.label :quiz_type, :class => 'control-label' %>
   	<div class="controls">
   		<%= f.select :quiz_type, [['포인트지급', 1], ['경품응모', 2]] %>
   	</div>
   </div>
-  <div class="control-group">
+  <div class="form-group">
   	<%= f.label :title, :class => 'control-label' %>
   	<div class="controls">
   		<%= f.text_field :title %>
   	</div>
   </div>
-  <div class="control-group">
+  <div class="form-group">
   	<%= f.label :description, :class => 'control-label' %>
   	<div class="controls">
   		<%= f.text_field :description %>
   	</div>
   </div>
-  <div class="control-group">
+  <div class="form-group">
   	<%= f.label :full_description, :class => 'control-label' %>
   	<div class="controls">
   		<%= f.text_field :full_description %>
   	</div>
   </div>
-  <div class="control-group">
+  <div class="form-group">
   	<%= f.label :sponsor, :class => 'control-label' %>
   	<div class="controls">
   		<%= f.text_field :sponsor %>
   	</div>
   </div>
-  <div class="control-group">
+  <div class="form-group">
   	<%= f.label :sponsor_url, :class => 'control-label' %>
   	<div class="controls">
   		<%= f.text_field :sponsor_url %>
   	</div>
   </div>
-  <div class="control-group">
+  <div class="form-group">
   	<%= f.label :price, :class => 'control-label' %>
   	<div class="controls">
   		<%= f.text_field :price %>
   	</div>
   </div>
-  <div class="control-group">
+  <div class="form-group">
   	<%= f.label :budget, :class => 'control-label' %>
   	<div class="controls">
   		<%= f.text_field :budget %>
   	</div>
   </div>
-  <div class="control-group">
+  <div class="form-group">
   	<%= f.label :balance, :class => 'control-label' %>
   	<div class="controls">
   		<%= f.text_field :balance %>
   	</div>
   </div>
-  <div class="control-group">
+  <div class="form-group">
   	<%= f.label :point, :class => 'control-label' %>
   	<div class="controls">
   		<%= f.text_field :point %>
   	</div>
   </div>
-  <div class="control-group">
+  <div class="form-group">
 		<%= f.label :start_time, :class => 'control-label' %>
 		<div class="controls">
 			<%= f.datetime_select :start_time, :class => "input-medium" %>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<%= f.label :end_time, :class => 'control-label' %>
 		<div class="controls">
 			<%= f.datetime_select :end_time, :class => "input-medium" %>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<%= f.label :photo, :class => "control-label" %>	
 		<div class="controls">
 	   	<% if @quiz%>	   
@@ -94,7 +94,7 @@
 			<%= f.hidden_field :photo_cache %>
 		</div>
 	</div>
-  <div class="control-group ctions">
+  <div class="form-group ctions">
     <%= f.submit :class=>"btn btn-primary"%>
   </div>
 <% end %>

@@ -10,23 +10,23 @@
       </ul>
     </div>
   <% end %>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title,:required=>"required" %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :percentage %>
     <%= f.text_field :percentage %> 남은 확률 <%=100-RouletteSetting.sum(:percentage)%>
   </div>  
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :amount %>
     <%= f.number_field :amount,:required=>"reqiured" %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :limit %>
     <%= f.number_field :limit,:required=>"reqiured" %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :flag %>
     <%= f.check_box :flag %>
   </div>

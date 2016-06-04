@@ -16,7 +16,7 @@
     <td><%= ad_comment.user %></td>
     <td><%= ad_comment.content %></td>
     <td><%= link_to 'Show', ad_comment %></td>
-    <td><%= link_to 'Edit', edit_ad_comment_path(ad_comment) %></td>
+    <td><%= link_to 'Edit', edit_admin_ad_comment_path(ad_comment) %></td>
     <td><%= link_to 'Destroy', ad_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
@@ -24,4 +24,4 @@
 
 <br />
 
-<%= link_to 'New Ad comment', new_ad_comment_path %>
+<%= link_to 'New Ad comment', new_admin_ad_comment_path %>

@@ -30,6 +30,6 @@
 
 <br />
 <% if can? :update, @user_address_book %>	
-<%= link_to t(:link_edit), edit_user_address_book_path(@user_address_book) %> |
+<%= link_to t(:link_edit), edit_admin_user_address_book_path(@user_address_book) %> |
 <% end %>
-<%= link_to t(:link_list), user_address_books_path %>
+<%= link_to t(:link_list), admin_user_address_books_path %>

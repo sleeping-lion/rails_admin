@@ -14,12 +14,12 @@
     <td><%= ad_user.ad %></td>
     <td><%= ad_user.user %></td>
     <td><%= link_to 'Show', ad_user %></td>
-    <td><%= link_to 'Edit', edit_ad_user_path(ad_user) %></td>
-    <td><%= link_to 'Destroy', ad_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Edit', edit_admin_ad_user_path(ad_user) %></td>
+    <td><%= link_to 'Destroy', admin_ad_user_path(ad_user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Ad user', new_ad_user_path %>
+<%= link_to 'New Ad user', new_admin_ad_user_path %>
