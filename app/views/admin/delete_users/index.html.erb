@@ -67,7 +67,7 @@
 		<% end %>
 		<% end %>
 		<% unless @delete_users.empty? %>		
-		<%=link_to delete_admin_users_path(:format=>"xls",:params=>params), :class=>"btn btn-default" do %>
+		<%=link_to delete_admin_susers_path(:format=>"xls",:params=>params), :class=>"btn btn-default" do %>
 		<i class="glyphicon glyphicon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
 		<% end %>
