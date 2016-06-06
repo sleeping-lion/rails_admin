@@ -36,12 +36,12 @@
 			<% if can? :update, quiz_log %>								
 			<td>
 				<% if can? :update, quiz_log %>
-				<%= link_to edit_quiz_log_path(quiz_log),:class=>"btn btn-small pull-left" do %>
+				<%= link_to edit_admin_quiz_log_path(quiz_log),:class=>"btn btn-small pull-left" do %>
 				<i class="icon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, quiz_log %>				
-				<%= link_to quiz_log, :method => :delete, :data => { :confirm => t(:delete_cascade_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
+				<%= link_to admin_quiz_log_path(quiz_log), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
 				<i class="icon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>
@@ -56,13 +56,15 @@
 		<% end %>
 	</tbody>
 </table>
-<div class="row-fluid">
-	<% if can? :create, QuizLog %>	
-	<div class="pull-left">
-		<%= link_to new_quiz_log_path, :class=>"btn" do %>
-		<i class="icon-plus"></i> <%=t(:link_new) %>
+
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md2">
+		<% if can? :create, QuizLog %>
+		<%= link_to new_admin_quiz_log_path, :class=>"btn btn-primary" do %>
+		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
+		<% end %>
 		<% end %>
 	</div>
-	<% end %>
 	<%= paginate @quiz_logs %>
 </div>
+

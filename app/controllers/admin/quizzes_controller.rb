@@ -56,9 +56,7 @@ class Admin::QuizzesController < Admin::AdminController
     @quiz = Quiz.new(params[:quiz])
     respond_to do |format|
       if @quiz.save
-        #format.html { redirect_to new_quiz_question_path( :quiz_id => @quiz.id ), notice: 'Quiz was successfully created.' }
-        format.html { redirect_to quiz_path( @quiz ), :notice => @controller_name +t(:message_success_insert)}
-        #format.html { redirect_to @quiz, notice: 'Quiz was successfully created.' }
+        format.html { redirect_to admin_quiz_path(@quiz), :notice => @controller_name +t(:message_success_insert)}
         format.json { render json: @quiz, status: :created, location: @quiz }
       else
         format.html { render action: "new" }
@@ -74,7 +72,7 @@ class Admin::QuizzesController < Admin::AdminController
 
     respond_to do |format|
       if @quiz.update_attributes(params[:quiz])
-        format.html { redirect_to @quiz, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_quiz_path(@quiz), :notice => @controller_name +t(:message_success_insert)}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -90,7 +88,7 @@ class Admin::QuizzesController < Admin::AdminController
     @quiz.destroy
 
     respond_to do |format|
-      format.html { redirect_to quizzes_url }
+      format.html { redirect_to admin_quizzes_path }
       format.json { head :no_content }
     end
   end

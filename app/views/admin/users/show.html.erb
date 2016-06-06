@@ -42,9 +42,9 @@
 			<th><%=t(:label_point) %></th>
 			<td>
 				<%= number_with_delimiter( @user.u_point ) %> &nbsp;&nbsp;
-				<%= link_to t(:link_point_search), points_path( :user_id => @user.id ), :class => "btn btn-small btn-info" %>
-				<%= link_to t(:link_request_search), requests_path( :user_id => @user.id ), :class => "btn btn-small btn-info" %>
-				<%= link_to t(:link_game_search), games_path( :user_id => @user.id ), :class => "btn btn-small btn-info" %>								
+				<%= link_to t(:link_point_search), admin_points_path( :user_id => @user.id ), :class => "btn btn-default" %>
+				<%= link_to t(:link_request_search), admin_requests_path( :user_id => @user.id ), :class => "btn btn-default" %>
+				<%= link_to t(:link_game_search), admin_games_path( :user_id => @user.id ), :class => "btn btn-default" %>								
 			</td>
 		</tr>
 		<tr>
@@ -101,14 +101,14 @@
 		</tr>
 	</table>
 <% if(!params[:no_layout]) %>
-<%= render "user_targets/index" %>
-<%= render "user_target_addresses/index" %>
-<%= render "user_referrals/index" %>
+<%= render "admin/user_targets/index" %>
+<%= render "admin/user_target_addresses/index" %>
+<%= render "admin/user_referrals/index" %>
 <% end %>
 </div>
 <% if(!params[:no_layout]) %>
 <% if can? :update, Notice %>		
-<%= link_to t(:link_edit), edit_user_path(@user) %> |
+<%= link_to t(:link_edit), edit_admin_user_path(@user) %> |
 <% end %>
-<%= link_to t(:link_list), users_path(list_param(params)) %>
+<%= link_to t(:link_list), admin_users_path(list_param(params)) %>
 <% end %>

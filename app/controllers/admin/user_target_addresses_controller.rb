@@ -22,7 +22,7 @@ class Admin::UserTargetAddressesController < Admin::AdminController
     @user.build_user_target_address(params[:user_target_address])
     @user.save    
     
-    redirect_to user_path(@user)
+    redirect_to admin_user_path(@user)
   end
   
   def update
@@ -30,7 +30,7 @@ class Admin::UserTargetAddressesController < Admin::AdminController
     
     respond_to do |format|
       if @user_target_address.update_attributes(params[:user_target_address])
-        format.html { redirect_to @user_target_address.user, :notice => @controller_name +t(:message_success_update) }
+        format.html { redirect_to admin_user_path(@user_target_address.user), :notice => @controller_name +t(:message_success_update) }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
@@ -44,7 +44,7 @@ class Admin::UserTargetAddressesController < Admin::AdminController
     @user_target_address.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_path(@user_target_address.user)}
+      format.html { redirect_to admin_user_path(@user_target_address.user)}
       format.json { head :no_content }
     end
   end

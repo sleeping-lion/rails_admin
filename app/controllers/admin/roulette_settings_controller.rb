@@ -56,7 +56,7 @@ class Admin::RouletteSettingsController < Admin::AdminController
 
     respond_to do |format|
       if @roulette_setting.save
-        format.html { redirect_to @roulette_setting, :notice => @controller_name +t(:message_success_update) }
+        format.html { redirect_to admin_roulette_setting_path(@roulette_setting), :notice => @controller_name +t(:message_success_update) }
         format.json { render :json => @roulette_setting, :status => :created, :location => @roulette_setting }
       else
         format.html { render :action => "new" }
@@ -72,7 +72,7 @@ class Admin::RouletteSettingsController < Admin::AdminController
 
     respond_to do |format|
       if @roulette_setting.update_attributes(params[:roulette_setting])
-        format.html { redirect_to @roulette_setting, :notice => @controller_name +t(:message_success_update) }
+        format.html { redirect_to admin_roulette_setting_path(@roulette_setting), :notice => @controller_name +t(:message_success_update) }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -88,7 +88,7 @@ class Admin::RouletteSettingsController < Admin::AdminController
     @roulette_setting.destroy
 
     respond_to do |format|
-      format.html { redirect_to roulette_settings_url }
+      format.html { redirect_to admin_roulette_settings_path }
       format.json { head :no_content }
     end
   end

@@ -24,7 +24,7 @@
 	</p>	
 </div>
 <% if can? :update, @quiz_log %>
-<%= link_to t(:link_edit), edit_quiz_log_path(@quiz_log) %> |
+<%= link_to t(:link_edit), edit_admin_quiz_log_path(@quiz_log) %> |
 <% end %>
-<%= link_to t(:link_list), quiz_logs_path(list_param(params)) %>
+<%= link_to t(:link_list), admin_quiz_logs_path(list_param(params)) %>
 

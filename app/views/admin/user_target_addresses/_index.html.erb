@@ -7,7 +7,7 @@
 			<col />
 			<col style="width:100px"  />
 			<% if can?(:update, UserTargetAddress) || can?(:delete, UserTargetAddress) %>
-			<col style="width:160px" />
+			<col <%=raw manage_width(UserTargetAddress) %> />
 			<% end %>
 		</colgroup>
 		<thead>
@@ -28,13 +28,13 @@
 				<% if can?(:update, UserTargetAddress) || can?(:delete, UserTargetAddress) %>		
 				<td>
 					<% if can?(:update, UserTargetAddress) %>
-					<%= link_to edit_user_user_target_address_path(@user,@user_target_address),:class=>"btn btn-small pull-left" do %>
-					<i class="icon-pencil"></i> <%=t(:link_edit) %>
+					<%= link_to edit_admin_user_user_target_address_path(@user,@user_target_address),:class=>"btn btn-default" do %>
+					<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 					<% end %>
 					<% end %>
 					<% if can?(:delete, UserTargetAddress) %>
-					<%= link_to [@user,@user_target_address], :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
-					<i class="icon-trash"></i> <%=t(:link_delete) %>
+					<%= link_to [:admin,@user,@user_target_address], :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-danger" do %>
+					<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 					<% end %>
 					<% end %>
 				</td>
@@ -48,7 +48,7 @@
 	<% if can? :create, UserTargetAddress %>	
 	<% unless @user_target_address %>
 	<div id="sl_user_target_address_form">
-		<%= render "user_target_addresses/form" %>
+		<%= render "admin/user_target_addresses/form" %>
 	</div>
 	<% end %>
 	<% end %>

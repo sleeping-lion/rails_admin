@@ -56,7 +56,7 @@ class Admin::QuizLogsController < Admin::AdminController
 
     respond_to do |format|
       if @quiz_log.save
-        format.html { redirect_to @quiz_log, :notice => @controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_quiz_log_path(@quiz_log), :notice => @controller_name +t(:message_success_update)}
         format.json { render json: @quiz_log, status: :created, location: @quiz_log }
       else
         format.html { render action: "new" }
@@ -72,7 +72,7 @@ class Admin::QuizLogsController < Admin::AdminController
 
     respond_to do |format|
       if @quiz_log.update_attributes(params[:quiz_log])
-        format.html { redirect_to @quiz_log, :notice => @controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_quiz_log_path(@quiz_log), :notice => @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -88,7 +88,7 @@ class Admin::QuizLogsController < Admin::AdminController
     @quiz_log.destroy
 
     respond_to do |format|
-      format.html { redirect_to quiz_logs_url }
+      format.html { redirect_to admin_quiz_logs_path }
       format.json { head :no_content }
     end
   end
