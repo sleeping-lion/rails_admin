@@ -62,13 +62,13 @@
 		<% end %>
 	</tbody>
 </table>
-<div class="row-fluid">
-	<% if can? :create, RouletteSetting %>
-		<div class="pull-left">						
-		<%= link_to new_admin_roulette_setting_path, :class=>"btn" do %>
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md2">
+		<% if can? :create, RouletteSetting %>
+		<%= link_to new_admin_roulette_setting_path, :class=>"btn btn-primary" do %>
 		<i class="glyphicon glyphicon-plus"></i> <%=t(:link_new) %>
 		<% end %>
+		<% end %>		
 	</div>
-	<% end %>
 	<%= paginate @roulette_settings %>
 </div>

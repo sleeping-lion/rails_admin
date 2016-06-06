@@ -40,7 +40,15 @@ class Admin::RouletteBackgroundsController < Admin::AdminController
   def create  
     @roulette_background = RouletteBackground.create(params[:roulette_background])
     
-    redirect_to roulette_background_path(@roulette_background)
+    respond_to do |format|
+      if @roulette_background.save
+        format.html { redirect_to admin_roulette_backgrounds_path(@roulette_background),:notice => @controller_name +t(:message_success_insert)  }
+        format.json { render :json => @roulette_background, :status => :created, :location => @bank }
+      else
+        format.html { render :action => "new" }
+        format.json { render :json => @roulette_background.errors, :status => :unprocessable_entity }
+      end
+    end
   end
   
   def update
@@ -48,7 +56,7 @@ class Admin::RouletteBackgroundsController < Admin::AdminController
     
     respond_to do |format|
       if @roulette_background.update_attributes(params[:roulette_background])
-        format.html { redirect_to roulette_backgrounds_path, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_roulette_backgrounds_path, :notice => @controller_name +t(:message_success_insert)}
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
@@ -62,7 +70,7 @@ class Admin::RouletteBackgroundsController < Admin::AdminController
     @roulette_background.destroy
 
     respond_to do |format|
-      format.html { redirect_to roulette_backgrounds_path }
+      format.html { redirect_to admin_roulette_backgrounds_path }
       format.json { head :no_content }
     end
   end

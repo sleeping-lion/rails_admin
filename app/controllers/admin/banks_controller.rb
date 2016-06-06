@@ -57,7 +57,7 @@ class Admin::BanksController < Admin::AdminController
 
     respond_to do |format|
       if @bank.save
-        format.html { redirect_to @bank, :notice => @controller_name +t(:message_success_insert)  }
+        format.html { redirect_to admin_bank_path(@bank), :notice => @controller_name +t(:message_success_insert)  }
         format.json { render :json => @bank, :status => :created, :location => @bank }
       else
         format.html { render :action => "new" }
@@ -73,7 +73,7 @@ class Admin::BanksController < Admin::AdminController
 
     respond_to do |format|
       if @bank.update_attributes(params[:bank])
-        format.html { redirect_to @bank, :notice =>@controller_name +t(:message_success_update) }
+        format.html { redirect_to admin_bank_path(@bank), :notice =>@controller_name +t(:message_success_update) }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -89,7 +89,7 @@ class Admin::BanksController < Admin::AdminController
     @bank.destroy
 
     respond_to do |format|
-      format.html { redirect_to banks_url }
+      format.html { redirect_to admin_banks_path }
       format.json { head :no_content }
     end
   end
