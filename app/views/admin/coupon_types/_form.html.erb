@@ -1,6 +1,6 @@
 <%= form_for(@coupon_type) do |f| %>
   <% if @coupon_type.errors.any? %>
-    <div id="error_explanation">
+	<div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@coupon_type.errors.count, "error") %> prohibited this coupon_type from being saved:</h2>
 
       <ul>

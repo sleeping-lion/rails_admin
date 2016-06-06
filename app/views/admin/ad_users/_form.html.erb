@@ -1,25 +1,26 @@
 <%= form_for [:admin,@ad_user] do |f| %>
-  <% if @ad_user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@ad_user.errors.count, "error") %> prohibited this ad_user from being saved:</h2>
+<% if @ad_user.errors.any? %>
+<div id="error_explanation" class="alert alert-danger">
+	<h2><%= pluralize(@ad_user.errors.count, "error") %> prohibited this ad_user from being saved:</h2>
 
-      <ul>
-      <% @ad_user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="fomr-group">
-    <%= f.label :ad %><br />
-    <%= f.text_field :ad %>
-  </div>
-  <div class="fomr-group">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
-  </div>
-  <div class="fomr-group actions">
-    <%= f.submit %>
-  </div>
+	<ul>
+		<% @ad_user.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="fomr-group">
+	<%= f.label :ad %>
+	<%= f.text_field :ad %>
+</div>
+<div class="fomr-group">
+	<%= f.label :user %>
+	<%= f.text_field :user %>
+</div>
+<div class="fomr-group actions">
+	<%= f.submit %>
+</div>
 <% end %>

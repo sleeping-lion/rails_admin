@@ -1,6 +1,6 @@
 <%= form_for(@carrier) do |f| %>
   <% if @carrier.errors.any? %>
-    <div id="error_explanation">
+	<div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@carrier.errors.count, "error") %> prohibited this carrier from being saved:</h2>
 
       <ul>

@@ -1,6 +1,6 @@
 <%= form_for [:admin,@application_version] do |f| %>
 	<% if @application_version.errors.any? %>
-		<div id="error_explanation" class="alert alert-error">
+	<div id="error_explanation" class="alert alert-danger">
 				<a href="#" class="close" data-dismiss="alert">&times;</a>
 			<h2><%= pluralize(@application_version.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
 			<ul>

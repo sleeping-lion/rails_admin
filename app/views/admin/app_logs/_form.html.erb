@@ -1,6 +1,6 @@
 <%= form_for(@app_log) do |f| %>
   <% if @app_log.errors.any? %>
-    <div id="error_explanation">
+	<div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@app_log.errors.count, "error") %> prohibited this app_log from being saved:</h2>
 
       <ul>

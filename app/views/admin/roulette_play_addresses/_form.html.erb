@@ -1,6 +1,6 @@
 <%= form_for [:admin,@roulette_play_address] do |f| %>
 <% if @roulette_play_address.errors.any? %>
-<div id="error_explanation" class="alert alert-error">
+<div id="error_explanation" class="alert alert-danger">
 	<a href="#" class="close" data-dismiss="alert">&times;</a>
 	<h2><%= pluralize(@roulette_play_address.errors.count, "error") %> prohibited this point from being saved:</h2>
 	<ul>

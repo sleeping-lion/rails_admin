@@ -1,6 +1,6 @@
 <%= form_for [:admin,@quiz_address] do |f| %>
 <% if @quiz_address.errors.any? %>
-<div id="error_explanation" class="alert alert-error">
+<div id="error_explanation" class="alert alert-danger">
 	<a href="#" class="close" data-dismiss="alert">&times;</a>
 	<h2><%= pluralize(@quiz_address.errors.count, "error") %> prohibited this point from being saved:</h2>
 	<ul>
@@ -12,8 +12,6 @@
 	</ul>
 </div>
 <% end %>
-
-
 <div class="form-group">
 	<%= f.label :quiz_logs_id %>
 	<%= f.text_field :quiz_logs_id,:class=>"form-control" %>

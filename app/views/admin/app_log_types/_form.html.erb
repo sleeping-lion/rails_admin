@@ -1,6 +1,6 @@
 <%= form_for [:admin,@app_log_type] do |f| %>
   <% if @app_log_type.errors.any? %>
-    <div id="error_explanation">
+	<div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@app_log_type.errors.count, "error") %> prohibited this app_log_type from being saved:</h2>
 
       <ul>

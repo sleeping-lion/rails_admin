@@ -1,28 +1,30 @@
 <%= form_for(@request_setting) do |f| %>
-  <% if @request_setting.errors.any? %>
-    <div id="error_explanation" class="alert alert-error">
-    		<a href="#" class="close" data-dismiss="alert">&times;</a>
-      <h2><%= pluralize(@request_setting.errors.count, "error") %> prohibited this point from being saved:</h2>
-      <ul>
-      <% @request_setting.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="control-group">
-    <%= f.label :title %>
-    <%= f.text_field :title,:required=>"required" %>
-  </div>
-  <div class="control-group">
-    <%= f.label :amount %>
-    <%= f.text_field :amount,:required=>"required" %>
-  </div>  
-  <div class="control-group">
-    <%= f.label :flag %>
-    <%= f.check_box :flag %>
-  </div>
-  <div class="control-group actions">
-    <%= f.submit :class=>"btn btn-primary" %>
-  </div>
+<% if @request_setting.errors.any? %>
+<div id="error_explanation" class="alert alert-danger">
+	<a href="#" class="close" data-dismiss="alert">&times;</a>
+	<h2><%= pluralize(@request_setting.errors.count, "error") %> prohibited this point from being saved:</h2>
+	<ul>
+		<% @request_setting.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="control-group">
+	<%= f.label :title %>
+	<%= f.text_field :title,:required=>"required" %>
+</div>
+<div class="control-group">
+	<%= f.label :amount %>
+	<%= f.text_field :amount,:required=>"required" %>
+</div>
+<div class="control-group">
+	<%= f.label :flag %>
+	<%= f.check_box :flag %>
+</div>
+<div class="control-group actions">
+	<%= f.submit :class=>"btn btn-primary" %>
+</div>
 <% end %>

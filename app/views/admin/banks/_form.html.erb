@@ -1,6 +1,6 @@
 <%= form_for(@bank) do |f| %>
   <% if @bank.errors.any? %>
-    <div id="error_explanation" class="alert alert-error">
+	<div id="error_explanation" class="alert alert-danger">
     		<a href="#" class="close" data-dismiss="alert">&times;</a>
       <h2><%= pluralize(@bank.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
       <ul>

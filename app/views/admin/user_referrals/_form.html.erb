@@ -1,20 +1,22 @@
 <%= form_for([@user,UserReferral.new]) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation" class="alert alert-error">
-    		<a href="#" class="close" data-dismiss="alert">&times;</a>
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this request from being saved:</h2>
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="control-group">
-    <%= f.label :recommend_user_id,t(:user_id) %>
-    <%= f.number_field :recommend_user_id %> <%=link_to t(:user_id_find),'/users/user_id_select',:id=>'user_id_select',:title=>t(:user_id_find),:target=>'_blank',:class=>'btn modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal",:style=>'vertical-align:top' %>
-  </div>
- 	<div class="actions">
- 		<%= f.submit :class=>"btn btn-primary" %>
- 	</div>
+<% if @user.errors.any? %>
+<div id="error_explanation" class="alert alert-danger">
+	<a href="#" class="close" data-dismiss="alert">&times;</a>
+	<h2><%= pluralize(@user.errors.count, "error") %> prohibited this request from being saved:</h2>
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="control-group">
+	<%= f.label :recommend_user_id,t(:user_id) %>
+	<%= f.number_field :recommend_user_id %> <%= link_to t(:user_id_find),'/users/user_id_select',:id=>'user_id_select',:title=>t(:user_id_find),:target=>'_blank',:class=>'btn modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal",:style=>'vertical-align:top' %>
+</div>
+<div class="actions">
+	<%= f.submit :class=>"btn btn-primary" %>
+</div>
 <% end %>
