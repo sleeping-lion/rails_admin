@@ -20,6 +20,6 @@
 	</p>
 </div>
 <% if can? :update, @sponsor %>
-<%= link_to t(:link_edit), edit_sponsor_path(@sponsor) %> |
+<%= link_to t(:link_edit), edit_admin_sponsor_path(@sponsor) %> |
 <% end %>
-<%= link_to t(:link_list), sponsors_path %>
+<%= link_to t(:link_list), admin_sponsors_path %>

@@ -56,7 +56,7 @@ class Admin::SponsorsController < Admin::AdminController
 
     respond_to do |format|
       if @sponsor.save
-        format.html { redirect_to @sponsor, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_sponsor_path(@sponsor), :notice => @controller_name +t(:message_success_insert)}
         format.json { render :json => @sponsor, :status => :created, :location => @sponsor }
       else
         format.html { render :action => "new" }
@@ -72,7 +72,7 @@ class Admin::SponsorsController < Admin::AdminController
 
     respond_to do |format|
       if @sponsor.update_attributes(params[:sponsor])
-        format.html { redirect_to @sponsor, :notice => @controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_sponsor_path(@sponsor), :notice => @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -88,7 +88,7 @@ class Admin::SponsorsController < Admin::AdminController
     @sponsor.destroy
 
     respond_to do |format|
-      format.html { redirect_to sponsors_url }
+      format.html { redirect_to admin_sponsors_path }
       format.json { head :no_content }
     end
   end

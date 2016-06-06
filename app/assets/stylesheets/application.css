@@ -273,23 +273,15 @@ h6 {
 
 
 .box-header {
-	height: 20px;
+	float:left;
+	width:100%;
   	border: 1px solid #ddd;
 	margin-bottom: -1px;
   	padding: 10px;
   	background-color: #fafafa;
-  	background-image: -moz-linear-gradient(top, #fafafa, #efefef);
-  	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fafafa), to(#efefef));
-  	background-image: -webkit-linear-gradient(top, #fafafa, #efefef);
-  	background-image: -o-linear-gradient(top, #fafafa, #efefef);
   	background-image: linear-gradient(to bottom, #fafafa, #efefef);
-  	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fafafa', endColorstr='#efefef', GradientType=0);
-  	-webkit-box-shadow: none;
-     	-moz-box-shadow: none;
-          box-shadow: none;
-  	-webkit-border-radius: 2px 2px 0px 0px;
-       -moz-border-radius: 2px 2px 0px 0px;
-          	border-radius: 2px 2px 0px 0px;
+    box-shadow: none;
+    border-radius: 2px 2px 0px 0px;
 	overflow: hidden;
 }
 
@@ -339,6 +331,7 @@ h6 {
 }
 
 .box-content {
+	clear:both;
   	margin-top: -1px;
 	padding: 10px;
   	border: 1px solid #ddd;

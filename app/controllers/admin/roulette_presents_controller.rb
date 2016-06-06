@@ -33,9 +33,17 @@ class Admin::RoulettePresentsController < Admin::AdminController
   end  
   
   def create  
-    @roulette_present = RoulettePresent.create(params[:roulette_present])
-    
-    redirect_to roulette_present_path(@roulette_present)
+    @roulette_present = RoulettePresent.new(params[:roulette_present])
+
+    respond_to do |format|
+      if @roulette_present.save
+        format.html { redirect_to admin_roulette_present_path(@roulette_present), :notice => @controller_name +t(:message_success_insert)}
+        format.json { render :json => @roulette_present, :status => :created, :location => @roulette_present }
+      else
+        format.html { render :action => "new" }
+        format.json { render :json => @roulette_present.errors, :status => :unprocessable_entity }
+      end
+    end
   end
   
   def update
@@ -43,7 +51,7 @@ class Admin::RoulettePresentsController < Admin::AdminController
     
     respond_to do |format|
       if @roulette_present.update_attributes(params[:roulette_present])
-        format.html { redirect_to roulette_presents_path, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_roulette_present_path(@roulette_present), :notice => @controller_name +t(:message_success_insert)}
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
@@ -57,7 +65,7 @@ class Admin::RoulettePresentsController < Admin::AdminController
     @roulette_present.destroy
 
     respond_to do |format|
-      format.html { redirect_to roulette_presents_path }
+      format.html { redirect_to admin_roulette_presents_path }
       format.json { head :no_content }
     end
   end
