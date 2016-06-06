@@ -61,7 +61,7 @@ class Admin::AppLogTypesController < Admin::AdminController
 
     respond_to do |format|
       if @app_log_type.save
-        format.html { redirect_to @app_log_type, :notice => 'App log type was successfully created.' }
+        format.html { redirect_to admin_app_log_type_path(@app_log_type), :notice => 'App log type was successfully created.' }
         format.json { render :json => @app_log_type, :status => :created, :location => @app_log_type }
       else
         format.html { render :action => "new" }
@@ -77,7 +77,7 @@ class Admin::AppLogTypesController < Admin::AdminController
 
     respond_to do |format|
       if @app_log_type.update_attributes(params[:app_log_type])
-        format.html { redirect_to @app_log_type, :notice => 'App log type was successfully updated.' }
+        format.html { redirect_to admin_app_log_type_path(@app_log_type), :notice => 'App log type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -93,7 +93,7 @@ class Admin::AppLogTypesController < Admin::AdminController
     @app_log_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to app_log_types_url }
+      format.html { redirect_to admin_app_log_types_path }
       format.json { head :no_content }
     end
   end

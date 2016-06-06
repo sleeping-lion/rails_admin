@@ -121,7 +121,7 @@ class Admin::FaqsController < Admin::AdminController
     @faq.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_faqs_url }
+      format.html { redirect_to admin_faqs_path }
       format.json { head :no_content }
     end
   end

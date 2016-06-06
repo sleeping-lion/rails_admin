@@ -59,7 +59,7 @@ class Admin::RequestSettingsController < Admin::AdminController
 
     respond_to do |format|
       if @request_setting.save
-        format.html { redirect_to @request_setting, :notice =>@controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_request_setting_path(@request_setting), :notice =>@controller_name +t(:message_success_insert)}
         format.json { render :json => @request_setting, :status => :created, :location => @request_setting }
       else
         format.html { render :action => "new" }
@@ -75,7 +75,7 @@ class Admin::RequestSettingsController < Admin::AdminController
 
     respond_to do |format|
       if @request_setting.update_attributes(params[:request_setting])
-        format.html { redirect_to @request_setting, :notice =>@controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_request_setting_path(@request_setting), :notice =>@controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -91,7 +91,7 @@ class Admin::RequestSettingsController < Admin::AdminController
     @request_setting.destroy
 
     respond_to do |format|
-      format.html { redirect_to request_settings_url }
+      format.html { redirect_to admin_request_settings_path }
       format.json { head :no_content }
     end
   end

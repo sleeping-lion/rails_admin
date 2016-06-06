@@ -20,6 +20,6 @@
 	</p>
 </div>
 <% if can? :update, @store_order_status %>	
-<%= link_to t(:link_edit), edit_store_order_status_path(@store_order_status) %> |
+<%= link_to t(:link_edit), edit_admin_store_order_status_path(@store_order_status) %> |
 <% end %>
-<%= link_to t(:link_list), store_order_statuses_path %>
+<%= link_to t(:link_list), admin_store_order_statuses_path %>

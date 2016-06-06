@@ -27,16 +27,16 @@
 			<td><%=app_log_type.id %></td>
 			<td class="mw"><%=app_log_type.title %></td>
 			<td><%=app_log_type.created_at %></td>
-			<% if can?(:update, app_log) || can?(:delete, app_log) %>
+			<% if can?(:update, app_log_type) || can?(:delete, app_log_type) %>
 			<td>
-				<% if can? :update, app_log %>				
-				<%= link_to edit_app_log_path(ad_log_type),:class=>"btn btn-small pull-left" do %>
-				<i class="icon-pencil"></i> <%=t(:link_edit) %>
+				<% if can? :update, app_log_type %>				
+				<%= link_to edit_admin_app_log_path(app_log_type),:class=>"btn btn-default" do %>
+				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
-				<% if can? :delete, app_log %>				
-				<%= link_to app_log, :method => :delete, :data => { :confirm => t(:delete_cascade_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
-				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<% if can? :delete, app_log_type %>				
+				<%= link_to admin_app_log_type_path(app_log_type), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm) },:class=>"btn btn-danger" do %>
+				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>				
 			</td>

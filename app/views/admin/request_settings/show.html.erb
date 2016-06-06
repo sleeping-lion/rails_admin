@@ -24,6 +24,6 @@
 	</p>
 </div>
 <% if can? :update, @request_setting %>
-<%= link_to t(:link_edit), edit_request_setting_path(@request_setting) %> |
+<%= link_to t(:link_edit), edit_admin_request_setting_path(@request_setting) %> |
 <% end %>
-<%= link_to t(:link_list),request_settings_path %>
+<%= link_to t(:link_list), admin_request_settings_path %>

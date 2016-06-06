@@ -1,4 +1,4 @@
-<%= form_for([@store_good,StoreGoodPicture.new]) do |f| %>
+<%= form_for [:admin,@store_good,StoreGoodPicture.new] do |f| %>
 <%= f.hidden_field :filename,:value=>'asdgsadg' %>
 <div class="form-group">
 	<%= f.label :title %>

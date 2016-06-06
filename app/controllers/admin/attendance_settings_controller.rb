@@ -62,7 +62,7 @@ class Admin::AttendanceSettingsController < Admin::AdminController
 
     respond_to do |format|
       if @attendance_setting.save
-        format.html { redirect_to @attendance_setting, :notice =>  @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_attendance_setting_path(@attendance_setting), :notice =>  @controller_name +t(:message_success_insert)}
         format.json { render json: @attendance_setting, status: :created, location: @attendance_setting }
       else
         format.html { render action: "new" }
@@ -78,7 +78,7 @@ class Admin::AttendanceSettingsController < Admin::AdminController
 
     respond_to do |format|
       if @attendance_setting.update_attributes(params[:attendance_setting])
-        format.html { redirect_to @attendance_setting, :notice =>  @controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_attendance_setting_path(@attendance_setting), :notice =>  @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -94,7 +94,7 @@ class Admin::AttendanceSettingsController < Admin::AdminController
     @attendance_setting.destroy
 
     respond_to do |format|
-      format.html { redirect_to attendance_settings_url }
+      format.html { redirect_to admin_attendance_settings_path }
       format.json { head :no_content }
     end
   end

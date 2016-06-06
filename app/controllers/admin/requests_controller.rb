@@ -118,7 +118,7 @@ class Admin::RequestsController < Admin::AdminController
 
     respond_to do |format|
       if @s_save
-        format.html { redirect_to @request, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_request_path(@request), :notice => @controller_name +t(:message_success_insert)}
         format.json { render :json => @request, :status => :created, :location => @request }
       else
         format.html { render :action => "new" }
@@ -134,7 +134,7 @@ class Admin::RequestsController < Admin::AdminController
 
     respond_to do |format|
       if @request.update_attributes(params[:request])
-        format.html { redirect_to @request, :notice => @controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_request_path(@request), :notice => @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -169,7 +169,7 @@ class Admin::RequestsController < Admin::AdminController
     @request.destroy
 
     respond_to do |format|
-      format.html { redirect_to requests_url }
+      format.html { redirect_to admin_requests_path }
       format.json { head :no_content }
     end
   end

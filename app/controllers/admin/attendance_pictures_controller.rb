@@ -63,7 +63,7 @@ class Admin::AttendancePicturesController < Admin::AdminController
     @attendance_picture.destroy
 
     respond_to do |format|
-      format.html { redirect_to attendance_pictures_path }
+      format.html { redirect_to admin_attendance_pictures_path }
       format.json { head :no_content }
     end
   end

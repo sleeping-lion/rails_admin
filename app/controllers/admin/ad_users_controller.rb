@@ -46,7 +46,7 @@ class Admin::AdUsersController < Admin::AdminController
 
     respond_to do |format|
       if @ad_user.save
-        format.html { redirect_to @ad_user, notice: 'Ad user was successfully created.' }
+        format.html { redirect_to admin_ad_user_path(@ad_user), notice: 'Ad user was successfully created.' }
         format.json { render json: @ad_user, status: :created, location: @ad_user }
       else
         format.html { render action: "new" }
@@ -62,7 +62,7 @@ class Admin::AdUsersController < Admin::AdminController
 
     respond_to do |format|
       if @ad_user.update_attributes(params[:ad_user])
-        format.html { redirect_to @ad_user, notice: 'Ad user was successfully updated.' }
+        format.html { redirect_to admin_ad_user_path(@ad_user), notice: 'Ad user was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -78,7 +78,7 @@ class Admin::AdUsersController < Admin::AdminController
     @ad_user.destroy
 
     respond_to do |format|
-      format.html { redirect_to ad_users_url }
+      format.html { redirect_to admin_ad_users_path }
       format.json { head :no_content }
     end
   end

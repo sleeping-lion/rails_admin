@@ -20,6 +20,6 @@
 	</p>
 </section>
 <% if can? :update, @request_type %>
-<%= link_to t(:link_edit), edit_request_type_path(@request_type) %> |
+<%= link_to t(:link_edit), edit_admin_request_type_path(@request_type) %> |
 <% end %>
-<%= link_to t(:link_list),request_types_path %>
+<%= link_to t(:link_list),admin_request_types_path %>

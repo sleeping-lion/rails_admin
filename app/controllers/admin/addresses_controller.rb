@@ -120,7 +120,7 @@ class Admin::AddressesController < Admin::AdminController
 
     respond_to do |format|
       if @address.save
-        format.html { redirect_to @address, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_address_path(@address), :notice => @controller_name +t(:message_success_insert)}
         format.json { render :json => @address, :status => :created, :location => @address }
       else
         format.html { render :action => "new" }
@@ -136,7 +136,7 @@ class Admin::AddressesController < Admin::AdminController
 
     respond_to do |format|
       if @address.update_attributes(params[:address])
-        format.html { redirect_to @address, :notice => @controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_address_path(@address), :notice => @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -152,7 +152,7 @@ class Admin::AddressesController < Admin::AdminController
     @address.destroy
 
     respond_to do |format|
-      format.html { redirect_to addresses_url }
+      format.html { redirect_to admin_addresses_path }
       format.json { head :no_content }
     end
   end

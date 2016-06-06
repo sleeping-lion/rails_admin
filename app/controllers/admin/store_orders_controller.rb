@@ -83,7 +83,7 @@ class Admin::StoreOrdersController < Admin::AdminController
 
     respond_to do |format|
       if @store_order.save
-        format.html { redirect_to @store_order, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_store_order_path(@store_order), :notice => @controller_name +t(:message_success_insert)}
         format.json { render :json => @store_order, :status => :created, :location => @store_order }
       else
         format.html { render :action => "new" }
@@ -99,7 +99,7 @@ class Admin::StoreOrdersController < Admin::AdminController
 
     respond_to do |format|
       if @store_order.update_attributes(params[:store_order])
-        format.html { redirect_to @store_order, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_store_order_path(@store_order), :notice => @controller_name +t(:message_success_insert)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -115,7 +115,7 @@ class Admin::StoreOrdersController < Admin::AdminController
     @store_order.destroy
 
     respond_to do |format|
-      format.html { redirect_to store_orders_url }
+      format.html { redirect_to admin_store_orders_path }
       format.json { head :no_content }
     end
   end

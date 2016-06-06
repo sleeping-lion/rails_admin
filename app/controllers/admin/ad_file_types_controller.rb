@@ -56,7 +56,7 @@ class Admin::AdFileTypesController < Admin::AdminController
 
     respond_to do |format|
       if @ad_file_type.save
-        format.html { redirect_to @ad_file_type, :notice => @controller_name +t(:message_success_insert) }
+        format.html { redirect_to admin_ad_file_type_path(@ad_file_type), :notice => @controller_name +t(:message_success_insert) }
         format.json { render :json => @ad_file_type, :status => :created, :location => @ad_file_type }
       else
         format.html { render :action => "new" }
@@ -72,7 +72,7 @@ class Admin::AdFileTypesController < Admin::AdminController
 
     respond_to do |format|
       if @ad_file_type.update_attributes(params[:ad_file_type])
-        format.html { redirect_to @ad_file_type, :notice => @controller_name +t(:message_success_update) }
+        format.html { redirect_to admin_ad_file_type_path(@ad_file_type), :notice => @controller_name +t(:message_success_update) }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -88,7 +88,7 @@ class Admin::AdFileTypesController < Admin::AdminController
     @ad_file_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to ad_file_types_url }
+      format.html { redirect_to admin_ad_file_types_path }
       format.json { head :no_content }
     end
   end

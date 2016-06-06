@@ -149,7 +149,7 @@ class Admin::AdsController < Admin::AdminController
 
     respond_to do |format|
       if @ad.save
-        format.html { redirect_to @ad, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_ad_path(@ad), :notice => @controller_name +t(:message_success_insert)}
         format.json { render :json => @ad, :status => :created, :location => @ad }
       else
         format.html { render :action => "new" }
@@ -166,7 +166,7 @@ class Admin::AdsController < Admin::AdminController
 
     respond_to do |format|
       if @ad.update_attributes(params[:ad])
-        format.html { redirect_to ad_path(@ad,{:page=>params[:page],:per_page=>params[:per_page]}), :notice => @controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_ad_path(@ad,{:page=>params[:page],:per_page=>params[:per_page]}), :notice => @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -182,7 +182,7 @@ class Admin::AdsController < Admin::AdminController
     @ad.destroy
 
     respond_to do |format|
-      format.html { redirect_to ads_url }
+      format.html { redirect_to admin_ads_path }
       format.json { head :no_content }
     end
   end

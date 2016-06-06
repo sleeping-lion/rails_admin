@@ -30,13 +30,13 @@
 			<% if can? :update, request_type %>								
 			<td>
 				<% if can? :update, request_type %>
-				<%= link_to edit_admin_request_type_path(request_type),:class=>"btn btn-small pull-left" do %>
-				<i class="icon-pencil"></i> <%=t(:link_edit) %>
+				<%= link_to edit_admin_request_type_path(request_type),:class=>"btn btn-default" do %>
+				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, request_type %>				
-				<%= link_to admin_request_type_path(request_type), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
-				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<%= link_to admin_request_type_path(request_type), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm)},:class=>"btn btn-danger" do %>
+				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>
 			</td>
@@ -54,7 +54,7 @@
 	<% if can? :create, RequestType %>	
 	<div class="pull-left">
 		<%= link_to new_admin_request_type_path, :class=>"btn btn-primary" do %>
-		<i class="icon-plus"></i> <%=t(:link_new) %>
+		<i class="glyphicon glyphicon-plus"></i> <%=t(:link_new) %>
 		<% end %>
 	</div>
 	<% end %>

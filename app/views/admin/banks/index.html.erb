@@ -35,13 +35,13 @@
 			<% if can?(:update, bank) || can?(:delete, bank) %>			
 			<td>
 				<% if can? :update, bank %>
-				<%= link_to edit_admin_bank_path(bank),:class=>"btn btn-small pull-left" do %>
-				<i class="icon-pencil"></i> <%=t(:link_edit)%>
+				<%= link_to edit_admin_bank_path(bank),:class=>"btn btn-default" do %>
+				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit)%>
 				<% end %>
 				<% end %>
 				<% if can? :delete, bank %>
-				<%= link_to admin_bank_path(bank), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
-				<i class="icon-trash"></i> <%=t(:link_delete)%>
+				<%= link_to admin_bank_path(bank), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm) },:class=>"btn btn-danger" do %>
+				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete)%>
 				<% end %>
 				<% end %>
 			</td>
@@ -63,8 +63,8 @@
 		<% end %>
 		<% end %>
 		<% unless @banks.empty? %>
-		<%=link_to admin_banks_path(:format=>"xls",:params=>params), :class=>"btn" do %>
-		<i class="icon-file"></i> <%=t(:link_download_excel) %>
+		<%=link_to admin_banks_path(:format=>"xls",:params=>params), :class=>"btn btn-default" do %>
+		<i class="glyphicon glyphicon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
 		<% end %>		
 	</div>

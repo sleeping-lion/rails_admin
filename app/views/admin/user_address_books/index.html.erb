@@ -11,13 +11,13 @@
 		<col style="width:80px;" />
 		<col style="width:80px;" />		
 		<col style="width:100px;" />
-		<col style="width:100px;" />
-		<col style="width:200px;" />
-		<col style="width:100px;" />
+		<col />
+		<col />
+		<col />
+		<col />		
 		<% if can?(:update, UserAddressBook) || can?(:delete, UserAddressBook) %>
-		<col style="width:120px;" <%=raw manage_width(UserAddressBook) %> />
+		<col <%=raw manage_width(UserAddressBook) %> />
 		<% end %>
-		<col style="width:120px;" />
 	</colgroup>
 	<thead>
 		<tr>
@@ -26,11 +26,11 @@
 			<th><%=t(:label_user)%></th>	
 			<th><%=t(:label_mobile_num) %></th>
 			<th><%=t(:label_address) %></th>			
-			<th><%=t(:label_created_at)%></th>			
+			<th><%=t(:label_created_at)%></th>
+			<th><%=t(:label_primary_flag) %></th>				
 			<% if can?(:update, UserAddressBook) || can?(:delete, UserAddressBook) %>
 			<th><%=t(:label_manage) %></th>
 			<% end %>
-			<th><%=t(:label_primary_flag) %></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -43,21 +43,22 @@
     <td ><%= user_address_book.mobilephone %></td>    
     <td><%= user_address_book.address %></td>    
     <td ><%= user_address_book.created_at.to_date %></td>
+    <td ><%= user_address_book.primary_flag %></td>    
     	<% if can?(:update, user_address_book) || can?(:delete, user_address_book) %>
 			<td>
 				<% if can? :update, user_address_book %>
-				<%= link_to edit_user_address_book_path(user_address_book),:class=>"btn btn-small pull-left" do %>
-				<i class="icon-pencil"></i> <%=t(:link_edit) %>
+				<%= link_to edit_admin_user_address_book_path(user_address_book),:class=>"btn btn-default" do %>
+				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, user_address_book %>
-				<%= link_to admin_user_address_book_path(user_address_book), :method => :delete, :data => { :confirm =>t(:delete_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
-				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<%= link_to admin_user_address_book_path(user_address_book), :method => :delete, :data => { :confirm =>t(:delete_confirm)},:class=>"btn btn-danger" do %>
+				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>
 			</td>
 		<% end %>
-    <td ><%= user_address_book.primary_flag %></td>
+
   </tr>
   <% end %>  
   <% else %>

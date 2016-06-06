@@ -64,7 +64,7 @@ class Admin::UserAddressBooksController < Admin::AdminController
 
     respond_to do |format|
       if @user_address_book.save
-        format.html { redirect_to @user_address_book, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_user_address_book_path(@user_address_book), :notice => @controller_name +t(:message_success_insert)}
         format.json { render :json => @user_address_book, status: :created, location: @user_address_book }
       else
         format.html { render :action => "new" }
@@ -80,7 +80,7 @@ class Admin::UserAddressBooksController < Admin::AdminController
 
     respond_to do |format|
       if @user_address_book.update_attributes(params[:user_address_book])
-        format.html { redirect_to @user_address_book, :notice=> @controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_user_address_book_path(@user_address_book), :notice=> @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -96,7 +96,7 @@ class Admin::UserAddressBooksController < Admin::AdminController
     @user_address_book.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_address_books_url }
+      format.html { redirect_to admin_user_address_books_path }
       format.json { head :no_content }
     end
   end

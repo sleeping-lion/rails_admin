@@ -24,7 +24,7 @@
 		<col />
 		<col  style="width:80px;" />
 		<% if can?(:update, StoreGood) || can?(:delete, StoreGood) %>
-		<col style="width:160px;" />
+		<col <%=raw manage_width(StoreGood) %> />
 		<% end %>
 	</colgroup>
 	<thead>
@@ -57,13 +57,13 @@
 			<% if can?(:update, store_good) || can?(:delete, store_good) %>
 			<td>
 				<% if can? :update, store_good %>				
-				<%= link_to edit_admin_store_good_path(store_good),:class=>"btn btn-small pull-left" do %>
-				<i class="icon-pencil"></i> <%=t(:link_edit) %>
+				<%= link_to edit_admin_store_good_path(store_good),:class=>"btn btn-default" do %>
+				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, store_good %>		
-				<%= link_to admin_store_good_path(store_good), :method => :delete, :data => { :confirm =>t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
-				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<%= link_to admin_store_good_path(store_good), :method => :delete, :data => { :confirm =>t(:delete_confirm) },:class=>"btn btn-danger" do %>
+				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>
 			</td>
@@ -80,13 +80,13 @@
 <div class="row-fluid">
 	<div class="pull-left">
 		<% if can? :create, StoreGood %>	
-		<%= link_to new_admin_store_good_path,:class=>"btn" do %>
-		<i class="icon-plus"></i> <%=t(:link_new) %>
+		<%= link_to new_admin_store_good_path,:class=>"btn btn-primary" do %>
+		<i class="glyphicon glyphicon-plus"></i> <%=t(:link_new) %>
 		<% end %>
 		<% end %>
 		<% unless @store_goods.empty? %>		
-		<%=link_to admin_store_goods_path(:format=>"xls",:params=>params), :class=>"btn" do %>
-		<i class="icon-file"></i> <%=t(:link_download_excel) %>
+		<%=link_to admin_store_goods_path(:format=>"xls",:params=>params), :class=>"btn btn-default" do %>
+		<i class="glyphicon glyphicon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
 		<% end %>		
 	</div>

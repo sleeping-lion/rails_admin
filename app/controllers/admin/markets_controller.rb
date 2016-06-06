@@ -88,7 +88,7 @@ class Admin::MarketsController < Admin::AdminController
 
     respond_to do |format|
       if @market.save
-        format.html { redirect_to @market, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_market_path(@market), :notice => @controller_name +t(:message_success_insert)}
         format.json { render :json => @market, :status => :created, :location => @market }
       else
         format.html { render :action => "new" }
@@ -104,7 +104,7 @@ class Admin::MarketsController < Admin::AdminController
 
     respond_to do |format|
       if @market.update_attributes(params[:market])
-        format.html { redirect_to @market, :notice => @controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_market_path(@market), :notice => @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -120,7 +120,7 @@ class Admin::MarketsController < Admin::AdminController
     @market.destroy
 
     respond_to do |format|
-      format.html { redirect_to markets_url }
+      format.html { redirect_to admin_markets_path }
       format.json { head :no_content }
     end
   end
