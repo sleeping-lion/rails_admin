@@ -34,22 +34,6 @@
 				</ul>
 			</li>
 			<% end %>
-			<% if can?(:read, GameSetting) || can?(:read, GameAmount) || can?(:read, Game) %>
-			<li>
-				<a class="dropmenu" href="#"><i class="icon-random icon-white"></i><span class="hidden-tablet"> <%=t(:menu_game)%></span></a>
-				<ul>
-					<% if can? :read, GameSetting %>
-					<li><%=link_to admin_game_settings_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_game_setting)%></span><% end %></li>
-					<% end %>
-					<% if can? :read, GameAmount %>	
-					<li><%=link_to admin_game_amounts_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_game_amount)%></span><% end %></li>
-					<% end %>	
-					<% if can? :read, Game %>	
-					<li><%=link_to admin_games_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_game)%></span><% end %></li>
-					<% end %>				
-				</ul>
-			</li>
-			<% end %>
 			<% if can?(:read, RouletteSetting) || can?(:read, RoulettePlay)  %>
 			<li>
 				<a class="dropmenu" href="#"><i class="icon-random icon-white"></i><span class="hidden-tablet"> <%=t(:menu_game)%></span></a>

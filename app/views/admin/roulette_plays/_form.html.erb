@@ -14,11 +14,12 @@
 <% end %>
 <div class="form-group">
 	<%= f.label :user_id %>
-	<%= f.number_field :user_id,:required=>"required" %> <%= link_to t(:user_id_find),'/users/user_id_select',:id=>'user_id_select',:title=>t(:user_id_find),:target=>'_blank',:class=>'btn modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal",:style=>'vertical-align:top' %>
+	<%= f.number_field :user_id,:class=>"form-control",:required=>"required" %>
+	<%= link_to t(:user_id_find),'/users/user_id_select',:id=>'user_id_select',:title=>t(:user_id_find),:target=>'_blank',:class=>'btn btn-default modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal",:style=>'vertical-align:top' %>
 </div>
 <div class="form-group">
 	<%= f.label :roulette_setting_id %>
-	<%= f.select :roulette_setting_id,options_from_collection_for_select(RouletteSetting.where(:flag=>true).all(), 'id', 'title',@roulette_play.roulette_setting_id), {:include_blank => t(:rank_fail)} %>
+	<%= f.select :roulette_setting_id,options_from_collection_for_select(RouletteSetting.where(:flag=>true).all(), 'id', 'title',@roulette_play.roulette_setting_id), {:include_blank => t(:rank_fail)},:class=>"form-control" %>
 </div>
 <div class="form-group actions">
 	<%= f.submit :class=>"btn btn-primary" %>

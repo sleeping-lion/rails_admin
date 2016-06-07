@@ -19,19 +19,19 @@
 </div>
 <div class="form-group">
 	<%= f.label :request_setting_id %>
-	<%= f.select :request_setting_id, options_from_collection_for_select(RequestSetting.where(:flag=>true).all(), 'id', 'title',@request.request_setting_id) %>
+	<%= f.select :request_setting_id, options_from_collection_for_select(RequestSetting.where(:flag=>true).all(), 'id', 'title',@request.request_setting_id),{},:class=>"form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :bank_id %>
-	<%= f.select :bank_id, options_from_collection_for_select(Bank.all, 'id', 'name') %>
+	<%= f.select :bank_id, options_from_collection_for_select(Bank.all, 'id', 'name'),{},:class=>"form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :account_number %>
-	<%= f.number_field :account_number,:required=>"required" %>
+	<%= f.number_field :account_number,:class=>"form-control",:required=>"required" %>
 </div>
 <div class="form-group">
 	<%= f.label :request_type_id %>
-	<%= f.select :request_type_id, options_from_collection_for_select(RequestType.where(:flag=>true).all(), 'id', 'title',@request.request_type_id) %>
+	<%= f.select :request_type_id, options_from_collection_for_select(RequestType.where(:flag=>true).all(), 'id', 'title',@request.request_type_id),{},:class=>"form-control" %>
 </div>
 <div class="form-group actions">
 	<%= f.submit :class=>"btn btn-primary"%>
