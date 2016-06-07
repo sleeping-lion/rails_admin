@@ -23,6 +23,6 @@
 </p>
 </div>
 <% if can? :update, @bank %>	
-<%= link_to t(:link_edit), edit_attendance_path(@attendance) %> |
+<%= link_to t(:link_edit), edit_admin_attendance_path(@attendance) %> |
 <% end %>
-<%= link_to t(:link_list), attendances_path %>
+<%= link_to t(:link_list), admin_attendances_path %>

@@ -54,6 +54,6 @@
 </p>
 </div>
 <% if can? :update, @attendance_setting %>	
-<%= link_to t(:link_edit), edit_attendance_setting_path(@attendance_setting) %> |
+<%= link_to t(:link_edit), edit_admin_attendance_setting_path(@attendance_setting) %> |
 <% end %>
-<%= link_to t(:link_list), attendance_settings_path %>
+<%= link_to t(:link_list), admin_attendance_settings_path %>

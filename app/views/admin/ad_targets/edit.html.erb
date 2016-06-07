@@ -1,9 +1,9 @@
-<%= form_for([@ad_schedule.ad,@ad_schedule,@ad_target]) do |f| %>
- 	<div class="field">
+<%= form_for [:admin,@ad_schedule.ad,@ad_schedule,@ad_target] do |f| %>
+ 	<div class="form-group">
 		<%= f.label :target_id,t(:label_target) %>
-		<%= f.select :target_id, options_from_collection_for_select(Target.find(:all,:conditions=>{:flag=>true}), 'id', 'title',@ad_target.target_id) %>
+		<%= f.select :target_id, options_from_collection_for_select(Target.where(:flag=>true).all(), 'id', 'title',@ad_target.target_id) %>
  	</div>
- 	<div class="actions">
+ 	<div class="form-group actions">
  		<%= f.submit :class=>"btn btn-primary" %>
  	</div>
 <% end %>

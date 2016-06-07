@@ -16,6 +16,6 @@
 </p>
 </div>
 <% if can? :update, @attendance_picture %>	
-<%= link_to t(:link_edit), edit_attendance_picture_path(@attendance_picture) %> |
+<%= link_to t(:link_edit), edit_admin_ttendance_picture_path(@attendance_picture) %> |
 <% end %>
-<%= link_to t(:link_list), attendance_pictures_path %>
+<%= link_to t(:link_list), admin_attendance_pictures_path %>

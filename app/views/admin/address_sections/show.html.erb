@@ -32,6 +32,6 @@
   </p>
 </section>
 <% if can? :update, @address_section %>	
-<%= link_to t(:link_edit), edit_address_section_path(@address_section) %> |
+<%= link_to t(:link_edit), edit_admin_address_section_path(@address_section) %> |
 <% end %>
-<%= link_to t(:link_list), address_sections_path(list_param(params)) %>
+<%= link_to t(:link_list), admin_address_sections_path(list_param(params)) %>

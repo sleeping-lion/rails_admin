@@ -42,6 +42,6 @@
 	<%= render "ad_files/index" %>
 </section>
 <% if can? :update, Ad %>
-<%= link_to t(:link_edit), edit_ad_path(@ad,list_param(params)) %> |
+<%= link_to t(:link_edit), edit_admin_ad_path(@ad,list_param(params)) %> |
 <% end %>
-<%= link_to t(:link_list), ads_path(list_param(params)) %>
+<%= link_to t(:link_list), admin_ads_path(list_param(params)) %>

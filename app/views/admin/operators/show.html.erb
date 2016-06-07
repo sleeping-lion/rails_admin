@@ -40,6 +40,6 @@
 	</p>
 </section>
 <% if can? :update, @operator %>
-<%= link_to t(:link_edit), edit_operator_path(@operator) %> |
+<%= link_to t(:link_edit), edit_admin_operator_path(@operator) %> |
 <% end %>
-<%= link_to t(:link_list), operators_path %>
+<%= link_to t(:link_list), admin_operators_path %>

@@ -16,6 +16,6 @@
 	</p>
 </div>
 <% if can? :update, @app_log %>	
-<%= link_to t(:link_edit), edit_app_log_path(@app_log) %> |
+<%= link_to t(:link_edit), edit_admin_app_log_path(@app_log) %> |
 <% end %>
-<%= link_to t(:link_list), app_logs_path %>
+<%= link_to t(:link_list), app_admin_logs_path %>
