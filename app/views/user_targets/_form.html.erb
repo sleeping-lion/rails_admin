@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :target_id,t(:label_target) %>
 		 <%= f.select :target_id, options_from_collection_for_select(Target.find(:all,:conditions=>{:flag=>true}), 'id', 'title') %>
   </div>

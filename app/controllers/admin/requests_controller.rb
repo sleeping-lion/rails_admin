@@ -153,7 +153,7 @@ class Admin::RequestsController < Admin::AdminController
 
     respond_to do |format|
       if true
-        format.html { redirect_to requests_url, :notice => @controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_requests_path, :notice => @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

@@ -10,20 +10,20 @@
 		<%= f.hidden_field :checksum,:value=>'asdgsadg' %>
 		<%= f.hidden_field :fileext,:value=>'asdgsadg' %>
 		<%= f.hidden_field :filetype,:value=>'awegweg'%>
-		<div class="control-group">
+		<div class="form-group">
 			<%= f.label :ad_file_type_id, :class => "control-label" %>
 			<div class="controls">
 				<%= f.select :ad_file_type_id, options_from_collection_for_select(AdFileType.find(:all,:conditions=>{:flag=>true}), 'id', 'title') %>
 			</div>
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<%= f.label :photo, :class => "control-label" %>
 			<div class="controls">
 				<%= f.file_field :photo,:required=>"required" %>
 				<%= f.hidden_field :photo_cache %>
 			</div>
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<%= f.label :flag, :class => "control-label" %>
 			<div class="controls">
 				<%= f.check_box :flag %>

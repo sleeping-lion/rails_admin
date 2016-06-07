@@ -21,7 +21,7 @@ class Admin::UserReferralsController < Admin::AdminController
     @user.build_user_referral(params[:user_referral])
     @user.save
     
-    redirect_to user_path(@user)
+    redirect_to admin_user_path(@user)
   end
   
   def update
@@ -29,7 +29,7 @@ class Admin::UserReferralsController < Admin::AdminController
     
     respond_to do |format|
       if @user_referral.update_attributes(params[:user_referral])
-        format.html { redirect_to @user_referral.user, :notice =>  @controller_name +t(:message_success_update) }
+        format.html { redirect_to admin_user_path(@user_referral.user), :notice =>  @controller_name +t(:message_success_update) }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
@@ -43,7 +43,7 @@ class Admin::UserReferralsController < Admin::AdminController
     @user_referral.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_path(@user_referral.user)}
+      format.html { redirect_to admin_user_path(@user_referral.user)}
       format.json { head :no_content }
     end
   end

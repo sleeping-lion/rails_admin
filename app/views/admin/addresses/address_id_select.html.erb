@@ -4,7 +4,7 @@
 			<!-- <option value="email" <% if params[:parent_id].present? %>selected="selected"<% end %>>parent_id로 찾기</option> -->
 			<option value="address_id" <% if params[:address_id].present? %>selected="selected"<% end %>>address_id로 찾기</option>
 		</select>
-	<div class="control-group input-append">
+	<div class="form-group input-append">
 
 		<%= text_field_tag :search,'',:required=>"required" %>
 		<%= button_tag t(:search),:type=>'submit',:class=>"btn" %>		

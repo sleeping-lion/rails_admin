@@ -57,7 +57,7 @@ class Admin::TargetTypesController < Admin::AdminController
 
     respond_to do |format|
       if @target_type.save
-        format.html { redirect_to @target_type, :notice => @controller_name+t(:message_success_insert)}
+        format.html { redirect_to admin_target_type_path(@target_type), :notice => @controller_name+t(:message_success_insert)}
         format.json { render :json => @target_type, :status => :created, :location => @target_type }
       else
         format.html { render :action => "new" }
@@ -73,7 +73,7 @@ class Admin::TargetTypesController < Admin::AdminController
 
     respond_to do |format|
       if @target_type.update_attributes(params[:target_type])
-        format.html { redirect_to @target_type, :notice => @controller_name +t(:message_success_update) }
+        format.html { redirect_to admin_target_type_path(@target_type), :notice => @controller_name +t(:message_success_update) }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -89,7 +89,7 @@ class Admin::TargetTypesController < Admin::AdminController
     @target_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to target_types_url }
+      format.html { redirect_to admin_target_types_path }
       format.json { head :no_content }
     end
   end

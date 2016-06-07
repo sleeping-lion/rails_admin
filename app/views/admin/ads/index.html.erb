@@ -1,7 +1,7 @@
 <h3><%= @controller_name %> <%=actionNameChange controller.action_name %></h3>
 <div class="row">
 	<%=form_tag admin_ads_path,:method=>:get,:id=>"type_search_form" do %>
-	<div class="control-group pull-left">
+	<div class="form-group pull-left">
 		<div class="controls">
     <%= select_tag :ad_type_id, options_from_collection_for_select(AdType.where(:flag=>true).all, 'id', 'title',params[:ad_type_id]),:include_blank => '미선택' %>     
 		</div>

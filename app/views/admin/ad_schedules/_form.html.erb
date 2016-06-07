@@ -7,31 +7,31 @@
 		</div>
 	</div>
 	<div class="box-content">
-		<div class="control-group">
+		<div class="form-group">
 			<%= f.label :title, :class => 'control-label' %>
 			<div class="controls">
 				<%= f.text_field :title, :class => "input-medium" %>
 			</div>
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<%= f.label :start_time, :class => 'control-label' %>
 			<div class="controls">
 				<%= f.datetime_select :start_time, :class => "input-medium" %>
 			</div>
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<%= f.label :end_time, :class => 'control-label' %>
 			<div class="controls">
 				<%= f.datetime_select :end_time, :class => "input-medium" %>
 			</div>
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<%= f.label :expire_time, :class => 'control-label' %>
 			<div class="controls">
 				<%= f.datetime_select :expire_time, :class => "input-medium" %>
 			</div>
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<%= f.label :end_hour, :class => 'control-label' %>
 			<div class="controls">
 		    	<select name="start_hour" class="input-small">
@@ -87,7 +87,7 @@
 		    	</select>
 			</div>
 		  </div>
-	  	  <div class="control-group">
+	  	  <div class="form-group">
 		    <%= label_tag '',t(:label_weekday),:class => 'control-label' %>
 		    <div class="controls span6">
 				<table class="table table-bordered table-striped">
@@ -114,13 +114,13 @@
 		</div>
 	<div class="clearfix">&nbsp;</div>	
 			
-	  <div class="control-group">
+	  <div class="form-group">
 	    <%= f.label :cpi_only_flag, :class => 'control-label' %>
 	    <div class="controls">
 		    <%= f.check_box :cpi_only_flag %>
 		</div>
 	  </div>
-	  <div class="control-group">
+	  <div class="form-group">
 	    <%= f.label :flag, :class => 'control-label' %>
 	    <div class="controls">
 		    <%= f.check_box :flag %>

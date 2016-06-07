@@ -69,7 +69,7 @@ class Admin::UserLoginLogsController < Admin::AdminController
 
     respond_to do |format|
       if @user_login_log.save
-        format.html { redirect_to @user_login_log, :notice =>  @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_user_login_log_path(@user_login_log), :notice =>  @controller_name +t(:message_success_insert)}
         format.json { render :json => @user_login_log, :status => :created, :location => @user_login_log }
       else
         format.html { render :action => "new" }
@@ -85,7 +85,7 @@ class Admin::UserLoginLogsController < Admin::AdminController
 
     respond_to do |format|
       if @user_login_log.update_attributes(params[:user_login_log])
-        format.html { redirect_to @user_login_log, :notice =>  @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_user_login_log_path(@user_login_log), :notice =>  @controller_name +t(:message_success_insert)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -101,7 +101,7 @@ class Admin::UserLoginLogsController < Admin::AdminController
     @user_login_log.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_login_logs_url }
+      format.html { redirect_to admin_user_login_logs_path }
       format.json { head :no_content }
     end
   end

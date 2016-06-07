@@ -3,7 +3,7 @@
 </div>
 <div class="row-fluid">
 	<%=form_tag admin_store_orders_path,:method=>:get,:id=>"type_search_form" do %>
-	<div class="control-group form-search pull-right">
+	<div class="form-group form-search pull-right">
 		<select name="search_field" class="input-medium">
 			<option value="user_id" <% if params[:search_field]=='user_id' %>selected="selected"<% end %>><%=t(:label_user_id )%></option>
 			<option value="mobile_num" <% if params[:search_field]=='mobile_num' %>selected="selected"<% end %>><%=t(:label_mobile_num)%></option>

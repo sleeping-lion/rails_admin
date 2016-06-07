@@ -56,7 +56,7 @@ class Admin::RouletteBackgroundsController < Admin::AdminController
     
     respond_to do |format|
       if @roulette_background.update_attributes(params[:roulette_background])
-        format.html { redirect_to admin_roulette_backgrounds_path, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_roulette_background_path(@roulette_background), :notice => @controller_name +t(:message_success_insert)}
         format.json { head :ok }
       else
         format.html { render :action => "edit" }

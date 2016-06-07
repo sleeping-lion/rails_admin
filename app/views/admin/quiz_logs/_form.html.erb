@@ -12,19 +12,19 @@
 	</ul>
 </div>
 <% end %>
-<div class="control-group">
+<div class="form-group">
 	<%= f.label :quizzes_id %>
 	<%= f.text_field :quizzes_id,:required=>"required" %>
 </div>
-<div class="control-group">
+<div class="form-group">
 	<%= f.label :quiz_answers_id %>
 	<%= f.text_field :quiz_answers_id,:required=>"required" %>
 </div>
-<div class="control-group">
+<div class="form-group">
 	<%= f.label :users_id %>
 	<%= f.text_field :users_id,:required=>"required" %>
 </div>
-<div class="control-group actions">
+<div class="form-group actions">
 	<%= f.submit :class=>"btn btn-primary" %>
 </div>
 <% end %>

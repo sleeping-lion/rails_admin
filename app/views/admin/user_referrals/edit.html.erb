@@ -1,22 +1,24 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation" class="alert alert-error">
-    		<a href="#" class="close" data-dismiss="alert">&times;</a>
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this request from being saved:</h2>
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-	<%= f.fields_for :user_referral do |c| %>
-  <div class="control-group">
-    <%= c.label :recommend_user_id %>
-    <%= c.number_field :recommend_user_id %>
-  </div>
-  <% end %>
- 	<div class="actions">
- 		<%= f.submit :class=>"btn btn-primary" %>
- 	</div>
+<%= form_for [:admin,@user] do |f| %>
+<% if @user.errors.any? %>
+<div id="error_explanation" class="alert alert-danger">
+	<a href="#" class="close" data-dismiss="alert">&times;</a>
+	<h2><%= pluralize(@user.errors.count, "error") %> prohibited this request from being saved:</h2>
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<%= f.fields_for :user_referral do |c| %>
+<div class="form-group">
+	<%= c.label :recommend_user_id %>
+	<%= c.number_field :recommend_user_id %>
+</div>
+<% end %>
+<div class="form-group actions">
+	<%= f.submit :class=>"btn btn-primary" %>
+</div>
 <% end %>

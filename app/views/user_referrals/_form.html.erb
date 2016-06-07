@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :recommend_user_id,t(:user_id) %>
     <%= f.number_field :recommend_user_id %> <%=link_to t(:user_id_find),'/users/user_id_select',:id=>'user_id_select',:title=>t(:user_id_find),:target=>'_blank',:class=>'btn modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal",:style=>'vertical-align:top' %>
   </div>

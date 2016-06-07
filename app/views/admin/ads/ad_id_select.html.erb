@@ -4,7 +4,7 @@
 	<option value="description" <% if params[:description].present? %>selected="selected"<% end %>><%= t(:find_by_description) %></option>
 	<option value="content" <% if params[:content].present? %>selected="selected"<% end %>><%= t(:find_by_content) %></option>
 </select>
-<div class="control-group input-append">
+<div class="form-group input-append">
 	<%= text_field_tag :search,'',:required=>"required" %>
 	<%= button_tag t(:search),:type=>'submit',:class=>"btn" %>
 </div>
