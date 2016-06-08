@@ -51,6 +51,7 @@ gem 'nilify_blanks'
 gem 'protected_attributes'
 gem 'flot-rails'
 gem 'thin'
+gem 'rpush'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

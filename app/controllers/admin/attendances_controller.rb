@@ -19,7 +19,6 @@ class Admin::AttendancesController < Admin::AdminController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @attendances } 
-      format.xls { headers["Content-Disposition"] = "attachment; filename=\"#{filename}\"" }      
     end
   end
 

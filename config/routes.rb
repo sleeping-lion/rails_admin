@@ -23,8 +23,8 @@ Rails.application.routes.draw do
 
     resources :users do
       resources :user_targets, :user_target_addresses, :user_referrals
-      get 'admin/user_id_select',:on=>:collection
-      get 'admin/user_id_select_search_result',:on=>:collection
+      get 'user_id_select',:on=>:collection
+      get 'user_id_select_search_result',:on=>:collection
     end
 
     resources :mobile_prefixes
@@ -48,8 +48,8 @@ Rails.application.routes.draw do
 
     resources :users do
       resources :user_targets, :user_target_addresses, :user_referrals
-      get 'admin/user_id_select',:on=>:collection
-      get 'admin/user_id_select_search_result',:on=>:collection
+      get 'user_id_select',:on=>:collection
+      get 'user_id_select_search_result',:on=>:collection
     end
 
     resources :user_address_books
@@ -65,8 +65,8 @@ Rails.application.routes.draw do
       resources :ad_files
       resources :ad_users
 
-      get 'admin/ad_id_select',:on=>:collection
-      get 'admin/ad_id_select_search_result',:on=>:collection
+      get 'ad_id_select',:on=>:collection
+      get 'ad_id_select_search_result',:on=>:collection
     end
 
     resources :coupon_types
@@ -83,12 +83,12 @@ Rails.application.routes.draw do
     resources :ad_logs
     resources :ad_daily_stats
     resources :markets do
-      get 'admin/market_id_select',:on=>:collection
-      get 'admin/market_id_select_search_result',:on=>:collection
+      get 'market_id_select',:on=>:collection
+      get 'market_id_select_search_result',:on=>:collection
     end
 
     resources :requests do
-      post 'admin/update_status',:on=>:collection
+      post 'update_status',:on=>:collection
     end
 
     resources :stats
@@ -103,8 +103,8 @@ Rails.application.routes.draw do
     resources :faqs
     resources :banks
     resources :addresses  do
-      get 'admin/address_id_select',:on=>:collection
-      get 'admin/address_id_select_search_result',:on=>:collection
+      get 'address_id_select',:on=>:collection
+      get 'address_id_select_search_result',:on=>:collection
     end
 
     resources :target_types

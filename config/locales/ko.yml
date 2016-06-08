@@ -103,8 +103,9 @@ ko:
   submenu_order : '주문관리'
   submenu_stats : '전체 요약'
   submenu_admin : '관리자 관리'
-  submenu_user : '회원관리'
-  submenu_user_address_book : '회원 주소록 관리'
+  submenu_operator : '운영자 관리'  
+  submenu_user : '회원관리'  
+  submenu_user_address_book : '회원 주소록 관리'  
   submenu_user_login_log : '회원 로그인 기록'  
   submenu_deleted_user : '탈퇴회원 관리'
   submenu_notice : '공지사항'
@@ -124,6 +125,7 @@ ko:
   submenu_store_order_status: '주문 상태 구분 관리'
   submenu_quiz : '퀴즈 관리'
   submenu_quiz_addresses : '퀴즈상품 배송주소 관리'
+  submenu_quiz_log : '퀴즈 기록'  
   submenu_roulette_play_address : '룰렛상품 배송주소 관리'
   
   
@@ -143,6 +145,7 @@ ko:
   link_request_search: '현금전환 요청 조회'
   link_game_search: '게임 조회'
   
+  label_ad_count : '광고수' 
   label_number : '번호' 
   label_category : '분류'
   label_manage : '관리'
@@ -633,6 +636,8 @@ ko:
       app_log_type : 'app_log_type'
       app_log : 'app_log'      
       address : '주소'
+      attendance : '출석'
+      attendance_setting : '출석설정'          
       ad : '광고'
       bank : '은행'
       deleted_user : '삭제된회원'
@@ -741,8 +746,8 @@ ko:
       ad_file :
         ad_file_type_id : '광고파일유형'
         photo : '그림'
-        flag : '사용여부'
-      sponsor :
+        flag : '사용여부'     
+      sponsor :       
         title : '제목'
         flag : '사용여부'
       target_type :
@@ -757,14 +762,14 @@ ko:
         amount : '수량'
         flag : '사용여부'        
       point :
-        user_id : '用户ID'
-        point_type_id : '分类'
-        amount : '积点'  
+        user_id : '사용자 ID'
+        point_type_id : '분류'
+        amount : '수량'  
       request :
-        user_id : '用户ID'        
+        user_id : '사용자 ID'        
         request_setting_id : '兑换现金设置'
         request_type_id : '兑换现金类型'   
-        bank_id : '运营商'
+        bank_id : '은행 ID'
         account_number : '账户号码'
       game :
         user_id : '사용자 ID'
@@ -777,7 +782,7 @@ ko:
         flag : '사용여부'
       request_setting :
         title : '제목'
-        amount : '数量'
+        amount : '수량'
         flag : '사용여부'
       request_type :
         title : '제목'
@@ -825,8 +830,8 @@ ko:
         new_flag : '신 상품'
         flag : '사용여부'
       store_order : 
-        store_good_id : 'Store Good ID'
-        user_id : '用户ID'
+        store_good_id : '상품 ID'
+        user_id : '사용자 ID'
         amount : '수량'
         customer_tel : 'customer_tel'
         delivery_tel : '배송 번호'
