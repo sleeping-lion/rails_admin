@@ -40,8 +40,6 @@ User.create(:id=>6,:username=>'user6',:email => 'toughjjh@gmail6.com',:nickname=
 User.create(:id=>7,:username=>'elandor',:email => 'elandor@nate.com',:nickname=>'안대식',:password => '123456', :password_confirmation => '123456',:nation_num=>'86', :mobile_num=>'15214346349',:point=>100000, :coupon=>0, :device_id=>'awegweg', :service_provider=>'010111')
 User.create(:id=>8,:username=>'ccstest',:email => 'ccsccs1004@nate.com',:nickname=>'최철승',:password => '123456', :password_confirmation => '123456',:nation_num=>'86', :mobile_num=>'15214347041',:point=>100000, :coupon=>0, :device_id=>'awegweg', :service_provider=>'010111')
 User.create(:id=>9,:username=>'yjkim',:email => 'yjkim@myseven.co.kr',:nickname=>'김테스트',:password => '123456', :password_confirmation => '123456',:nation_num=>'86', :mobile_num=>'15800406171',:point=>100000, :coupon=>0, :device_id=>'awegweg', :service_provider=>'010111')
-
-
 User.create(:id=>10,:username=>'user10',:email => 'toughjjh@gmai24l1.com',:nickname=>'잠자는-사자14',:password => '123456', :password_confirmation => '123456', :nation_num=>'82', :mobile_num=>'010-4141-3726',:point=>20000, :coupon=>20000, :device_id=>'awegweg', :service_provider=>'010111')
 User.create(:id=>11,:username=>'user25',:email => 'toughjjh@g235mail2.com',:nickname=>'잠자는-사자2t',:password => '123456', :password_confirmation => '123456', :nation_num=>'82', :mobile_num=>'010-4141-3726',:point=>20000, :coupon=>20000, :device_id=>'awegweg', :service_provider=>'010111')
 User.create(:id=>12,:username=>'user3t',:email => 'toughjjh@gm25ail3.com',:nickname=>'잠자는-사자3t',:password => '123456', :password_confirmation => '123456', :nation_num=>'82', :mobile_num=>'010-4141-3726',:point=>20000, :coupon=>20000, :device_id=>'awegweg', :service_provider=>'010111')

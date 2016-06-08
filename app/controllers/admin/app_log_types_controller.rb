@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Admin::AppLogTypesController < Admin::AdminController
   impressionist
   load_and_authorize_resource

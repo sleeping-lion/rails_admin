@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Admin::CouponTypesController < Admin::AdminController
   # GET /coupon_types
   # GET /coupon_types.json

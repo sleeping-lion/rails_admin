@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Admin::StatsController < Admin::AdminController
   include Admin::SearchDate
   load_and_authorize_resource

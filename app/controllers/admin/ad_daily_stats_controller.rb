@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Admin::AdDailyStatsController < Admin::AdminController
   load_and_authorize_resource  
   

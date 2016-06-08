@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class User < ActiveRecord::Base
-  attr_accessor :password , :password_confirmation
+  devise :database_authenticatable, :registerable, :trackable, :validatable, :timeoutable  
   attr_accessible :id, :username, :nickname, :email, :password, :password_confirmation, :encrypted_password, :salt, :nation_num, :mobile_num, :device_id, :point, :coupon, :service_provider, :client_version, :flag, :photo, :photo_cache, :user_point_counter_attributes, :user_referral_attributes, :user_target_address_attributes  
   # in China validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "Invalid email"
   validates_length_of :username, :within => 4..60, :allow_blank=>true

@@ -1,6 +1,6 @@
 class FaqsController < ApplicationController
   impressionist  
-  before_filter :authenticate_admin!, except: [ :index, :show ]
+  before_filter :authenticate_user!, except: [ :index, :show ]
   
   def initialize(*params)
     super(*params)

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Admin::AttendancesController < Admin::AdminController
   def initialize(*params)
     super(*params)
@@ -14,12 +12,14 @@ class Admin::AttendancesController < Admin::AdminController
     unless params[:per_page].present?
       params[:per_page]=10        
     end
-    
+   
     @attendances = Attendance.order('id desc').page(params[:page]).per(params[:page])
 
+    filename = "data_users.xls"
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @attendances }  
+      format.json { render json: @attendances } 
+      format.xls { headers["Content-Disposition"] = "attachment; filename=\"#{filename}\"" }      
     end
   end
 

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Admin::AdCommentsController < Admin::AdminController
   # GET /ad_comments
   # GET /ad_comments.json

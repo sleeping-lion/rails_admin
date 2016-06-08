@@ -1,7 +1,7 @@
-class Admin::UsersController < Admin::AdminController
+class UsersController < ApplicationController
   include Admin::SearchDate
   impressionist
-  load_and_authorize_resource
+  before_filter :authenticate_user!,:only =>[:show,:edit]  
   
   def initialize(*params)
     super(*params)
@@ -144,7 +144,7 @@ class Admin::UsersController < Admin::AdminController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to admin_user_path(@user), :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to user_path(@user), :notice => @controller_name +t(:message_success_insert)}
         format.json { render :json => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -160,7 +160,7 @@ class Admin::UsersController < Admin::AdminController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to admin_user_path(@user), :notice => @controller_name +t(:message_success_update)}
+        format.html { redirect_to user_path(@user), :notice => @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -181,7 +181,7 @@ class Admin::UsersController < Admin::AdminController
     end
 
     respond_to do |format|
-      format.html { redirect_to admin_users_path }
+      format.html { redirect_to users_path }
       format.json { head :no_content }
     end
   end

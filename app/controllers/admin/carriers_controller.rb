@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Admin::CarriersController < Admin::AdminController
   # GET /carriers
   # GET /carriers.json

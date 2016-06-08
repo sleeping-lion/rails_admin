@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Admin::AdFilesController < Admin::AdminController
   load_and_authorize_resource
   

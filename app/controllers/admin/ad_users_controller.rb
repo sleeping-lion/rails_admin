@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Admin::AdUsersController < Admin::AdminController
   # GET /ad_users
   # GET /ad_users.json

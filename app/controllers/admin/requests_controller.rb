@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Admin::RequestsController < Admin::AdminController
   include Admin::SearchDate
   impressionist  

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Admin::RoulettePlaysController < Admin::AdminController
   include Admin::SearchDate
   impressionist    

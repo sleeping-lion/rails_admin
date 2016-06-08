@@ -1,4 +1,3 @@
-# encoding: utf-8
 class Admin::UserAddressBooksController < Admin::AdminController
   # GET /user_address_books
   # GET /user_address_books.json

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Admin::AttendanceSettingsController < Admin::AdminController
   def initialize(*params)
     super(*params)
