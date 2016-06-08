@@ -106,7 +106,7 @@
 <div class="row-fluid">
 	<div class="pull-left">
 		<% unless @stats.empty? %>
-		<%=link_to stats_path(:format=>"xls",:params=>params), :class=>"btn" do %>
+		<%=link_to admin_stats_path(:format=>"xls",:params=>params), :class=>"btn" do %>
 		<i class="icon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
 		<% end %>

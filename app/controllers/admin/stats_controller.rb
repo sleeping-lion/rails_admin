@@ -26,37 +26,37 @@ class Admin::StatsController < Admin::AdminController
     
     case params[:type]
     when 'market'
-      template='stats/market'
+      template='admin/stats/market'
       @sub_menu=t(:submenu_stat_market)
       @controller_name=t(:submenu_stat_market)
       @script='stats/index_market'      
       market  
     when 'user'
-      template='stats/user'
+      template='admin/stats/user'
       @sub_menu=t(:submenu_stat_user)
       @controller_name=t(:submenu_stat_user)
       @script='stats/index_user'      
       user
     when 'receive'
-      template='stats/receive'  
+      template='admin/stats/receive'  
       @sub_menu=t(:submenu_stat_receive)
       @controller_name=t(:submenu_stat_receive)
       @script='stats/index_ad'            
       app_and_banner(2)
     when 'receive_and_call'
-      template='stats/receive_and_call'     
+      template='admin/stats/receive_and_call'     
       @sub_menu=t(:submenu_stat_receive_and_call)
       @controller_name=t(:submenu_stat_receive_and_call)
       @script='stats/index_ad'
       receive_and_call      
     when 'app'
-      template='stats/app_and_banner'
+      template='admin/stats/app_and_banner'
       @sub_menu=t(:submenu_stat_app)
       @controller_name=t(:submenu_stat_app)
       @script='stats/index_ad'      
       app_and_banner(6)
     when 'banner'
-      template='stats/app_and_banner'
+      template='admin/stats/app_and_banner'
       @sub_menu=t(:submenu_stat_banner)
       @controller_name=t(:submenu_stat_banner)
       @script='stats/index_ad'      
