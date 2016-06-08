@@ -10,11 +10,11 @@
       </ul>
     </div>
   <% end %>
- 	<div class="field">
+ 	<div class="form-group">
 		<%= f.label :address_id %>
 		<%= f.select :address_id, options_from_collection_for_select(Address.find(:all,:conditions=>{:flag=>true}), 'id', 'full_address',@user_target_address.address_id) %>
  	</div>
- 	<div class="actions">
+ 	<div class="form-group actions">
  		<%= f.submit :class=>"btn btn-primary" %>
  	</div>
 <% end %>

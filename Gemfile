@@ -76,7 +76,6 @@ end
 
 group :production do
   gem 'asset_sync'
-  gem 'thin'
   gem 'connect'
   gem 'redis-rails'
   gem 'dotenv-rails'
