@@ -62,7 +62,7 @@ class Admin::DeleteUsersController < Admin::AdminController
 
     respond_to do |format|
       if @s_save
-        format.html { redirect_to @delete_user, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_delete_user_path(@delete_user), :notice => @controller_name +t(:message_success_insert)}
         format.json { render :json =>@delete_user, :status => :created, :location =>@delete_user }
       else
         format.html { render :action => "new" }
@@ -78,7 +78,7 @@ class Admin::DeleteUsersController < Admin::AdminController
 
     respond_to do |format|
       if @delete_user.update_attributes(params[:delete_user])
-        format.html { redirect_to @delete_user, :notice => @controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_delete_user_path(@delete_user), :notice => @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -94,7 +94,7 @@ class Admin::DeleteUsersController < Admin::AdminController
    @delete_user.destroy
 
     respond_to do |format|
-      format.html { redirect_to delete_users_url }
+      format.html { redirect_to admin_delete_users_path }
       format.json { head :no_content }
     end
   end

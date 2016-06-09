@@ -44,7 +44,7 @@ class Admin::CouponTypesController < Admin::AdminController
 
     respond_to do |format|
       if @coupon_type.save
-        format.html { redirect_to @coupon_type, notice: 'Coupon type was successfully created.' }
+        format.html { redirect_to admin_coupon_type_path(@coupon_type), :notice =>  @controller_name +t(:message_success_insert)}
         format.json { render json: @coupon_type, status: :created, location: @coupon_type }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Admin::CouponTypesController < Admin::AdminController
 
     respond_to do |format|
       if @coupon_type.update_attributes(params[:coupon_type])
-        format.html { redirect_to @coupon_type, notice: 'Coupon type was successfully updated.' }
+        format.html { redirect_to admin_coupon_type_path(@coupon_type), :notice =>  @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +76,7 @@ class Admin::CouponTypesController < Admin::AdminController
     @coupon_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to coupon_types_url }
+      format.html { redirect_to admin_coupon_types_path }
       format.json { head :no_content }
     end
   end

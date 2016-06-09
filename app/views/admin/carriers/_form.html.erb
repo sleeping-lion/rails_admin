@@ -1,29 +1,29 @@
-<%= form_for(@carrier) do |f| %>
-  <% if @carrier.errors.any? %>
-	<div id="error_explanation" class="alert alert-danger">
-      <h2><%= pluralize(@carrier.errors.count, "error") %> prohibited this carrier from being saved:</h2>
-
-      <ul>
-      <% @carrier.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :flag %><br />
-    <%= f.text_field :flag %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= form_for [:admin,@carrier] do |f| %>
+<% if @carrier.errors.any? %>
+<div id="error_explanation" class="alert alert-danger">
+	<h2><%= pluralize(@carrier.errors.count, "error") %> prohibited this carrier from being saved:</h2>
+	<ul>
+		<% @carrier.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="form-group">
+	<%= f.label :code %>
+	<%= f.text_field :code %>
+</div>
+<div class="form-group">
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+</div>
+<div class="form-group">
+	<%= f.label :flag %>
+	<%= f.text_field :flag %>
+</div>
+<div class="form-group actions">
+	<%= f.submit %>
+</div>
 <% end %>

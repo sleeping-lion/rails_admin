@@ -89,7 +89,7 @@ class Admin::AdLogsController < Admin::AdminController
 
     respond_to do |format|
       if @ad_log.save
-        format.html { redirect_to @ad_log, :notice => 'Ad log type was successfully created.' }
+        format.html { redirect_to @ad_log, :notice =>  @controller_name +t(:message_success_insert)}
         format.json { render :json => @ad_log, :status => :created, :location => @ad_log }
       else
         format.html { render :action => "new" }
@@ -105,7 +105,7 @@ class Admin::AdLogsController < Admin::AdminController
 
     respond_to do |format|
       if @ad_log.update_attributes(params[:ad_log_type])
-        format.html { redirect_to @ad_log, :notice => 'Ad log type was successfully updated.' }
+        format.html { redirect_to @ad_log, :notice =>  @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

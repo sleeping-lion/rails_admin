@@ -44,7 +44,7 @@ class Admin::CarriersController < Admin::AdminController
 
     respond_to do |format|
       if @carrier.save
-        format.html { redirect_to admin_carrier_path(@carrier), notice: 'Carrier was successfully created.' }
+        format.html { redirect_to admin_carrier_path(@carrier), :notice =>  @controller_name +t(:message_success_insert)}
         format.json { render json: @carrier, status: :created, location: @carrier }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Admin::CarriersController < Admin::AdminController
 
     respond_to do |format|
       if @carrier.update_attributes(params[:carrier])
-        format.html { redirect_to admin_carrier_path(@carrier), notice: 'Carrier was successfully updated.' }
+        format.html { redirect_to admin_carrier_path(@carrier),:notice =>  @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

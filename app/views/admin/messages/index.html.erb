@@ -64,9 +64,14 @@
 </table>
 <div class="row-fluid">
 	<div class="pull-left">
+		<% if can? :create, Message %>
+		<%= link_to new_admin_messages_path,:class=>"btn btn-primary" do %>
+		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
+		<% end %>
+		<% end %>		
 		<% if can? :manage, Message %>
 		<% unless @messages.empty? %>
-		<%=link_to messages_path(:format=>"xls",:params=>params), :class=>"btn" do %>
+		<%=link_to admin_messages_path(:format=>"xls",:params=>params), :class=>"btn btn-default" do %>
 		<i class="icon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
 		<% end %>
