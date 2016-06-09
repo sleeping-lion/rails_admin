@@ -69,8 +69,9 @@
 		<% end %>
 	</tbody>
 </table>
-<div class="row-fluid">
-	<div class="pull-left">
+
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md2">
 		<% if can? :create, Address %>		
 		<%= link_to new_admin_address_path, :class=>"btn btn-primary" do %>
 		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
@@ -80,7 +81,7 @@
 		<%=link_to admin_addresses_path(:format=>"xls",:params=>params), :class=>"btn btn-default" do %>
 		<i class="glyphicon glyphicon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
-		<% end %>
+		<% end %>	
 	</div>
 	<%= paginate @addresses %>
 </div>

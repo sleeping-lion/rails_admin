@@ -102,8 +102,10 @@
 </ul>
 <% end %>
 <% end %>
-<div class="row-fluid">
-	<div class="pull-left">
+
+
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md2">
 		<% if can? :create, Request %>		
 		<%= link_to new_admin_request_path, :class=>"btn btn-primary" do %>
 		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
@@ -115,7 +117,7 @@
 		<i class="glyphicon glyphicon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
 		<% end %>
-		<% end %>		
+		<% end %>
 	</div>
 	<%= paginate @requests %>
 </div>

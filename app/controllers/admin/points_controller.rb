@@ -107,7 +107,7 @@ class Admin::PointsController < Admin::AdminController
 
     respond_to do |format|
       if @save_result
-        format.html { redirect_to @point, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_point_path(@point), :notice => @controller_name +t(:message_success_insert)}
         format.json { render :json => @point, :status => :created, :location => @point }
       else
         format.html { render :action => "new" }
@@ -123,7 +123,7 @@ class Admin::PointsController < Admin::AdminController
 
     respond_to do |format|
       if @point.update_attributes(params[:point])
-        format.html { redirect_to @point, :notice => @controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_point_path(@point), :notice => @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -139,7 +139,7 @@ class Admin::PointsController < Admin::AdminController
     @point.destroy
 
     respond_to do |format|
-      format.html { redirect_to points_url }
+      format.html { redirect_to admin_points_path }
       format.json { head :no_content }
     end
   end

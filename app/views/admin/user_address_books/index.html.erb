@@ -68,14 +68,15 @@
 	<% end %>
 	</tbody>
 </table>
-<div class="row-fluid">
-	<% if can? :create, UserAddressBook %>
-	<div class="pull-left">
-		<%= link_to new_admin_user_address_book_path, :class=>"btn btn-primary" do %>
-		<i class="glyphicon glyphicon-plus"></i> <%=t(:link_new) %>
+
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md2">
+		<% if can? :create, UserAddressBook %>
+		<%= link_to new_admin_user_address_book_path,:class=>"btn btn-primary" do %>
+		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
+		<% end %>
 		<% end %>
 	</div>
-	<% end %>
 	<%= paginate @user_address_books %>
-	
 </div>
+

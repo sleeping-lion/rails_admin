@@ -82,7 +82,7 @@ class Admin::MessagesController < Admin::AdminController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, :notice =>  @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_message_path(@message), :notice =>  @controller_name +t(:message_success_insert)}
         format.json { render :json => @message, :status => :created, :location => @message }
       else
         format.html { render :action => "new" }
@@ -98,7 +98,7 @@ class Admin::MessagesController < Admin::AdminController
 
     respond_to do |format|
       if @message.update_attributes(params[:message])
-        format.html { redirect_to @message, :notice =>  @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_message_path(@message), :notice =>  @controller_name +t(:message_success_insert)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -114,7 +114,7 @@ class Admin::MessagesController < Admin::AdminController
     @message.destroy
 
     respond_to do |format|
-      format.html { redirect_to messages_url }
+      format.html { redirect_to admin_messages_path }
       format.json { head :no_content }
     end
   end

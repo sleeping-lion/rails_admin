@@ -38,11 +38,11 @@
 				<td><%= notice.created_at.to_date %></td>
 				<% if can?(:update, Notice) || can?(:delete, Notice) %>
 				<td> <% if can? :update, notice %>
-				<%= link_to edit_admin_notice_path(notice),:class=>"btn btn-small btn-default" do %> <i class="glyphicon glyphicon-pencil"></i> <%= t(:link_edit) %>
+				<%= link_to edit_admin_notice_path(notice),:class=>"btnbtn-default" do %> <i class="glyphicon glyphicon-pencil"></i> <%= t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, notice %>
-				<%= link_to admin_notice_path(notice), :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger" do %> <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete) %>
+				<%= link_to admin_notice_path(notice), :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-danger" do %> <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete) %>
 				<% end %>
 				<% end %> </td>
 				<% end %>

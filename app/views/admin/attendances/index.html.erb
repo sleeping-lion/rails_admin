@@ -59,8 +59,8 @@
 	<% end %>
 	</tbody>
 </table>
-<div class="row-fluid">
-	<div class="pull-left">
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md2">
 		<% if can? :create, Attendance %>
 		<%= link_to new_admin_attendance_path, :class=>"btn btn-primary" do %>
 		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
@@ -72,7 +72,7 @@
 		<i class="icon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
 		<% end %>
-		<% end %>		
-	</div>	
+		<% end %>	
+	</div>
 	<%= paginate @attendances %>
 </div>

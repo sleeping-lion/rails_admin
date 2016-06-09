@@ -48,13 +48,13 @@
 			<% if can?(:update, operator) || can?(:delete, operator) %>
 			<td>
 				<% if can?(:update, operator) %>
-				<%= link_to edit_operator_path(operator),:class=>"btn btn-small pull-left" do %>
-				<i class="icon-pencil"></i> <%=t(:link_edit) %>
+				<%= link_to edit_operator_path(operator),:class=>"btn btn-default" do %>
+				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can?(:delete, operator) %>
-				<%= link_to operator_path(operator), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
-				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<%= link_to operator_path(operator), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm) },:class=>"btn btn-danger" do %>
+				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>
 			</td>

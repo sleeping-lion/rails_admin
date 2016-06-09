@@ -55,7 +55,7 @@ class Admin::PointTypesController < Admin::AdminController
 
     respond_to do |format|
       if @point_type.save
-        format.html { redirect_to @point_type, :notice => @controller_name +t(:message_success_insert)  }
+        format.html { redirect_to admin_point_type_path(@point_type), :notice => @controller_name +t(:message_success_insert)  }
         format.json { render :json => @point_type, :status => :created, :location => @point_type }
       else
         format.html { render :action => "new" }
@@ -71,7 +71,7 @@ class Admin::PointTypesController < Admin::AdminController
 
     respond_to do |format|
       if @point_type.update_attributes(params[:point_type])
-        format.html { redirect_to @point_type, :notice => @controller_name +t(:message_success_update) }
+        format.html { redirect_to admin_point_type_path(@point_type), :notice => @controller_name +t(:message_success_update) }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -87,7 +87,7 @@ class Admin::PointTypesController < Admin::AdminController
     @point_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to point_types_url }
+      format.html { redirect_to admin_point_types_path }
       format.json { head :no_content }
     end
   end

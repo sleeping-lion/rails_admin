@@ -53,13 +53,15 @@
 	<% end %>
 	</tbody>
 </table>
-<div class="row-fluid">
-	<div class="pull-left">
+
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md2">
 		<% if can? :create, RouletteBackground %>
 		<%= link_to new_admin_roulette_background_path, :class=>"btn btn-primary" do %>
 		<i class="glyphicon glyphicon-plus"></i> <%=t(:link_new) %>
 		<% end %>
 		<% end %>	
-	</div>	
+	</div>
 	<%= paginate @roulette_backgrounds %>
 </div>
+

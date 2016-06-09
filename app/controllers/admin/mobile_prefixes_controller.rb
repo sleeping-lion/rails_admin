@@ -44,7 +44,7 @@ class Admin::MobilePrefixesController < ApplicationController
 
     respond_to do |format|
       if @mobile_prefix.save
-        format.html { redirect_to @mobile_prefix, notice: 'Mobile prefix was successfully created.' }
+        format.html { redirect_to admin_mobile_prefixe_path(@mobile_prefix), notice: 'Mobile prefix was successfully created.' }
         format.json { render json: @mobile_prefix, status: :created, location: @mobile_prefix }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Admin::MobilePrefixesController < ApplicationController
 
     respond_to do |format|
       if @mobile_prefix.update_attributes(params[:mobile_prefix])
-        format.html { redirect_to @mobile_prefix, notice: 'Mobile prefix was successfully updated.' }
+        format.html { redirect_to admin_mobile_prefixe_path(@mobile_prefix), notice: 'Mobile prefix was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +76,7 @@ class Admin::MobilePrefixesController < ApplicationController
     @mobile_prefix.destroy
 
     respond_to do |format|
-      format.html { redirect_to mobile_prefixes_url }
+      format.html { redirect_to admin_mobile_prefixes_path }
       format.json { head :no_content }
     end
   end

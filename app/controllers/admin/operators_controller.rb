@@ -57,7 +57,7 @@ class Admin::OperatorsController < Admin::AdminController
 
     respond_to do |format|
       if @or
-        format.html { redirect_to operator_url(@operator), :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_operator_path(@operator), :notice => @controller_name +t(:message_success_insert)}
         format.json { render :json => @operator, :status => :created, :location => @operator }
       else
         format.html { render :action => "new" }
@@ -78,7 +78,7 @@ class Admin::OperatorsController < Admin::AdminController
 
     respond_to do |format|
       if @or
-        format.html { redirect_to operator_url(@operator), :notice => @controller_name +t(:message_success_update)}
+        format.html { redirect_to admin_operator_path(@operator), :notice => @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -94,7 +94,7 @@ class Admin::OperatorsController < Admin::AdminController
     @operator.destroy   
 
     respond_to do |format|
-      format.html { redirect_to operators_url }
+      format.html { redirect_to admin_operators_path }
       format.json { head :no_content }
     end
   end
