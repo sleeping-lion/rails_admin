@@ -14,7 +14,7 @@
 <% end %>
 <div class="form-group">
 	<%= f.label :store_type_id, :class => "control-label" %>
-	<%= f.select :store_type_id, options_from_collection_for_select(StoreType.where(:flag=>true).all(), 'id', 'title',@store_good.store_type_id) %>
+	<%= f.select :store_type_id, options_from_collection_for_select(StoreType.where(:flag=>true).all(), 'id', 'title',@store_good.store_type_id),{},:class=>"form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :title, :class => "control-label" %>

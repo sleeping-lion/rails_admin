@@ -17,7 +17,7 @@ class AdminAbility
         cannot :read, [Operator,ApplicationVersion,GameSetting]
       elsif admin.role? :store_manager
         can :manage, [StoreGood,StoreOrder,StoreGoodPicture]
-        cannot :read, [Operator,ApplicationVersion,GameSetting]
+        cannot :read, [Operator,AppVersion,GameSetting]
       elsif admin.role? :cs_manager
         can :read,[User,UserLoginLog,Point,Request,Message]
       elsif admin.role? :reader
@@ -25,7 +25,7 @@ class AdminAbility
         cannot :read, [Operator]
       elsif admin.role? :sponsor
         can :read, [Stat]
-        cannot :read, [Operator,ApplicationVersion]
+        cannot :read, [Operator,AppVersion]
       end
     else
       cannot :manage, :all

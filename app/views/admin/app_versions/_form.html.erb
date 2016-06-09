@@ -1,10 +1,10 @@
-<%= form_for [:admin,@application_version] do |f| %>
-<% if @application_version.errors.any? %>
+<%= form_for [:admin,@app_version] do |f| %>
+<% if @app_version.errors.any? %>
 <div id="error_explanation" class="alert alert-danger">
 	<a href="#" class="close" data-dismiss="alert">&times;</a>
-	<h2><%= pluralize(@application_version.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
+	<h2><%= pluralize(@app_version.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
 	<ul>
-		<% @application_version.errors.full_messages.each do |msg| %>
+		<% @app_version.errors.full_messages.each do |msg| %>
 		<li>
 			<%= msg %>
 		</li>
@@ -18,7 +18,7 @@
 </div>
 <div class="form-group">
 	<%= f.label :label_update_type, :class => 'control-label' %>
-	<%= f.select :state, [['선택업데이트', 1], ['필수업데이트', 2]],:class=>"form-control" %>
+	<%= f.select :state, [['선택업데이트', 1], ['필수업데이트', 2]],{},:class=>"form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :version_name, :class => 'control-label' %>

@@ -14,111 +14,75 @@
 <% end %>
 <div class="form-group">
 	<%= f.label :store_good_id, :class => "control-label" %>
-	<div class="controls">
-		<%= f.number_field :store_good_id %>
-	</div>
+	<%= f.number_field :store_good_id %>
 </div>
 <div class="form-group">
 	<%= f.label :user_id, :class => "control-label" %>
-	<div class="controls">
-		<%= f.number_field :user_id %>
-	</div>
+	<%= f.number_field :user_id %>
 </div>
 <div class="form-group">
 	<%= f.label :amount, :class => "control-label" %>
-	<div class="controls">
-		<%= f.number_field :amount %>
-	</div>
+	<%= f.number_field :amount %>
 </div>
 <div class="form-group">
 	<%= f.label :customer_tel, :class => "control-label" %>
-	<div class="controls">
-		<%= f.text_field :customer_tel %>
-	</div>
+	<%= f.text_field :customer_tel %>
 </div>
 <div class="form-group">
 	<%= f.label :delivery_tel, :class => "control-label" %>
-	<div class="controls">
-		<%= f.text_field :delivery_tel %>
-	</div>
+	<%= f.text_field :delivery_tel %>
 </div>
 <div class="form-group">
 	<%= f.label :delivery_name, :class => "control-label" %>
-	<div class="controls">
-		<%= f.text_field :delivery_name %>
-	</div>
+	<%= f.text_field :delivery_name %>
 </div>
 <div class="form-group">
 	<%= f.label :delivery_zipcode, :class => "control-label" %>
-	<div class="controls">
-		<%= f.text_field :delivery_zipcode %>
-	</div>
+	<%= f.text_field :delivery_zipcode %>
 </div>
 <div class="form-group">
 	<%= f.label :delivery_address_1, :class => "control-label" %>
-	<div class="controls">
-		<%= f.text_field :delivery_address_1 %>
-	</div>
+	<%= f.text_field :delivery_address_1 %>
 </div>
 <div class="form-group">
 	<%= f.label :delivery_address_2, :class => "control-label" %>
-	<div class="controls">
-		<%= f.text_field :delivery_address_2 %>
-	</div>
+	<%= f.text_field :delivery_address_2 %>
 </div>
 <div class="form-group">
 	<%= f.label :delivery_note, :class => "control-label" %>
-	<div class="controls">
-		<%= f.text_field :delivery_note %>
-	</div>
+	<%= f.text_field :delivery_note %>
 </div>
 <div class="form-group">
 	<%= f.label :store_order_status_id, :class => "control-label" %>
-	<div class="controls">
-		<%= select_tag :store_order_status_id, options_from_collection_for_select(StoreOrderStatus.where(:flag=>true).all(), 'id', 'title',@store_order.store_order_status_id), {:include_blank => false} %>
-	</div>
+	<%= select_tag :store_order_status_id, options_from_collection_for_select(StoreOrderStatus.where(:flag=>true).all(), 'id', 'title',@store_order.store_order_status_id), {:include_blank => false} %>
 </div>
 <div class="form-group">
 	<%= f.label :shipping_method, :class => "control-label" %>
-	<div class="controls">
-		<%= f.text_field :shipping_method %>
-	</div>
+	<%= f.text_field :shipping_method %>
 </div>
 <div class="form-group">
 	<%= f.label :shipping_track_number, :class => "control-label" %>
-	<div class="controls">
-		<%= f.text_field :shipping_track_number %>
-	</div>
+	<%= f.text_field :shipping_track_number %>
 </div>
 <div class="form-group">
 	<%= f.label :shipping_time, :class => "control-label" %>
-	<div class="controls">
-		<%= f.datetime_select :shipping_time %>
-	</div>
+	<%= f.datetime_select :shipping_time %>
 </div>
 <div class="form-group">
 	<%= f.label :shipping_flag, :class => "control-label" %>
-	<div class="controls">
-		<%= f.check_box :shipping_flag %>
-	</div>
+	<%= f.check_box :shipping_flag %>
 </div>
 <div class="form-group">
 	<%= f.label :return_reason, :class => "control-label" %>
-	<div class="controls">
-		<%= f.text_field :return_reason %>
-	</div>
+	<%= f.text_field :return_reason %>
 </div>
 <div class="form-group">
 	<%= f.label :return_time, :class => "control-label" %>
-	<div class="controls">
-		<%= f.datetime_select :return_time %>
-	</div>
+	<%= f.datetime_select :return_time %>
 </div>
 <div class="form-group">
 	<%= f.label :return_flag, :class => "control-label" %>
-	<div class="controls">
-		<%= f.check_box :return_flag %>
-	</div>
+	<%= f.check_box :return_flag %>
 </div>
 <div class="form-group actions">
 	<%= f.submit :class=>"btn btn-primary" %>

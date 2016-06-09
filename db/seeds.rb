@@ -166,14 +166,6 @@ CouponType.create(:title=>'FB연결',:amount=>10)
 CouponType.create(:title=>'웹이동',:amount=>10)
 =end
 
-GameSetting.create(:id=>1,:title=>'blue20', :percentage=>4,:amount=>20)
-GameSetting.create(:id=>2,:title=>'red20',  :percentage=>4,:amount=>20)
-GameSetting.create(:id=>3,:title=>'10배',  :percentage=>8,:amount=>10)
-GameSetting.create(:id=>4,:title=>'7배', :percentage=>12,:amount=>7)
-GameSetting.create(:id=>5,:title=>'5배',  :percentage=>17,:amount=>5)
-GameSetting.create(:id=>6,:title=>'4배',  :percentage=>19,:amount=>4)
-GameSetting.create(:id=>7,:title=>'3배',  :percentage=>31,:amount=>3)
-
 TargetType.create(:id=>1,:title=>"관심분야")
 TargetType.create(:id=>2,:title=>"직업")
 TargetType.create(:id=>3,:title=>"성별")
@@ -260,7 +252,7 @@ Address.create(:id=>9, :parent_address_id=>2, :level=>1, :name=>'강남구', :fu
 Address.create(:id=>10, :parent_address_id=>9, :level=>2, :name=>'가산동', :full_address=>'서울시 금천구 가산동', :flag=>true)
 Address.create(:id=>11, :parent_address_id=>9, :level=>2, :name=>'독산동', :full_address=>'서울시 금천구 독산동', :flag=>true)
 
-ApplicationVersion.create( :client_version => '58', :version_name=>'gg', :contents=>'gg', :state=>'f', :update_date => '2013-05-31' )
+AppVersion.create( :client_version => '58', :version_name=>'gg', :contents=>'gg', :state=>'f', :update_date => '2013-05-31' )
 
 AdLogType.create(:id => 1, :title=>'노출')
 AdLogType.create(:id => 2, :title=>'클릭')
@@ -276,17 +268,6 @@ AdFileType.create(:title=>'썸네일')
 AdFileType.create(:title=>'광고이미지')
 AdFileType.create(:title=>'이미지압축')
 AdFileType.create(:title=>'임시파일')
-
-GameAmount.create(:amount=>50)
-GameAmount.create(:amount=>100)
-GameAmount.create(:amount=>150)
-GameAmount.create(:amount=>200)
-GameAmount.create(:amount=>250)
-GameAmount.create(:amount=>300)
-GameAmount.create(:amount=>350)
-GameAmount.create(:amount=>400)
-GameAmount.create(:amount=>450)
-GameAmount.create(:amount=>500)
 
 RouletteSetting.create(:title=>'1000포인트',:percentage=>0.01, :amount=>1000, :limit=>1)
 RouletteSetting.create(:title=>'100포인트',:percentage=>0.1, :amount=>100, :limit=>2)

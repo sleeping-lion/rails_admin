@@ -1,0 +1,42 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<div class="sl_show">
+	<p>
+		<b><%=t(:label_version) %></b>
+		<%= @app_version.client_version %>
+	</p>
+	<p>
+		<b><%=t(:label_version_name) %></b>
+		<%= @app_version.version_name %>
+	</p>
+	<p>
+		<b><%=t(:label_state) %></b>
+		<%= @app_version.state %>
+	</p>
+	<p>
+		<b><%=t(:label_update_date)%></b>
+		<%= @app_version.update_date %>
+	</p>
+	<p>
+		<b><%=t(:label_apk_file) %></b>
+		<%= @app_version.apk_file %>
+	</p>
+	<p>
+		<b><%=t(:label_contents) %></b>
+		<%= @app_version.contents %>
+	</p>
+  <p>
+  	<b><%=t(:label_created_at) %></b>
+  	<%= @app_version.created_at %>
+  </p>
+  <p>
+  	<b><%=t(:label_updated_at) %></b>
+  	<%= @app_version.updated_at %>
+  </p>
+</div>
+
+<% if can? :create, @app_version %>
+<%= link_to t(:link_edit), edit_admin_app_version_path(@app_version), class: "btn" %>
+<% end %>
+<%= link_to t(:link_list), admin_app_versions_path, class: "btn" %>

@@ -1,10 +1,10 @@
-<%= form_for [:admin,@market] do |f| %>
-<% if @market.errors.any? %>
+<%= form_for [:admin,@app_market] do |f| %>
+<% if @app_market.errors.any? %>
 <div id="error_explanation" class="alert alert-danger">
 	<a href="#" class="close" data-dismiss="alert">&times;</a>
-	<h2><%= pluralize(@market.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
+	<h2><%= pluralize(@app_market.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
 	<ul>
-		<% @market.errors.full_messages.each do |msg| %>
+		<% @app_market.errors.full_messages.each do |msg| %>
 		<li>
 			<%= msg %>
 		</li>

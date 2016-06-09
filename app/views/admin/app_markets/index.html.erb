@@ -8,8 +8,8 @@
 		<col style="width:80px;" />		
 		<col style="width:80px;" />		
 		<col style="width:100px;" />
-		<% if can?(:update, Market) || can?(:delete, Market) %>
-		<col <%=raw manage_width(Market) %> />
+		<% if can?(:update, AppMarket) || can?(:delete, AppMarket) %>
+		<col <%=raw manage_width(AppMarket) %> />
 		<% end %>
 	</colgroup>
 	<thead>
@@ -19,29 +19,29 @@
 			<th><%=t(:label_count) %></th>
 			<th><%=t(:label_flag) %></th>
 			<th><%=t(:label_created_at) %></th>
-			<% if can?(:update, Market) || can?(:delete, Market) %>		
+			<% if can?(:update, AppMarket) || can?(:delete, AppMarket) %>		
 			<th><%=t(:label_manage) %></th>
 			<% end %>
 		</tr>
 	</thead>
 	<tbody>
-		<% unless @markets.empty? %>
-		<% @markets.each do |market| %>
+		<% unless @app_markets.empty? %>
+		<% @app_markets.each do |market| %>
 		<tr>
 			<td><%=market.id %></td>
-			<td class="mw"><%=link_to market.title,admin_market_path(market) %></td>
+			<td class="mw"><%=link_to market.title,admin_app_market_path(market) %></td>
 			<td><%=market.count %></td>			
 			<td><%=raw flagToString(market.flag) %></td>
 			<td><%=market.created_at.to_date %></td>
 			<% if can?(:update, market) || can?(:delete, market) %>
 			<td>
 				<% if can? :update, market %>
-				<%= link_to edit_admin_market_path(market),:class=>"btn btn-default" do %>
+				<%= link_to edit_admin_app_market_path(market),:class=>"btn btn-default" do %>
 				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, market %>				
-				<%= link_to admin_market_path(market), :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-danger" do %>
+				<%= link_to admin_app_market_path(market), :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-danger" do %>
 				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>
@@ -59,11 +59,11 @@
 
 <div class="row">
 	<div class="col-xs-6 col-sm-3 col-md2">
-		<% if can? :create, Market %>
-		<%= link_to new_admin_market_path, :class=>"btn btn-primary" do %>
+		<% if can? :create, AppMarket %>
+		<%= link_to new_admin_app_market_path, :class=>"btn btn-primary" do %>
 		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
 		<% end %>
 		<% end %>	
 	</div>
-	<%= paginate @markets %>
+	<%= paginate @app_markets %>
 </div>

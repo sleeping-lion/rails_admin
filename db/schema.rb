@@ -282,6 +282,7 @@ ActiveRecord::Schema.define(version: 20131220024006) do
     t.integer  "ad_type_id",          limit: 4,                   null: false
     t.string   "title",               limit: 60,                  null: false
     t.string   "description",         limit: 200
+    t.string   "display_type",        limit: 10,  default: "0"
     t.boolean  "priority",                        default: false, null: false
     t.integer  "ad_schedules_count",  limit: 4,   default: 0,     null: false
     t.integer  "ad_files_count",      limit: 4,   default: 0,     null: false
@@ -289,7 +290,6 @@ ActiveRecord::Schema.define(version: 20131220024006) do
     t.boolean  "flag",                            default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "display_type",        limit: 10,  default: "0"
   end
 
   add_index "ads", ["ad_type_id"], name: "index_ads_on_ad_type_id", using: :btree
@@ -315,16 +315,24 @@ ActiveRecord::Schema.define(version: 20131220024006) do
   add_index "app_logs", ["app_log_type_id"], name: "index_app_logs_on_app_log_type_id", using: :btree
   add_index "app_logs", ["user_id"], name: "index_app_logs_on_user_id", using: :btree
 
-  create_table "application_versions", force: :cascade do |t|
+  create_table "app_markets", force: :cascade do |t|
+    t.string   "title",      limit: 60,                null: false
+    t.integer  "count",      limit: 4,  default: 0,    null: false
+    t.boolean  "flag",                  default: true, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "app_versions", force: :cascade do |t|
     t.string   "client_version", limit: 60,                 null: false
     t.string   "version_name",   limit: 60,                 null: false
+    t.string   "state",          limit: 1,                  null: false
+    t.string   "contents",       limit: 255,                null: false
+    t.string   "apk_file",       limit: 255
     t.datetime "update_date",                               null: false
     t.boolean  "flag",                       default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "state",          limit: 1,                  null: false
-    t.string   "contents",       limit: 255,                null: false
-    t.string   "apk_file",       limit: 255
   end
 
   create_table "attendance_pictures", force: :cascade do |t|
@@ -355,15 +363,16 @@ ActiveRecord::Schema.define(version: 20131220024006) do
   end
 
   create_table "attendances", force: :cascade do |t|
-    t.integer  "user_id",                limit: 4
+    t.integer  "attendance_setting_id", limit: 4, null: false
+    t.integer  "user_id",               limit: 4, null: false
     t.date     "today"
-    t.integer  "count",                  limit: 4
+    t.integer  "count",                 limit: 4
     t.boolean  "flag"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "attendance_settings_id", limit: 4
   end
 
+  add_index "attendances", ["attendance_setting_id"], name: "index_attendances_on_attendance_setting_id", using: :btree
   add_index "attendances", ["user_id"], name: "index_attendances_on_user_id", using: :btree
 
   create_table "banks", force: :cascade do |t|
@@ -422,13 +431,6 @@ ActiveRecord::Schema.define(version: 20131220024006) do
     t.datetime "updated_at"
   end
 
-  create_table "game_amounts", force: :cascade do |t|
-    t.integer  "amount",     limit: 4,                null: false
-    t.boolean  "flag",                 default: true, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "game_settings", force: :cascade do |t|
     t.string   "title",      limit: 60,                null: false
     t.float    "percentage", limit: 24, default: 0.0,  null: false
@@ -478,14 +480,6 @@ ActiveRecord::Schema.define(version: 20131220024006) do
 
   create_table "internal_exchange_rates", force: :cascade do |t|
     t.float    "rate",       limit: 24, default: 0.0, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "markets", force: :cascade do |t|
-    t.string   "title",      limit: 60,                null: false
-    t.integer  "count",      limit: 4,  default: 0,    null: false
-    t.boolean  "flag",                  default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -577,6 +571,7 @@ ActiveRecord::Schema.define(version: 20131220024006) do
   end
 
   create_table "quizzes", force: :cascade do |t|
+    t.integer  "quiz_type_id",     limit: 4,                null: false
     t.string   "title",            limit: 200
     t.string   "description",      limit: 255
     t.string   "photo",            limit: 255
@@ -590,7 +585,6 @@ ActiveRecord::Schema.define(version: 20131220024006) do
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "quiz_type",        limit: 4,    default: 1, null: false
     t.string   "full_description", limit: 2000
     t.integer  "winner_count",     limit: 4,    default: 1
   end
