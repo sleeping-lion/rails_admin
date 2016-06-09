@@ -71,7 +71,7 @@ class Admin::QuizQuestionsController < Admin::AdminController
 
     respond_to do |format|
       if @quiz_question.update_attributes(params[:quiz_question])
-        format.html { redirect_to @quiz, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_quiz_path(@quiz), :notice => @controller_name +t(:message_success_insert)}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -87,7 +87,7 @@ class Admin::QuizQuestionsController < Admin::AdminController
     @quiz_question.destroy
 
     respond_to do |format|
-      format.html { redirect_to quiz_url(@quiz_question.quiz) }
+      format.html { redirect_to admin_quiz_path(@quiz_question.quiz) }
       format.json { head :no_content }
     end
   end

@@ -1,67 +1,63 @@
-<div class="row-fluid">
-	<h3 class="pull-left"><%= @controller_name %> <%=actionNameChange controller.action_name %></h3>
+<div class="row">
+	<h3 class="col-xs-12 col-sm-6"><%= @controller_name %> <%= actionNameChange controller.action_name %></h3>
 </div>
-<table class="table table-bordered table-striped">
-	<colgroup>
-		<col style="width:80px;" />
-		<col />
-		<col style="width:80px;" />
-		<col style="width:100px;" />
-		<% if can?(:update, StoreOrderStatus) || can?(:delete, StoreOrderStatus) %>
-		<col <%=raw manage_width(StoreOrderStatus) %> />
-		<% end %>
-	</colgroup>
-	<thead>
-		<tr>
-			<th><%=t(:label_number) %></th>
-			<th><%=t(:label_title) %></th>
-			<th><%=t(:label_flag) %></th>
-			<th><%=t(:label_created_at) %></th>
+<div class="table-responsive">
+	<table class="table table-bordered table-striped">
+		<colgroup>
+			<col style="width:80px;" />
+			<col />
+			<col style="width:80px;" />
+			<col style="width:100px;" />
 			<% if can?(:update, StoreOrderStatus) || can?(:delete, StoreOrderStatus) %>
-			<th><%=t(:label_manage) %></th>
+			<col <%= raw manage_width(StoreOrderStatus) %> />
 			<% end %>
-		</tr>
-	</thead>
-	<tbody>
-		<% unless @store_order_statuses.empty? %>
-		<% @store_order_statuses.each do |store_order_status| %>
-		<tr>
-			<td><%=store_order_status.id %></td>
-			<td class="mw"><%=store_order_status.title %></td>
-			<td><%=raw flagToString(store_order_status.flag) %></td>
-			<td><%=store_order_status.created_at.to_date %></td>
-			<% if can?(:update, store_order_status) || can?(:delete, store_order_status) %>
-			<td>
-				<% if can? :update, store_order_status %>				
-				<%= link_to edit_admin_store_order_status_path(store_order_status),:class=>"btn btn-default" do %>
-				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
+		</colgroup>
+		<thead>
+			<tr>
+				<th><%= t(:label_number) %></th>
+				<th><%= t(:label_title) %></th>
+				<th><%= t(:label_flag) %></th>
+				<th><%= t(:label_created_at) %></th>
+				<% if can?(:update, StoreOrderStatus) || can?(:delete, StoreOrderStatus) %>
+				<th><%= t(:label_manage) %></th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% unless @store_order_statuses.empty? %>
+			<% @store_order_statuses.each do |store_order_status| %>
+			<tr>
+				<td><%= store_order_status.id %></td>
+				<td class="mw"><%= store_order_status.title %></td>
+				<td><%= raw flagToString(store_order_status.flag) %></td>
+				<td><%= store_order_status.created_at.to_date %></td>
+				<% if can?(:update, store_order_status) || can?(:delete, store_order_status) %>
+				<td> <% if can? :update, store_order_status %>
+				<%= link_to edit_admin_store_order_status_path(store_order_status),:class=>"btn btn-default" do %> <i class="glyphicon glyphicon-pencil"></i> <%= t(:link_edit) %>
 				<% end %>
 				<% end %>
-				<% if can? :delete, store_order_status %>				
-				<%= link_to admin_store_order_status_path(store_order_status), :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-danger" do %>
-				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
+				<% if can? :delete, store_order_status %>
+				<%= link_to admin_store_order_status_path(store_order_status), :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-danger" do %> <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete) %>
 				<% end %>
+				<% end %> </td>
 				<% end %>
-			</td>
+			</tr>
 			<% end %>
-		</tr>
-		<% end %>
-		<% else %>
-		<tr>
-			<td colspan="5"><%=t(:no_data)%></td>
-		</tr>
-		<% end %>
+			<% else %>
+			<tr>
+				<td colspan="5"><%= t(:no_data)%></td>
+			</tr>
+			<% end %>
 		</tbody>
 	</table>
-	
-
+</div>
 <div class="row">
 	<div class="col-xs-6 col-sm-3 col-md2">
-		<% if can? :create, StoreOrderStatus %>		
+		<% if can? :create, StoreOrderStatus %>
 		<%= link_to new_admin_store_order_status_path, :class=>"btn btn-primary" do %>
-		<i class="glyphicon glyphicon-plus"></i> <%=t(:link_new) %>
+		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
 		<% end %>
-		<% end %>	
+		<% end %>
 	</div>
 	<%= paginate @store_order_statuses %>
 </div>
