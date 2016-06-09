@@ -1,6 +1,4 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  layout 'admin/application'
-  
   def initialize(*params)
     super(*params)
     
@@ -12,17 +10,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /admins
   # GET /admins.json
   def index   
-    @admins = Admin.where('parent_id is null').order('id desc').page(params[:page]).per(10)
+    @users = User.where('parent_id is null').order('id desc').page(params[:page]).per(10)
     
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @admins }
+      format.json { render :json => @users }
       format.xls
     end
   end  
   
-  def admin_layout 
-    if admin_session
+  def user_layout 
+    if user_session
       "application"
     else     
       "login"

@@ -8,19 +8,16 @@ Rails.application.routes.draw do
   end
   
   devise_for :users, :controllers => { :sessions => "users/sessions",:registrations => "users/registrations" }, :path_names =>  {:sign_up=>'new',:sign_in => 'login', :sign_out => 'logout'} do
-    get 'edit', :to => 'users::Registrations#edit'
+    get 'edit', :to => 'users::Registrationss#edit'
     get 'login', :to => 'users::Sessions#new'
     get 'logout', :to=> 'users::Sessions#destroy'
-  end  
+  end
+  
+  get '/login', :to =>  'users/sessions#new' 
 
   resources :notices
   resources :faqs
-  
-  resources :users do
-    resources :user_targets, :user_target_addresses, :user_referrals
-    get 'user_id_select',:on=>:collection
-    get 'user_id_select_search_result',:on=>:collection
-  end
+ 
 
   namespace :admin do
     get '/' => 'admin#index'    
