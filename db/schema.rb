@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131220024006) do
+ActiveRecord::Schema.define(version: 20131224223355) do
 
   create_table "ad_comments", force: :cascade do |t|
     t.integer  "ad_id",      limit: 4
@@ -97,15 +97,15 @@ ActiveRecord::Schema.define(version: 20131220024006) do
     t.string   "callback_number",  limit: 50
     t.string   "callback_comment", limit: 200
     t.boolean  "video_flag",                     default: false, null: false
+    t.string   "cpi_publisher",    limit: 100,   default: "",    null: false
+    t.string   "cpi_apk_size",     limit: 100,   default: "",    null: false
+    t.string   "cpi_version",      limit: 100,   default: "",    null: false
     t.text     "html_data",        limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "button_position",  limit: 4
     t.string   "track_id1",        limit: 255
     t.string   "track_id2",        limit: 255
-    t.string   "cpi_publisher",    limit: 100,   default: "",    null: false
-    t.string   "cpi_apk_size",     limit: 100,   default: "",    null: false
-    t.string   "cpi_version",      limit: 100,   default: "",    null: false
   end
 
   add_index "ad_options", ["ad_id"], name: "index_ad_options_on_ad_id", using: :btree
@@ -350,6 +350,7 @@ ActiveRecord::Schema.define(version: 20131220024006) do
   create_table "attendance_settings", force: :cascade do |t|
     t.string   "title",      limit: 200
     t.string   "headtext",   limit: 200
+    t.string   "photo",      limit: 255
     t.integer  "prize5",     limit: 4
     t.integer  "prize10",    limit: 4
     t.integer  "prize15",    limit: 4
@@ -359,7 +360,6 @@ ActiveRecord::Schema.define(version: 20131220024006) do
     t.boolean  "flag"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo",      limit: 255
   end
 
   create_table "attendances", force: :cascade do |t|
@@ -430,28 +430,6 @@ ActiveRecord::Schema.define(version: 20131220024006) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "game_settings", force: :cascade do |t|
-    t.string   "title",      limit: 60,                null: false
-    t.float    "percentage", limit: 24, default: 0.0,  null: false
-    t.integer  "amount",     limit: 4,                 null: false
-    t.boolean  "flag",                  default: true, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "games", force: :cascade do |t|
-    t.integer  "user_id",         limit: 4, null: false
-    t.integer  "game_setting_id", limit: 4
-    t.integer  "point_id",        limit: 4
-    t.integer  "amount",          limit: 4, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "games", ["game_setting_id"], name: "index_games_on_game_setting_id", using: :btree
-  add_index "games", ["point_id"], name: "index_games_on_point_id", using: :btree
-  add_index "games", ["user_id"], name: "index_games_on_user_id", using: :btree
 
   create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type", limit: 255
@@ -558,9 +536,9 @@ ActiveRecord::Schema.define(version: 20131220024006) do
     t.integer  "quizzes_id",      limit: 4
     t.integer  "quiz_answers_id", limit: 4
     t.integer  "users_id",        limit: 4
+    t.integer  "winner_flag",     limit: 4, default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "winner_flag",     limit: 4, default: 0, null: false
   end
 
   create_table "quiz_questions", force: :cascade do |t|
@@ -571,22 +549,21 @@ ActiveRecord::Schema.define(version: 20131220024006) do
   end
 
   create_table "quizzes", force: :cascade do |t|
-    t.integer  "quiz_type_id",     limit: 4,                null: false
-    t.string   "title",            limit: 200
-    t.string   "description",      limit: 255
-    t.string   "photo",            limit: 255
-    t.string   "sponsor",          limit: 255
-    t.string   "sponsor_url",      limit: 255
-    t.integer  "price",            limit: 4
-    t.integer  "budget",           limit: 4
-    t.integer  "balance",          limit: 4,    default: 0
-    t.integer  "point",            limit: 4,    default: 1
+    t.integer  "quiz_type_id", limit: 4,               null: false
+    t.string   "title",        limit: 200
+    t.string   "description",  limit: 255
+    t.string   "photo",        limit: 255
+    t.string   "sponsor",      limit: 255
+    t.string   "sponsor_url",  limit: 255
+    t.integer  "price",        limit: 4
+    t.integer  "budget",       limit: 4
+    t.integer  "balance",      limit: 4,   default: 0
+    t.integer  "point",        limit: 4,   default: 1
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "full_description", limit: 2000
-    t.integer  "winner_count",     limit: 4,    default: 1
+    t.integer  "winner_count", limit: 4,   default: 1
   end
 
   create_table "quizzes_user_address_books", force: :cascade do |t|
@@ -889,9 +866,9 @@ ActiveRecord::Schema.define(version: 20131220024006) do
     t.string   "name",         limit: 60,              null: false
     t.string   "mobilephone",  limit: 60,              null: false
     t.string   "address",      limit: 255,             null: false
+    t.integer  "primary_flag", limit: 4,   default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "primary_flag", limit: 4,   default: 0, null: false
   end
 
   add_index "user_address_books", ["address_id"], name: "index_user_address_books_on_address_id", using: :btree
@@ -994,9 +971,6 @@ ActiveRecord::Schema.define(version: 20131220024006) do
   add_foreign_key "ads", "admins", name: "ads_ibfk_2", on_update: :cascade, on_delete: :cascade
   add_foreign_key "ads", "sponsors", name: "ads_ibfk_3", on_update: :cascade, on_delete: :cascade
   add_foreign_key "faq_contents", "faqs", column: "id", name: "faq_contents_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "games", "game_settings", name: "games_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "games", "points", name: "games_ibfk_3", on_update: :cascade, on_delete: :nullify
-  add_foreign_key "games", "users", name: "games_ibfk_1", on_update: :cascade, on_delete: :cascade
   add_foreign_key "notice_contents", "notices", column: "id", name: "notice_contents_ibfk_1", on_update: :cascade, on_delete: :cascade
   add_foreign_key "points", "point_types", name: "points_ibfk_2", on_update: :cascade, on_delete: :cascade
   add_foreign_key "points", "users", name: "points_ibfk_1", on_update: :cascade, on_delete: :cascade

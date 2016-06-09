@@ -1,6 +1,6 @@
 class Admin::AdminController < ApplicationController
   layout 'admin/application'
-  load_and_authorize_resource 
+  before_filter :authenticate_admin!,:only => [:index,:new,:create,:show,:edit, :update, :destroy]
   
  def index  
     # TODO: 데이터 증가에 따른 Memcache 처리 필요할듯

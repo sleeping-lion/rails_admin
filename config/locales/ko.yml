@@ -756,7 +756,13 @@ ko:
         flag : '사용여부'
       app_log_type :
         title : '제목'        
-        flag : '사용여부'         
+        flag : '사용여부'
+      attendance :
+        user : '사용자'
+        title : '제목'
+        today : '출석날짜'
+        count : '출석수'       
+        flag : '사용여부'             
       sponsor :       
         title : '제목'
         flag : '사용여부'

@@ -1,6 +1,5 @@
 class NoticesController < ApplicationController
-  impressionist  
-  before_filter :authenticate_user!, except: [ :index, :show ]
+  impressionist
   
   def initialize(*params)
     super(*params)

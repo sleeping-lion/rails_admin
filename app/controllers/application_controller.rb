@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery 
   layout :layout
   before_filter :set_locale
-  before_filter :authenticate_admin!,:only => [:index,:new,:create,:show,:edit, :update, :destroy]
   
   def initialize(*params)
     super(*params)

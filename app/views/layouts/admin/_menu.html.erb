@@ -114,25 +114,25 @@
 			<% end %>
 			<% if can?(:read, Notice) || can?(:read, Faq) %>
 			<li>
-				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-book glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_board)%></span></a>
+				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-list-alt glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_board)%></span></a>
 				<ul>
 					<% if can? :read, Notice %>					
-					<li><%=link_to admin_notices_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_notice)%></span><% end %></li>
+					<li><%=link_to admin_notices_path do %><i class="glyphicon glyphicon-th-list glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_notice)%></span><% end %></li>
 					<% end %>
 					<% if can? :read, Faq %>					
-					<li><%=link_to admin_faqs_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_faq)%></span><% end %></li>
+					<li><%=link_to admin_faqs_path do %><i class="glyphicon glyphicon-th-list glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_faq)%></span><% end %></li>
 					<% end %>
 				</ul>
 			</li>
 			<% end %>
 			<% if can? :read, AppVersion %>
 			<li>
-				<%=link_to admin_app_versions_path do %><i class="glyphicon glyphicon-download-alt glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_app_version)%></span><% end %>
+				<%=link_to admin_app_versions_path do %><i class="glyphicon glyphicon-download-alt glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_app_version)%></span><% end %>
 			</li>
 			<% end %>
 			<% if can? :read, Message %>
 			<li>
-				<%=link_to admin_messages_path do %><i class="glyphicon glyphicon-download-alt glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_message)%></span><% end %>
+				<%=link_to admin_messages_path do %><i class="glyphicon glyphicon-envelope glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_message)%></span><% end %>
 			</li>
 			<% end %>
 			<% if current_admin.role[0].title == "administrator" || current_admin.role[0].title == "operator" || current_admin.role[0].title == "sub_operator"   %>
