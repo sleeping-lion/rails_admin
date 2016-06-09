@@ -20,14 +20,14 @@
 					<% else %>
 					<% if(!params[:no_layout] and !current_page?(root_path)) %>
 
-						<ul class="breadcrumb">
+						<ol class="breadcrumb">
 							<li><%= link_to t(:home),root_path %></li>
 							<% if(@category.present?) %>
 							<li><a href="#"><%= @category %></a><% if(@sub_menu) %><% end %></li>
 							<% end %>	
 							<li><a href="#"><%= @sub_menu %></a></li>
 							<li><a href="#"><%=actionNameChange controller.action_name %></a></li>
-						</ul>
+						</ol>
 						<hr />
 
 					<% end %>
