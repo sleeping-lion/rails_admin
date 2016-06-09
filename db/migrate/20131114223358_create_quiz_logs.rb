@@ -4,7 +4,7 @@ class CreateQuizLogs < ActiveRecord::Migration
       t.references :quizzes
       t.references :quiz_answers
       t.references :users
-
+      t.integer :winner_flag, :null => false, :default => 0
       t.timestamps
     end
   end

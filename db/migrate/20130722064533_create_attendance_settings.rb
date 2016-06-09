@@ -5,6 +5,7 @@ class CreateAttendanceSettings < ActiveRecord::Migration
     create_table :attendance_settings do |t|
       t.string :title, :limit => 200
       t.string :headtext, :limit => 200
+      t.string :photo, :null => true, :limit => 255      
       t.integer :prize5
       t.integer :prize10
       t.integer :prize15

@@ -11,10 +11,8 @@ class CreateQuizzes < ActiveRecord::Migration
       t.integer :budget
       t.integer :balance, :default => 0
       t.integer :point, :default => 1
-
       t.datetime :start_time, :null => true
       t.datetime :end_time, :null => true
-      
       t.timestamps
     end
   end

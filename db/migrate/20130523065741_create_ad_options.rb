@@ -15,7 +15,10 @@ class CreateAdOptions < ActiveRecord::Migration
       t.string :callback_number, :limit => 50, :null => true
       t.string :callback_comment, :limit => 200, :null => true
       t.boolean :video_flag, :null => false, :default => false
-      t.text :html_data, :null => true
+      t.string :cpi_publisher, :null => false, :default => '', :limit => 100
+      t.string :cpi_apk_size, :null => false, :default => '', :limit => 100
+      t.string :cpi_version, :null => false, :default => '', :limit => 100      
+      t.text :html_data, :null => true      
       t.timestamps
     end
     
