@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-
+gem 'bootstrap-sass'
 gem 'jquery-ui-rails'
 gem 'ui_datepicker-rails3'
 gem 'jquery-timepicker-addon-rails'
@@ -37,7 +37,6 @@ gem 'devise'
 gem 'impressionist'
 gem 'rmagick'
 gem 'gruff'
-gem 'bootstrap-sass'
 gem 'zipruby'
 gem 'groupdate'
 gem 'simple_form'
