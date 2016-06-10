@@ -1,40 +1,49 @@
-<h1>Listing sms_messages</h1>
-
-<table>
-  <tr>
-    <th>Msg status</th>
-    <th>Msg phone</th>
-    <th>Msg callback</th>
-    <th>Msg charset</th>
-    <th>Msg text</th>
-    <th>Msg sendtime</th>
-    <th>Msg rslttime</th>
-    <th>Msg lasttime</th>
-    <th>Msg rsltcode</th>
-    <th>Msg priority</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="row">
+	<h3 class="col-xs-12 col-sm-6"><%= @controller_name %> <%= actionNameChange controller.action_name %></h3>
+</div>
+<div class="table-responsive">
+	<table class="table table-bordered table-striped">
+		<tr>
+			<th>Msg status</th>
+			<th>Msg phone</th>
+			<th>Msg callback</th>
+			<th>Msg charset</th>
+			<th>Msg text</th>
+			<th>Msg sendtime</th>
+			<th>Msg rslttime</th>
+			<th>Msg lasttime</th>
+			<th>Msg rsltcode</th>
+			<th>Msg priority</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
 		<% @smss.each do |sms| %>
-  <tr>
-    <td><%= sms.msg_status %></td>
-    <td><%= sms.msg_phone %></td>
-    <td><%= sms.msg_callback %></td>
-    <td><%= sms.msg_charset %></td>
-    <td><%= sms.msg_text %></td>
-    <td><%= sms.msg_sendtime %></td>
-    <td><%= sms.msg_rslttime %></td>
-    <td><%= sms.msg_lasttime %></td>
-    <td><%= sms.msg_rsltcode %></td>
-    <td><%= sms.msg_priority %></td>
-    <td><%= link_to 'Show', sms_message %></td>
-    <td><%= link_to 'Edit', edit_sms_message_path(sms_message) %></td>
-    <td><%= link_to 'Destroy', sms_message, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Sms message', new_sms_message_path %>
+		<tr>
+			<td><%= sms.msg_status %></td>
+			<td><%= sms.msg_phone %></td>
+			<td><%= sms.msg_callback %></td>
+			<td><%= sms.msg_charset %></td>
+			<td><%= sms.msg_text %></td>
+			<td><%= sms.msg_sendtime %></td>
+			<td><%= sms.msg_rslttime %></td>
+			<td><%= sms.msg_lasttime %></td>
+			<td><%= sms.msg_rsltcode %></td>
+			<td><%= sms.msg_priority %></td>
+			<td><%= link_to 'Show', sms_message %></td>
+			<td><%= link_to 'Edit', edit_sms_message_path(sms_message) %></td>
+			<td><%= link_to 'Destroy', sms_message, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md2">
+		<% if can? :create, Sms %>
+		<%= link_to new_admin_sms_message_path, :class=>"btn btn-primary" do %>
+		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
+		<% end %>
+		<% end %>
+	</div>
+	<%= paginate @roulette_settings %>
+</div>

@@ -1,9 +1,9 @@
-<div class="row-fluid">
-	<h3 class="pull-left"><%= @controller_name %> <%=actionNameChange controller.action_name %></h3>
+<div class="row">
+	<h3 class="col-xs-12 col-sm-6"><%= @controller_name %> <%= actionNameChange controller.action_name %></h3>
 </div>
 <div class="box">
 	<div class="box-header">
-		<h2><i class="icon-align-justify"></i><span class="break"></span><%=t(:search)%></h2>
+		<h2><i class="icon-align-justify"></i><span class="break"></span><%= t(:search)%></h2>
 		<div class="box-icon">
 			<a href="#" class="btn-minimize"><i class="icon-chevron-down"></i></a>
 			<a class="btn-close" href="#"><i class="icon-remove"></i></a>
@@ -14,99 +14,101 @@
 	</div>
 </div>
 <div class="total_layer">
-	<%=t(:all_request)%> : <%=number_with_delimiter  @request_all %><br />
-	<%=t(:all_paid)%> :<%=number_with_delimiter @request_end %>
+	<%= t(:all_request)%> : <%= number_with_delimiter  @request_all %>
+	<br />
+	<%= t(:all_paid)%> :<%= number_with_delimiter @request_end %>
 </div>
 <%= form_tag update_status_admin_requests_path,:method=>:post,:id=>"request_update_form",:class=>"clearfix"  do |f| %>
-<table class="table table-bordered table-striped">
-	<colgroup>
-		<% if can? :update, Request %>
-		<col style="width:80px;" />
-		<% end %>
-		<col />
-		<col />
-		<col />
-		<col />
-		<col />
-		<col />
-		<% if can? :delete, Request %>		
-		<col style="width:90px;" />
-		<% end %>		
-	</colgroup>
-	<thead>
-		<tr>
+<div class="table-responsive">
+	<table class="table table-bordered table-striped">
+		<colgroup>
 			<% if can? :update, Request %>
-			<th><%=t(:label_select)%></th>
+			<col style="width:80px;" />
 			<% end %>
-			<th><%=t(:label_login_id)%></th>
-			<th style="text-align:right"><%=t(:label_request_amount)%></th>
-			<th><%=t(:label_bankname)%></th>
-			<th><%=t(:label_account_num)%></th>
-			<th><%=t(:label_created_at)%></th>
-			<th><%=t(:label_status) %></th>
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
+			<col />
 			<% if can? :delete, Request %>
-			<th><%=t(:label_manage) %></th>
-			<% end %>			
-		</tr>
-	</thead>
-	<tbody>
-		<% unless @requests.empty? %>
-		<% @requests.each do |request| %>
-		<tr>
-			<% if can? :update, Request %>			
-			<td><input type="checkbox" name="id[]" value="<%=request.id %>" /></td>
+			<col style="width:90px;" />
 			<% end %>
-			<td>
-				<% if request.user %>
-				<%=link_to request.user.username,user_path(request.user_id),:class=>'modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal" %>
-				<% else %>
-				<%=t(:no_exist_user) %>
+		</colgroup>
+		<thead>
+			<tr>
+				<% if can? :update, Request %>
+				<th><%= t(:label_select)%></th>
 				<% end %>
-			</td>
-			<td style="text-align:right"><%=link_to number_with_delimiter(request.amount), request_path(request) %></td>
-			<td>
-				<% if request.bank %>
-				<%=link_to request.bank.name,request_path(request.user_id) %>
+				<th><%= t(:label_login_id)%></th>
+				<th style="text-align:right"><%= t(:label_request_amount)%></th>
+				<th><%= t(:label_bankname)%></th>
+				<th><%= t(:label_account_num)%></th>
+				<th><%= t(:label_created_at)%></th>
+				<th><%= t(:label_status) %></th>
+				<% if can? :delete, Request %>
+				<th><%= t(:label_manage) %></th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% unless @requests.empty? %>
+			<% @requests.each do |request| %>
+			<tr>
+				<% if can? :update, Request %>
+				<td>
+				<input type="checkbox" name="id[]" value="<%= request.id %>" />
+				</td>
+				<% end %>
+				<td> <% if request.user %>
+				<%= link_to request.user.username,user_path(request.user_id),:class=>'modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal" %>
+				<% else %>
+				<%= t(:no_exist_user) %>
+				<% end %> </td>
+				<td style="text-align:right"><%= link_to number_with_delimiter(request.amount), request_path(request) %></td>
+				<td> <% if request.bank %>
+				<%= link_to request.bank.name,request_path(request.user_id) %>
 				<% else %>
 				삭제등으로 존재하지 않는 은행
+				<% end %> </td>
+				<td><%= request.account_number %></td>
+				<td><%= request.created_at.to_date %></td>
+				<td><%= request.request_type.title %></td>
+				<% if can? :delete, request %>
+				<td> <%= link_to request, :method => :delete, :data => { :confirm => t(:delete_confirm)},:class=>"btn btn-small btn-danger pull-right" do %> <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete) %>
+				<% end %> </td>
 				<% end %>
-			</td>
-			<td><%=request.account_number %></td>
-			<td><%=request.created_at.to_date %></td>
-			<td><%=request.request_type.title %></td>
-			<% if can? :delete, request %>			
-			<td>
-				<%= link_to request, :method => :delete, :data => { :confirm => t(:delete_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
-				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
-				<% end %>				
-			</td>
+			</tr>
 			<% end %>
-		</tr>
-		<% end %>
-		<% else %>
-		<tr>
-			<td colspan="8"><%=t(:no_data)%></td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+			<% else %>
+			<tr>
+				<td colspan="8"><%= t(:no_data)%></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
 <% if can? :update, Request %>
 <ul class="sl_toolbar">
-	<li><a href="" class="btn select_all"><%=t(:all_select)%></a></li>
-	<li><a href="" class="btn deselect_all"><%=t(:all_deselect)%></a></li>
+	<li>
+		<a href="" class="btn select_all"><%= t(:all_select)%></a>
+	</li>
+	<li>
+		<a href="" class="btn deselect_all"><%= t(:all_deselect)%></a>
+	</li>
 	<li>
 		선택 항목을
-		<%= select_tag :request_type_id, options_from_collection_for_select(RequestType.where(:flag=>true).all, 'id', 'title',2),:class=>"input-small" %>		
-				로 <input type="submit" value="<%=(t(:update)) %>" class="btn" />
+		<%= select_tag :request_type_id, options_from_collection_for_select(RequestType.where(:flag=>true).all, 'id', 'title',2),:class=>"input-small" %>
+		로
+		<input type="submit" value="<%= (t(:update)) %>" class="btn" />
 	</li>
 </ul>
 <% end %>
 <% end %>
 
-
 <div class="row">
 	<div class="col-xs-6 col-sm-3 col-md2">
-		<% if can? :create, Request %>		
+		<% if can? :create, Request %>
 		<%= link_to new_admin_request_path, :class=>"btn btn-primary" do %>
 		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
 		<% end %>
@@ -114,7 +116,7 @@
 		<% if can? :manage, Request %>
 		<% unless @requests.empty? %>
 		<%=link_to requests_path(:format=>"xls",:params=>params), :class=>"btn" do %>
-		<i class="glyphicon glyphicon-file"></i> <%=t(:link_download_excel) %>
+		<i class="glyphicon glyphicon-file"></i> <%= t(:link_download_excel) %>
 		<% end %>
 		<% end %>
 		<% end %>

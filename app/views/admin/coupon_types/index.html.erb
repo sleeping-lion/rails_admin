@@ -1,5 +1,7 @@
-<h1>Listing coupon_types</h1>
-
+<div class="row">
+	<h3 class="col-xs-12 col-sm-6"><%= @controller_name %> <%= actionNameChange controller.action_name %></h3>
+</div>
+<div class="table-responsive">
 <table>
   <tr>
     <th>Name</th>
@@ -21,7 +23,7 @@
   </tr>
 <% end %>
 </table>
-
+</div>
 <br />
 
 <%= link_to 'New Coupon type', new_coupon_type_path %>
