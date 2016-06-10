@@ -1,62 +1,62 @@
-<table class="table table-bordered table-striped">
-	<colgroup>
-		<col style="width:80px;" />
-		<col />
-		<col />
-		<col />		
-		<col style="width:100px;" />
-		<col style="width:100px;" />		
-		<% if can? :update, QuizLog %>		
-		<col <%=raw manage_width(QuizLog) %> />
-		<% end %>
-	</colgroup>
-	<thead>
-		<tr>
-			<th><%=t(:label_number) %></th>
-			<th><%=t(:label_quiz_id) %></th>
-			<th><%=t(:label_quiz_answer_id) %></th>
-			<th><%=t(:label_user_id) %></th>			
-			<th><%=t(:label_flag) %></th>
-			<th><%=t(:label_created_at) %></th>
-			<% if can? :update, QuizLog %>			
-			<th><%=t(:label_manage) %></th>
+<div class="row">
+	<h3 class="col-xs-12 col-sm-6"><%= @controller_name %> <%= actionNameChange controller.action_name %></h3>
+</div>
+<div class="table-responsive">
+	<table class="table table-bordered table-striped">
+		<colgroup>
+			<col style="width:80px;" />
+			<col />
+			<col />
+			<col />
+			<col style="width:100px;" />
+			<col style="width:100px;" />
+			<% if can? :update, QuizLog %>
+			<col <%= raw manage_width(QuizLog) %> />
 			<% end %>
-		</tr>
-	</thead>
-	<tbody>
-		<% unless @quiz_logs.empty?  %>
-		<% @quiz_logs.each do |quiz_log| %>
-  	<tr>
-  		<td><%=link_to quiz_log.id,quiz_log %></td>
-  		<td><%=link_to quiz_log.quizzes_id,quiz_log %></td>
-  		<td><%=link_to quiz_log.quiz_answers_id,quiz_log %></td>
-  		<td><%=link_to quiz_log.users_id,quiz_log %></td>
-  		<td><%=link_to quiz_log.id,quiz_log %></td>  		  		
-  		<td><%=link_to quiz_log.created_at.to_date,quiz_log %></td>  		
-			<% if can? :update, quiz_log %>								
-			<td>
+		</colgroup>
+		<thead>
+			<tr>
+				<th><%= t(:label_number) %></th>
+				<th><%= t(:label_quiz_id) %></th>
+				<th><%= t(:label_quiz_answer_id) %></th>
+				<th><%= t(:label_user_id) %></th>
+				<th><%= t(:label_flag) %></th>
+				<th><%= t(:label_created_at) %></th>
+				<% if can? :update, QuizLog %>
+				<th><%= t(:label_manage) %></th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% unless @quiz_logs.empty?  %>
+			<% @quiz_logs.each do |quiz_log| %>
+			<tr>
+				<td><%= link_to quiz_log.id,quiz_log %></td>
+				<td><%= link_to quiz_log.quizzes_id,quiz_log %></td>
+				<td><%= link_to quiz_log.quiz_answers_id,quiz_log %></td>
+				<td><%= link_to quiz_log.users_id,quiz_log %></td>
+				<td><%= link_to quiz_log.id,quiz_log %></td>
+				<td><%= link_to quiz_log.created_at.to_date,quiz_log %></td>
 				<% if can? :update, quiz_log %>
-				<%= link_to edit_admin_quiz_log_path(quiz_log),:class=>"btn btn-small pull-left" do %>
-				<i class="icon-pencil"></i> <%=t(:link_edit) %>
+				<td> <% if can? :update, quiz_log %>
+				<%= link_to edit_admin_quiz_log_path(quiz_log),:class=>"btn btn-small pull-left" do %> <i class="icon-pencil"></i> <%= t(:link_edit) %>
 				<% end %>
 				<% end %>
-				<% if can? :delete, quiz_log %>				
-				<%= link_to admin_quiz_log_path(quiz_log), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
-				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<% if can? :delete, quiz_log %>
+				<%= link_to admin_quiz_log_path(quiz_log), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm)},:class=>"btn btn-small btn-danger pull-right" do %> <i class="icon-trash"></i> <%= t(:link_delete) %>
 				<% end %>
+				<% end %> </td>
 				<% end %>
-			</td>
-			<% end %>  		
-  	</tr>
-		<% end %>
-		<% else %>
-		<tr>
-			<td colspan="7"><%=t(:no_data)%></td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
-
+			</tr>
+			<% end %>
+			<% else %>
+			<tr>
+				<td colspan="7"><%= t(:no_data)%></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
 <div class="row">
 	<div class="col-xs-6 col-sm-3 col-md2">
 		<% if can? :create, QuizLog %>

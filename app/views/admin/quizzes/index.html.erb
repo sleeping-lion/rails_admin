@@ -1,52 +1,49 @@
-<div class="row-fluid">
-	<h3 class="pull-left"><%= @controller_name %> <%=actionNameChange controller.action_name %></h3>
+<div class="row">
+	<h3 class="col-xs-12 col-sm-6"><%= @controller_name %> <%= actionNameChange controller.action_name %></h3>
 </div>
-<table class="table table-bordered table-striped">
-	<colgroup>
-		<col style="width:60px;" />
-		<col />
-		<col style="width:200px;" />
-		<% if can? :update, Quiz %>		
-		<col <%=raw manage_width(Quiz) %> />
-		<% end %>
-	</colgroup>
-	<thead>
-		<tr>
-			<th align="center"><%=t(:label_number)%></th>
-			<th><%=t(:label_title)%></th>
-			<th><%=t(:label_time)%></th>
-			<% if can? :update, Quiz %>			
-			<th><%=t(:label_manage)%></th>
+<div class="table-responsive">
+	<table class="table table-bordered table-striped">
+		<colgroup>
+			<col style="width:60px;" />
+			<col />
+			<col style="width:200px;" />
+			<% if can? :update, Quiz %>
+			<col <%= raw manage_width(Quiz) %> />
 			<% end %>
-		</tr>
-	</thead>
-	<tbody>
-		<% unless @quizzes.empty? %>
-		
-		<% @quizzes.each do |quiz| %>
-		<tr>
-			<td align="center"><%=quiz.id %></td>
-			<td class="mw"><%=link_to quiz.title,admin_quiz_path(quiz) %></td>
-			<td><%=quiz.start_time.to_date %> ~ <%= quiz.end_time.to_date %></td>
-			<% if can? :update, quiz %>				
-			<td>			
-				<%= link_to edit_admin_quiz_path(quiz),:class=>"btn btn-default" do %>
-				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit)%>
+		</colgroup>
+		<thead>
+			<tr>
+				<th align="center"><%= t(:label_number)%></th>
+				<th><%= t(:label_title)%></th>
+				<th><%= t(:label_time)%></th>
+				<% if can? :update, Quiz %>
+				<th><%= t(:label_manage)%></th>
 				<% end %>
-				<%= link_to admin_quiz_path(quiz), :method => :delete, :data => { :confirm => t(:delete_confirm)},:class=>"btn btn-danger" do %>
-				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete)%>
+			</tr>
+		</thead>
+		<tbody>
+			<% unless @quizzes.empty? %>
+			<% @quizzes.each do |quiz| %>
+			<tr>
+				<td align="center"><%= quiz.id %></td>
+				<td class="mw"><%= link_to quiz.title,admin_quiz_path(quiz) %></td>
+				<td><%= quiz.start_time.to_date %> ~ <%= quiz.end_time.to_date %></td>
+				<% if can? :update, quiz %>
+				<td> <%= link_to edit_admin_quiz_path(quiz),:class=>"btn btn-default" do %> <i class="glyphicon glyphicon-pencil"></i> <%= t(:link_edit)%>
 				<% end %>
-			</td>
+				<%= link_to admin_quiz_path(quiz), :method => :delete, :data => { :confirm => t(:delete_confirm)},:class=>"btn btn-danger" do %> <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete)%>
+				<% end %> </td>
+				<% end %>
+			</tr>
 			<% end %>
-		</tr>
-		<% end %>
-		<% else %>
-		<tr>
-			<td colspan="6"><%=t(:no_data)%></td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+			<% else %>
+			<tr>
+				<td colspan="6"><%= t(:no_data)%></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
 <div class="row">
 	<div class="col-xs-6 col-sm-3 col-md2">
 		<% if can? :create, Quiz %>

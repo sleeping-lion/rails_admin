@@ -107,6 +107,7 @@ Bank.create(:name=>'China Unicom')
 Bank.create(:name=>'China Telecom')
 Bank.create(:name=>'기타')
 
+AppMarket.create(:title=>'구글 플레이스토어')
 
 RequestType.create(:title=>'신청완료')
 RequestType.create(:title=>'처리완료')
