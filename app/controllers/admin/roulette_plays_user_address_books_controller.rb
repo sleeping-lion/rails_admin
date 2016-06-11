@@ -5,8 +5,8 @@ class Admin::RoulettePlaysUserAddressBooksController < Admin::AdminController
     super(*params)
         
     @category=t(:menu_game)
-    @sub_menu=t(:submenu_roulette_play_address)
-    @controller_name=t('activerecord.models.roulette_play_user_address')
+    @sub_menu=t(:submenu_roulette_plays_user_address_book)
+    @controller_name=t('activerecord.models.roulette_plays_user_address_book')
   end
   
   # GET /roulette_play_addresses

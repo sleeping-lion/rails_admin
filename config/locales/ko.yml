@@ -132,9 +132,12 @@ ko:
   submenu_store_order_status: '주문 상태 구분 관리'
   submenu_quiz : '퀴즈 관리'
   submenu_quiz_addresses : '퀴즈상품 배송주소 관리'
-  submenu_quiz_log : '퀴즈 기록'  
-  submenu_roulette_play_address : '룰렛상품 배송주소 관리'
-  
+  submenu_quiz_log : '퀴즈 기록'
+  submenu_roulette_setting : '룰렛 설정 관리'  
+  submenu_roulette_background : '룰렛 배경 관리'  
+  submenu_roulette_present : '룰렛 선물 관리'
+  submenu_roulette_plays_user_address_book : '룰렛 사용자 주소록'
+  submenu_roulette_play : '룰렛 기록'
   
   
   action_index : '목록'

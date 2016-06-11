@@ -5,7 +5,7 @@ class Admin::RouletteSettingsController < Admin::AdminController
   def initialize(*params)
     super(*params)
     
-    @sub_menu=t(:menu_roulette_game) 
+    @sub_menu=t(:submenu_roulette_setting) 
     @controller_name=t('activerecord.models.roulette_setting')
   end   
   
