@@ -2,28 +2,34 @@
 	<h3 class="col-xs-12 col-sm-6"><%= @controller_name %> <%= actionNameChange controller.action_name %></h3>
 </div>
 <div class="table-responsive">
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Amount</th>
-    <th>Flag</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @coupon_types.each do |coupon_type| %>
-  <tr>
-    <td><%= coupon_type.name %></td>
-    <td><%= coupon_type.amount %></td>
-    <td><%= coupon_type.flag %></td>
-    <td><%= link_to 'Show', coupon_type %></td>
-    <td><%= link_to 'Edit', edit_coupon_type_path(coupon_type) %></td>
-    <td><%= link_to 'Destroy', coupon_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+	<table class="table table-bordered table-striped">
+		<tr>
+			<th>Name</th>
+			<th>Amount</th>
+			<th>Flag</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<% @coupon_types.each do |coupon_type| %>
+		<tr>
+			<td><%= coupon_type.name %></td>
+			<td><%= coupon_type.amount %></td>
+			<td><%= coupon_type.flag %></td>
+			<td><%= link_to 'Show', coupon_type %></td>
+			<td><%= link_to 'Edit', edit_coupon_type_path(coupon_type) %></td>
+			<td><%= link_to 'Destroy', coupon_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+	</table>
 </div>
-<br />
-
-<%= link_to 'New Coupon type', new_coupon_type_path %>
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md2">
+		<% if can? :create, CouponType %>
+		<%= link_to new_admin_coupon_type_path, :class=>"btn btn-primary" do %>
+		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
+		<% end %>
+		<% end %>
+	</div>
+	<%= paginate @coupon_types %>
+</div>
