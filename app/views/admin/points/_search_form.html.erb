@@ -2,15 +2,15 @@
 	<table class="table table-bordered table-striped">
 		<tr>
 			<th><%=label_tag :cell_phone,t(:label_mobile_num)%></th>
-			<td><%=text_field_tag :cell_phone,params[:cell_phone] %></td>
+			<td><%=text_field_tag :cell_phone,params[:cell_phone],:class=>"form-control" %></td>
 		</tr>
 		<tr>
 			<th><%=label_tag :login_id,t(:label_login_id) %></th>
-			<td><%=text_field_tag :login_id, params[:login_id] %></td>
+			<td><%=text_field_tag :login_id, params[:login_id],:class=>"form-control" %></td>
 		</tr>
 		<tr>
 			<th><%=label_tag :point_type_id,t(:label_category)%> <label for=""></label></th>
-			<td><%=select_tag :point_type_id, options_from_collection_for_select(PointType.where(:flag=>true).all, 'id', 'title',params[:point_type_id]),:include_blank => 'None',:class=>"input-small span2" %></td>
+			<td><%=select_tag :point_type_id, options_from_collection_for_select(PointType.where(:flag=>true).all, 'id', 'title',params[:point_type_id]),:include_blank => 'None',:class=>"form-control" %></td>
 		</tr>
 		<tr>
 			<th><%=label_tag :start_date,t(:label_period_search) %></th>

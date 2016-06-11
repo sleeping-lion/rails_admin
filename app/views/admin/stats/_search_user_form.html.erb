@@ -4,7 +4,7 @@
 		<tr>
 			<th><%=label_tag :market,t(:label_market) %></th>
 			<td>
-				<select name="member_type">
+				<select name="member_type" class="form-control">
 					<option value="" <% unless(params[:member_type]) %>selected="selected"<% end %>><%=t(:show_all)%></option>					
 					<option value="1" <% if(params[:member_type]=='1') %>selected="selected"<% end %>><%=t(:option_auth_member) %></option>
 					<option value="2" <% if(params[:member_type]=='2') %>selected="selected"<% end %>><%=t(:option_no_auth_member) %></option>			
@@ -14,7 +14,7 @@
 		<tr>
 			<th><%=label_tag :period,t(:label_period) %></th>
 			<td>
-				<select name="period">
+				<select name="period" class="form-control">
 					<option value="day" <% if(params[:period]=='day')%>selected="selected"<% end %>><%=t(:period_daily)%></option>
 					<option value="week" <% if(params[:period]=='week')%>selected="selected"<% end %>><%=t(:period_weekly)%></option>
 					<option value="month" <% if(params[:period]=='month')%>selected="selected"<% end %>><%=t(:period_monthly)%></option>

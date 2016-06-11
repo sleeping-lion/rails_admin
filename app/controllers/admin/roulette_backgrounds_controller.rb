@@ -5,7 +5,7 @@ class Admin::RouletteBackgroundsController < Admin::AdminController
   def initialize(*params)
     super(*params)
     
-    @sub_menu=t(:menu_roulette_game) 
+    @sub_menu=t(:menu_roulette_background) 
     @controller_name=t('activerecord.models.roulette_background')
   end
   

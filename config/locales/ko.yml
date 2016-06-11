@@ -677,25 +677,26 @@ ko:
       store_order_status : '상품 주문 상태'
       message : 'message'
       delete_user : '삭제회원'
+      roulette_background : '룰렛 배경색'      
       roulette_play_address : '룰렛 배송 주소 관리'
       quiz_address : '퀴즈 배송 주소 관리'            
       
     attributes :
       admin :
-        login_id : '登录账户'
-        nickname : ' 用户名'
+        login_id : '아이디'
+        nickname : '별명'
         email : 'E-Mail'
-        password : '新密码'
-        password_confirmation : '新密码确认'
-        current_password : '密码'
-        photo : '图片'
+        password : '비밀번호'
+        password_confirmation : '비밀번호 확인'
+        current_password : '현재 비밀번호'
+        photo : '사진'
         flag : '사용여부'     
       operator : 
-        login_id : '登录账户'
-        nickname : ' 用户名'
+        login_id : '아이디'
+        nickname : ' 별명'
         email : 'E-Mail'
-        password : '密码'
-        password_confirmation : ' 密码确认'
+        password : '비밀번호'
+        password_confirmation : '비밀번호 확인'
       address :
         parent_address_id : '上一级地址'
         name : '地址'
@@ -783,19 +784,10 @@ ko:
         amount : '수량'  
       request :
         user_id : '사용자 ID'        
-        request_setting_id : '兑换现金设置'
-        request_type_id : '兑换现金类型'   
+        request_setting_id : ''
+        request_type_id : ''   
         bank_id : '은행 ID'
-        account_number : '账户号码'
-      game :
-        user_id : '사용자 ID'
-        game_setting_id : '설정ID'
-      game_setting :
-        title : '제목'
-        amount : '배'
-      game_amount :
-        amount : '베팅금액'
-        flag : '사용여부'
+        account_number : ''
       request_setting :
         title : '제목'
         amount : '수량'
@@ -868,6 +860,9 @@ ko:
         title : '제목'
         photo : '사진'
         flag : '사용여부'
+      store_order_status :
+        title : '제목'        
+        flag : '사용유무'        
       delete_user : 
         username : 'Login ID'
         nickname : '별명'
@@ -893,7 +888,10 @@ ko:
         address : '배송지 주소'
         created_at : '등록일시'
         primary_flag : '주배송지 선택'
-        
+      roulette_background :
+        title : '제목'
+        photo : '사진'        
+        flag : '사용유무'        
       quiz_address :
         quiz_logs_id : '퀴즈 이력 ID'
         address_id : '배송지 ID'

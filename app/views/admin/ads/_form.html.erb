@@ -1,237 +1,227 @@
 <%= form_for [:admin,@ad] do |f| %>
-	<% if @ad.errors.any? %>
-	<div id="error_explanation" class="alert alert-danger">
-		<a href="#" class="close" data-dismiss="alert">&times;</a>
-		<h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
-		<ul>
-			<% @ad.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-			<% end %>
-		</ul>
-	</div>
-	<% end %>
-	<%= hidden_field_tag :page,params[:page]  %>
-	<%= hidden_field_tag :per_page,params[:per_page] %>	
-	<div class="form-horizontal">
-		<fieldset>
-			<legend>광고 등록 폼</legend>
-			<div class="box">
-			<div class="box-header">				
-			<h2><i class="icon-align-justify"></i><span class="break"></span><%=t(:form_ad_default) %></h2>
-			<div class="box-icon">
-				<a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
-			</div>
-		</div>
-				<div class="box-content">
-					<div class="form-group">
-						<%= f.label :ad_type_id, :class => 'control-label' %>
-						<div class="controls">
-							<%= f.select :ad_type_id, options_from_collection_for_select(AdType.where(:flag=>true).all, 'id', 'title',@ad.ad_type_id) %>
-						</div>
-					</div>
-					<div class="form-group">
-						<%= f.label :sponsor_id, :class => 'control-label' %>
-						<div class="controls">
-							<%= f.select :sponsor_id, options_from_collection_for_select(Sponsor.where(:flag=>true).all, 'id', 'title',@ad.sponsor_id) %>
-						</div>
-					</div>
-					<div class="form-group">
-						<%= f.label :title, :class => 'control-label' %>
-						<div class="controls">
-							<%= f.text_field :title, :required=>"required" %>
-						</div>
-					</div>
-					<div class="form-group">
-						<%= f.label :description, :class => 'control-label' %>
-						<div class="controls">
-							<%= f.text_field :description %>
-						</div>
-					</div>
-					<div class="form-group">
-						<%= f.label :agent_id, :class => 'control-label' %>
-						<div class="controls">
-							<%= f.select :agent_id, options_from_collection_for_select(Admin.where(:flag=>true).all, 'id', 'nickname',@ad.agent_id) %>
-						</div>
-					</div>
-					<div class="form-group">
-						<%= f.label :priority, :class => 'control-label' %>
-						<div class="controls">
-						<%= f.check_box :priority %>
-						</div>
-					</div> 
-					<div class="form-group">
-						<%= f.label :flag, :class => 'control-label' %>
-						<div class="controls">
-							<%= f.check_box :flag %>
-						</div>
-					</div>
-					<div class="form-group">
-						<%= f.label :display_type, :class => 'control-label' %>
-						<div class="controls">
-							<%= f.select :display_type, [['Default', 0], ['Time', 1], ['Count', 2]] %>
-						</div>
-					</div>
-					<%= f.fields_for :ad_memo do |c| %>
-						<div class="form-group">
-							<%= c.label :content, :class => 'control-label' %>
-							<div class="controls">
-								<%= c.text_area :content, :class => "span6 cleditor", :rows =>10, :cols => 80 %>
-							</div>
-						</div>
-					<% end %>
+<% if @ad.errors.any? %>
+<div id="error_explanation" class="alert alert-danger">
+	<a href="#" class="close" data-dismiss="alert">&times;</a>
+	<h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
+	<ul>
+		<% @ad.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<%= hidden_field_tag :page,params[:page]  %>
+<%= hidden_field_tag :per_page,params[:per_page] %>
+<div class="form-horizontal">
+	<fieldset>
+		<legend>
+			광고 등록 폼
+		</legend>
+		<div class="box">
+			<div class="box-header">
+				<h2><i class="glyphicon glyphicon-align-justify"></i><span class="break"></span><%= t(:form_ad_default) %></h2>
+				<div class="box-icon">
+					<a href="#" class="btn-minimize"><i class="glyphicon glyphicon-chevron-up"></i></a>
 				</div>
 			</div>
-			<%= f.fields_for :ad_option do |option| %>
-			<div class="box">
+			<div class="box-content">
+				<div class="form-group">
+					<%= f.label :ad_type_id, :class => 'control-label' %>
+					<%= f.select :ad_type_id, options_from_collection_for_select(AdType.where(:flag=>true).all, 'id', 'title',@ad.ad_type_id),{},:class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= f.label :sponsor_id, :class => 'control-label' %>
+					<%= f.select :sponsor_id, options_from_collection_for_select(Sponsor.where(:flag=>true).all, 'id', 'title',@ad.sponsor_id),{},:class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= f.label :title, :class => 'control-label' %>
+					<%= f.text_field :title, :class => "form-control", :required=>"required" %>
+				</div>
+				<div class="form-group">
+					<%= f.label :description, :class => 'control-label' %>
+					<%= f.text_field :description, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= f.label :agent_id, :class => 'control-label' %>
+					<%= f.select :agent_id, options_from_collection_for_select(Admin.where(:flag=>true).all, 'id', 'nickname',@ad.agent_id),{},:class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= f.label :priority, :class => 'control-label' %>
+					<%= f.check_box :priority %>
+				</div>
+				<div class="form-group">
+					<%= f.label :flag, :class => 'control-label' %>
+					<%= f.check_box :flag %>
+				</div>
+				<div class="form-group">
+					<%= f.label :display_type, :class => 'control-label' %>
+					<%= f.select :display_type, [['Default', 0], ['Time', 1], ['Count', 2]],{},:class => "form-control" %>
+				</div>
+				<%= f.fields_for :ad_memo do |c| %>
+				<div class="form-group">
+					<%= c.label :content, :class => 'control-label' %>
+					<%= c.text_area :content, :class => "form-control", :rows =>10, :cols => 80 %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+		<%= f.fields_for :ad_option do |option| %>
+		<div class="box">
 			<div class="box-header">
-			<h2><i class="icon-align-justify"></i><span class="break"></span><%=t(:form_ad_option) %></h2>
-			<div class="box-icon">
-				<a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+				<h2><i class="glyphicon glyphicon-align-justify"></i><span class="break"></span><%= t(:form_ad_option) %></h2>
+				<div class="box-icon">
+					<a href="#" class="btn-minimize"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				</div>
+			</div>
+			<div class="box-content">
+				<div class="form-group">
+					<%= option.label :cpi_flag, :class => 'control-label' %>
+					<%= option.check_box :cpi_flag, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= option.label :cpi_type, :class => 'control-label' %>
+					<%= option.text_field :cpi_type, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= option.label :cpi_market, :class => 'control-label' %>
+					<%= option.text_field :cpi_market, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= option.label :cpi_pkg, :class => 'control-label' %>
+					<%= option.text_field :cpi_pkg, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= option.label :cpi_publisher, :class => 'control-label' %>
+					<%= option.text_field :cpi_publisher, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= option.label :cpi_apk_size, :class => 'control-label' %>
+					<%= option.text_field :cpi_apk_size, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= option.label :cpi_version, :class => 'control-label' %>
+					<%= option.text_field :cpi_version, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= option.label :cpi_comment, :class => 'control-label' %>
+					<%= option.text_field :cpi_comment, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= option.label :web_flag, :class => 'control-label' %>
+					<%= option.check_box :web_flag %>
+				</div>
+				<div class="form-group">
+					<%= option.label :web_addr, :class => 'control-label' %>
+					<%= option.text_field :web_addr, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= option.label :web_comment, :class => 'control-label' %>
+					<%= option.text_field :web_comment, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= option.label :callback_flag, :class => 'control-label' %>
+					<div class="controls">
+						<%= option.check_box :callback_flag %>
+					</div>
+				</div>
+				<div class="form-group">
+					<%= option.label :callback_number, :class => 'control-label' %>
+					<%= option.text_field :callback_number, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= option.label :callback_comment, :class => 'control-label' %>
+					<%= option.text_field :callback_comment, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= option.label :video_flag, :class => 'control-label' %>
+					<div class="controls">
+						<%= option.check_box :video_flag %>
+					</div>
+				</div>
+				<div class="form-group">
+					<%= option.label :html_data, :class => 'control-label' %>
+					<%= option.text_area :html_data,:class => "form-control", :rows =>10, :cols => 80 %>
+				</div>
+				<div class="form-group">
+					<%= option.label :track_id1, :class => 'control-label' %>
+					<%= option.text_field :track_id1, :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= option.label :track_id2, :class => 'control-label' %>
+					<%= option.text_field :track_id2, :class => "form-control" %>
+				</div>
 			</div>
 		</div>
-				<div class="box-content">
-			<div class="form-group">
-				<%= option.label :cpi_flag, :class => 'control-label' %>
-				<div class="controls"><%= option.check_box :cpi_flag %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :cpi_type, :class => 'control-label' %>
-				<div class="controls"><%= option.text_field :cpi_type %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :cpi_market, :class => 'control-label' %>
-				<div class="controls"><%= option.text_field :cpi_market %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :cpi_pkg, :class => 'control-label' %>
-				<div class="controls"><%= option.text_field :cpi_pkg %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :cpi_publisher, :class => 'control-label' %>
-				<div class="controls"><%= option.text_field :cpi_publisher %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :cpi_apk_size, :class => 'control-label' %>
-				<div class="controls"><%= option.text_field :cpi_apk_size %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :cpi_version, :class => 'control-label' %>
-				<div class="controls"><%= option.text_field :cpi_version %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :cpi_comment, :class => 'control-label' %>
-				<div class="controls"><%= option.text_field :cpi_comment %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :web_flag, :class => 'control-label' %>
-				<div class="controls"><%= option.check_box :web_flag %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :web_addr, :class => 'control-label' %>
-				<div class="controls"><%= option.text_field :web_addr %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :web_comment, :class => 'control-label' %>
-				<div class="controls"><%= option.text_field :web_comment %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :callback_flag, :class => 'control-label' %>
-				<div class="controls"><%= option.check_box :callback_flag %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :callback_number, :class => 'control-label' %>
-				<div class="controls"><%= option.text_field :callback_number %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :callback_comment, :class => 'control-label' %>
-				<div class="controls"><%= option.text_field :callback_comment %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :video_flag, :class => 'control-label' %>
-				<div class="controls"><%= option.check_box :video_flag %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :html_data, :class => 'control-label' %>
-				<div class="controls"><%= option.text_area :html_data, :class => "span6", :rows =>10, :cols => 80 %></div>
+		<% end %>
+		<%= f.fields_for :ad_state do |state| %>
+		<div class="box">
+			<div class="box-header">
+				<h2><i class="glyphicon glyphicon-align-justify"></i><span class="break"></span><%= t(:form_ad_count) %></h2>
+				<div class="box-icon">
+					<a href="#" class="btn-minimize"><i class="glyphicon glyphicon-chevron-up"></i></a>
+				</div>
 			</div>
-			<div class="form-group">
-				<%= option.label :track_id1, :class => 'control-label' %>
-				<div class="controls"><%= option.text_field :track_id1 %></div>
-			</div> 
-			<div class="form-group">
-				<%= option.label :track_id2, :class => 'control-label' %>
-				<div class="controls"><%= option.text_field :track_id2 %></div>
-			</div> 
-		</div>
-		</div>
-			<% end %>
-			<%= f.fields_for :ad_state do |state| %>
-			<div class="box">
-		<div class="box-header">
-			<h2><i class="icon-align-justify"></i><span class="break"></span><%=t(:form_ad_count) %></h2>
-			<div class="box-icon">
-				<a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+			<div class="box-content">
+				<table class="table table-bordered table-striped">
+					<tr>
+						<th>구분</th>
+						<th>Target</th>
+						<th>DayLimit</th>
+						<th>Budget</th>
+						<th>Cost</th>
+						<th>Reward</th>
+						<th>Total</th>
+						<th>Today</th>
+					</tr>
+					<tr>
+						<th>Expose</th>
+						<td><%= state.number_field :expose_target, :class => "form-control" %></td>
+						<td><%= state.number_field :expose_daylimit, :class => "form-control" %></td>
+						<td><%= state.number_field :expose_budget, :class => "form-control"  %></td>
+						<td><%= state.number_field :expose_cost, :class => "form-control"  %></td>
+						<td><%= state.number_field :expose_reward, :class => "form-control"  %></td>
+						<td><%= state.number_field :expose_total, :class => "form-control"  %></td>
+						<td><%= state.number_field :expose_today, :class => "form-control"  %></td>
+					</tr>
+					<tr>
+						<th>View</th>
+						<td><%= state.number_field :view_target, :class => "form-control"  %></td>
+						<td><%= state.number_field :view_daylimit, :class => "form-control"  %></td>
+						<td><%= state.number_field :view_budget, :class => "form-control"  %></td>
+						<td><%= state.number_field :view_cost, :class => "form-control"  %></td>
+						<td><%= state.number_field :view_reward, :class => "form-control"  %></td>
+						<td><%= state.number_field :view_total, :class => "form-control"  %></td>
+						<td><%= state.number_field :view_today, :class => "form-control"  %></td>
+					</tr>
+					<tr>
+						<th>Install</th>
+						<td><%= state.number_field :install_target, :class => "form-control"  %></td>
+						<td><%= state.number_field :install_daylimit, :class => "form-control"  %></td>
+						<td><%= state.number_field :install_budget, :class => "form-control"  %></td>
+						<td><%= state.number_field :install_cost, :class => "form-control"  %></td>
+						<td><%= state.number_field :install_reward, :class => "form-control"  %></td>
+						<td><%= state.number_field :install_total, :class => "form-control"  %></td>
+						<td><%= state.number_field :install_today, :class => "form-control"  %></td>
+					</tr>
+					<tr>
+						<th>Extra</th>
+						<td><%= state.number_field :extra_target, :class => "form-control"  %></td>
+						<td><%= state.number_field :extra_daylimit, :class => "form-control"  %></td>
+						<td><%= state.number_field :extra_budget, :class => "form-control"  %></td>
+						<td><%= state.number_field :extra_cost, :class => "form-control"  %></td>
+						<td><%= state.number_field :extra_reward, :class => "form-control"  %></td>
+						<td><%= state.number_field :extra_total, :class => "form-control"  %></td>
+						<td><%= state.number_field :extra_today, :class => "form-control"  %></td>
+					</tr>
+				</table>
 			</div>
 		</div>
-				<div class="box-content">
-					<table class="table table-bordered table-striped">
-						<tr>
-					<th>구분</th>
-					<th>Target</th>
-					<th>DayLimit</th>
-					<th>Budget</th>
-					<th>Cost</th>
-					<th>Reward</th>
-					<th>Total</th>
-					<th>Today</th>
-				</tr>
-				<tr>
-					<th>Expose</th>
-					<td><%= state.number_field :expose_target, :class => "input-small" %></td>
-					<td><%= state.number_field :expose_daylimit, :class => "input-small" %></td>
-					<td><%= state.number_field :expose_budget, :class => "input-small"  %></td>
-					<td><%= state.number_field :expose_cost, :class => "input-small"  %></td>
-					<td><%= state.number_field :expose_reward, :class => "input-small"  %></td>
-					<td><%= state.number_field :expose_total, :class => "input-small"  %></td>
-					<td><%= state.number_field :expose_today, :class => "input-small"  %></td>
-				</tr>
-				<tr>
-					<th>View</th>
-					<td><%= state.number_field :view_target, :class => "input-small"  %></td>
-					<td><%= state.number_field :view_daylimit, :class => "input-small"  %></td>
-					<td><%= state.number_field :view_budget, :class => "input-small"  %></td>
-					<td><%= state.number_field :view_cost, :class => "input-small"  %></td>
-					<td><%= state.number_field :view_reward, :class => "input-small"  %></td>
-					<td><%= state.number_field :view_total, :class => "input-small"  %></td>
-					<td><%= state.number_field :view_today, :class => "input-small"  %></td>
-				</tr>
-				<tr>
-					<th>Install</th>
-					<td><%= state.number_field :install_target, :class => "input-small"  %></td>
-					<td><%= state.number_field :install_daylimit, :class => "input-small"  %></td>
-					<td><%= state.number_field :install_budget, :class => "input-small"  %></td>
-					<td><%= state.number_field :install_cost, :class => "input-small"  %></td>
-					<td><%= state.number_field :install_reward, :class => "input-small"  %></td>
-					<td><%= state.number_field :install_total, :class => "input-small"  %></td>
-					<td><%= state.number_field :install_today, :class => "input-small"  %></td>
-				</tr>
-				<tr>
-					<th>Extra</th>
-					<td><%= state.number_field :extra_target, :class => "input-small"  %></td>
-					<td><%= state.number_field :extra_daylimit, :class => "input-small"  %></td>
-					<td><%= state.number_field :extra_budget, :class => "input-small"  %></td>
-					<td><%= state.number_field :extra_cost, :class => "input-small"  %></td>
-					<td><%= state.number_field :extra_reward, :class => "input-small"  %></td>
-					<td><%= state.number_field :extra_total, :class => "input-small"  %></td>
-					<td><%= state.number_field :extra_today, :class => "input-small"  %></td>
-				</tr>
-			</table>
+		<% end %>
+		<div>
+			<%= f.submit :class=>"btn btn-primary" %>
 		</div>
-	</div>	
-	<% end %>
-	<div>
-		<%= f.submit :class=>"btn btn-primary" %>
-	</div>
 	</fieldset>
 </div>
 <% end -%>

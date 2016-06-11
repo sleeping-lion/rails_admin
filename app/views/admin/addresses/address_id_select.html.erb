@@ -1,4 +1,4 @@
-<%= form_tag '/addresses/address_id_select_search_result',:method=>'get',:id=>'address_id_search_form' do |f| %>
+<%= form_tag '/admin/addresses/address_id_select_search_result',:method=>'get',:id=>'address_id_search_form' do |f| %>
 		<select name="find_method">
 			<option value="name" <% if params[:name].present? %>selected="selected"<% end %>><%=t(:label_address) %>로 찾기</option>
 			<!-- <option value="email" <% if params[:parent_id].present? %>selected="selected"<% end %>>parent_id로 찾기</option> -->

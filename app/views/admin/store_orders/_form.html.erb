@@ -14,71 +14,71 @@
 <% end %>
 <div class="form-group">
 	<%= f.label :store_good_id, :class => "control-label" %>
-	<%= f.number_field :store_good_id %>
+	<%= f.number_field :store_good_id, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :user_id, :class => "control-label" %>
-	<%= f.number_field :user_id %>
+	<%= f.number_field :user_id, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :amount, :class => "control-label" %>
-	<%= f.number_field :amount %>
+	<%= f.number_field :amount, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :customer_tel, :class => "control-label" %>
-	<%= f.text_field :customer_tel %>
+	<%= f.text_field :customer_tel, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :delivery_tel, :class => "control-label" %>
-	<%= f.text_field :delivery_tel %>
+	<%= f.text_field :delivery_tel, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :delivery_name, :class => "control-label" %>
-	<%= f.text_field :delivery_name %>
+	<%= f.text_field :delivery_name,:class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :delivery_zipcode, :class => "control-label" %>
-	<%= f.text_field :delivery_zipcode %>
+	<%= f.text_field :delivery_zipcode, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :delivery_address_1, :class => "control-label" %>
-	<%= f.text_field :delivery_address_1 %>
+	<%= f.text_field :delivery_address_1, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :delivery_address_2, :class => "control-label" %>
-	<%= f.text_field :delivery_address_2 %>
+	<%= f.text_field :delivery_address_2, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :delivery_note, :class => "control-label" %>
-	<%= f.text_field :delivery_note %>
+	<%= f.text_field :delivery_note, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :store_order_status_id, :class => "control-label" %>
-	<%= select_tag :store_order_status_id, options_from_collection_for_select(StoreOrderStatus.where(:flag=>true).all(), 'id', 'title',@store_order.store_order_status_id), {:include_blank => false} %>
+	<%= select_tag :store_order_status_id, options_from_collection_for_select(StoreOrderStatus.where(:flag=>true).all(), 'id', 'title',@store_order.store_order_status_id), {:include_blank => false,:class => "form-control"} %>
 </div>
 <div class="form-group">
 	<%= f.label :shipping_method, :class => "control-label" %>
-	<%= f.text_field :shipping_method %>
+	<%= f.text_field :shipping_method, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :shipping_track_number, :class => "control-label" %>
-	<%= f.text_field :shipping_track_number %>
+	<%= f.text_field :shipping_track_number, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :shipping_time, :class => "control-label" %>
-	<%= f.datetime_select :shipping_time %>
+	<%= f.datetime_select :shipping_time, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :shipping_flag, :class => "control-label" %>
-	<%= f.check_box :shipping_flag %>
+	<%= f.check_box :shipping_flag, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :return_reason, :class => "control-label" %>
-	<%= f.text_field :return_reason %>
+	<%= f.text_field :return_reason, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :return_time, :class => "control-label" %>
-	<%= f.datetime_select :return_time %>
+	<%= f.datetime_select :return_time, :class => "form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :return_flag, :class => "control-label" %>

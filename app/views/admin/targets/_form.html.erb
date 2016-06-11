@@ -14,7 +14,7 @@
 <% end %>
 <div class="form-group">
 	<%= f.label :target_type_id %>
-	<%= f.select :target_type_id, options_from_collection_for_select(TargetType.where(:flag=>true).all(), 'id', 'title',@target.target_type_id),:class=>"form-control" %>
+	<%= f.select :target_type_id, options_from_collection_for_select(TargetType.where(:flag=>true).all(), 'id', 'title',@target.target_type_id),{},:class=>"form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :title %>

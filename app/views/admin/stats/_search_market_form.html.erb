@@ -3,7 +3,7 @@
 	<table class="table table-bordered table-striped">
 		<tr>
 			<th><%=label_tag :market_ids,t(:label_market) %></th>
-			<td><%=text_field_tag :market_ids, params[:market],:title=>'마켓선택' %><input type="button" class="btn" id="m_clear_check_list" value="<%=t(:deselect_all) %>" <% unless params[:ad_id].blank? %><% unless @ads.empty? %>style="display:inline"<% end %><% end %> />
+			<td><%=text_field_tag :market_ids, params[:market],:title=>'마켓선택',:class=>"form-control" %><input type="button" class="btn" id="m_clear_check_list" value="<%=t(:deselect_all) %>" <% unless params[:ad_id].blank? %><% unless @ads.empty? %>style="display:inline"<% end %><% end %> />
 				<div id="market_ids_layer">
 				<% unless params[:market_id].blank? %>
 				<% unless @markets.empty? %>
@@ -18,7 +18,7 @@
 		<tr>
 			<th><%=label_tag :period,t(:label_period) %></th>
 			<td>
-				<select name="period">
+				<select name="period" class="form-control">
 					<option value="day" <% if(params[:period]=='day')%>selected="selected"<% end %>><%=t(:period_daily)%></option>
 					<option value="week" <% if(params[:period]=='week')%>selected="selected"<% end %>><%=t(:period_weekly)%></option>
 					<option value="month" <% if(params[:period]=='month')%>selected="selected"<% end %>><%=t(:period_monthly)%></option>
