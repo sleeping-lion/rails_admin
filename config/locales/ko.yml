@@ -682,6 +682,7 @@ ko:
       delete_user : '삭제회원'
       roulette_background : '룰렛 배경색'      
       roulette_play_address : '룰렛 배송 주소 관리'
+      roulette_present : 'present'      
       quiz_address : '퀴즈 배송 주소 관리'            
       
     attributes :
@@ -883,6 +884,10 @@ ko:
         start_time : '시작 시간'
         end_time : '종료 시간'  
         photo : '사진'
+      roulette_present :
+        title : '제목'
+        photo : '사진'
+        flag : '사용유무'      
       roulette_play_address :
         roulette_play_id : '룰렛 ID'
         address_id : '배송지 ID'

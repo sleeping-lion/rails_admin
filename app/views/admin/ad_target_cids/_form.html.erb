@@ -1,16 +1,16 @@
 <%= form_for [:adminm,@ad_schedule.ad,@ad_schedule,AdTargetCid.new] do |f| %>
 <div class="box">
 	<div class="box-header">
-		<h2><i class="icon-align-justify"></i><span class="break"></span>CID</h2>
+		<h2><i class="glyphicon glyphicon-align-justify"></i><span class="break"></span>CID</h2>
 		<div class="box-icon">
-			<a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
-			<a class="btn-close" href="#"><i class="icon-remove"></i></a>				
+			<a href="#" class="btn-minimize"><i class="glyphicon glyphicon-chevron-up"></i></a>
+			<a class="btn-close" href="#"><i class="glyphicon glyphicon-remove"></i></a>				
 		</div>
 	</div>
 	<div class="box-content">
 		<div class="form-group">
 			<%= f.label :cid %>
-			<%= f.text_field :cid,:required=>"required" %>
+			<%= f.text_field :cid,:class=>"form-control",:required=>"required" %>
 		</div>
 		<div class="form-group">
 			<%= f.label :flag %>

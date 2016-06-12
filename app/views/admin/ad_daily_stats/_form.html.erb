@@ -14,15 +14,15 @@
 <% end %>
 <div class="form-group">
 	<%= f.label :title, t(:label_title) %>
-	<%= f.text_field :title,:required=>"required" %>
+	<%= f.text_field :title,:class=>"form-control",:required=>"required" %>
 </div>
 <div class="form-group">
 	<%= f.label :file_prefix, 'file_prefix' %>
-	<%= f.text_field :file_prefix,:required=>"required" %>
+	<%= f.text_field :file_prefix,:class=>"form-control",:required=>"required" %>
 </div>
 <div class="form-group">
 	<%= f.label :max_file_count, 'file_count' %>
-	<%= f.number_field :max_file_count,:required=>"required" %>
+	<%= f.number_field :max_file_count,:class=>"form-control",:required=>"required" %>
 </div>
 <div class="form-group">
 	<%= f.label :flag, t(:label_flag) %>

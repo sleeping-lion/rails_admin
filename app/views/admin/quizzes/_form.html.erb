@@ -13,7 +13,7 @@
 <% end %>
 <div class="form-group">
 	<%= f.label :quiz_type %>
-	<%= f.select :quiz_type, [['포인트지급', 1], ['경품응모', 2]],:class=>"form-control" %>
+	<%= f.select :quiz_type_id, options_from_collection_for_select(QuizType.where(:flag=>true).all(), 'id', 'name'),{},:class=>"form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :title %>

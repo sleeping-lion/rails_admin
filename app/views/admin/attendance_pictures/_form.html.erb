@@ -13,10 +13,8 @@
 </div>
 <% end %>
 <div class="form-group">
-	<%= f.label :attendance_setting_id, :class => "control-label" %>
-	<div class="controls">
-		<%= f.select :attendance_setting_id, options_from_collection_for_select(AttendanceSetting.find(:all,:conditions=>{:flag=>true}), 'id', 'title') %>
-	</div>
+	<%= f.label :attendance_setting_id %>
+	<%= f.select :attendance_setting_id, options_from_collection_for_select(AttendanceSetting.where(:flag=>true).all(), 'id', 'title') %>
 </div>
 <div class="form-group">
 	<%= f.label :title %>

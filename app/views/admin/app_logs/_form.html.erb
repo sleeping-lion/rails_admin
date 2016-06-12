@@ -13,7 +13,7 @@
 <% end %>
 <div class="form-group">
 	<%= f.label :app_log_type %>
-	<%= f.text_field :app_log_type %>
+	<%= f.select :app_log_type_id, options_from_collection_for_select(AppLogType.where(:flag=>true).all(), 'id', 'name'),{},:class=>"form-control" %>
 </div>
 <div class="form-group">
 	<%= f.label :user %>

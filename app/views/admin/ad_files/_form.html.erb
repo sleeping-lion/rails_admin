@@ -1,39 +1,31 @@
 <%= form_for [@ad,AdFile.new],:html=>{:class=>"form-horizontal"} do |f| %>
 <div class="box">
 	<div class="box-header">
-		<h2><i class="icon-align-justify"></i><span class="break"></span><%=t('activerecord.models.ad_file')%></h2>
+		<h2><i class="glyphicon glyphicon-align-justify"></i><span class="break"></span><%= t('activerecord.models.ad_file')%></h2>
 		<div class="box-icon">
-			<a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+			<a href="#" class="btn-minimize"><i class="glyphicon glyphicon-chevron-up"></i></a>
 		</div>
 	</div>
-	<div class="box-content">			
+	<div class="box-content">
 		<%= f.hidden_field :checksum,:value=>'asdgsadg' %>
 		<%= f.hidden_field :fileext,:value=>'asdgsadg' %>
 		<%= f.hidden_field :filetype,:value=>'awegweg'%>
 		<div class="form-group">
 			<%= f.label :ad_file_type_id, :class => "control-label" %>
-			<div class="controls">
-				<%= f.select :ad_file_type_id, options_from_collection_for_select(AdFileType.find(:all,:conditions=>{:flag=>true}), 'id', 'title') %>
-			</div>
+			<%= f.select :ad_file_type_id, options_from_collection_for_select(AdFileType.where(:flag=>true).all(), 'id', 'title') %>
 		</div>
 		<div class="form-group">
 			<%= f.label :photo, :class => "control-label" %>
-			<div class="controls">
-				<%= f.file_field :photo,:required=>"required" %>
-				<%= f.hidden_field :photo_cache %>
-			</div>
+			<%= f.file_field :photo,:required=>"required" %>
+			<%= f.hidden_field :photo_cache %>
 		</div>
 		<div class="form-group">
 			<%= f.label :flag, :class => "control-label" %>
-			<div class="controls">
-				<%= f.check_box :flag %>
-			</div>
+			<%= f.check_box :flag %>
 		</div>
-		<div class="clearfix">&nbsp;</div>		 	
- 		<div class="actions">
- 			<%= f.submit :class=>"btn btn-primary" %>
- 		</div>
-		<div class="clearfix">&nbsp;</div> 	
+		<div class="actions">
+			<%= f.submit :class=>"btn btn-primary" %>
+		</div>
 	</div>
 </div>
 <% end %>
