@@ -13,59 +13,59 @@
 </div>
 <% end %>
 <div class="form-group">
-	<%= f.label :store_type_id, :class => "control-label" %>
+	<%= f.label :store_type_id %>
 	<%= f.select :store_type_id, options_from_collection_for_select(StoreType.where(:flag=>true).all(), 'id', 'title',@store_good.store_type_id),{},:class=>"form-control" %>
 </div>
 <div class="form-group">
-	<%= f.label :title, :class => "control-label" %>
+	<%= f.label :title %>
 	<%= f.text_field :title,:class=>"form-control" %>
 </div>
 <div class="form-group">
-	<%= f.label :description_short, :class => "control-label" %>
+	<%= f.label :description_short %>
 	<%= f.text_field :description_short,:class=>"form-control" %>
 </div>
 <div class="form-group">
-	<%= f.label :description, :class => "control-label" %>
+	<%= f.label :description %>
 	<%= f.text_area :description, :rows => 8, :cols => 80,:class=>"form-control" %>
 </div>
 <div class="form-group">
-	<%= f.label :stock_count, :class => "control-label" %>
+	<%= f.label :stock_count %>
 	<%= f.number_field :stock_count %>
 </div>
 <div class="form-group">
-	<%= f.label :order_count, :class => "control-label" %>
+	<%= f.label :order_count %>
 	<%= f.number_field :order_count %>
 </div>
 <div class="form-group">
-	<%= f.label :sale_start_time, :class => "control-label" %>
+	<%= f.label :sale_start_time %>
 	<%= f.datetime_select :sale_start_time %>
 </div>
 <div class="form-group">
-	<%= f.label :sale_end_time, :class => "control-label" %>
+	<%= f.label :sale_end_time %>
 	<%= f.datetime_select :sale_end_time %>
 </div>
 <div class="form-group">
-	<%= f.label :sale_price, :class => "control-label" %>
+	<%= f.label :sale_price %>
 	<%= f.number_field :sale_price %>
 </div>
 <div class="form-group">
-	<%= f.label :sale_type, :class => "control-label" %>
+	<%= f.label :sale_type %>
 	<%= f.text_field :sale_type %>
 </div>
 <div class="form-group">
-	<%= f.label :proirity_flag, :class => "control-label" %>
+	<%= f.label :proirity_flag %>
 	<%= f.check_box :proirity_flag %>
 </div>
 <div class="form-group">
-	<%= f.label :hot_flag, :class => "control-label" %>
+	<%= f.label :hot_flag %>
 	<%= f.check_box :hot_flag %>
 </div>
 <div class="form-group">
-	<%= f.label :new_flag, :class => "control-label" %>
+	<%= f.label :new_flag %>
 	<%= f.check_box :new_flag %>
 </div>
 <div class="form-group">
-	<%= f.label :flag, :class => "control-label" %>
+	<%= f.label :flag %>
 	<%= f.check_box :flag %>
 </div>
 <div class="form-group actions">

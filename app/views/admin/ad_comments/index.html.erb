@@ -1,5 +1,7 @@
-<h1>Listing ad_comments</h1>
-
+<div class="row">
+	<h3 class="col-xs-12 col-sm-6"><%= @controller_name %> <%= actionNameChange controller.action_name %></h3>
+</div>
+<div class="table-responsive">
 <table>
   <tr>
     <th>Ad</th>
@@ -21,7 +23,6 @@
   </tr>
 <% end %>
 </table>
-
-<br />
+</div>
 
 <%= link_to 'New Ad comment', new_admin_ad_comment_path %>

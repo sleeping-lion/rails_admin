@@ -39,11 +39,11 @@
 				<td><%= link_to quiz_log.created_at.to_date,quiz_log %></td>
 				<% if can? :update, quiz_log %>
 				<td> <% if can? :update, quiz_log %>
-				<%= link_to edit_admin_quiz_log_path(quiz_log),:class=>"btn btn-small pull-left" do %> <i class="icon-pencil"></i> <%= t(:link_edit) %>
+				<%= link_to edit_admin_quiz_log_path(quiz_log),:class=>"btn btn-default" do %> <i class="glyphicon glyphicon-pencil"></i> <%= t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, quiz_log %>
-				<%= link_to admin_quiz_log_path(quiz_log), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm)},:class=>"btn btn-small btn-danger pull-right" do %> <i class="icon-trash"></i> <%= t(:link_delete) %>
+				<%= link_to admin_quiz_log_path(quiz_log), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm)},:class=>"btn btn-danger" do %> <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete) %>
 				<% end %>
 				<% end %> </td>
 				<% end %>

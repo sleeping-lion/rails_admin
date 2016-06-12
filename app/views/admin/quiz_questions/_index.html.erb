@@ -1,20 +1,20 @@
 <section id="sl_ad_schedules" class="sub_section">
-	<h3><%=t('activerecord.models.quiz_question')%></h3>
+	<h3><%= t('activerecord.models.quiz_question')%></h3>
 	<% unless @quiz_questions.empty? %>
 	<table class="table table-bordered table-striped">
 		<colgroup>
 			<col style="width:60px;" />
 			<col />
 			<% if can?(:update, QuizQuestion) || can?(:delete, QuizQuestion) %>
-			<col <%=raw manage_width(QuizQuestion) %> />
+			<col <%= raw manage_width(QuizQuestion) %> />
 			<% end %>
 		</colgroup>
 		<thead >
 			<tr>
-				<th><%=t(:label_number)%></th>
-				<th><%=t(:label_title)%></th>
+				<th><%= t(:label_number)%></th>
+				<th><%= t(:label_title)%></th>
 				<% if can?(:update, QuizQuestion) || can?(:delete, QuizQuestion) %>
-				<th><%=t(:label_manage) %></th>
+				<th><%= t(:label_manage) %></th>
 				<% end %>
 			</tr>
 		</thead>
@@ -23,9 +23,11 @@
 		</tbody>
 	</table>
 	<% else %>
-	<p><%=t(:no_data) %></p>	
+	<p>
+		<%= t(:no_data) %>
+	</p>
 	<% end %>
-	<% if can? :create, QuizQuestion %>		
+	<% if can? :create, QuizQuestion %>
 	<div id="sl_quiz_question_form">
 		<%= render "admin/quiz_questions/form" %>
 	</div>
