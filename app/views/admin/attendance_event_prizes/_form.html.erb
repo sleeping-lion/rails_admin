@@ -1,0 +1,39 @@
+<%= form_for [:admin,@attendance_event_prize] do |f| %>
+<% if @attendance_event_prize.errors.any? %>
+<div id="error_explanation" class="alert alert-danger">
+	<a href="#" class="close" data-dismiss="alert">&times;</a>
+	<h2><%= pluralize(@attendance_event_prize.errors.count, "error") %> prohibited this point from being saved:</h2>
+	<ul>
+		<% @attendance_event_prize.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="form-group">
+	<%= f.label :attendance_event_id %>
+	<%= f.select :attendance_event_id, options_from_collection_for_select(AttendanceEvent.where(:flag=>true).all(), 'id', 'title',@attendance_event_prize.attendance_event_id),{},:class=>"form-control" %>
+</div>
+<div class="form-group">
+	<%= f.label :title %>
+	<%= f.text_field :title,:class=>"form-control" %>
+</div>
+<div class="form-group">
+	<%= f.label :count %>
+	<%= f.number_field :count,:class=>"form-control" %>
+</div>
+<div class="form-group">
+	<%= f.label :photo %>
+	<%= f.file_field :photo %>
+	<%= f.hidden_field :photo_cache %>
+</div>
+<div class="form-group">
+	<%= f.label :flag %>
+	<%= f.check_box :flag %>
+</div>
+<div class="actions">
+	<%= f.submit :class=>"btn btn-primary" %>
+</div>
+<% end %>

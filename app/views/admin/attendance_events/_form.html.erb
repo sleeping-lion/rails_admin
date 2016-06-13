@@ -1,0 +1,26 @@
+<%= form_for [:admin,@attendance_setting] do |f| %>
+<% if @attendance_setting.errors.any? %>
+<div id="error_explanation" class="alert alert-danger">
+	<a href="#" class="close" data-dismiss="alert">&times;</a>
+	<h2><%= pluralize(@attendance_setting.errors.count, "error") %> prohibited this point from being saved:</h2>
+	<ul>
+		<% @attendance_setting.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="form-group">
+	<%= f.label :title %>
+	<%= f.text_field :title,:class=>"form-control" %>
+</div>
+<div class="form-group">
+	<%= f.label :flag %>
+	<%= f.check_box :flag %>
+</div>
+<div class="actions">
+	<%= f.submit :class=>"btn btn-primary" %>
+</div>
+<% end %>

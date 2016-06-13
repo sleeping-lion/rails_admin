@@ -1,0 +1,73 @@
+<div class="row">
+	<h3 class="col-xs-12 col-sm-6"><%= @controller_name %> <%= actionNameChange controller.action_name %></h3>
+</div>
+<div class="table-responsive">
+	<table class="table table-bordered table-striped">
+		<colgroup>
+			<col style="width:50px;" />
+			<col style="width:80px;" />
+			<col />
+			<col />
+			<col style="width:120px;" />
+			<% if can?(:update, AttendanceEventPrize) || can?(:delete, AttendanceEventPrize) %>
+			<col <%= raw manage_width(AttendanceEventPrize) %> />
+			<% end %>
+		</colgroup>
+		<thead>
+			<tr>
+				<th><%= t(:label_number) %></th>
+				<th><%= t(:label_photo)%></th>
+				<th><%= t(:label_title)%></th>
+				<th>headtext</th>
+				<th><%= t(:label_created_at)%></th>
+				<% if can?(:update, AttendanceEventPrize) || can?(:delete, AttendanceEventPrize) %>
+				<th><%= t(:label_manage) %></th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% unless @attendance_event_prizes.empty? %>
+			<% @attendance_event_prizes.each do |attendance_event_prize| %>
+			<tr>
+				<td><%= attendance_event_prize.id %></td>
+				<td><%= image_tag attendance_event_prize.photo.small_thumb %></td>
+				<td><%= attendance_event_prize.title %></td>
+				<td><%= attendance_event_prize.headtext %></td>
+				<td><%= attendance_event_prize.created_at.to_date %></td>
+				<% if can?(:update, attendance_event_prize) || can?(:delete, attendance_event_prize) %>
+				<td> <% if can? :update, attendance_event_prize %>
+				<%= link_to edit_attendance_setting_path(attendance_event_prize),:class=>"btn btn-default" do %> <i class="icon-pencil"></i> <%= t(:link_edit) %>
+				<% end %>
+				<% end %>
+				<% if can? :delete, attendance_setting %>
+				<%= link_to attendance_setting, :method => :delete, :data => { :confirm =>t(:delete_confirm)},:class=>"btn btn-danger" do %> <i class="icon-trash"></i> <%= t(:link_delete) %>
+				<% end %>
+				<% end %> </td>
+				<% end %>
+			</tr>
+			<% end %>
+			<% else %>
+			<tr>
+				<td colspan="10"><%= t(:no_data)%></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<div class="row">
+	<div class="col-xs-6 col-sm-3 col-md2">
+		<% if can? :create, AttendanceSetting %>
+		<%= link_to new_admin_attendance_setting_path, :class=>"btn btn-primary" do %>
+		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
+		<% end %>
+		<% end %>
+		<% if can? :manage, AttendanceSetting %>
+		<% unless @attendance_settings.empty? %>
+		<%=link_to admin_attendance_settings_path(:format=>"xls",:params=>params), :class=>"btn" do %>
+		<i class="icon-file"></i> <%= t(:link_download_excel) %>
+		<% end %>
+		<% end %>
+		<% end %>
+	</div>
+	<%= paginate @attendance_settings %>
+</div>
