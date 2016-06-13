@@ -18,55 +18,11 @@ Rails.application.routes.draw do
   resources :notices
   resources :faqs
  
-
+ 
+  # 관리자
   namespace :admin do
-    get '/' => 'admin#index'    
-    resources :notices
-    resources :faqs
+    get '/' => 'admin#index'
     
-    resources :operators
-    resources :users do
-      resources :user_targets, :user_target_addresses, :user_referrals
-      get 'user_id_select',:on=>:collection
-      get 'user_id_select_search_result',:on=>:collection
-    end
-    resources :user_address_books
-    resources :user_login_logs
-    resources :delete_users    
-    
-    resources :app_logs
-    resources :app_log_types
-    resources :app_versions
-    resources :app_markets do
-      get 'market_id_select',:on=>:collection
-      get 'market_id_select_search_result',:on=>:collection
-    end
-    
-    resources :attendances
-    resources :attendance_settings
-    resources :attendance_pictures 
-    
-    resources :roulette_settings
-    resources :roulette_bettings
-    resources :roulette_backgrounds
-    resources :roulette_presents
-    resources :roulette_plays
-    resources :roulette_plays_user_address_books
-       
-    resources :mobile_prefixes
-    resources :quizzes do
-      resources :quiz_questions do
-        resources :quiz_answers
-      end
-    end
-
-    resources :quiz_logs
-    resources :quizzes_user_address_books    
-    resources :quiz_logs
-    resources :quiz_addresses
-  
-    resources :coupon_types
-
     resources :ad_types
     resources :ads do
       resources :ad_schedules do
@@ -84,7 +40,40 @@ Rails.application.routes.draw do
     resources :ad_daily_stats
     resources :ad_comments
     resources :ad_file_types
+          
+    resources :app_log_types    
+    resources :app_logs
+    resources :app_versions
+    resources :app_markets do
+      get 'market_id_select',:on=>:collection
+      get 'market_id_select_search_result',:on=>:collection
+    end
     
+    resources :attendances
+    resources :attendance_events do
+      get 'event_id_select',:on=>:collection
+      get 'event_id_select_search_result',:on=>:collection
+    end
+    resources :attendance_event_prizes 
+    
+    resources :roulette_settings
+    resources :roulette_bettings
+    resources :roulette_backgrounds
+    resources :roulette_presents
+    resources :roulette_plays
+    resources :roulette_plays_user_address_books
+       
+    resources :mobile_prefixes
+    resources :quizzes do
+      resources :quiz_questions do
+        resources :quiz_answers
+      end
+    end
+    resources :quiz_logs
+    resources :quizzes_user_address_books    
+  
+    resources :coupon_types
+
     resources :address_sections
     resources :addresses  do
       get 'address_id_select',:on=>:collection
@@ -105,7 +94,19 @@ Rails.application.routes.draw do
     resources :point_types
     resources :points
     resources :banks
-
+         
+    resources :notices
+    resources :faqs
+    
+    resources :operators
+    resources :users do
+      resources :user_targets, :user_target_addresses, :user_referrals
+      get 'user_id_select',:on=>:collection
+      get 'user_id_select_search_result',:on=>:collection
+    end
+    resources :user_address_books
+    resources :user_login_logs
+    resources :delete_users 
 
     resources :target_types
     resources :targets
@@ -120,9 +121,6 @@ Rails.application.routes.draw do
     end
     resources :store_order_statuses
     
-    resources :sms_messages
     resources :messages
-
   end
-
 end

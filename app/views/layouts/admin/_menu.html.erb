@@ -62,7 +62,6 @@
 				<ul>
 					<% if can? :read, Quiz %>						
 					<li><%=link_to admin_quizzes_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quiz)%></span><% end %></li>
-					<li><%=link_to admin_quiz_addresses_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quiz_addresses)%></span><% end %></li>
 					<% end %>
 					<% if can? :read, QuizLog %>						
 					<li><%=link_to admin_quiz_logs_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quiz_log)%></span><% end %></li>
