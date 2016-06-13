@@ -182,6 +182,7 @@ ko:
   label_mobile_num : '전화번호'  
   label_status : '상태별'
   label_image : '이미지'
+  label_photo : '사진'  
   label_period_search : '기간검색' 
   label_nation_num : '국가번호'
   label_password : '비밀번호'
@@ -686,8 +687,10 @@ ko:
       roulette_background : '룰렛 배경색'      
       roulette_play_address : '룰렛 배송 주소 관리'
       roulette_present : 'present'
-      roulette_play : '룰렛 기록'          
-      quiz_address : '퀴즈 배송 주소 관리'            
+      roulette_play : '룰렛 기록'
+      quiz : '퀴즈'   
+      quiz_address : '퀴즈 배송 주소 관리'
+      quiz_log : '퀴즈 기록'             
       
     attributes :
       admin :
@@ -922,6 +925,7 @@ ko:
         user_id : '수취인 ID'
         created_at : '등록일시'
         updated_at : '변경일시'
+
         
  
  

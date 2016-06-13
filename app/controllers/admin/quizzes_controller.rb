@@ -6,6 +6,7 @@ class Admin::QuizzesController < Admin::AdminController
     super(*params)
     
     @category=t(:menu_quiz)
+    @sub_menu=t(:submenu_quiz)
     @controller_name=t('activerecord.models.quiz')
     
     @script = 'quizzes/index'

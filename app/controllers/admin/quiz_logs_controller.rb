@@ -4,8 +4,9 @@ class Admin::QuizLogsController < Admin::AdminController
   
   def initialize(*params)
     super(*params)
-    
+            
     @category=t(:menu_quiz)
+    @sub_menu=t(:submenu_quiz_log)
     @controller_name=t('activerecord.models.quiz_log')
     
     @script = 'quizzes/index'    

@@ -5,7 +5,7 @@ class Admin::AppVersionsController < Admin::AdminController
   def initialize(*params)
     super(*params)
     
-    @sub_menu=t(:menu_version)
+    @sub_menu=t(:menu_app_version)
     @controller_name=t('activerecord.models.application_version')
   end
   
