@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class RoulettePlaysUserAddressBook < ActiveRecord::Base
   attr_accessible :roulette_play_id, :user_address_book_id
   validates_presence_of :roulette_play_id, :user_address_book_id 

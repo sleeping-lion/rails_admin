@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class FaqContent < ActiveRecord::Base
   attr_accessible :id, :content
   validates_presence_of :content

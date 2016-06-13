@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Operator < ActiveRecord::Base
   self.table_name='admins'  
   attr_accessor :password , :password_confirmation  

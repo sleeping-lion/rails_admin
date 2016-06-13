@@ -1,9 +1,9 @@
-class Admin::AttendanceSettingsController < Admin::AdminController
+class Admin::AttendanceController < Admin::AdminController
   def initialize(*params)
     super(*params)
     
     @sub_menu=t(:menu_attendance)
-    @controller_name=t('activerecord.models.attendance_setting')
+    @controller_name=t('activerecord.models.attendance_event_prize')
   end
   
   # GET /attendance_settings

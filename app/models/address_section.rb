@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class AddressSection < ActiveRecord::Base
   attr_accessible :id, :address_id, :section, :flag
   validates_presence_of :address_id, :section

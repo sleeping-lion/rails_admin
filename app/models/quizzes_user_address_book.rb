@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class QuizzesUserAddressBook < ActiveRecord::Base
   attr_accessible :quiz_id, :user_address_book_id
   validates_presence_of :quiz_id, :user_address_book_id

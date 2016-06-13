@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class UserReferral < ActiveRecord::Base
   attr_accessible :user_id, :recommend_user_id
   validates_presence_of :user_id, :recommend_user_id

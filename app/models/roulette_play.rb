@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class RoulettePlay < ActiveRecord::Base
   attr_accessible :id, :user_id, :roulette_setting_id, :point_id, :client_ip
   validates_presence_of :user_id, :point_id, :client_ip

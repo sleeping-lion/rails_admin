@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Address < ActiveRecord::Base
   attr_accessible :id, :parent_address_id, :level, :name, :full_address, :flag
   validates_presence_of :level, :name, :full_address

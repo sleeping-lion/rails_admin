@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Admin < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :trackable, :validatable, :timeoutable
   attr_accessible :parent_id, :login_id, :nickname, :email, :password, :password_confirmation, :photo, :photo_cache, :flag, :address1, :address2, :tel1, :tel2, :company

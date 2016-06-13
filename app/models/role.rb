@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Role < ActiveRecord::Base
   attr_accessible :id, :title, :flag
   validates_presence_of :title

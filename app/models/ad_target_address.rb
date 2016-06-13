@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class AdTargetAddress < ActiveRecord::Base
   attr_accessible :ad_schedule_id, :address_id
   validates_presence_of :ad_schedule_id, :address_id

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class AdSchedule < ActiveRecord::Base
   attr_accessible :ad_id, :title, :start_time, :end_time, :flag, :cpi_only_flag, :start_hour, :end_hour, :expire_time, :weekday0, :weekday1, :weekday2, :weekday3, :weekday4, :weekday5, :weekday6
   validates_presence_of :ad_id, :start_time, :end_time, :expire_time

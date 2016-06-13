@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class RouletteSetting < ActiveRecord::Base
   attr_accessible :id, :title, :percentage, :amount, :limit
   validates_presence_of :title, :percentage, :amount

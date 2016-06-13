@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Notice < ActiveRecord::Base
   attr_accessible :id, :title, :flag, :notice_content_attributes
   validates_presence_of :title

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class PointsAd < ActiveRecord::Base
   attr_accessible :ad_id, :point_id
   validates_presence_of :ad_id, :point_id 

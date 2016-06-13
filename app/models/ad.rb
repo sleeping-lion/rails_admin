@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Ad < ActiveRecord::Base
   attr_accessible :title, :ad_type_id, :sponsor_id, :agent_id, :priority, :show, :description, :memo, :flag, :display_type, :ad_memo_attributes, :ad_state_attributes, :ad_option_attributes, :ad_schedule_attributes
   validates_presence_of :title, :ad_type_id, :sponsor_id, :agent_id

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class UserTarget < ActiveRecord::Base
   attr_accessible :user_id, :target_id  
   validates_presence_of :user_id, :target_id

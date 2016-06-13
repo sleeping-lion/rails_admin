@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class RoulettePlaysRoulettePresent < ActiveRecord::Base
   attr_accessible :roulette_play_id, :roulette_present_id
   validates_presence_of :roulette_play_id, :roulette_present_id

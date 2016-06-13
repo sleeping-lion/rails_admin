@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class SmsMessage < ActiveRecord::Base
   attr_accessible :msg_callback, :msg_charset, :msg_lasttime, :msg_phone, :msg_priority, :msg_rsltcode, :msg_rslttime, :msg_sendtime, :msg_status, :msg_text
 

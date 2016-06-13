@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class AdMemo < ActiveRecord::Base
   attr_accessible :ad_id, :content
   #validates_presence_of :content

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class UserTargetAddress < ActiveRecord::Base
   attr_accessible :user_id, :address_id
   validates_presence_of :user_id, :address_id

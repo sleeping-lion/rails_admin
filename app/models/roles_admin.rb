@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class RolesAdmin < ActiveRecord::Base
   attr_accessible :role_id, :admin_id  
   belongs_to :role, :autosave=>true

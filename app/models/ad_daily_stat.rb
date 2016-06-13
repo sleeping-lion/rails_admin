@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class AdDailyStat < ActiveRecord::Base 
   attr_accessible :week_date , :month_date, :date, :hour, :ad_log_type_id, :ad_id, :log_count, :point_sum
   belongs_to :ad

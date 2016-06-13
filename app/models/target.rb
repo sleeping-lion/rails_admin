@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Target < ActiveRecord::Base
   attr_accessible :title, :target_type_id, :flag
   validates_presence_of :title, :target_type_id
