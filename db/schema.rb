@@ -548,6 +548,13 @@ ActiveRecord::Schema.define(version: 20131224223355) do
     t.datetime "updated_at"
   end
 
+  create_table "quiz_types", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.boolean  "flag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "quizzes", force: :cascade do |t|
     t.integer  "quiz_type_id", limit: 4,               null: false
     t.string   "title",        limit: 200

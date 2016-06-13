@@ -27,7 +27,7 @@
 				<div>
 					<%=text_field_tag :start_date,@start_date,{:type=>:date,:class=>"datepicker"} %> ~ <%=text_field_tag :end_date,@end_date,{:type=>:date,:class=>"datepicker"} %>
 				</div>
-				<div style="margin:10px">
+				<div class="checkbox">
 					<input type="radio" id="pe1" name="date_p" value="0" <% if params[:date_p]=='0' %>checked="checked"<% end %> /><label for="pe1"><%=t(:period_today) %></label>
 					<input type="radio" id="pe2" name="date_p" value="7" <% if params[:date_p]=='7' %>checked="checked"<% end %> /><label for="pe2"><%=t(:period_week) %></label>
 					<input type="radio" id="pe3" name="date_p" value="30" <% if params[:date_p]=='30' %>checked="checked"<% end %> /><label for="pe3"><%=t(:period_month) %></label>

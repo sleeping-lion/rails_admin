@@ -1,101 +1,85 @@
-<%= form_for @user, :html=>{:class=>"form-horizontal"} do |f| %>
-	<% if @user.errors.any? %>
-	<div id="error_explanation" class="alert alert-error">
-		<a href="#" class="close" data-dismiss="alert">&times;</a>
-		<h2><%= pluralize(@user.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
-		<ul>
-			<% @user.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-			<% end %>
-		</ul>
-	</div>
-	<% end %>
-	<div class="row-fluid">
-	<div class="box span12">
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+<div id="error_explanation" class="alert alert-danger">
+	<a href="#" class="close" data-dismiss="alert">&times;</a>
+	<h2><%= pluralize(@user.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="row">
+	<div class="box col-xs-12">
 		<div class="box-header" data-original-title="">
-			<h2><i class="icon-align-justify"></i><span class="break"></span> <%=@controller_name %></h2>
+			<h2><i class="glyphicon glyphicon-align-justify"></i><span class="break"></span> <%= @controller_name %></h2>
 			<div class="box-icon">
-				<a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+				<a href="#" class="btn-minimize"><i class="glyphicon glyphicon-chevron-up"></i></a>
 			</div>
 		</div>
 		<div style="display: block;" class="box-content">
-
-  <div class="form-group">
-    <%= f.label :username,:class=>"control-label" %>
-    <div class="controls">    
-    <%= f.text_field :username,:required=>"required" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :email,:class=>"control-label" %>
-    <div class="controls">    
-    <%= f.email_field :email %>
-   	</div>
-  </div>
-  <div class="form-group">
-    <%= f.label :nation_num,:class=>"control-label" %>
-    <div class="controls">    
-    <%= f.number_field :nation_num %>
-    </div>
-  </div>   
-  <div class="form-group">
-    <%= f.label :mobile_num,:class=>"control-label" %>
-    <div class="controls">    
-    <%= f.text_field :mobile_num %>
-    </div>
-  </div>  
-  <div class="form-group">
-    <%= f.label :password,:class=>"control-label" %>
-    <div class="controls">    
-    <%= f.password_field :password %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :password_confirmation,:class=>"control-label" %>
-    <div class="controls">    
-    <%= f.password_field :password_confirmation %>
-    </div>    
-  </div>
-  <div class="form-group">
-    <%= f.label :service_provider,:class=>"control-label" %>
-    <div class="controls">    
-    <%= f.text_field :service_provider %>
-    </div>    
-  </div>  
-  <div class="form-group">
-    <%= f.label :device_id,:class=>"control-label" %>
-    <div class="controls">    
-    <%= f.text_field :device_id %>
-    </div>    
-  </div>
-  <div class="form-group">
-    <%= f.label :point,:class=>"control-label" %>
-    <div class="controls">    
-    <%= f.number_field :point %>
-    </div>    
-  </div>
-  <div class="form-group">
-    <%= f.label :flag,:class=>"control-label"%>
-    <div class="controls">    
-    <%= f.check_box :flag %>
-    </div>
-	</div>
-	<div class="form-group">
-		<%= f.label :photo, :class => "control-label" %>	
-		<div class="controls">
-	   	<% if @user%>	   
-				<% if @user.photo? %>
-				<%= image_tag(@user.photo.small_thumb) %>
-				<br />
-			<% end %>
-			<% end %>
-			<%= f.file_field :photo %>
-			<%= f.hidden_field :photo_cache %>
+			<div class="form-group">
+				<%= f.label :username %>
+				<%= f.text_field :username,:class=>"form-control",:required=>"required" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :email %>
+				<%= f.email_field :email,:class=>"form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :nation_num %>
+				<%= f.number_field :nation_num,:class=>"form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :mobile_num %>
+				<%= f.text_field :mobile_num,:class=>"form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :password %>
+				<%= f.password_field :password,:class=>"form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :password_confirmation %>
+				<%= f.password_field :password_confirmation,:class=>"form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :service_provider %>
+				<%= f.text_field :service_provider,:class=>"form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :device_id %>
+				<%= f.text_field :device_id,:class=>"form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :point %>
+				<%= f.number_field :point,:class=>"form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :flag %>
+				<%= f.check_box :flag %>
+			</div>
+			<div class="form-group">
+				<%= f.label :photo %>
+				<div class="controls">
+					<% if @user%>
+					<% if @user.photo? %>
+					<%= image_tag(@user.photo.small_thumb) %>
+					<br />
+					<% end %>
+					<% end %>
+					<%= f.file_field :photo %>
+					<%= f.hidden_field :photo_cache %>
+				</div>
+			</div>
 		</div>
 	</div>
+	<div class="col-xs-12">
+		<div class="form-group">
+			<%= f.submit :class=>'btn btn-primary' %>
+		</div>
 	</div>
-	</div>
-	<div class="form-group">
-		<%= f.submit :class=>'btn btn-primary' %>
-	</div>
+</div>
 <% end %>

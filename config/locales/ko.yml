@@ -240,7 +240,7 @@ ko:
   label_roulette_play_id : '룰렛 ID'
   label_receiver_name : '수취인'
   label_quiz_logs_id : '퀴즈 로그 ID'
-  
+  label_privilege : '권한'
       
   status : '상태'
   status_use : '사용중'
@@ -680,6 +680,7 @@ ko:
       store_order_status : '상품 주문 상태'
       message : 'message'
       delete_user : '삭제회원'
+      roulette_setting : '룰렛 설정' 
       roulette_background : '룰렛 배경색'      
       roulette_play_address : '룰렛 배송 주소 관리'
       roulette_present : 'present'      
@@ -884,6 +885,12 @@ ko:
         start_time : '시작 시간'
         end_time : '종료 시간'  
         photo : '사진'
+      roulette_setting :
+        title : '제목'
+        percentage : '확률 %'
+        amount : '수량'
+        limit : '제한'
+        flag : '사용유무'
       roulette_present :
         title : '제목'
         photo : '사진'
