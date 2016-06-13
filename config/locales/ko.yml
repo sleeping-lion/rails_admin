@@ -241,6 +241,7 @@ ko:
   label_receiver_name : '수취인'
   label_quiz_logs_id : '퀴즈 로그 ID'
   label_privilege : '권한'
+  label_limit : '제한'  
       
   status : '상태'
   status_use : '사용중'
@@ -643,8 +644,9 @@ ko:
       ad_target_cid : '광고 CID'
       ad_target : '광고목표'
       ad_type : '광고분류'
-      app_log_type : 'app_log_type'
-      app_log : 'app_log'      
+      app_market : '앱마켓'      
+      app_log_type : '앱로그 분류'
+      app_log : '앱로그'      
       address : '주소'
       attendance : '출석'
       attendance_setting : '출석설정'          
@@ -683,7 +685,8 @@ ko:
       roulette_setting : '룰렛 설정' 
       roulette_background : '룰렛 배경색'      
       roulette_play_address : '룰렛 배송 주소 관리'
-      roulette_present : 'present'      
+      roulette_present : 'present'
+      roulette_play : '룰렛 기록'          
       quiz_address : '퀴즈 배송 주소 관리'            
       
     attributes :
@@ -768,7 +771,10 @@ ko:
         title : '제목'
         today : '출석날짜'
         count : '출석수'       
-        flag : '사용여부'             
+        flag : '사용여부'
+      app_market :
+        title : '제목'        
+        flag : '사용여부'              
       sponsor :       
         title : '제목'
         flag : '사용여부'
