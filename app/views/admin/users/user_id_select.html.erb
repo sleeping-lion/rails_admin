@@ -5,8 +5,8 @@
 	<option value="user_id" <% if params[:user_id].present? %>selected="selected"<% end %>><%= t(:find_by_user_id) %></option>
 </select>
 <div class="form-group input-append">
-	<%= text_field_tag :search,'',:required=>"required" %>
-	<%= button_tag t(:search),:type=>'submit',:class=>"btn" %>
+	<%= text_field_tag :search,'',{:class=>"form-control",:required=>"required"} %>
+	<%= button_tag t(:search),:type=>'submit',:class=>"btn btn-default" %>
 </div>
 <select id="perpage">
 	<option value="5"><%= t(:show_5) %></option>
@@ -61,27 +61,19 @@
 	}
 	.js_pagination a {
 		border: 1px solid #ddd;
-		-moz-border-radius: 5px;
-		-webkit-border-radius: 5px;
 		border-radius: 5px
 	}
 	.js_pagination a:hover {
 		border-color: #d0d0d0;
-		-moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
-		-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
 		box-shadow: 0px 0px 5px rgba(0,0,0,0.2)
 	}
 	.js_pagination .current {
 		color: #333
 	}
 	.js_pagination .current:hover {
-		-moz-box-shadow: none;
-		-webkit-box-shadow: none;
 		box-shadow: none
 	}
 	.js_pagination .current:active {
-		-moz-box-shadow: 0px 1px 1px rgba(255,255,255,0.3), inset 0px 1px 2px rgba(0,0,0,0.15);
-		-webkit-box-shadow: 0px 1px 1px rgba(255,255,255,0.3), inset 0px 1px 2px rgba(0,0,0,0.15);
 		box-shadow: 0px 1px 1px rgba(255,255,255,0.3), inset 0px 1px 2px rgba(0,0,0,0.15)
 	}
 	/* BLUE PAGINATION STYLE */
@@ -111,6 +103,6 @@
 		filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#3f91c0', EndColorStr='#aad9ec')
 	}
 </style>
-<script type="text/javascript" src="/assets/plugin/jquery.pagination.js"></script>
-<script type="text/javascript" src="/assets/users/user_id_select.js"></script>
+<script src="/assets/plugin/jquery.pagination.js"></script>
+<script src="/assets/users/user_id_select.js"></script>
 <% end %>

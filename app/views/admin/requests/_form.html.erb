@@ -15,7 +15,7 @@
 <div class="form-group">
 	<%= f.label :user_id %>
 	<%= f.number_field :user_id,:required=>"required" %>
-	<%= link_to t(:user_id_find),'/users/user_id_select',:id=>'user_id_select',:title=>t(:user_id_find),:target=>'_blank',:class=>'btn btn-default modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal",:style=>'vertical-align:top' %>
+	<%= link_to t(:user_id_find),'/admin/users/user_id_select',:id=>'user_id_select',:title=>t(:user_id_find),:target=>'_blank',:class=>'btn btn-default modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal",:style=>'vertical-align:top' %>
 </div>
 <div class="form-group">
 	<%= f.label :request_setting_id %>

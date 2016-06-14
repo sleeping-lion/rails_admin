@@ -335,6 +335,24 @@ ActiveRecord::Schema.define(version: 20131224223355) do
     t.datetime "updated_at"
   end
 
+  create_table "attendance_event_prizes", force: :cascade do |t|
+    t.integer  "attendance_event_id", limit: 4,   null: false
+    t.string   "title",               limit: 60,  null: false
+    t.integer  "count",               limit: 4
+    t.string   "photo",               limit: 255
+    t.boolean  "flag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "attendance_events", force: :cascade do |t|
+    t.string   "title",      limit: 60,  null: false
+    t.string   "photo",      limit: 255
+    t.boolean  "flag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "attendance_pictures", force: :cascade do |t|
     t.integer  "attendance_setting_id", limit: 4
     t.string   "title",                 limit: 100,                null: false
@@ -347,32 +365,17 @@ ActiveRecord::Schema.define(version: 20131224223355) do
 
   add_index "attendance_pictures", ["attendance_setting_id"], name: "index_attendance_pictures_on_attendance_setting_id", using: :btree
 
-  create_table "attendance_settings", force: :cascade do |t|
-    t.string   "title",      limit: 200
-    t.string   "headtext",   limit: 200
-    t.string   "photo",      limit: 255
-    t.integer  "prize5",     limit: 4
-    t.integer  "prize10",    limit: 4
-    t.integer  "prize15",    limit: 4
-    t.integer  "prize20",    limit: 4
-    t.integer  "prize25",    limit: 4
-    t.integer  "prize30",    limit: 4
-    t.boolean  "flag"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "attendances", force: :cascade do |t|
-    t.integer  "attendance_setting_id", limit: 4, null: false
-    t.integer  "user_id",               limit: 4, null: false
+    t.integer  "attendance_event_id", limit: 4, null: false
+    t.integer  "user_id",             limit: 4, null: false
     t.date     "today"
-    t.integer  "count",                 limit: 4
+    t.integer  "count",               limit: 4
     t.boolean  "flag"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "attendances", ["attendance_setting_id"], name: "index_attendances_on_attendance_setting_id", using: :btree
+  add_index "attendances", ["attendance_event_id"], name: "index_attendances_on_attendance_event_id", using: :btree
   add_index "attendances", ["user_id"], name: "index_attendances_on_user_id", using: :btree
 
   create_table "banks", force: :cascade do |t|

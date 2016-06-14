@@ -1,4 +1,4 @@
-class CreateAttendanceEvents < ActiveRecord::Migration
+class CreateAttendanceEventPrizes < ActiveRecord::Migration
   def change
     create_table :attendance_event_prizes do |t|
       t.references :attendance_event, :null=>false        
