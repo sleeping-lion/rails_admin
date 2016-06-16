@@ -21,7 +21,7 @@ class Admin::StoreGoodPicturesController < Admin::AdminController
     @store_good = StoreGood.find(params[:store_good_id])    
     @store_good_picture = @store_good.store_good_picture.create(params[:store_good_picture])
     
-    redirect_to store_good_path(@store_good)
+    redirect_to admin_store_good_path(@store_good)
   end
   
   def update
@@ -29,7 +29,7 @@ class Admin::StoreGoodPicturesController < Admin::AdminController
     
     respond_to do |format|
       if @store_good_picture.update_attributes(params[:store_good_picture])
-        format.html { redirect_to @store_good_picture.store_good, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_store_good_path(@store_good_picture.store_good), :notice => @controller_name +t(:message_success_insert)}
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
@@ -43,7 +43,7 @@ class Admin::StoreGoodPicturesController < Admin::AdminController
     @store_good_picture.destroy
 
     respond_to do |format|
-      format.html { redirect_to store_good_path(@store_good_picture.store_good) }
+      format.html { redirect_to admin_store_good_path(@store_good_picture.store_good) }
       format.json { head :no_content }
     end
   end

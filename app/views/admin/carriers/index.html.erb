@@ -14,7 +14,7 @@
 		<% @carriers.each do |carrier| %>
 		<tr>
 			<td><%= carrier.code %></td>
-			<td><%= carrier.name %></td>
+			<td><%= carrier.title %></td>
 			<td><%= carrier.flag %></td>
 			<td><%= link_to 'Show', carrier %></td>
 			<td><%= link_to 'Edit', edit_admin_carrier_path(carrier) %></td>

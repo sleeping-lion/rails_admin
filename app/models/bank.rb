@@ -1,4 +1,5 @@
 class Bank < ActiveRecord::Base
-  attr_accessible :name,:flag
-  validates_presence_of :name
+  attr_accessible :title, :flag
+  validates_presence_of :title
+  validates_length_of :title, :minimum => 4, :maximum => 60
 end

@@ -84,11 +84,11 @@ class Admin::AppMarketsController < Admin::AdminController
   # POST /markets
   # POST /markets.json
   def create
-    @app_market = AppMarket.new(params[:market])
+    @app_market = AppMarket.new(params[:app_market])
 
     respond_to do |format|
       if @app_market.save
-        format.html { redirect_to admin_applicatio_market_path(@app_market), :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_app_market_path(@app_market), :notice => @controller_name +t(:message_success_insert)}
         format.json { render :json => @app_market, :status => :created, :location => @app_market }
       else
         format.html { render :action => "new" }
@@ -103,8 +103,8 @@ class Admin::AppMarketsController < Admin::AdminController
     @app_market = AppMarket.find(params[:id])
 
     respond_to do |format|
-      if @app_market.update_attributes(params[:market])
-        format.html { redirect_to admin_applicatio_market_path(@app_market), :notice => @controller_name +t(:message_success_update)}
+      if @app_market.update_attributes(params[:app_market])
+        format.html { redirect_to admin_app_market_path(@app_market), :notice => @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
