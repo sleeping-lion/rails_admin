@@ -166,8 +166,6 @@ ActiveRecord::Schema.define(version: 20131224223355) do
     t.integer "extra_today",      limit: 4, default: 0, null: false
   end
 
-  add_index "ad_states", ["ad_id"], name: "ad_id", using: :btree
-
   create_table "ad_target_addresses", force: :cascade do |t|
     t.integer  "ad_schedule_id", limit: 4,                null: false
     t.integer  "address_id",     limit: 4,                null: false
@@ -504,7 +502,6 @@ ActiveRecord::Schema.define(version: 20131224223355) do
     t.datetime "updated_at"
   end
 
-  add_index "points", ["point_type_id"], name: "point_type_id", using: :btree
   add_index "points", ["user_id", "point_type_id"], name: "index_points_on_user_id_and_point_type_id", using: :btree
 
   create_table "points_ads", force: :cascade do |t|
@@ -966,47 +963,4 @@ ActiveRecord::Schema.define(version: 20131224223355) do
   add_index "users", ["nickname"], name: "index_users_on_nickname", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
-  add_foreign_key "ad_files", "ads", name: "ad_files_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ad_memos", "ads", column: "id", name: "ad_memos_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ad_options", "ads", name: "ad_options_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ad_schedules", "ads", name: "ad_schedules_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ad_states", "ads", name: "ad_states_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ad_target_addresses", "ad_schedules", name: "ad_target_addresses_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ad_target_addresses", "addresses", name: "ad_target_addresses_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ad_target_cids", "ad_schedules", name: "ad_target_cids_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ad_targets", "ad_schedules", name: "ad_targets_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ad_targets", "targets", name: "ad_targets_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ads", "ad_types", name: "ads_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ads", "admins", column: "agent_id", name: "ads_ibfk_4", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ads", "admins", name: "ads_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "ads", "sponsors", name: "ads_ibfk_3", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "faq_contents", "faqs", column: "id", name: "faq_contents_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "notice_contents", "notices", column: "id", name: "notice_contents_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "points", "point_types", name: "points_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "points", "users", name: "points_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "points_ads", "ads", name: "points_ads_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "points_ads", "points", name: "points_ads_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "requests", "banks", name: "requests_ibfk_5", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "requests", "points", name: "requests_ibfk_4", on_update: :cascade, on_delete: :nullify
-  add_foreign_key "requests", "request_settings", name: "requests_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "requests", "request_types", name: "requests_ibfk_3", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "requests", "users", name: "requests_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "roles_admins", "admins", name: "roles_admins_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "roles_admins", "roles", name: "roles_admins_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "roulette_plays", "points", name: "roulette_plays_ibfk_3", on_update: :cascade, on_delete: :nullify
-  add_foreign_key "roulette_plays", "roulette_settings", name: "roulette_plays_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "roulette_plays", "users", name: "roulette_plays_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "roulette_plays_roulette_presents", "roulette_plays", name: "roulette_plays_roulette_presents_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "roulette_plays_roulette_presents", "roulette_presents", name: "roulette_plays_roulette_presents_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "store_good_pictures", "store_goods", name: "store_good_pictures_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "store_orders", "store_goods", name: "store_orders_ibfk_1", on_update: :cascade, on_delete: :nullify
-  add_foreign_key "store_orders", "users", name: "store_orders_ibfk_2", on_update: :cascade, on_delete: :nullify
-  add_foreign_key "targets", "target_types", name: "targets_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "user_point_counters", "users", column: "id", name: "user_point_counters_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "user_referrals", "users", column: "recommend_user_id", name: "user_referrals_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "user_referrals", "users", name: "user_referrals_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "user_target_addresses", "addresses", name: "user_target_addresses_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "user_target_addresses", "users", name: "user_target_addresses_ibfk_1", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "user_targets", "targets", name: "user_targets_ibfk_2", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "user_targets", "users", name: "user_targets_ibfk_1", on_update: :cascade, on_delete: :cascade
 end
