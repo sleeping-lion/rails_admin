@@ -44,11 +44,11 @@
 				<td><%= attendance.created_at.to_date %></td>
 				<% if can?(:update, attendance) || can?(:delete, attendance) %>
 				<td> <% if can? :update, attendance %>
-				<%= link_to edit_attendance_path(attendance),:class=>"btn btn-small pull-left" do %> <i class="icon-pencil"></i> <%= t(:link_edit) %>
+				<%= link_to edit_attendance_path(attendance),:class=>"btn btn-default" do %> <i class="glyphicon glyphicon-pencil"></i> <%= t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, attendance %>
-				<%= link_to attendance, :method => :delete, :data => { :confirm =>t(:delete_confirm)},:class=>"btn btn-small btn-danger pull-right" do %> <i class="icon-trash"></i> <%= t(:link_delete) %>
+				<%= link_to attendance, :method => :delete, :data => { :confirm =>t(:delete_confirm)},:class=>"btn btn-danger" do %> <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete) %>
 				<% end %>
 				<% end %> </td>
 				<% end %>
@@ -72,7 +72,7 @@
 		<% if can? :manage, Attendance %>
 		<% unless @attendances.empty? %>
 		<%=link_to attendances_path(:format=>"xls",:params=>params), :class=>"btn" do %>
-		<i class="icon-file"></i> <%= t(:link_download_excel) %>
+		<i class="glyphicon glyphicon-file"></i> <%= t(:link_download_excel) %>
 		<% end %>
 		<% end %>
 		<% end %>

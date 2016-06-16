@@ -3,10 +3,10 @@
 </div>
 <div class="box">
 	<div class="box-header">
-		<h2><i class="icon-align-justify"></i><span class="break"></span><%=t(:search)%></h2>
+		<h2><i class="glyphicon glyphicon-align-justify"></i><span class="break"></span><%=t(:search)%></h2>
 		<div class="box-icon">
-			<a href="#" class="btn-minimize"><i class="icon-chevron-down"></i></a>
-			<a class="btn-close" href="#"><i class="icon-remove"></i></a>
+			<a href="#" class="btn-minimize"><i class="glyphicon glyphicon-chevron-down"></i></a>
+			<a class="btn-close" href="#"><i class="glyphicon glyphicon-remove"></i></a>
 		</div>
 	</div>
 	<div style="display:none" class="box-content">
@@ -47,8 +47,8 @@
 			<td><%=user_login_log.created_at %></td>
 			<% if can? :delete, user_login_log %>
 			<td>
-				<%= link_to user_login_log, :method => :delete, :data => { :confirm => t(:delete_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
-				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<%= link_to user_login_log, :method => :delete, :data => { :confirm => t(:delete_confirm)},:class=>"btn btn-danger" do %>
+				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 				<% end %>		
 			</td>
 			<% end %>
@@ -66,7 +66,7 @@
 	<% unless @user_login_logs.empty? %>
 	<div class="pull-left">
 		<%=link_to user_login_logs_path(:format=>"xls",:params=>params), :class=>"btn" do %>
-		<i class="icon-file"></i> <%=t(:link_download_excel) %>
+		<i class="glyphicon glyphicon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
 	</div>
 	<% end %>

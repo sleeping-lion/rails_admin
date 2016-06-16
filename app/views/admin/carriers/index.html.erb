@@ -17,7 +17,7 @@
 			<td><%= carrier.name %></td>
 			<td><%= carrier.flag %></td>
 			<td><%= link_to 'Show', carrier %></td>
-			<td><%= link_to 'Edit', edit_carrier_path(carrier) %></td>
+			<td><%= link_to 'Edit', edit_admin_carrier_path(carrier) %></td>
 			<td><%= link_to 'Destroy', carrier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 		<% end %>

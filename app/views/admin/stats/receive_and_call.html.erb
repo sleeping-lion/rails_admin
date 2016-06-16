@@ -14,7 +14,7 @@
 	</div>
 </div>
 <div id="chart1" style="margin-bottom:30px"></div>
-<script type="text/javascript">
+<script>
 	var title_text='<%=@controller_name %>';
 <% stats_count=@stats.length %>
 <% ad_log_types_count=@ad_log_types.length %>
@@ -98,8 +98,8 @@
 <div class="row-fluid">
 	<div class="pull-left">
 		<% unless @stats.empty? %>
-		<%=link_to admin_stats_path(:format=>"xls",:params=>params), :class=>"btn" do %>
-		<i class="icon-file"></i> <%=t(:link_download_excel) %>
+		<%=link_to admin_stats_path(:format=>"xls",:params=>params), :class=>"btn btn-default" do %>
+		<i class="glyphicon glyphicon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
 		<% end %>
 	</div>

@@ -13,31 +13,31 @@
 </div>
 <% end %>
 <div class="form-group">
-	<%= f.label :client_version, :class => 'control-label' %>
+	<%= f.label :client_version %>
 	<%= f.text_field :client_version,:class=>"form-control",:required=>"required" %>
 </div>
 <div class="form-group">
-	<%= f.label :label_update_type, :class => 'control-label' %>
+	<%= f.label :label_update_type %>
 	<%= f.select :state, [['선택업데이트', 1], ['필수업데이트', 2]],{},:class=>"form-control" %>
 </div>
 <div class="form-group">
-	<%= f.label :version_name, :class => 'control-label' %>
+	<%= f.label :version_name %>
 	<%= f.text_field :version_name,:class=>"form-control" ,:required=>"required" %>
 </div>
 <div class="form-group">
-	<%= f.label :apk_file, :class => 'control-label' %>
+	<%= f.label :apk_file %>
 	<%= f.file_field :apk_file %>
 </div>
 <div class="form-group">
-	<%= f.label :contents, :class => 'control-label' %>
+	<%= f.label :contents %>
 	<%= f.text_area :contents,:id=>"sl_content",:class=>"form-control",:rows=>10,:cols=>50,:required=>"required" %>
 </div>
 <div class="form-group">
-	<%= f.label :update_date, :class => 'control-label' %>
+	<%= f.label :update_date %>
 	<%= f.datetime_select :update_date,:class=>"form-control" %>
 </div>
 <div class="form-group">
-	<%= f.label :flag, :class => 'control-label' %>
+	<%= f.label :flag %>
 	<%= f.check_box :flag %>
 </div>
 <div class="form-group actions">

@@ -1,180 +1,180 @@
 <aside class="col-xs-3 col-lg-2">
 	<nav class="nav-collapse sidebar-nav">
 		<ul class="nav main-menu">
-			<li><%=link_to_path do %><i class="icon-home icon-white"></i><span class="hidden-tablet"> <%=t(:menu_home)%></span><% end %></li>
+			<li><%=link_to_path do %><i class="glyphicon glyphicon-home icon-white"></i><span class="hidden-tablet"> <%=t(:menu_home)%></span><% end %></li>
 			<% if can? :read, Ad %>
-			<li><%=link_to ads_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:menu_ad)%> </span><% end %></li>
+			<li><%=link_to ads_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:menu_ad)%> </span><% end %></li>
 			<% end %>
 			<% if can? :read, Sponsor %>
-			<li><%=link_to sponsors_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:menu_sponsor)%> </span><% end %></li>
+			<li><%=link_to sponsors_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:menu_sponsor)%> </span><% end %></li>
 			<% end %>
 			<% if can?(:read, Stat) %>
 			<li>
-				<a class="dropmenu" href="#"><i class="icon-signal icon-white"></i><span class="hidden-tablet"> <%=t(:menu_stat)%></span></a>
+				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-signal icon-white"></i><span class="hidden-tablet"> <%=t(:menu_stat)%></span></a>
 				<ul>		
-					<li><%=link_to stats_path(:params=>{:type=>'market'}) do %><i class="icon-align-left icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_market) %></span><% end %></li>				
-					<li><%=link_to stats_path(:params=>{:type=>'user'})  do %><i class="icon-align-left icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_user) %></span><% end %></li>				
-					<li><%=link_to stats_path(:params=>{:type=>'receive',:ad_type_id=>2})  do %><i class="icon-align-left icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_receive) %></span><% end %></li>				
-					<li><%=link_to stats_path(:params=>{:type=>'receive_and_call',:ad_type_id=>2}) do %><i class="icon-align-left icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_receive_and_call) %></span><% end %></li>				
-					<li><%=link_to stats_path(:params=>{:type=>'app',:ad_type_id=>6}) do %><i class="icon-align-left icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_app) %></span><% end %></li>			
-					<li><%=link_to stats_path(:params=>{:type=>'banner',:ad_type_id=>1}) do %><i class="icon-align-left icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_banner) %></span><% end %></li>								
+					<li><%=link_to stats_path(:params=>{:type=>'market'}) do %><i class="glyphicon glyphicon-align-left icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_market) %></span><% end %></li>				
+					<li><%=link_to stats_path(:params=>{:type=>'user'})  do %><i class="glyphicon glyphicon-align-left icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_user) %></span><% end %></li>				
+					<li><%=link_to stats_path(:params=>{:type=>'receive',:ad_type_id=>2})  do %><i class="glyphicon glyphicon-align-left icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_receive) %></span><% end %></li>				
+					<li><%=link_to stats_path(:params=>{:type=>'receive_and_call',:ad_type_id=>2}) do %><i class="glyphicon glyphicon-align-left icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_receive_and_call) %></span><% end %></li>				
+					<li><%=link_to stats_path(:params=>{:type=>'app',:ad_type_id=>6}) do %><i class="glyphicon glyphicon-align-left icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_app) %></span><% end %></li>			
+					<li><%=link_to stats_path(:params=>{:type=>'banner',:ad_type_id=>1}) do %><i class="glyphicon glyphicon-align-left icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_banner) %></span><% end %></li>								
 				</ul>
 			</li>
 			<% end %>
 			<% if can?(:read, Point) || can?(:read, Request) %>		
 			<li>
-				<a class="dropmenu" href="#"><i class="icon-gift icon-white"></i><span class="hidden-tablet"> <%=t(:menu_point)%></span></a>
+				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-gift icon-white"></i><span class="hidden-tablet"> <%=t(:menu_point)%></span></a>
 				<ul>
 					<% if can? :read, Point %>					
-					<li><%=link_to points_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_point)%></span><% end %></li>
+					<li><%=link_to points_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_point)%></span><% end %></li>
 					<% end %>
 					<% if can? :read, Request %>					
-					<li><%=link_to requests_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_request)%></span><% end %></li>
+					<li><%=link_to requests_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_request)%></span><% end %></li>
 					<% end %>
 				</ul>
 			</li>
 			<% end %>
 			<% if can?(:read, GameSetting) || can?(:read, GameAmount) || can?(:read, Game) %>
 			<li>
-				<a class="dropmenu" href="#"><i class="icon-random icon-white"></i><span class="hidden-tablet"> <%=t(:menu_game)%></span></a>
+				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-random icon-white"></i><span class="hidden-tablet"> <%=t(:menu_game)%></span></a>
 				<ul>
 					<% if can? :read, GameSetting %>
-					<li><%=link_to game_settings_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_game_setting)%></span><% end %></li>
+					<li><%=link_to game_settings_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_game_setting)%></span><% end %></li>
 					<% end %>
 					<% if can? :read, GameAmount %>	
-					<li><%=link_to game_amounts_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_game_amount)%></span><% end %></li>
+					<li><%=link_to game_amounts_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_game_amount)%></span><% end %></li>
 					<% end %>	
 					<% if can? :read, Game %>	
-					<li><%=link_to games_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_game)%></span><% end %></li>
+					<li><%=link_to games_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_game)%></span><% end %></li>
 					<% end %>				
 				</ul>
 			</li>
 			<% end %>
 			<% if can?(:read, RouletteSetting) || can?(:read, RoulettePlay)  %>
 			<li>
-				<a class="dropmenu" href="#"><i class="icon-random icon-white"></i><span class="hidden-tablet"> <%=t(:menu_game)%></span></a>
+				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-random icon-white"></i><span class="hidden-tablet"> <%=t(:menu_game)%></span></a>
 				<ul>
 					<% if can? :read, RouletteSetting %>
-					<li><%=link_to roulette_settings_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_setting)%></span><% end %></li>
+					<li><%=link_to roulette_settings_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_setting)%></span><% end %></li>
 					<% end %>
 					<% if can? :read, RouletteBackground %>
-					<li><%=link_to roulette_backgrounds_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_background)%></span><% end %></li>
+					<li><%=link_to roulette_backgrounds_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_background)%></span><% end %></li>
 					<% end %>
 					<% if can? :read, RoulettePresent %>
-					<li><%=link_to roulette_presents_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_present)%></span><% end %></li>
+					<li><%=link_to roulette_presents_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_present)%></span><% end %></li>
 					<% end %>
 					<% if can? :read, RoulettePlaysUserAddressBook %>	
-					<li><%=link_to roulette_plays_user_address_books_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_plays_user_address_book)%></span><% end %></li>
+					<li><%=link_to roulette_plays_user_address_books_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_plays_user_address_book)%></span><% end %></li>
 					<% end %>
 					<% if can? :read, RoulettePlay %>	
-					<li><%=link_to roulette_plays_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_play)%></span><% end %></li>
+					<li><%=link_to roulette_plays_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_play)%></span><% end %></li>
 					<% end %>
 				</ul>
 			</li>
 			<% end %>
 			<% if can?(:read, Quiz)  %>
 			<li>
-				<a class="dropmenu" href="#"><i class="icon-random icon-white"></i><span class="hidden-tablet"> <%=t(:menu_quiz)%></span></a>
+				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-random icon-white"></i><span class="hidden-tablet"> <%=t(:menu_quiz)%></span></a>
 				<ul>
 					<% if can? :read, Quiz %>						
-					<li><%=link_to quizzes_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quiz)%></span><% end %></li>
-					<li><%=link_to quiz_addresses_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quiz_addresses)%></span><% end %></li>
+					<li><%=link_to quizzes_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quiz)%></span><% end %></li>
+					<li><%=link_to quiz_addresses_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quiz_addresses)%></span><% end %></li>
 					<% end %>
 					<% if can? :read, QuizLog %>						
-					<li><%=link_to quiz_logs_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quiz_log)%></span><% end %></li>
+					<li><%=link_to quiz_logs_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quiz_log)%></span><% end %></li>
 					<% end %>					
 					<% if can? :read, QuizzesUserAddressBook %>	
-					<li><%=link_to quizzes_user_address_books_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quizzes_user_address_book)%></span><% end %></li>
+					<li><%=link_to quizzes_user_address_books_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quizzes_user_address_book)%></span><% end %></li>
 					<% end %>
 				</ul>
 			</li>
 			<% end %>
 			<% if can?(:read, StoreGood) || can?(:read, StoreOrder) %>
 			<li>
-				<a class="dropmenu" href="#"><i class="icon-shopping-cart icon-white"></i><span class="hidden-tablet"> <%=t(:menu_store)%></span></a>
+				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-shopping-cart icon-white"></i><span class="hidden-tablet"> <%=t(:menu_store)%></span></a>
 				<ul>
 					<% if can? :read, StoreGood %>					
-					<li><%=link_to store_goods_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_product)%></span><% end %></li>
+					<li><%=link_to store_goods_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_product)%></span><% end %></li>
 					<% end %>
 					<% if can? :read, StoreOrder %>					
-					<li><%=link_to store_orders_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_order)%></span><% end %></li>
+					<li><%=link_to store_orders_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_order)%></span><% end %></li>
 					<% end %>
 				</ul>
 			</li>
 			<% end %>
 			<% if can? :read, User %>			
 			<li>
-				<a class="dropmenu" href="#"><i class="icon-user icon-white"></i><span class="hidden-tablet"> <%=t(:menu_user)%></span></a>
+				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-user icon-white"></i><span class="hidden-tablet"> <%=t(:menu_user)%></span></a>
 				<ul>
 					<% if can? :read, Operator %>
-					<li><%=link_to operators_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_operator)%></span><% end %></li>
+					<li><%=link_to operators_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_operator)%></span><% end %></li>
 					<% end %>
-					<li><%=link_to users_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_user)%></span><% end %></li>
-					<li><%=link_to user_login_logs_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_user_login_log)%></span><% end %></li>
-					<li><%=link_to user_address_books_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_user_address_book)%></span><% end %></li>
+					<li><%=link_to users_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_user)%></span><% end %></li>
+					<li><%=link_to user_login_logs_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_user_login_log)%></span><% end %></li>
+					<li><%=link_to user_address_books_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_user_address_book)%></span><% end %></li>
 				</ul>
 			</li>
 			<% end %>
 			<% if can?(:read, Attendance) %>
 			<li>
-				<a class="dropmenu" href="#"><i class="icon-book icon-white"></i><span class="hidden-tablet"> <%=t(:menu_attendance)%></span></a>
+				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-book icon-white"></i><span class="hidden-tablet"> <%=t(:menu_attendance)%></span></a>
 				<ul>
 					<% if can? :read, Attendance %>					
-					<li><%=link_to attendances_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_attendance)%></span><% end %></li>
+					<li><%=link_to attendances_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_attendance)%></span><% end %></li>
 					<% end %>
 					<% if can? :read, AttendanceSetting %>					
-					<li><%=link_to attendance_settings_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_attendance_setting)%></span><% end %></li>
+					<li><%=link_to attendance_settings_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_attendance_setting)%></span><% end %></li>
 					<% end %>
 				</ul>
 			</li>
 			<% end %>
 			<% if can?(:read, Notice) || can?(:read, Faq) %>
 			<li>
-				<a class="dropmenu" href="#"><i class="icon-book icon-white"></i><span class="hidden-tablet"> <%=t(:menu_board)%></span></a>
+				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-book icon-white"></i><span class="hidden-tablet"> <%=t(:menu_board)%></span></a>
 				<ul>
 					<% if can? :read, Notice %>					
-					<li><%=link_to notices_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_notice)%></span><% end %></li>
+					<li><%=link_to notices_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_notice)%></span><% end %></li>
 					<% end %>
 					<% if can? :read, Faq %>					
-					<li><%=link_to faqs_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_faq)%></span><% end %></li>
+					<li><%=link_to faqs_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_faq)%></span><% end %></li>
 					<% end %>
 				</ul>
 			</li>
 			<% end %>
 			<% if can? :read, ApplicationVersion %>
 			<li>
-				<%=link_to application_versions_path do %><i class="icon-download-alt icon-white"></i><span class="hidden-tablet"> <%=t(:menu_version)%></span><% end %>
+				<%=link_to application_versions_path do %><i class="glyphicon glyphicon-download-alt icon-white"></i><span class="hidden-tablet"> <%=t(:menu_version)%></span><% end %>
 			</li>
 			<% end %>
 			<% if can? :read, Message %>
 			<li>
-				<%=link_to messages_path do %><i class="icon-download-alt icon-white"></i><span class="hidden-tablet"> <%=t(:menu_message)%></span><% end %>
+				<%=link_to messages_path do %><i class="glyphicon glyphicon-download-alt icon-white"></i><span class="hidden-tablet"> <%=t(:menu_message)%></span><% end %>
 			</li>
 			<% end %>
 			<% if current_admin.role[0].title == "administrator" || current_admin.role[0].title == "operator" || current_admin.role[0].title == "sub_operator"   %>
 			<li>
-				<a class="dropmenu" href="#"><i class="icon-tasks icon-white"></i><span class="hidden-tablet"> <%=t(:menu_basic)%></span></a>
+				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-tasks icon-white"></i><span class="hidden-tablet"> <%=t(:menu_basic)%></span></a>
 				<ul>
-					<li><%=link_to markets_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_market)%></span><% end %></li>					
-					<li><%=link_to app_log_types_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_app_log_type)%></span><% end %></li>										
-					<li><%=link_to ad_types_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_ad_type)%></span><% end %></li>
-					<li><%=link_to ad_file_types_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_ad_file_type)%></span><% end %></li>
-					<li><%=link_to ad_log_types_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_ad_log_type)%></span><% end %></li>										
-					<li><%=link_to point_types_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_point_type)%></span><% end %></li>
-					<li><%=link_to banks_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_bank)%></span><% end %></li>
-					<li><%=link_to request_settings_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_request_setting)%></span><% end %></li>	
-					<li><%=link_to request_types_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_request_type)%></span><% end %></li>
-					<li><%=link_to addresses_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_address)%></span><% end %></li>
-					<li><%=link_to address_sections_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_address_section)%></span><% end %></li>					
-					<li><%=link_to target_types_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_target_type)%></span><% end %></li>					
-					<li><%=link_to targets_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_target)%></span><% end %></li>
-					<li><%=link_to store_order_statuses_path do %><i class="icon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_store_order_status)%></span><% end %></li>										
+					<li><%=link_to markets_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_market)%></span><% end %></li>					
+					<li><%=link_to app_log_types_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_app_log_type)%></span><% end %></li>										
+					<li><%=link_to ad_types_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_ad_type)%></span><% end %></li>
+					<li><%=link_to ad_file_types_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_ad_file_type)%></span><% end %></li>
+					<li><%=link_to ad_log_types_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_ad_log_type)%></span><% end %></li>										
+					<li><%=link_to point_types_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_point_type)%></span><% end %></li>
+					<li><%=link_to banks_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_bank)%></span><% end %></li>
+					<li><%=link_to request_settings_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_request_setting)%></span><% end %></li>	
+					<li><%=link_to request_types_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_request_type)%></span><% end %></li>
+					<li><%=link_to addresses_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_address)%></span><% end %></li>
+					<li><%=link_to address_sections_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_address_section)%></span><% end %></li>					
+					<li><%=link_to target_types_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_target_type)%></span><% end %></li>					
+					<li><%=link_to targets_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_target)%></span><% end %></li>
+					<li><%=link_to store_order_statuses_path do %><i class="glyphicon glyphicon-th-list icon-white"></i><span class="hidden-tablet"> <%=t(:submenu_store_order_status)%></span><% end %></li>										
 				</ul>
 			</li>
 			<% end %>
 			<li>
 				<%= link_to destroy_admin_session_path do %>
-					<i class="icon-lock icon-white"></i><span class="hidden-tablet"> <%=t(:logout) %></span>
+					<i class="glyphicon glyphicon-lock icon-white"></i><span class="hidden-tablet"> <%=t(:logout) %></span>
 				<% end %>
 			</li>
 		</ul>

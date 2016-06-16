@@ -47,8 +47,8 @@
 			<td><%=user_login_log.created_at %></td>
 			<% if can? :delete, user_login_log %>
 			<td>
-				<%= link_to user_login_log, :method => :delete, :data => { :confirm => t(:delete_confirm)},:class=>"btn btn-small btn-danger pull-right" do %>
-				<i class="icon-trash"></i> <%=t(:link_delete) %>
+				<%= link_to user_login_log, :method => :delete, :data => { :confirm => t(:delete_confirm)},:class=>"btn btn-danger" do %>
+				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 				<% end %>		
 			</td>
 			<% end %>

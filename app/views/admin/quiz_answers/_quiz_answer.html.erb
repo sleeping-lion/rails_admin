@@ -5,13 +5,13 @@
 	<% if can?(:update, quiz_answer) || can?(:delete, quiz_answer) %>	
 	<td>
 		<% if can?(:update, quiz_answer) %>
-		<%= link_to edit_quiz_quiz_question_quiz_answer_path(@quiz_question.quiz,@quiz_question,quiz_answer),:class=>"btn btn-small pull-left" do %>
-		<i class="icon-pencil"></i> <%=t(:link_edit) %>
+		<%= link_to edit_quiz_quiz_question_quiz_answer_path(@quiz_question.quiz,@quiz_question,quiz_answer),:class=>"btn btn-default" do %>
+		<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 		<% end %>
 		<% end %>
 		<% if can?(:delete, quiz_answer) %>
-		<%= link_to [@quiz_question.quiz,@quiz_question,quiz_answer], :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
-		<i class="icon-trash"></i> <%=t(:link_delete) %>
+		<%= link_to [@quiz_question.quiz,@quiz_question,quiz_answer], :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-danger" do %>
+		<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 		<% end %>
 		<% end %>
 	</td>

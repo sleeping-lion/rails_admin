@@ -28,41 +28,41 @@
 		</div>
 		<div class="box-content">
 			<div class="form-group">
-				<%= f.label :ad_type_id, :class => 'control-label' %>
+				<%= f.label :ad_type_id %>
 				<%= f.select :ad_type_id, options_from_collection_for_select(AdType.where(:flag=>true).all, 'id', 'title',@ad.ad_type_id),{},:class => "form-control" %>
 			</div>
 			<div class="form-group">
-				<%= f.label :sponsor_id, :class => 'control-label' %>
+				<%= f.label :sponsor_id %>
 				<%= f.select :sponsor_id, options_from_collection_for_select(Sponsor.where(:flag=>true).all, 'id', 'title',@ad.sponsor_id),{},:class => "form-control" %>
 			</div>
 			<div class="form-group">
-				<%= f.label :title, :class => 'control-label' %>
-				<%= f.text_field :title, :class => "form-control", :required=>"required" %>
+				<%= f.label :title %>
+				<%= f.text_field :title, :required=>"required" %>
 			</div>
 			<div class="form-group">
-				<%= f.label :description, :class => 'control-label' %>
-				<%= f.text_field :description, :class => "form-control" %>
+				<%= f.label :description %>
+				<%= f.text_field :description %>
 			</div>
 			<div class="form-group">
-				<%= f.label :agent_id, :class => 'control-label' %>
+				<%= f.label :agent_id %>
 				<%= f.select :agent_id, options_from_collection_for_select(Admin.where(:flag=>true).all, 'id', 'nickname',@ad.agent_id),{},:class => "form-control" %>
 			</div>
 			<div class="form-group">
-				<%= f.label :priority, :class => 'control-label' %>
+				<%= f.label :priority %>
 				<%= f.check_box :priority %>
 			</div>
 			<div class="form-group">
-				<%= f.label :flag, :class => 'control-label' %>
+				<%= f.label :flag %>
 				<%= f.check_box :flag %>
 			</div>
 			<div class="form-group">
-				<%= f.label :display_type, :class => 'control-label' %>
+				<%= f.label :display_type %>
 				<%= f.select :display_type, [['Default', 0], ['Time', 1], ['Count', 2]],{},:class => "form-control" %>
 			</div>
 			<%= f.fields_for :ad_memo do |c| %>
 			<div class="form-group">
-				<%= c.label :content, :class => 'control-label' %>
-				<%= c.text_area :content, :class => "form-control", :rows =>10, :cols => 80 %>
+				<%= c.label :content %>
+				<%= c.text_area :content, :rows =>10, :cols => 80 %>
 			</div>
 			<% end %>
 		</div>
@@ -77,80 +77,80 @@
 		</div>
 		<div class="box-content">
 			<div class="form-group">
-				<%= option.label :cpi_flag, :class => 'control-label' %>
-				<%= option.check_box :cpi_flag, :class => "form-control" %>
+				<%= option.label :cpi_flag %>
+				<%= option.check_box :cpi_flag %>
 			</div>
 			<div class="form-group">
-				<%= option.label :cpi_type, :class => 'control-label' %>
-				<%= option.text_field :cpi_type, :class => "form-control" %>
+				<%= option.label :cpi_type %>
+				<%= option.text_field :cpi_type %>
 			</div>
 			<div class="form-group">
-				<%= option.label :cpi_market, :class => 'control-label' %>
-				<%= option.text_field :cpi_market, :class => "form-control" %>
+				<%= option.label :cpi_market %>
+				<%= option.text_field :cpi_market %>
 			</div>
 			<div class="form-group">
-				<%= option.label :cpi_pkg, :class => 'control-label' %>
-				<%= option.text_field :cpi_pkg, :class => "form-control" %>
+				<%= option.label :cpi_pkg %>
+				<%= option.text_field :cpi_pkg %>
 			</div>
 			<div class="form-group">
-				<%= option.label :cpi_publisher, :class => 'control-label' %>
-				<%= option.text_field :cpi_publisher, :class => "form-control" %>
+				<%= option.label :cpi_publisher %>
+				<%= option.text_field :cpi_publisher %>
 			</div>
 			<div class="form-group">
-				<%= option.label :cpi_apk_size, :class => 'control-label' %>
-				<%= option.text_field :cpi_apk_size, :class => "form-control" %>
+				<%= option.label :cpi_apk_size %>
+				<%= option.text_field :cpi_apk_size %>
 			</div>
 			<div class="form-group">
-				<%= option.label :cpi_version, :class => 'control-label' %>
-				<%= option.text_field :cpi_version, :class => "form-control" %>
+				<%= option.label :cpi_version %>
+				<%= option.text_field :cpi_version %>
 			</div>
 			<div class="form-group">
-				<%= option.label :cpi_comment, :class => 'control-label' %>
-				<%= option.text_field :cpi_comment, :class => "form-control" %>
+				<%= option.label :cpi_comment %>
+				<%= option.text_field :cpi_comment %>
 			</div>
 			<div class="form-group">
-				<%= option.label :web_flag, :class => 'control-label' %>
+				<%= option.label :web_flag %>
 				<%= option.check_box :web_flag %>
 			</div>
 			<div class="form-group">
-				<%= option.label :web_addr, :class => 'control-label' %>
-				<%= option.text_field :web_addr, :class => "form-control" %>
+				<%= option.label :web_addr %>
+				<%= option.text_field :web_addr %>
 			</div>
 			<div class="form-group">
-				<%= option.label :web_comment, :class => 'control-label' %>
-				<%= option.text_field :web_comment, :class => "form-control" %>
+				<%= option.label :web_comment %>
+				<%= option.text_field :web_comment %>
 			</div>
 			<div class="form-group">
-				<%= option.label :callback_flag, :class => 'control-label' %>
+				<%= option.label :callback_flag %>
 				<div class="controls">
 					<%= option.check_box :callback_flag %>
 				</div>
 			</div>
 			<div class="form-group">
-				<%= option.label :callback_number, :class => 'control-label' %>
-				<%= option.text_field :callback_number, :class => "form-control" %>
+				<%= option.label :callback_number %>
+				<%= option.text_field :callback_number %>
 			</div>
 			<div class="form-group">
-				<%= option.label :callback_comment, :class => 'control-label' %>
-				<%= option.text_field :callback_comment, :class => "form-control" %>
+				<%= option.label :callback_comment %>
+				<%= option.text_field :callback_comment %>
 			</div>
 			<div class="form-group">
-				<%= option.label :video_flag, :class => 'control-label' %>
+				<%= option.label :video_flag %>
 				<div class="controls">
 					<%= option.check_box :video_flag %>
 				</div>
 			</div>
 			<div class="form-group">
-				<%= option.label :html_data, :class => 'control-label' %>
+				<%= option.label :html_data %>
 				<%= option.text_area :html_data,:class => "form-control", :rows =>10, :cols => 80 %>
 			</div>
 			<div class="form-group">
-				<%= option.label :track_id1, :class => 'control-label' %>
-				<%= option.text_field :track_id1, :class => "form-control" %>
+				<%= option.label :track_id1 %>
+				<%= option.text_field :track_id1 %>
 			</div>
 			<div class="form-group">
-				<%= option.label :track_id2, :class => 'control-label' %>
-				<%= option.text_field :track_id2, :class => "form-control" %>
+				<%= option.label :track_id2 %>
+				<%= option.text_field :track_id2 %>
 			</div>
 		</div>
 	</div>
@@ -177,43 +177,43 @@
 				</tr>
 				<tr>
 					<th>Expose</th>
-					<td><%= state.number_field :expose_target, :class => "form-control" %></td>
-					<td><%= state.number_field :expose_daylimit, :class => "form-control" %></td>
-					<td><%= state.number_field :expose_budget, :class => "form-control"  %></td>
-					<td><%= state.number_field :expose_cost, :class => "form-control"  %></td>
-					<td><%= state.number_field :expose_reward, :class => "form-control"  %></td>
-					<td><%= state.number_field :expose_total, :class => "form-control"  %></td>
-					<td><%= state.number_field :expose_today, :class => "form-control"  %></td>
+					<td><%= state.number_field :expose_target %></td>
+					<td><%= state.number_field :expose_daylimit %></td>
+					<td><%= state.number_field :expose_budget  %></td>
+					<td><%= state.number_field :expose_cost  %></td>
+					<td><%= state.number_field :expose_reward  %></td>
+					<td><%= state.number_field :expose_total  %></td>
+					<td><%= state.number_field :expose_today  %></td>
 				</tr>
 				<tr>
 					<th>View</th>
-					<td><%= state.number_field :view_target, :class => "form-control"  %></td>
-					<td><%= state.number_field :view_daylimit, :class => "form-control"  %></td>
-					<td><%= state.number_field :view_budget, :class => "form-control"  %></td>
-					<td><%= state.number_field :view_cost, :class => "form-control"  %></td>
-					<td><%= state.number_field :view_reward, :class => "form-control"  %></td>
-					<td><%= state.number_field :view_total, :class => "form-control"  %></td>
-					<td><%= state.number_field :view_today, :class => "form-control"  %></td>
+					<td><%= state.number_field :view_target  %></td>
+					<td><%= state.number_field :view_daylimit  %></td>
+					<td><%= state.number_field :view_budget  %></td>
+					<td><%= state.number_field :view_cost  %></td>
+					<td><%= state.number_field :view_reward  %></td>
+					<td><%= state.number_field :view_total  %></td>
+					<td><%= state.number_field :view_today  %></td>
 				</tr>
 				<tr>
 					<th>Install</th>
-					<td><%= state.number_field :install_target, :class => "form-control"  %></td>
-					<td><%= state.number_field :install_daylimit, :class => "form-control"  %></td>
-					<td><%= state.number_field :install_budget, :class => "form-control"  %></td>
-					<td><%= state.number_field :install_cost, :class => "form-control"  %></td>
-					<td><%= state.number_field :install_reward, :class => "form-control"  %></td>
-					<td><%= state.number_field :install_total, :class => "form-control"  %></td>
-					<td><%= state.number_field :install_today, :class => "form-control"  %></td>
+					<td><%= state.number_field :install_target  %></td>
+					<td><%= state.number_field :install_daylimit  %></td>
+					<td><%= state.number_field :install_budget  %></td>
+					<td><%= state.number_field :install_cost  %></td>
+					<td><%= state.number_field :install_reward  %></td>
+					<td><%= state.number_field :install_total  %></td>
+					<td><%= state.number_field :install_today  %></td>
 				</tr>
 				<tr>
 					<th>Extra</th>
-					<td><%= state.number_field :extra_target, :class => "form-control"  %></td>
-					<td><%= state.number_field :extra_daylimit, :class => "form-control"  %></td>
-					<td><%= state.number_field :extra_budget, :class => "form-control"  %></td>
-					<td><%= state.number_field :extra_cost, :class => "form-control"  %></td>
-					<td><%= state.number_field :extra_reward, :class => "form-control"  %></td>
-					<td><%= state.number_field :extra_total, :class => "form-control"  %></td>
-					<td><%= state.number_field :extra_today, :class => "form-control"  %></td>
+					<td><%= state.number_field :extra_target  %></td>
+					<td><%= state.number_field :extra_daylimit  %></td>
+					<td><%= state.number_field :extra_budget  %></td>
+					<td><%= state.number_field :extra_cost  %></td>
+					<td><%= state.number_field :extra_reward  %></td>
+					<td><%= state.number_field :extra_total  %></td>
+					<td><%= state.number_field :extra_today  %></td>
 				</tr>
 			</table>
 		</div>

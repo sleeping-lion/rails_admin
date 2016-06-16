@@ -50,7 +50,7 @@
 				<td><%= message.msg_sendtime %></td>
 				<td><%= message.msg_rslttime %></td>
 				<% if can? :delete, message %>
-				<td> <%= link_to message, :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %> <i class="icon-trash"></i> <%= t(:link_delete) %>
+				<td> <%= link_to message, :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-danger" do %> <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete) %>
 				<% end %> </td>
 				<% end %>
 			</tr>
