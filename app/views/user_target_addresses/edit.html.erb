@@ -1,6 +1,6 @@
 <%= form_for([@user_target_address.user,@user_target_address]) do |f| %>
   <% if @user_target_address.errors.any? %>
-    <div id="error_explanation" class="alert alert-error">
+    <div id="error_explanation" class="alert alert-danger">
     		<a href="#" class="close" data-dismiss="alert">&times;</a>
       <h2><%= pluralize(@user_target_address.errors.count, "error") %> prohibited this request from being saved:</h2>
       <ul>

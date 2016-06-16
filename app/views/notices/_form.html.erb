@@ -1,6 +1,6 @@
 <%= form_for(@notice) do |f| %>
 	<% if @notice.errors.any? %>
-		<div id="error_explanation" class="alert alert-error">
+		<div id="error_explanation" class="alert alert-danger">
 			<a href="#" class="close" data-dismiss="alert">&times;</a>
 			<h2><%= pluralize(@notice.errors.count, "error") %> prohibited this request from being saved:</h2>
 			<ul>

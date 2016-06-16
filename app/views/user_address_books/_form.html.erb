@@ -1,6 +1,6 @@
 <%= form_for(@user_address_book) do |f| %>
 <% if @user_address_book.errors.any? %>
-<div id="error_explanation" class="alert alert-error">
+<div id="error_explanation" class="alert alert-danger">
 	<a href="#" class="close" data-dismiss="alert">&times;</a>
 	<h2><%= pluralize(@user_address_book.errors.count, "error") %> prohibited this point from being saved:</h2>
 	<ul>
