@@ -5,55 +5,55 @@
 
 <p>
   <b>Title:</b>
-  <%= @attendance_setting.title %>
+  <%= @attendance_event_prize.title %>
 </p>
 
 <p>
   <b>Headtext:</b>
-  <%= @attendance_setting.headtext %>
+  <%= @attendance_event_prize.headtext %>
 </p>
 
 <p>
   <b><%=t(:label_image) %></b>
-  <%=image_tag @attendance_setting.photo.large_thumb %>
+  <%=image_tag @attendance_event_prize.photo.large_thumb %>
 </p>
 
 <p>
   <b>Prize5:</b>
-  <%= @attendance_setting.prize5 %>
+  <%= @attendance_event_prize.prize5 %>
 </p>
 
 <p>
   <b>Prize10:</b>
-  <%= @attendance_setting.prize10 %>
+  <%= @attendance_event_prize.prize10 %>
 </p>
 
 <p>
   <b>Prize15:</b>
-  <%= @attendance_setting.prize15 %>
+  <%= @attendance_event_prize.prize15 %>
 </p>
 
 <p>
   <b>Prize20:</b>
-  <%= @attendance_setting.prize20 %>
+  <%= @attendance_event_prize.prize20 %>
 </p>
 
 <p>
   <b>Prize25:</b>
-  <%= @attendance_setting.prize25 %>
+  <%= @attendance_event_prize.prize25 %>
 </p>
 
 <p>
   <b>Prize30:</b>
-  <%= @attendance_setting.prize30 %>
+  <%= @attendance_event_prize.prize30 %>
 </p>
 
 <p>
   <b>Flag:</b>
-  <%= @attendance_setting.flag %>
+  <%= @attendance_event_prize.flag %>
 </p>
 </div>
-<% if can? :update, @attendance_setting %>	
-<%= link_to t(:link_edit), edit_admin_attendance_setting_path(@attendance_setting) %> |
+<% if can? :update, @attendance_event_prize %>	
+<%= link_to t(:link_edit), edit_admin_attendance_event_prize_path(@attendance_event_prize) %> |
 <% end %>
-<%= link_to t(:link_list), admin_attendance_settings_path %>
+<%= link_to t(:link_list), admin_attendance_event_prizes_path %>

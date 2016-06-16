@@ -2,6 +2,7 @@
 
 class AddForeignKey< ActiveRecord::Migration
   def change
+=begin     
           # 광고
     ActiveRecord::Base.connection.execute "ALTER TABLE `ads` ADD FOREIGN KEY ( `ad_type_id` ) REFERENCES `ad_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE ;"
     ActiveRecord::Base.connection.execute "ALTER TABLE `ads` ADD FOREIGN KEY ( `admin_id` ) REFERENCES `admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE ;"                
@@ -65,6 +66,7 @@ class AddForeignKey< ActiveRecord::Migration
     ActiveRecord::Base.connection.execute "ALTER TABLE `roulette_plays` ADD FOREIGN KEY ( `point_id` ) REFERENCES `points` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;"    
     
     ActiveRecord::Base.connection.execute "ALTER TABLE `roulette_plays_roulette_presents` ADD FOREIGN KEY ( `roulette_play_id` ) REFERENCES `roulette_plays` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;"    
-    ActiveRecord::Base.connection.execute "ALTER TABLE `roulette_plays_roulette_presents` ADD FOREIGN KEY ( `roulette_present_id` ) REFERENCES `roulette_presents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;"                
+    ActiveRecord::Base.connection.execute "ALTER TABLE `roulette_plays_roulette_presents` ADD FOREIGN KEY ( `roulette_present_id` ) REFERENCES `roulette_presents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;"
+=end                    
   end
 end 
