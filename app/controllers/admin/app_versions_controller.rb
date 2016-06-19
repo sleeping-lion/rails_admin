@@ -52,7 +52,7 @@ class Admin::AppVersionsController < Admin::AdminController
   # POST /bank
   # POST /bank.json
   def create
-    @app_version = AppVersion.new(params[:application_version])
+    @app_version = AppVersion.new(params[:app_version])
 
     respond_to do |format|
       if @app_version.save
@@ -71,7 +71,7 @@ class Admin::AppVersionsController < Admin::AdminController
     @app_version = AppVersion.find(params[:id])
 
     respond_to do |format|
-      if @app_version.update_attributes(params[:application_version])
+      if @app_version.update_attributes(params[:app_version])
         format.html { redirect_to admin_app_version_path(@app_version), :notice => @controller_name +t(:message_success_update) }
         format.json { head :no_content }
       else

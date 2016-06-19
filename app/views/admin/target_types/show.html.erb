@@ -20,6 +20,6 @@
 	</p>
 </div>
 <% if can? :update, @target_type %>
-<%= link_to t(:link_edit), edit_target_type_path(@target_type) %> |
+<%= link_to t(:link_edit), edit_admin_target_type_path(@target_type) %> |
 <% end %>
-<%= link_to t(:link_list), target_types_path(list_param(params)) %>
+<%= link_to t(:link_list), admin_target_types_path(list_param(params)) %>
