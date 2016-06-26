@@ -30,7 +30,7 @@ $(document).ready(function(){
 			$('#myModal .modal-header h3').text('사용자정보');
 		}
 	
-		$('#myModal').modal({'remote':$(this).attr('href')+'?no_layout=true'});
+		$('#myModal').modal();
 	});
 
 	$('.btn-minimize').toggle(function(){
