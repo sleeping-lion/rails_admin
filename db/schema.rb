@@ -104,8 +104,6 @@ ActiveRecord::Schema.define(version: 20131224223355) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "button_position",  limit: 4
-    t.string   "track_id1",        limit: 255
-    t.string   "track_id2",        limit: 255
   end
 
   add_index "ad_options", ["ad_id"], name: "index_ad_options_on_ad_id", using: :btree
@@ -351,18 +349,6 @@ ActiveRecord::Schema.define(version: 20131224223355) do
     t.datetime "updated_at"
   end
 
-  create_table "attendance_pictures", force: :cascade do |t|
-    t.integer  "attendance_setting_id", limit: 4
-    t.string   "title",                 limit: 100,                null: false
-    t.date     "start_date",                                       null: false
-    t.string   "photo",                 limit: 255
-    t.boolean  "flag",                              default: true, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "attendance_pictures", ["attendance_setting_id"], name: "index_attendance_pictures_on_attendance_setting_id", using: :btree
-
   create_table "attendances", force: :cascade do |t|
     t.integer  "attendance_event_id", limit: 4, null: false
     t.integer  "user_id",             limit: 4, null: false
@@ -377,16 +363,16 @@ ActiveRecord::Schema.define(version: 20131224223355) do
   add_index "attendances", ["user_id"], name: "index_attendances_on_user_id", using: :btree
 
   create_table "banks", force: :cascade do |t|
-    t.string   "name",       limit: 60,                null: false
+    t.string   "title",      limit: 60,                null: false
     t.boolean  "flag",                  default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "carriers", force: :cascade do |t|
+    t.string   "title",      limit: 60
+    t.string   "string",     limit: 10
     t.string   "code",       limit: 10
-    t.string   "string",     limit: 40
-    t.string   "name",       limit: 40
     t.boolean  "flag",                  default: false
     t.datetime "created_at"
     t.datetime "updated_at"

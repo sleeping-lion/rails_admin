@@ -2,16 +2,23 @@
 	<h3 class="col-xs-12 col-sm-6"><%= @controller_name %> <%= actionNameChange controller.action_name %></h3>
 	<div class="col-xs-12 col-sm-6">
 		<%=form_tag admin_store_orders_path,:method=>:get,:id=>"type_search_form" do %>
-		<div class="form-group form-search pull-right">
-			<select name="search_field" class="input-medium">
-				<option value="user_id" <% if params[:search_field]=='user_id' %>selected="selected"<% end %>><%= t(:label_user_id )%></option>
-				<option value="mobile_num" <% if params[:search_field]=='mobile_num' %>selected="selected"<% end %>><%= t(:label_mobile_num)%></option>
-			</select>
-			<div class="input-append">
-				<input type="text" name="search_value" value="<%= params[:search_value] %>" class="input-medium" />
-				<%= button_tag t(:search),:type=>'submit',:class=>"btn" %>
+    <div class="input-group">
+     <div class="input-group-btn">
+     		<button aria-expanded="false" data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"><%=t(:label_title)%> &nbsp; <span class="caret"></span></button>
+     		<ul role="menu" class="dropdown-menu">
+     			<li><a href="?search_type=user_id"><%= t(:label_user_id )%></a></li>
+     			<li><a href="?search_type=mobile_num"><%= t(:label_mobile_num)%></a></li>
+     		</ul>
 			</div>
-		</div>
+			<select style="display:none" name="search_type">
+			<option value="user_id"><%=t(:label_title)%></option>
+			<option value="mobile_num"><%=t(:label_description )%></option>
+			</select>
+  	<input type="search" required="required" maxlength="60" placeholder="검색어를 써주세요" value="<%=params[:search_value] %>" class="form-control" name="search_value" />
+			<span class="input-group-btn">
+  			<%=button_tag t(:search),:type=>'submit',:class=>"btn btn-default" %>
+  		</span>
+  	</div>
 		<% end %>
 	</div>
 </div>

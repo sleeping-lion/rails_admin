@@ -37,11 +37,11 @@
 			</div>
 			<div class="form-group">
 				<%= f.label :title %>
-				<%= f.text_field :title, :required=>"required" %>
+				<%= f.text_field :title, :required=>"required",:class => "form-control" %>
 			</div>
 			<div class="form-group">
 				<%= f.label :description %>
-				<%= f.text_field :description %>
+				<%= f.text_field :description,:class => "form-control" %>
 			</div>
 			<div class="form-group">
 				<%= f.label :agent_id %>
@@ -62,7 +62,7 @@
 			<%= f.fields_for :ad_memo do |c| %>
 			<div class="form-group">
 				<%= c.label :content %>
-				<%= c.text_area :content, :rows =>10, :cols => 80 %>
+				<%= c.text_area :content, :rows =>10, :cols => 80,:class => "form-control" %>
 			</div>
 			<% end %>
 		</div>
@@ -143,14 +143,6 @@
 			<div class="form-group">
 				<%= option.label :html_data %>
 				<%= option.text_area :html_data,:class => "form-control", :rows =>10, :cols => 80 %>
-			</div>
-			<div class="form-group">
-				<%= option.label :track_id1 %>
-				<%= option.text_field :track_id1 %>
-			</div>
-			<div class="form-group">
-				<%= option.label :track_id2 %>
-				<%= option.text_field :track_id2 %>
 			</div>
 		</div>
 	</div>

@@ -2,16 +2,23 @@
 	<nav class="nav-collapse sidebar-nav">
 		<ul class="nav main-menu">
 			<li><%=link_to admin_path do %><i class="glyphicon glyphicon-home glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_home)%></span><% end %></li>
-			<% if can? :read, Ad %>
-			<li><%=link_to admin_ads_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_ad)%> </span><% end %></li>
-			<% end %>
-			<% if can? :read, Sponsor %>
-			<li><%=link_to admin_sponsors_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_sponsor)%> </span><% end %></li>
+			<% if can?(:read, Ad) || can?(:read, Sponsor) %>	
+			<li>
+				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_ad)%></span></a>
+				<ul <% if params[:controller]=='admin/ads' || params[:controller]=='admin/sponsors' %>class="current"<% end %>>
+					<% if can? :read, Ad %>					
+					<li><%=link_to admin_ads_path do %><i class="glyphicon glyphicon-align-left glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_ad)%> </span><% end %></li>
+					<% end %>
+					<% if can? :read, Sponsor %>
+					<li><%=link_to admin_sponsors_path do %><i class="glyphicon glyphicon-align-left glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_sponsor)%> </span><% end %></li>
+					<% end %>
+				</ul>				
+			</li>
 			<% end %>
 			<% if can?(:read, Stat) %>
 			<li>
 				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-signal glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_stat)%></span></a>
-				<ul>		
+				<ul <% if params[:controller]=='admin/stats' %>class="current"<% end %>>		
 					<li><%=link_to admin_stats_path(:params=>{:type=>'market'}) do %><i class="glyphicon glyphicon-align-left glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_market) %></span><% end %></li>				
 					<li><%=link_to admin_stats_path(:params=>{:type=>'user'})  do %><i class="glyphicon glyphicon-align-left glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_user) %></span><% end %></li>				
 					<li><%=link_to admin_stats_path(:params=>{:type=>'receive',:ad_type_id=>2})  do %><i class="glyphicon glyphicon-align-left glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_stat_receive) %></span><% end %></li>				
@@ -24,7 +31,7 @@
 			<% if can?(:read, Point) || can?(:read, Request) %>		
 			<li>
 				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-gift glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_point)%></span></a>
-				<ul>
+				<ul <% if params[:controller]=='admin/points' || params[:controller]=='admin/requests' %>class="current"<% end %>>
 					<% if can? :read, Point %>					
 					<li><%=link_to admin_points_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_point)%></span><% end %></li>
 					<% end %>
@@ -37,7 +44,7 @@
 			<% if can?(:read, RouletteSetting) || can?(:read, RoulettePlay)  %>
 			<li>
 				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-random glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_game)%></span></a>
-				<ul>
+				<ul <% if params[:controller]=='admin/roulette_settings' || params[:controller]=='admin/roulette_backgrounds' || params[:controller]=='admin/roulette_presents' || params[:controller]=='admin/roulette_plays_user_address_books' || params[:controller]=='admin/roulette_plays' %>class="current"<% end %>>
 					<% if can? :read, RouletteSetting %>
 					<li><%=link_to admin_roulette_settings_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_setting)%></span><% end %></li>
 					<% end %>
@@ -59,10 +66,13 @@
 			<% if can?(:read, Quiz)  %>
 			<li>
 				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-random glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_quiz)%></span></a>
-				<ul>
+				<ul <% if params[:controller]=='admin/quiz_types' || params[:controller]=='admin/quizzes' || params[:controller]=='admin/quiz_logs' || params[:controller]=='admin/quizzes_user_address_books' %>class="current"<% end %>>					
 					<% if can? :read, Quiz %>						
 					<li><%=link_to admin_quizzes_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quiz)%></span><% end %></li>
 					<% end %>
+					<% if can? :read, QuizType %>						
+					<li><%=link_to admin_quiz_types_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quiz_type)%></span><% end %></li>
+					<% end %>					
 					<% if can? :read, QuizLog %>						
 					<li><%=link_to admin_quiz_logs_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quiz_log)%></span><% end %></li>
 					<% end %>					
@@ -75,7 +85,7 @@
 			<% if can?(:read, StoreGood) || can?(:read, StoreOrder) %>
 			<li>
 				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-shopping-cart glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_store)%></span></a>
-				<ul>
+				<ul <% if params[:controller]=='admin/store_goods' || params[:controller]=='admin/store_orders' %>class="current"<% end %>>
 					<% if can? :read, StoreGood %>					
 					<li><%=link_to admin_store_goods_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_product)%></span><% end %></li>
 					<% end %>
@@ -88,7 +98,7 @@
 			<% if can? :read, User %>			
 			<li>
 				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-user glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_user)%></span></a>
-				<ul>
+				<ul <% if params[:controller]=='admin/operators' || params[:controller]=='admin/users' || params[:controller]=='admin/user_login_logs'|| params[:controller]=='admin/user_address_books' %>class="current"<% end %>>
 					<% if can? :read, Operator %>
 					<li><%=link_to admin_operators_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_operator)%></span><% end %></li>
 					<% end %>
@@ -101,7 +111,7 @@
 			<% if can?(:read, Attendance) %>
 			<li>
 				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-book glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_attendance)%></span></a>
-				<ul>
+				<ul <% if params[:controller]=='admin/attendances' || params[:controller]=='admin/attendance_events' %>class="current"<% end %>>
 					<% if can? :read, Attendance %>					
 					<li><%=link_to admin_attendances_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_attendance)%></span><% end %></li>
 					<% end %>
@@ -114,7 +124,7 @@
 			<% if can?(:read, Notice) || can?(:read, Faq) %>
 			<li>
 				<a class="dropmenu" href="#"><i class="glyphicon glyphicon-list-alt glyphicon-white"></i><span class="hidden-tablet"> <%=t(:menu_board)%></span></a>
-				<ul>
+				<ul <% if params[:controller]=='admin/notices' || params[:controller]=='admin/faqs' %>class="current"<% end %>>
 					<% if can? :read, Notice %>					
 					<li><%=link_to admin_notices_path do %><i class="glyphicon glyphicon-th-list glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_notice)%></span><% end %></li>
 					<% end %>

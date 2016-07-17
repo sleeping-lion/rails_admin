@@ -1,0 +1,25 @@
+<% if notice %>
+<%= render :partial => 'layouts/notice',:locals=>{:notice=>notice} %>
+<% end %>
+<section class="sl_show">
+	<p>
+		<b><%=t(:label_title) %> </b>
+		<%= @quiz_type.title %>
+	</p>
+	<p>
+		<b><%=t(:label_flag) %></b>
+		<%=raw flagToString(@quiz_type.flag) %>
+	</p>
+	<p>
+  	<b><%=t(:label_created_at) %></b>
+  	<%= @quiz_type.created_at %>
+  </p>
+  <p>
+  	<b><%=t(:label_updated_at) %></b>
+  	<%= @quiz_type.created_at %>
+	</p>
+</section>
+<% if can? :update, @quiz_type %>
+<%= link_to t(:link_edit), edit_admin_quiz_type_path(@quiz_type) %> |
+<% end %>
+<%= link_to t(:link_list),admin_quiz_types_path %>

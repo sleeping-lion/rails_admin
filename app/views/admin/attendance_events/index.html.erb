@@ -57,13 +57,13 @@
 <div class="row">
 	<div class="col-xs-6 col-sm-3 col-md2">
 		<% if can? :create, AttendanceEvent %>
-		<%= link_to new_admin_attendance_setting_path, :class=>"btn btn-primary" do %>
+		<%= link_to new_admin_attendance_event_path, :class=>"btn btn-primary" do %>
 		<i class="glyphicon glyphicon-plus"></i> <%= t(:link_new) %>
 		<% end %>
 		<% end %>
 		<% if can? :manage, AttendanceEvent %>
 		<% unless @attendance_events.empty? %>
-		<%=link_to admin_attendance_settings_path(:format=>"xls",:params=>params), :class=>"btn btn-default" do %>
+		<%=link_to admin_attendance_events_path(:format=>"xls",:params=>params), :class=>"btn btn-default" do %>
 		<i class="glyphicon glyphicon-file"></i> <%= t(:link_download_excel) %>
 		<% end %>
 		<% end %>

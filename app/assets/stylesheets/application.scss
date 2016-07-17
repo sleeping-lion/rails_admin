@@ -472,6 +472,10 @@ a.brand span {
 	display: none;
 }
 
+.sidebar-nav > ul > li > ul.current {
+  display:block;
+}
+
 .sidebar-nav > ul > li > ul > li {
 	padding: 5px 0px 5px 0px;
 }

@@ -69,6 +69,7 @@ Rails.application.routes.draw do
         resources :quiz_answers
       end
     end
+    resources :quiz_types    
     resources :quiz_logs
     resources :quizzes_user_address_books    
   

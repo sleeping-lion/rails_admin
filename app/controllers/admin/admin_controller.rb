@@ -12,9 +12,9 @@ class Admin::AdminController < ApplicationController
  def index  
     # TODO: 데이터 증가에 따른 Memcache 처리 필요할듯
     
-    @new_users_count = User.count(:conditions=>"DATE(created_at) = DATE( DATE_ADD( NOW(), INTERVAL - 1 DAY ) )")   
-    @new_ads_count = Ad.where(:flag => 1).count(:conditions=>"DATE(created_at) >= DATE( DATE_ADD( NOW(), INTERVAL - 2 DAY ) )")   
-    @new_orders_count = StoreOrder.where(:store_order_status_id => 1 ).count(:conditions=>"DATE(created_at) = DATE( DATE_ADD( NOW(), INTERVAL - 1 DAY ) )")   
+    @new_users_count = User.where("DATE(created_at) = DATE( DATE_ADD( NOW(), INTERVAL - 1 DAY ) )").count   
+    @new_ads_count = Ad.where(:flag => 1).where("DATE(created_at) >= DATE( DATE_ADD( NOW(), INTERVAL - 2 DAY ) )").count   
+    @new_orders_count = StoreOrder.where(:store_order_status_id => 1 ).where("DATE(created_at) = DATE( DATE_ADD( NOW(), INTERVAL - 1 DAY ) )").count   
 
     @daily_point_deposit=Point.where('amount>0').where('date(created_at)>date_add(curdate(),interval - 20 day)').group('date(created_at)').count
     @daily_point_use=Point.where('amount<0').where('date(created_at)>date_add(curdate(),interval - 20 day)').group('date(created_at)').count        
@@ -28,7 +28,7 @@ class Admin::AdminController < ApplicationController
     @users_active_point=Point.sum('amount',:conditions=>"exists(select id from points where date(points.created_at)>date_add(curdate(),interval - 7 day))") * 3
     @users_disable_point=Point.sum('amount',:conditions=>"not exists(select id from points where date(points.created_at)>date_add(curdate(),interval - 7 day))")
 
-    @week_user_count=User.count(:conditions=>"date(created_at)>date_add(curdate(),interval - 7 day)")
+    @week_user_count=User.where("date(created_at)>date_add(curdate(),interval - 7 day)").count
     @daily_user=User.where('date(created_at)>date_add(curdate(),interval - 20 day)').group('date(created_at)').count
     
     @week_expose_count=AdDailyStat.where(:ad_log_type_id=>8).where("date>date_add(curdate(),interval - 7 day)").sum('log_count')
