@@ -75,9 +75,6 @@
 					<% end %>					
 					<% if can? :read, QuizLog %>						
 					<li><%=link_to admin_quiz_logs_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quiz_log)%></span><% end %></li>
-					<% end %>					
-					<% if can? :read, QuizzesUserAddressBook %>	
-					<li><%=link_to admin_quizzes_user_address_books_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_quizzes_user_address_book)%></span><% end %></li>
 					<% end %>
 				</ul>
 			</li>
@@ -157,8 +154,7 @@
 					<li><%=link_to admin_banks_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_bank)%></span><% end %></li>
 					<li><%=link_to admin_request_settings_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_request_setting)%></span><% end %></li>	
 					<li><%=link_to admin_request_types_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_request_type)%></span><% end %></li>
-					<li><%=link_to admin_addresses_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_address)%></span><% end %></li>
-					<li><%=link_to admin_address_sections_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_address_section)%></span><% end %></li>					
+					<li><%=link_to admin_addresses_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_address)%></span><% end %></li>				
 					<li><%=link_to admin_target_types_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_target_type)%></span><% end %></li>					
 					<li><%=link_to admin_targets_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_target)%></span><% end %></li>					
 					<li><%=link_to admin_store_order_statuses_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_store_order_status)%></span><% end %></li>										

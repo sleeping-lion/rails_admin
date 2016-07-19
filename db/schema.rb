@@ -535,22 +535,17 @@ ActiveRecord::Schema.define(version: 20131224223355) do
   end
 
   create_table "quiz_types", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.boolean  "flag"
+    t.string   "title",      limit: 100
+    t.boolean  "flag",                   default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "quizzes", force: :cascade do |t|
     t.integer  "quiz_type_id", limit: 4,               null: false
-    t.string   "title",        limit: 200
+    t.string   "title",        limit: 100
     t.string   "description",  limit: 255
     t.string   "photo",        limit: 255
-    t.string   "sponsor",      limit: 255
-    t.string   "sponsor_url",  limit: 255
-    t.integer  "price",        limit: 4
-    t.integer  "budget",       limit: 4
-    t.integer  "balance",      limit: 4,   default: 0
     t.integer  "point",        limit: 4,   default: 1
     t.datetime "start_time"
     t.datetime "end_time"
