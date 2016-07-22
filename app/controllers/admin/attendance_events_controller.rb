@@ -3,26 +3,17 @@ class Admin::AttendanceEventsController < Admin::AdminController
     super(*params)
     
     @sub_menu=t(:menu_attendance)
-    @controller_name=t('activerecord.models.attendance_setting')
+    @controller_name=t('activerecord.models.attendance_event')
   end
   
   # GET /attendance_settings
   # GET /attendance_settings.json
-  def index
-    unless params[:per_page].present?
-      params[:per_page]=10
-    end
-    
-    if params[:format]=='xls'
-      params[:page]=nil 
-      params[:per_page]=50000  
-    end    
-    
+  def index    
     @attendance_events = AttendanceEvent.order('id desc').page(params[:page]).per(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @attendance_events }     
+      format.json { render json: @attendance_event } 
     end
   end
 
@@ -56,11 +47,11 @@ class Admin::AttendanceEventsController < Admin::AdminController
   # POST /attendance_settings
   # POST /attendance_settings.json
   def create
-    @attendance_event = AttendanceEvent.new(params[:attendance_setting])
+    @attendance_event = AttendanceEvent.new(params[:attendance_event])
 
     respond_to do |format|
       if @attendance_event.save
-        format.html { redirect_to admin_attendance_events_path(@attendance_event), :notice =>  @controller_name +t(:message_success_insert)}
+        format.html { redirect_to admin_attendance_event_path(@attendance_event), :notice =>  @controller_name +t(:message_success_insert)}
         format.json { render json: @attendance_event, status: :created, location: @attendance_event }
       else
         format.html { render action: "new" }
@@ -75,8 +66,8 @@ class Admin::AttendanceEventsController < Admin::AdminController
     @attendance_event = AttendanceEvent.find(params[:id])
 
     respond_to do |format|
-      if @attendance_event.update_attributes(params[:attendance_setting])
-        format.html { redirect_to admin_attendance_events_path(@attendance_event), :notice =>  @controller_name +t(:message_success_update)}
+      if @attendance_event.update_attributes(params[:attendance_event])
+        format.html { redirect_to admin_attendance_event_path(@attendance_event), :notice =>  @controller_name +t(:message_success_update)}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

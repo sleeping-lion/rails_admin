@@ -94,7 +94,7 @@ ko:
   submenu_ad_log_all : '오늘 광고 로그'  
   submenu_ad_log_daily : '이전 날짜-시간별 로그'
   submenu_attendance : '출석'
-  submenu_attendance_setting : '출석 설정'
+  submenu_attendance_event : '출석 이벤트'
   submenu_point : '포인트 기록'
   submenu_request : '현금전환 요청 관리'
   submenu_game_setting : '게임설정'
@@ -131,7 +131,7 @@ ko:
   submenu_app_log : 'App 로그 관리'  
   submenu_store_order_status: '주문 상태 구분 관리'
   submenu_quiz : '퀴즈 관리'
-  submenu_quiz_type : '퀴즈 타입 관리'  
+  submenu_quiz_type : '퀴즈 형태 관리'  
   submenu_quiz_addresses : '퀴즈상품 배송주소 관리'
   submenu_quiz_log : '퀴즈 기록'
   submenu_roulette_setting : '룰렛 설정 관리'  
@@ -243,7 +243,8 @@ ko:
   label_receiver_name : '수취인'
   label_quiz_logs_id : '퀴즈 로그 ID'
   label_privilege : '권한'
-  label_limit : '제한'  
+  label_limit : '제한'
+  label_today : '오늘날'   
       
   status : '상태'
   status_use : '사용중'
@@ -651,7 +652,7 @@ ko:
       app_log : '앱로그'      
       address : '주소'
       attendance : '출석'
-      attendance_setting : '출석설정'          
+      attendance_event : '출석 이벤트'          
       ad : '광고'
       bank : '은행'
       deleted_user : '삭제된회원'
@@ -689,7 +690,8 @@ ko:
       roulette_play_address : '룰렛 배송 주소 관리'
       roulette_present : 'present'
       roulette_play : '룰렛 기록'
-      quiz : '퀴즈'   
+      quiz : '퀴즈'
+      quiz_type : '퀴즈 형태'
       quiz_address : '퀴즈 배송 주소 관리'
       quiz_log : '퀴즈 기록'             
       
@@ -768,14 +770,19 @@ ko:
         photo : '그림'
         flag : '사용여부'
       app_log_type :
-        title : '제목'        
+        title : '제목'
         flag : '사용여부'
       attendance :
-        user : '사용자'
+        attendance_event_id : '출석 이벤트'
+        user_id : '사용자'
         title : '제목'
         today : '출석날짜'
         count : '출석수'       
         flag : '사용여부'
+      attendance_event :
+        title : '제목'
+        photo : '사진'  
+        flag : '사용여부'          
       app_market :
         title : '제목'        
         flag : '사용여부'              
@@ -895,6 +902,9 @@ ko:
         start_time : '시작 시간'
         end_time : '종료 시간'  
         photo : '사진'
+      quiz_type : 
+        title : '제목'
+        flag : '사용유무'              
       roulette_setting :
         title : '제목'
         percentage : '확률 %'

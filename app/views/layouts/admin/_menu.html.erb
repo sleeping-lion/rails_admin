@@ -113,7 +113,7 @@
 					<li><%=link_to admin_attendances_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_attendance)%></span><% end %></li>
 					<% end %>
 					<% if can? :read, AttendanceEvent %>					
-					<li><%=link_to admin_attendance_events_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_attendance_setting)%></span><% end %></li>
+					<li><%=link_to admin_attendance_events_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_attendance_event)%></span><% end %></li>
 					<% end %>
 				</ul>
 			</li>
