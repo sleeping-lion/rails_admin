@@ -2,14 +2,24 @@
 	<h3 class="col-xs-12 col-sm-6"><%= @controller_name %> <%= actionNameChange controller.action_name %></h3>
 	<div class="col-xs-12 col-sm-6">
 	<%=form_tag admin_addresses_path,:method=>:get,:class=>"form-search" do %>
-	<select name="search_field" class="form-control">
+<div class="input-group">
+	<div class="input-group-btn">
+		<button aria-expanded="false" data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"><%=t(:label_title)%> &nbsp; <span class="caret"></span></button>
+		<ul role="menu" class="dropdown-menu">
+			<li><a href="?search_type=title">ID</a></li>
+			<li><a href="?search_type=content"><%= t(:label_address) %></a></li>
+     	</ul>
+     </div>
+     <select style="display:none" name="search_type">
 		<option value="id" <% if params[:search_field]=='id' %>selected="selected"<% end %>>ID</option>
 		<option value="address" <% if params[:search_field]=='address'%>selected="selected"<% end %>><%= t(:label_address) %></option>
-	</select>
-	<div class="input-append">
-		<input type="search" name="search_value" value="<%= params[:search_value] %>" class="form-control" />
-		<%= button_tag t(:search),:type=>'submit',:class=>"btn btn-default" %>
-	</div>
+     	<!--	<option value="nickname" >작성자</option> -->
+     </select>
+     <input type="search" required="required" maxlength="60" placeholder="검색어를 써주세요" value="<%=params[:search_value] %>" class="form-control" name="search_value" />
+     <span class="input-group-btn">
+     	<%=button_tag t(:search),:type=>'submit',:class=>"btn btn-default" %>
+     </span>
+</div>
 	<% end %>
 	</div>
 </div>
