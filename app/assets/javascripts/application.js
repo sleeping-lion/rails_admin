@@ -19,32 +19,26 @@
 //I18n.defaultLocale = "zh-CN";
 
 $(document).ready(function(){
-	$('.modal_link').click(function(event){
-		event.preventDefault();
-		$('#myModal').removeData("modal");
- 		
+	$('#myModal').on('show.bs.modal', function (e) {
+  		if (!data) return e.preventDefault() // stops modal from being shown  
 	
 		if($(this).attr('title')) {
 			$('#myModal .modal-header h3').text($(this).attr('title'));
 		} else {
 			$('#myModal .modal-header h3').text('사용자정보');
-		}
-	
-		$('#myModal').modal();
+		}  
 	});
-
-	$('.btn-minimize').toggle(function(){
-		$(this).parent().parent().parent().find('.box-content').slideUp();
-		$(this).find('i').removeAttr('class').addClass('icon-chevron-down');
-		return false;
-	},function(){
+	
+	$('.btn-maximize').click(function(){
 		$(this).parent().parent().parent().find('.box-content').slideDown();
-		$(this).find('i').removeAttr('class').addClass('icon-chevron-up');		
+		$(this).find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');		
 		return false;
-	});			
-	/* ---------- Acivate Functions ---------- 
-	$("#overlay").delay(250).fadeOut(500); */
-	/* ---------- Submenu  ---------- */
+	});
+	
+	$(".btn-close").click(function(){
+		$(this).parent().parent().parent().remove();
+		return false;
+	});	
 	
 	$('.dropmenu').click(function(e){
 		if(!$(this).parent().find('ul:first').hasClass('d_show')) {

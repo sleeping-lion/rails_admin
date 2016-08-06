@@ -11,7 +11,7 @@ class Admin::UsersController < Admin::AdminController
     @controller_name=t('activerecord.models.user')     
   end
   
-  def user_id_select
+  def user_id_select    
     @script='users/user_id_select'
   end
   

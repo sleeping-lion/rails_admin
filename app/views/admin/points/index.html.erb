@@ -5,7 +5,7 @@
 	<div class="box-header">
 		<h2><i class="glyphicon glyphicon-align-justify"></i><span class="break"></span><%= t(:search)%></h2>
 		<div class="box-icon">
-			<a href="#" class="btn-minimize"><i class="glyphicon glyphicon-chevron-down"></i></a>
+			<a href="#" class="btn-maximize"><i class="glyphicon glyphicon-chevron-down"></i></a>
 			<a class="btn-close" href="#"><i class="glyphicon glyphicon-remove"></i></a>
 		</div>
 	</div>
@@ -53,7 +53,7 @@
 				<%= t(:no_exist_type) %>
 				<% end %> </td>
 				<td> <% if point.user %>
-				<%= link_to point.user.username,user_path(point.user_id),:class=>'modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal" %>
+				<%= link_to point.user.username,admin_user_path(point.user_id),:class=>'modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal" %>
 				<% else %>
 				<%= t(:no_exist_user) %>
 				<% end %> </td>

@@ -32,7 +32,7 @@ $(document).ready(function(){
 				$.each(data.list,function(index,value){
 					var li=$('<li style="cursor:pointer"><input type="hidden" value="'+value.id+'" /><span>'+value.username+'</span></li>').click(function(){
 						$('#read_only_user_id').val($(this).find('input').val());
-						$('#myModal').modal('hide');
+						$('#modal').modal('hide');
 					});
 					li.appendTo('#user_id_list');
 				});
@@ -42,7 +42,7 @@ $(document).ready(function(){
    		if(Number(data.count)>Number($("#perpage").val()))
    			initPagination(data.count,$("#perpage").val(),current_page);				
 			} else {
-					var li=$('<li><span>'+I18n.t("no_data")+'</span></li>');
+					var li=$('<li><span>no_data</span></li>');
 					li.appendTo('#user_id_list');
 					
 				$("#pagination").removeData("load");

@@ -3,7 +3,7 @@ class Admin::AdminController < ApplicationController
   
   def layout
     if(params[:no_layout])
-      return nil
+      return false
     else
       return 'admin/application'
     end

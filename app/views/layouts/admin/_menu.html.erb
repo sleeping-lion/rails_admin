@@ -54,9 +54,6 @@
 					<% if can? :read, RoulettePresent %>
 					<li><%=link_to admin_roulette_presents_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_present)%></span><% end %></li>
 					<% end %>
-					<% if can? :read, RoulettePlaysUserAddressBook %>	
-					<li><%=link_to admin_roulette_plays_user_address_books_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_plays_user_address_book)%></span><% end %></li>
-					<% end %>
 					<% if can? :read, RoulettePlay %>	
 					<li><%=link_to admin_roulette_plays_path do %><i class="glyphicon glyphicon-th-list glyphicon glyphicon-white"></i><span class="hidden-tablet"> <%=t(:submenu_roulette_play)%></span><% end %></li>
 					<% end %>

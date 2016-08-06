@@ -1,11 +1,15 @@
-<%= form_tag '/admin/users/user_id_select_search_result',:method=>'get',:id=>'user_id_search_form' do |f| %>
-<select name="find_method">
+<%= form_tag '/admin/users/user_id_select_search_result',:method=>'get',:id=>'user_id_search_form',:class=>"form-inline" do |f| %>
+<div class="form-group">
+<select name="find_method" class="form-control">
 	<option value="login_id" <% if params[:login_id].present? %>selected="selected"<% end %>><%= t(:find_by_login_id) %></option>
 	<option value="email" <% if params[:email].present? %>selected="selected"<% end %>><%= t(:find_by_email) %></option>
 	<option value="user_id" <% if params[:user_id].present? %>selected="selected"<% end %>><%= t(:find_by_user_id) %></option>
 </select>
-<div class="form-group input-append">
-	<%= text_field_tag :search,'',{:class=>"form-control",:required=>"required"} %>
+</div>
+<div class="form-group">
+	<%= search_field_tag :search,'',{:class=>"form-control",:required=>"required"} %>
+</div>
+<div class="form-group">
 	<%= button_tag t(:search),:type=>'submit',:class=>"btn btn-default" %>
 </div>
 <select id="perpage">
@@ -19,6 +23,10 @@
 <% if params[:no_layout] %>
 <div id="pagination" class="js_pagination"></div>
 <style type="text/css">
+	#user_id_search_form {
+		padding:10px;
+	}
+
 	#user_id_list li {
 		position: relative;
 		clear: both;
