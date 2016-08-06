@@ -4,7 +4,7 @@
 		<div class="box-header">
 			<h2><i class="glyphicon glyphicon-align-justify"></i><span class="break"></span><%= t(:search)%></h2>
 			<div class="box-icon">
-				<a href="#" class="btn-minimize"><i class="glyphicon glyphicon-chevron-down"></i></a>
+				<a href="#" class="btn-maximize"><i class="glyphicon glyphicon-chevron-down"></i></a>
 				<a class="btn-close" href="#"><i class="glyphicon glyphicon-remove"></i></a>
 			</div>
 		</div>
@@ -26,7 +26,6 @@
 			<col />
 			<col />
 			<col />
-			<col />
 			<col style="width:100px;" />
 			<% if can?(:update, User) || can?(:delete, User) %>
 			<col <%= raw manage_width(User) %> />
@@ -36,7 +35,6 @@
 			<tr>
 				<th><%= t(:label_number)%></th>
 				<th><%= t(:label_login_id)%></th>
-				<th><%= t(:label_market) %></th>
 				<th><%= t(:label_email) %></th>
 				<th><%= t(:label_mobile_num) %></th>
 				<th style="text-align:center"><%= t(:label_point)%></th>
@@ -55,7 +53,6 @@
 				<stroke>
 					<% end %><%= link_to user.username,admin_user_path(user,params) %>
 				</td>
-				<td><%= user.market %></td>
 				<td><% if user.email.present? %><%= mail_to user.email %><% else %><%= t(:no_insert_data) %><% end %></td>
 				<td>+<%= user.nation_num %> <%= user.mobile_num %></td>
 				<td class="align_right"><%= number_with_delimiter user.point %></td>
@@ -75,7 +72,7 @@
 			<% end %>
 			<% else %>
 			<tr>
-				<td colspan="9"><%= t(:no_data)%></td>
+				<td colspan="8"><%= t(:no_data)%></td>
 			</tr>
 			<% end %>
 		</tbody>

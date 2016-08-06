@@ -232,8 +232,6 @@ Target.create(:target_type_id=>6, :title=>'일반차')
 Target.create(:target_type_id=>6, :title=>'수입차')
 Target.create(:target_type_id=>6, :title=>'Van')
 
-InternalExchangeRate.create(:rate=>1.0)
-
 Notice.create(:id=>1,:title=>'3')
 NoticeContent.create(:id=>1,:content=>'awegawegawegaweg')
 
