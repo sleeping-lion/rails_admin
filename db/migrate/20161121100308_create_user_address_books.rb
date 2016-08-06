@@ -8,7 +8,7 @@ class CreateUserAddressBooks < ActiveRecord::Migration
       t.string :name, :null=>false, :limit=>60
       t.string :mobilephone, :null=>false, :limit=>60
       t.string :address, :null=>false
-      t.integer :primary_flag, :null => false, :default => 0      
+      t.integer :flag, :null => false, :default => 0      
       t.timestamps
     end
     
