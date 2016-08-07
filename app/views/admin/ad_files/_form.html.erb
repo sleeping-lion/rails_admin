@@ -1,4 +1,4 @@
-<%= form_for [@ad,AdFile.new],:html=>{:class=>"form-horizontal"} do |f| %>
+<%= form_for [:admin,@ad,AdFile.new],:html=>{:class=>"form-horizontal"} do |f| %>
 <div class="box">
 	<div class="box-header">
 		<h2><i class="glyphicon glyphicon-align-justify"></i><span class="break"></span><%= t('activerecord.models.ad_file')%></h2>

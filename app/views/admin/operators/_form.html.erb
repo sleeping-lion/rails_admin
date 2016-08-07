@@ -53,30 +53,6 @@
 	<%= select_tag :role_id, options_from_collection_for_select(Role.where(:flag=>true).all(), 'id', 'title',va),:class=>"form-control" %>
 </div>
 <div class="form-group">
-	<%= f.label :company,'Company' %>
-	<%= f.text_field :company, :class => "form-control" %>
-</div>
-<div class="form-group">
-	<%= f.label :tel1,'Tel1' %>
-	<%= f.text_field :tel1, :class => "form-control" %>
-</div>
-<div class="form-group">
-	<%= f.label :tel2,'Tel2' %>
-	<%= f.text_field :tel2, :class => "form-control" %>
-</div>
-<div class="form-group">
-	<%= f.label :address_id,t(:label_address) %>
-	<%= f.select :address_id, options_from_collection_for_select(Address.where(:flag=>true).all(),'id', 'full_address',@operator.address_id),{:include_blank => '주소를 입력하려면 선택하세요'},:class=>"form-control" %>
-</div>
-<div class="form-group">
-	<%= f.label :address1,'Address1' %>
-	<%= f.text_field :address1, :class => "form-control" %>
-</div>
-<div class="form-group">
-	<%= f.label :address2,'Address2' %>
-	<%= f.text_field :address2, :class => "form-control" %>
-</div>
-<div class="form-group">
 	<%= f.label :flag,t(:label_flag) %>
 	<%= f.check_box :flag %>
 </div>

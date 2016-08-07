@@ -38,10 +38,10 @@
 		<b><%=t(:label_updated_at) %></b>
 		<%= @ad.created_at %>
 	</p> 
-	<%= render "ad_schedules/index" %>
-	<%= render "ad_files/index" %>
+	<%= render "admin/ad_schedules/index" %>
+	<%= render "admin/ad_files/index" %>
 </section>
 <% if can? :update, Ad %>
-<%= link_to t(:link_edit), edit_admin_ad_path(@ad,list_param(params)) %> |
+<%= link_to t(:link_edit), edit_admin_ad_path(@ad) %> |
 <% end %>
 <%= link_to t(:link_list), admin_ads_path(list_param(params)) %>

@@ -13,13 +13,6 @@ class CreateDeviseToAdmins < ActiveRecord::Migration
       t.string :encrypted_password, :null => false
       t.string :photo
 
-      t.string :company, :null => true, :limit => 60
-      t.string :tel1, :null => true, :limit => 60
-      t.string :tel2, :null => true, :limit => 60
-
-      t.string :address1, :null => true, :limit => 200
-      t.string :address2, :null => true, :limit => 200
-
       t.boolean :flag, :null => false, :default => true
 
       ## Recoverable

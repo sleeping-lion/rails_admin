@@ -34,7 +34,7 @@
 	<% if can? :create, AdFile %>
 	<% if(@ad.ad_type.max_file_count>@ad.ad_files_count) %>
 	<div id="sl_ad_files_form">
-		<%= render "ad_files/form" %>
+		<%= render "admin/ad_files/form" %>
 	</div>
 	<% end %>
 	<div class="clearfix">&nbsp;</div>

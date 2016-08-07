@@ -22,7 +22,6 @@
 			<option value="title"><%=t(:label_title)%></option>
 			<option value="description"><%=t(:label_description )%></option>			
 			<option value="memo"><%=t(:label_memo)%></option>
-	<!--	<option value="nickname" >작성자</option> -->
 			</select>
   	<input type="search" required="required" maxlength="60" placeholder="검색어를 써주세요" value="<%=params[:search_value] %>" class="form-control" name="search_value" />
 			<span class="input-group-btn">
@@ -61,18 +60,18 @@
 	<% unless @ads.empty? %>
 	<% @ads.each do |ad| %>
 		<tr>
-			<td><%=link_to ad.id,ad_path(ad) %></td>
-			<td><%=link_to ad.ad_type.title,ad_path(ad,params) %></td>
+			<td><%=link_to ad.id,admin_ad_path(ad) %></td>
+			<td><%=link_to ad.ad_type.title,admin_ad_path(ad,params) %></td>
 			<td>
 			<% if ad.ad_files_count? %>
-			<%=link_to ad_ad_file_path(ad,ad.ad_file[0]),:class=>'modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal" do %>
+			<%=link_to admin_ad_ad_file_path(ad,ad.ad_file[0]),:class=>'modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal" do %>
 			<%=image_tag ad.ad_file[0].photo.medium_thumb %>
 			<% end %>
 			<% else %>
 			<%=t(:no_exist_image)%>
 			<% end %>
 			</td>			
-			<td><%=link_to ad.title,ad_path(ad,params) %></td>
+			<td><%=link_to ad.title,admin_ad_path(ad,params) %></td>
 			<td><%=ad.created_at %></td>
 			<td class="center">
 			<% if ad.flag? %>
@@ -88,12 +87,12 @@
 			<% if can?(:update, Ad) || can?(:delete, Ad) %>
 			<td>
 				<% if can? :update, Ad %>
-				<%= link_to edit_ad_path(ad),:class=>"btn btn-small pull-left" do %>
+				<%= link_to edit_admin_ad_path(ad),:class=>"btn btn-small pull-left" do %>
 				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, Ad %>						
-				<%= link_to ad, :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
+				<%= link_to admin_ad_path(ad), :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
 				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>

@@ -77,68 +77,28 @@
 		</div>
 		<div class="box-content">
 			<div class="form-group">
-				<%= option.label :cpi_flag %>
-				<%= option.check_box :cpi_flag %>
-			</div>
-			<div class="form-group">
-				<%= option.label :cpi_type %>
-				<%= option.text_field :cpi_type %>
-			</div>
-			<div class="form-group">
-				<%= option.label :cpi_market %>
-				<%= option.text_field :cpi_market %>
-			</div>
-			<div class="form-group">
-				<%= option.label :cpi_pkg %>
-				<%= option.text_field :cpi_pkg %>
-			</div>
-			<div class="form-group">
-				<%= option.label :cpi_publisher %>
-				<%= option.text_field :cpi_publisher %>
-			</div>
-			<div class="form-group">
-				<%= option.label :cpi_apk_size %>
-				<%= option.text_field :cpi_apk_size %>
-			</div>
-			<div class="form-group">
-				<%= option.label :cpi_version %>
-				<%= option.text_field :cpi_version %>
-			</div>
-			<div class="form-group">
-				<%= option.label :cpi_comment %>
-				<%= option.text_field :cpi_comment %>
-			</div>
-			<div class="form-group">
 				<%= option.label :web_flag %>
 				<%= option.check_box :web_flag %>
 			</div>
 			<div class="form-group">
 				<%= option.label :web_addr %>
-				<%= option.text_field :web_addr %>
+				<%= option.text_field :web_addr,:class => "form-control" %>
 			</div>
 			<div class="form-group">
 				<%= option.label :web_comment %>
-				<%= option.text_field :web_comment %>
+				<%= option.text_field :web_comment ,:class => "form-control"%>
 			</div>
 			<div class="form-group">
 				<%= option.label :callback_flag %>
-				<div class="controls">
-					<%= option.check_box :callback_flag %>
-				</div>
+				<%= option.check_box :callback_flag %>
 			</div>
 			<div class="form-group">
 				<%= option.label :callback_number %>
-				<%= option.text_field :callback_number %>
+				<%= option.text_field :callback_number,:class => "form-control" %>
 			</div>
 			<div class="form-group">
 				<%= option.label :callback_comment %>
-				<%= option.text_field :callback_comment %>
-			</div>
-			<div class="form-group">
-				<%= option.label :video_flag %>
-				<div class="controls">
-					<%= option.check_box :video_flag %>
-				</div>
+				<%= option.text_field :callback_comment,:class => "form-control" %>
 			</div>
 			<div class="form-group">
 				<%= option.label :html_data %>
