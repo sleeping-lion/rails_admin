@@ -3,7 +3,7 @@
 		<%=ad_file.ad_file_type.title %>		
 	</td>
 	<td>
-		<%=link_to ad_ad_file_path(@ad,ad_file),:class=>'modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal" do %>
+		<%=link_to admin_ad_ad_file_path(@ad,ad_file),:class=>'modal_link',:'data-target'=>"#modal",:'data-toggle'=>"modal" do %>
 			<%=image_tag ad_file.photo.medium_thumb %>
 		<% end %>
 	</td>
@@ -17,12 +17,12 @@
 	<% if can?(:update, ad_file) || can?(:delete, ad_file) %>
 	<td>
 		<% if can?(:update, ad_file) %>
-		<%= link_to edit_ad_ad_file_path(@ad,ad_file),:class=>"btn btn-default" do %>
+		<%= link_to edit_admin_ad_ad_file_path(@ad,ad_file),:class=>"btn btn-default" do %>
 		<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 		<% end %>
 		<% end %>
 		<% if can?(:delete, ad_file) %>
-		<%= link_to [@ad,ad_file], :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-danger" do %>
+		<%= link_to [:admin,@ad,ad_file], :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-danger" do %>
 		<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 		<% end %>
 		<% end %>

@@ -121,7 +121,7 @@ class Admin::AdFilesController < Admin::AdminController
     @ad = Ad.find(params[:ad_id])    
     @ad_file = @ad.ad_file.create(params[:ad_file])
     
-    redirect_to ad_path(@ad)
+    redirect_to admin_ad_path(@ad)
   end
   
   def update

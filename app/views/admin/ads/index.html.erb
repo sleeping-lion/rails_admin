@@ -87,12 +87,12 @@
 			<% if can?(:update, Ad) || can?(:delete, Ad) %>
 			<td>
 				<% if can? :update, Ad %>
-				<%= link_to edit_admin_ad_path(ad),:class=>"btn btn-small pull-left" do %>
+				<%= link_to edit_admin_ad_path(ad),:class=>"btn btn-default" do %>
 				<i class="glyphicon glyphicon-pencil"></i> <%=t(:link_edit) %>
 				<% end %>
 				<% end %>
 				<% if can? :delete, Ad %>						
-				<%= link_to admin_ad_path(ad), :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-small btn-danger pull-right" do %>
+				<%= link_to admin_ad_path(ad), :method => :delete, :data => { :confirm => t(:delete_confirm) },:class=>"btn btn-danger" do %>
 				<i class="glyphicon glyphicon-trash"></i> <%=t(:link_delete) %>
 				<% end %>
 				<% end %>
@@ -117,7 +117,7 @@
 		<% end %>
 		<% end %>
 		<% unless @ads.empty? %>
-		<%=link_to admin_ads_path(:format=>"xls",:params=>params), :class=>"btn" do %>
+		<%=link_to admin_ads_path(:format=>"xls",:params=>params), :class=>"btn btn-default" do %>
 		<i class="glyphicon glyphicon-file"></i> <%=t(:link_download_excel) %>
 		<% end %>
 		<% end %>		
