@@ -8,22 +8,22 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: mynm_development
-  password: mynm_development1!
+  username: app_development
+  password: app_development
   socket: /var/run/mysqld/mysqld.sock
 
 
 development:
   <<: *default
-  database: mynm_development  
+  database: app_development  
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: mynm_development
+  database: app_test
 
 production:
   <<: *default
-  database: mynm_development
+  database: app_development
